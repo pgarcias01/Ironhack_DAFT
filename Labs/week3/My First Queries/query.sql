@@ -49,7 +49,7 @@ SELECT AVG(rating_count_tot) as avg_num_rat, AVG(user_rating) as avg_rag
 --Calculate avg rating and count rating from free apps
 SELECT AVG(rating_count_tot) as avg_num_rat, AVG(user_rating) as avg_rag
 	FROM data
-		WHERE price = 0;
+		WHERE price > 0;
 		
 --Bonus: Find the total number of games available in more than 1 language.**
 
@@ -58,8 +58,14 @@ SELECT COUNT(*) FROM DATA
 	
 --Bonus2: Find the number of free vs paid apps**
 
+SELECT COUNT(*) filter (where price = 0) as free_apps,
+	   COUNT(*) filter (where price > 0) as paid_apps 
+	   FROM data;
+
+--Bonus3: Find the number of free vs paid apps for each genre
+
 SELECT prime_genre,
-		COUNT(*) filter (where price = 0) as free_apps,
+	   COUNT(*) filter (where price = 0) as free_apps,
 	   COUNT(*) filter (where price > 0) as paid_apps 
 	   FROM data
 	   GROUP BY prime_genre;
