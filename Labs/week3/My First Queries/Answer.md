@@ -133,5 +133,6 @@ Free    Paid
 "Productivity"	62	116
 "Lifestyle"	94	50
 
+
 ## Deliverables 
 You need to submit a `.sql` file that includes the queries used to answer the questions above, as well as an `.md` file including your answers. 
