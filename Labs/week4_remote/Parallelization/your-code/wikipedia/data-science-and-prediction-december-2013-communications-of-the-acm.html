@@ -1,0 +1,658 @@
+<!doctype html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="newie no-js" lang="en"><!--<![endif]-->
+<head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app40.us.archive.org';v.server_ms=474;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="/_static/js/ait-client-rewrite.js" charset="utf-8"></script>
+<script type="text/javascript">
+WB_wombat_Init("https://web.archive.org/web/", "20141109113411", "cacm.acm.org:80");
+</script>
+<script type="text/javascript" src="/_static/js/wbhack.js" charset="utf-8"></script>
+<script type="text/javascript">
+__wbhack.init('https://web.archive.org/web');
+</script>
+<link rel="stylesheet" type="text/css" href="/_static/css/banner-styles.css" />
+<link rel="stylesheet" type="text/css" href="/_static/css/iconochive.css" />
+<!-- End Wayback Rewrite JS Include -->
+
+  <meta charset="utf-8"/>
+<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+<title>Data Science and Prediction | December 2013 | Communications of the ACM</title>
+
+<meta name="title" content="Data Science and Prediction"/>
+	<meta name="author" content="Vasant Dhar"/>
+	<meta name="date" content="2013-12-01"/>
+	<meta name="year" content="2013"/>
+	<meta name="subjects" content="artificial intelligence,computer applications,computers and society,information systems,search"/>
+	<meta name="sections" content="Contributed Articles"/>
+
+
+<link type="application/rss+xml" title="Communications of the ACM: Current Issue [RSS 2.0]" href="/web/20141109113411/http://cacm.acm.org/magazine.rss" rel="alternate"/>
+<link rel="canonical" href="https://web.archive.org/web/20141109113411/http://cacm.acm.org/magazines/2013/12/169933-data-science-and-prediction/fulltext"/>
+
+<script src="/web/20141109113411js_/http://cacm.acm.org/javascripts/modernizr.js"></script>
+
+<script src="/web/20141109113411js_/http://cacm.acm.org/javascripts/roundies.js"></script>
+<script>DD_roundies.addRule('.rounded', '5px 5px 0 0');</script> 
+
+<!-- CSS:implied media="all" -->
+<link href="/web/20141109113411cs_/http://cacm.acm.org/stylesheets/jplayer.pink.flag.css" rel="stylesheet"/>
+<link href="/web/20141109113411cs_/http://cacm.acm.org/stylesheets/tipsy.css" rel="stylesheet"/>
+<link href="/web/20141109113411cs_/http://cacm.acm.org/stylesheets/colorbox.css" rel="stylesheet"/>
+
+
+  <link href="/web/20141109113411cs_/http://cacm.acm.org/stylesheets/all.css" rel="stylesheet"/>
+
+
+<link href="/web/20141109113411cs_/http://cacm.acm.org/stylesheets/print.css" media="print" rel="stylesheet"/>
+<link href="/web/20141109113411cs_/http://cacm.acm.org/stylesheets/handheld.css?v=1" media="handheld" rel="stylesheet"><!-- For the less-enabled mobile browsers like Opera Mini -->
+<!--[if IE]><link href="/stylesheets/all-ie.css" media="all" rel="stylesheet" /><![endif]--> 
+<!--[if lte IE 6]><link href="/stylesheets/all-ie6.css" media="all" rel="stylesheet" /><![endif]-->
+
+
+  <meta property="og:image" content="https://web.archive.org/web/20141109113411im_/http://cacm.acm.org/system/assets/0001/3913/112013_CACMpg65_Data-Science.large.jpg?1384869516&amp;1384869515"/><meta property="og:type" content="article"/><meta property="og:title" content="Data Science and Prediction"/><meta property="og:url" content="https://web.archive.org/web/20141109113411/http://cacm.acm.org/magazines/2013/12/169933-data-science-and-prediction/fulltext"/><meta property="og:description" content="Big data promises automated actionable knowledge creation and predictive models for use by both humans and computers."/>
+</head> 
+
+<body id="body-main" itemscope itemtype="http://schema.org/Article"> 
+
+
+    <div class="JumpLink" id="PageTop"></div>
+    <div id="container"> 
+        <div id="layout"> 
+            <header class="topHeader">
+            	<a href="/web/20141109113411/http://cacm.acm.org/" title="ACM" id="topLogo">ACM</a>
+
+<div id="instName"><img src="/web/20141109113411im_/http://cacm.acm.org/images/icons/acm_header.png" height="40" width="40" class="logo-mini"/></div>
+
+
+
+  <a href="/web/20141109113411/http://cacm.acm.org/login" title="Login" id="topSignIn">Sign In</a>
+
+
+<div id="topForm">
+   <form action="/web/20141109113411/http://cacm.acm.org/search" method="get">
+    <div class="portaInput">
+      <label for="searchInput" id="labelSearchInput" class="inField">Search</label>
+      <input type="text" id="searchInput" name="q"/>
+    </div>
+    <button name="search submit" type="submit" id="searchSubmit">Go</button>
+  </form>
+</div><!-- end topForm -->
+
+<div id="topBar">
+	<ul>
+	  <li><a href="https://web.archive.org/web/20141109113411/http://www.acm.org/" title="ACM.org">ACM.org</a></li>
+	  <li><a href="https://web.archive.org/web/20141109113411/https://campus.acm.org/public/qj/brandingqj/cacm.cfm" target="_blank" title="Join ACM">Join ACM</a></li>
+	  <li><a href="/web/20141109113411/http://cacm.acm.org/about-communications" title="About Communications">About Communications</a></li>
+	  <li><a href="/web/20141109113411/http://cacm.acm.org/acm-resources" title="ACM Resources">ACM Resources</a></li>
+	  <li class="last-child"><a href="/web/20141109113411/http://cacm.acm.org/alerts-and-feeds" title="Alerts &amp; Feeds">Alerts &#38; Feeds</a></li>
+	</ul>
+</div>
+
+
+            	<hgroup> 
+    <h1><a href="/web/20141109113411/http://cacm.acm.org/" title="Communications of the ACM">Communications of the ACM</a></h1> 
+</hgroup> 
+
+				<nav> 
+    <ul> 
+        <li class="first-child"><a href="/web/20141109113411/http://cacm.acm.org/" class="menuText itemHome">Home</a></li> 
+        <li> 
+      <div class="portaDropdown">
+        
+          <a class="withMenu menuText itemCurrent" href="/web/20141109113411/http://cacm.acm.org/magazines/2014/11">Current Issue</a>
+        <div class="menuLinks currenIssueDropdown">
+          <a class="menuCover" href="/web/20141109113411/http://cacm.acm.org/magazines/2014/11">
+                <img src="https://web.archive.org/web/20141109113411im_/http://portalparts.acm.org/2690000/2684442/cover/cover_full.jpg" width="145" height="192" alt="Latest issue"/>
+          </a>
+          <span class="dropDownIssueTitle">Current Issue: November 2014</span> 
+          
+            <a href="/web/20141109113411/http://cacm.acm.org/magazines/2014/11/179821-scene-understanding-by-labeling-pixels">Scene Understanding by Labeling Pixels</a>
+              
+            <a href="/web/20141109113411/http://cacm.acm.org/magazines/2014/11/179827-the-data-on-diversity">The Data on Diversity</a>
+              
+            <a href="/web/20141109113411/http://cacm.acm.org/magazines/2014/11/179828-a-future-for-computing-education-research">A Future for Computing Education Research</a>
+              
+          <a class="lastLink" href="/web/20141109113411/http://cacm.acm.org/magazines/2014/11">VIEW TABLE OF CONTENTS</a>
+        </div> 
+        
+      </div> 
+    </li> 
+        <li> 
+      <div class="portaDropdown"> 
+        <a href="/web/20141109113411/http://cacm.acm.org/news" class="withMenu menuText itemNews">News</a> 
+        <div class="menuLinks newsDropdown"> 
+<a href="/web/20141109113411/http://cacm.acm.org/news" class="lastLink">Latest News</a> 
+          <a href="/web/20141109113411/http://cacm.acm.org/news/archive" class="lastLink">News Archive</a> 
+        </div> 
+      </div> 
+    </li> 
+        <li> 
+      <div class="portaDropdown"> 
+        <a href="/web/20141109113411/http://cacm.acm.org/blogs/about-the-blogs" class="withMenu menuText itemBlogs">Blogs</a> 
+        <div class="menuLinks blogsDropdown"> 
+          <a href="/web/20141109113411/http://cacm.acm.org/blogs/about-the-blogs">About the Blogs</a> 
+          <a href="/web/20141109113411/http://cacm.acm.org/blogs/blog-cacm">BLOG@CACM</a> 
+          <a href="/web/20141109113411/http://cacm.acm.org/blogs/blogroll">Blogroll</a> 
+          <a href="/web/20141109113411/http://cacm.acm.org/blogs/archive" class="lastLink">Blogs Archive</a> 
+        </div> 
+      </div> 
+    </li> 
+        <li> 
+      <div class="portaDropdown"> 
+        <a href="/web/20141109113411/http://cacm.acm.org/opinion" class="withMenu menuText itemOpinion">Opinion</a> 
+        <div class="menuLinks opinionDropdown"> 
+          <a href="/web/20141109113411/http://cacm.acm.org/opinion/articles">Articles</a> 
+          <a href="/web/20141109113411/http://cacm.acm.org/opinion/interviews">Interviews</a> 
+          <a href="/web/20141109113411/http://cacm.acm.org/opinion/archive" class="lastLink">Opinion Archive</a> 
+        </div> 
+      </div> 
+    </li> 
+        
+<li>
+  <div class="portaDropdown"> 
+    <a href="/web/20141109113411/http://cacm.acm.org/research" class="withMenu menuText itemResearch">Research</a>
+    <div class="menuLinks researchDropdown"> 
+      <a href="/web/20141109113411/http://cacm.acm.org/research">Latest Research</a> 
+      <a href="/web/20141109113411/http://cacm.acm.org/research/archive" class="lastLink">Research Archive</a>
+    </div> 
+  </div>
+</li> 
+<li>
+  <div class="portaDropdown"> 
+    <a href="/web/20141109113411/http://cacm.acm.org/practice" class="withMenu menuText itemPractice">Practice</a>
+    <div class="menuLinks practiceDropdown"> 
+      <a href="/web/20141109113411/http://cacm.acm.org/practice">Latest Practice</a> 
+      <a href="/web/20141109113411/http://cacm.acm.org/practice/archive" class="lastLink">Practice Archive</a> 
+    </div> 
+  </div>
+</li> 
+        <li>
+          <div id="careersNav" class="portaDropdown"> 
+        <a href="/web/20141109113411/http://cacm.acm.org/careers" class="withMenu menuText itemOpinion">Careers</a> 
+        <div class="menuLinks opinionDropdown"> 
+          <ul>
+            <li><a href="https://web.archive.org/web/20141109113411/http://www.jobtarget.com/c/search_results.cfm?site_id=1603" target="_blank">Search for Jobs</a></li>
+            <li><a href="https://web.archive.org/web/20141109113411/http://jobs.acm.org/c/resumes/edit/start.cfm?site_id=1603&amp;CFID=129690044&amp;CFTOKEN=6e9afae5ae07e049-31BE767A-C7A1-1115-D55612055C71971C" target="_blank">Post a Resume</a></li>
+            <li><a href="https://web.archive.org/web/20141109113411/http://jobs.acm.org/c/agents/index.cfm?site_id=1603  " target="_blank">Create a Job Alert</a></li>
+            <li><a href="https://web.archive.org/web/20141109113411/http://jobs.acm.org/c/search_results.cfm?site_id=1603" target="_blank">View Featured Jobs</a></li>
+            <li><a href="https://web.archive.org/web/20141109113411/http://jobs.acm.org/employer/login/?goto=%2Fr%2Fjobs%2Fpost%2Fpost.cfm%3Fsite_id%3D1603&amp;CFID=129690044" target="_blank">Post A Job</a></li>
+            <li><a href="https://web.archive.org/web/20141109113411/http://www.jobtarget.com/r/candidates/index.cfm?site_id=1603" target="_blank">View Resumes</a></li>
+            <li><a href="https://web.archive.org/web/20141109113411/http://acm-media.org/" target="_blank">Advertise with Us</a></li>
+            <li class="lastLink"><a href="https://web.archive.org/web/20141109113411/mailto:careerinfo@cacm.acm.org">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+        </li>
+    <li>
+      <div class="portaDropdown">
+        <a href="/web/20141109113411/http://cacm.acm.org/magazines" class="withMenu menuText itemPrevious on">Magazine Archive</a> 
+        <div class="menuLinks previousDropdown"> 
+          <span class="previousIssueTitle">The magazine archive includes every article published in <i>Communications of the ACM</i> for over the past 50 years.</span> 
+          
+            
+              <div class="issue">
+                <a href="/web/20141109113411/http://cacm.acm.org/magazines/2014/11">
+                 November 2014 (Vol. 57, No. 11)
+                </a>
+              </div>
+            
+              <div class="issue">
+                <a href="/web/20141109113411/http://cacm.acm.org/magazines/2014/10">
+                 October 2014 (Vol. 57, No. 10)
+                </a>
+              </div>
+            
+              <div class="issue">
+                <a href="/web/20141109113411/http://cacm.acm.org/magazines/2014/9">
+                 September 2014 (Vol. 57, No. 9)
+                </a>
+              </div>
+            
+           
+          <a href="/web/20141109113411/http://cacm.acm.org/magazines" class="lastLink">VIEW MORE ISSUES</a> 
+        </div> 
+      </div> 
+    </li> 
+    </ul> 
+</nav>	
+			</header> 
+            <section>
+              <div class="breadcrum">
+  <a href="/web/20141109113411/http://cacm.acm.org/">Home</a><span>/</span><a href="/web/20141109113411/http://cacm.acm.org/magazines">Magazine Archive</a><span>/</span><a href="/web/20141109113411/http://cacm.acm.org/magazines/2013/12">December 2013 (Vol. 56, No. 12)</a><span>/</span><a href="/web/20141109113411/http://cacm.acm.org/magazines/2013/12/169933-data-science-and-prediction">Data Science and Prediction</a><span>/</span>Full Text	
+</div>
+
+
+<div class="col0 floatLeft firstCol"> 
+	<span class="label">Contributed articles</span> 
+	<h1>Data Science and Prediction</h1>
+  
+    <h6 class="subheader"></h6>
+  
+</div> 
+<hr class="dotted"/> 
+
+
+<div id="articleFullText" class="col1 floatLeft firstCol"> 
+
+	<span class="byline">
+	
+	  By Vasant Dhar
+      <br/>
+	
+	
+	
+		
+		  Communications of the ACM,
+    
+		
+			Vol. 56 No. 12, Pages 64-73<br/>
+            10.1145/2500499<br/>
+         
+	
+    
+     	<a href="#comments">Comments (2)</a>
+     
+</span>
+	
+	<!-- googleoff:all -->
+
+<div class="fav_bar"> 
+  <span>View as:</span> 
+  <a href="#" onclick="javascript:window.print();" class="fav_print" title="Print">Print</a> 
+  
+
+    
+      <a href="https://web.archive.org/web/20141109113411/http://dl.acm.org/citation.cfm?id=2534706.2500499&amp;coll=portal&amp;dl=ACM" class="fav_acm_digital" target="_blank" title="View in ACM Digital Library">ACM Digital Library</a>
+    
+
+    
+      
+        <a href="/web/20141109113411/http://cacm.acm.org/magazines/2013/12/169933-data-science-and-prediction/pdf" class="fav_pdf" rel="nofollow" target="_blank" title="View as PDF">Full Text (PDF)</a>
+      
+    
+
+    
+      <a href="https://web.archive.org/web/20141109113411/http://dl.acm.org/ft_gateway.cfm?id=2500499&amp;ftid=1414177&amp;dwn=1" class="fav_de" target="_blank" title="View in Digital Edition">In the Digital Edition</a>
+    
+
+  
+
+  <span>Share:</span> 
+
+  
+  <a href="javascript:void(0);" class="fav_email" title="Send by email" id="sendByEmail">Send by email</a> 
+  
+
+  <a href="javascript:void(0);" class="fav_reddit" onclick="addthis_sendto('reddit');" title="Share on reddit">Share on reddit</a> 
+  <a href="javascript:void(0);" class="fav_su" onclick="addthis_sendto('stumbleupon');" title="Share on StumbleUpon">Share on StumbleUpon</a> 
+  <div id="plus-one"><g:plusone href="http://cacm.acm.org/magazines/2013/12/169933-data-science-and-prediction/fulltext" size="small" annotation="none"></g:plusone></div>
+  <a href="javascript:void(0);" class="fav_twitter" onclick="addthis_sendto('twitter');" title="Share on Twitter">Share on Tweeter</a> 
+  <a href="javascript:void(0);" class="fav_facebook" onclick="addthis_sendto('facebook');" title="Share on Facebook">Share on Facebook</a> 
+
+  <div class="addthis_toolbox "> 
+  <a href="https://web.archive.org/web/20141109113411/http://www.addthis.com/bookmark.php?v=250&amp;pubid=xa-4dcbeff2515fc93c" class="addthis_button_compact fav_more no_border">Share</a> 
+  </div> 
+
+  <script type="text/javascript" src="https://web.archive.org/web/20141109113411js_/http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4dcbeff2515fc93c"></script> 
+</div>
+	
+<!-- googleon:all -->
+<div class="clearer"></div> 
+		
+
+  
+    <div class="imageWithCaptionLeft" id="asset-13913">
+
+  
+  <figure>
+    <img src="/web/20141109113411im_/http://cacm.acm.org/system/assets/0001/3913/112013_CACMpg65_Data-Science.large.jpg?1384869516&amp;1384869515" alt="Data Science and Prediction, illustration" title="Data Science and Prediction, illustration"/> 
+
+
+    
+    <figcaption>
+       
+      <p class="desc"></p>
+      
+
+      
+    </figcaption>
+    
+
+    
+  </figure>
+
+</div> 
+
+  
+
+  
+
+    
+
+    <!-- BEGIN BODY-1 --> <a name="body-1"></a>  <p>Use of the term "data science" is increasingly common, as is "big data." But what does it mean? Is there something unique about it? What skills do "data scientists" need to be productive in a world deluged by data? What are the implications for scientific inquiry? Here, I address these questions from the perspective of predictive modeling.</p> <!-- END BODY-1 --> <p class="totop"><a href="#PageTop">Back to Top</a></p>
+
+<!-- BEGIN BODY-2 --> <a name="body-2"></a>
+<h3>Key Insights</h3>  <p><img vspace="5" src="https://web.archive.org/web/20141109113411im_/http://deliveryimages.acm.org/10.1145/2510000/2500499/ins01.gif" hspace="5" alt="ins01.gif" border="0"/></p> <p>The term "science" implies knowledge gained through systematic study. In one definition, it is a systematic enterprise that builds and organizes knowledge in the form of testable explanations and predictions.<sup><a href="#R11">11</a></sup> Data science might therefore imply a focus involving data and, by extension, statistics, or the systematic study of the organization, properties, and analysis of data and its role in inference, including our confidence in the inference. Why then do we need a new term like data science when we have had statistics for centuries? The fact that we now have huge amounts of data should not in and of itself justify the need for a new term.<!-- END_PAGE_1 --></p> <p>The short answer is data science is different from statistics and other existing disciplines in several important ways. To start, the raw material, the "data" part of data science, is increasingly heterogeneous and unstructured&#151;text, images, video&#151;often emanating from networks with complex relationships between their entities. <a href="#F1">Figure 1</a> outlines the relative expected volumes of unstructured and structured data from 2008 to 2015 worldwide, projecting a difference of almost 200 petabytes (PB) in 2015 compared to a difference of 50PB in 2012. Analysis, including the combination of the two types of data, requires integration, interpretation, and sense making that is increasingly derived through tools from computer science, linguistics, econometrics, sociology, and other disciplines. The proliferation of markup languages and tags is designed to let computers interpret data automatically, making them active agents in the process of decision making. Unlike early markup languages (such as HTML) that emphasized the display of information for human consumption, most data generated by humans and computers today is for consumption by computers; that is, computers increasingly do background work for each other and make decisions automatically. This scalability in decision making has become possible because of big data that serves as the raw material for the creation of new knowledge; Watson, IBM's "Jeopardy!" champion, is a prime illustration of an emerging machine intelligence fueled by data and state-of-the-art analytics.</p> <p>From an engineering perspective, scale matters in that it renders the traditional database models somewhat inadequate for knowledge discovery. Traditional database methods are not suited for knowledge discovery because they are optimized for fast access and summarization of data, given what the user wants to ask, or a query, not discovery of patterns in massive swaths of data when users lack a well-formulated query. Unlike database querying, which asks "What data satisfies this pattern (query)?" discovery asks "What patterns satisfy this data?" Specifically, our concern is finding interesting and robust patterns that satisfy the data, where "interesting" is usually something unexpected and actionable and "robust" is a pattern expected to occur in the future.</p> <p>What makes an insight actionable? Other than domain-specific reasons, it is its predictive power; the return distribution associated with an action can be reliably estimated from past data and therefore acted upon with a high degree of confidence.</p> <p>The emphasis on prediction is particularly strong in the machine learning and knowledge discovery in databases, or KDD, communities. Unless a learned model is predictive, it is generally regarded with skepticism, a position mirroring the view expressed by the 20th-century Austro-British philosopher Karl Popper as a primary criterion for evaluating a theory and for scientific progress in general.<sup><a href="#R24">24</a></sup> Popper argued that theories that sought only to explain a phenomenon were weak, whereas those that made "bold predictions" that stand the test of time despite being readily falsifiable should be taken more seriously. In his well-known 1963 treatise on this subject, <i>Conjectures and Refutations</i>, Popper characterized Albert Einstein's theory of relativity as a "good" one since it made bold predictions that could be falsified; all attempts at falsification of the theory have indeed failed. In contrast, Popper argued that theories of psychoanalyst pioneers Sigmund Freud and Alfred Adler could be "bent" to accommodate virtually polar opposite scenarios and are weak in that they are virtually unfalsifiable.<sup><a href="#FNA">a</a></sup> The emphasis on predictive accuracy implicitly favors "simple" theories over more complex theories in that the accuracy of sparser models tends to be more robust on future data.<sup><a href="#R4">4</a>,<a href="#R20">20</a></sup> The requirement on predictive accuracy on observations that will occur in the future is a key consideration in data science.</p> <p>In the rest of this article, I cover the implications of data science from a business and research standpoint, first for skills, or what people in industry need to know and why. How should educators think about designing programs to deliver the skills most efficiently and enjoyably? And what kinds of decision-making skills will be required in the era of big data and how will they differ from the past when data was less plentiful?</p> <p>The second part of my answer to defining big-data skills is aimed at research. How can scientists exploit the abundance of data and massive computational power to their advantage in scientific inquiry? How does this new line of thinking complement traditional methods of scientific inquiry? And how can it augment the way data scientists think about discovery and innovation?</p> <!-- END BODY-2 --> <p class="totop"><a href="#PageTop">Back to Top</a></p>
+
+<!-- BEGIN BODY-3 --> <a name="body-3"></a>
+<h3>Implications</h3>  <p>A 2011 McKinsey industry report<sup><a href="#R19">19</a></sup> said the volume of data worldwide is growing at a rate of approximately 50% per year, or a roughly 40-fold increase since 2001. Hundreds of billions of messages are transmitted through social media daily and millions of videos uploaded daily across the Internet. As storage becomes almost free, most of it is stored because businesses generally associate a positive option value with data; that is, since it may turn out to be useful in ways not yet foreseen, why not just keep it? (One indicator of how inexpensive storage is today is the fact that it is possible to store the world's entire stock of music on a $500 device.)</p> <p>Using large amounts of data for decision making became practical in the 1980s. The field of data mining burgeoned in the early 1990s as relational database technology matured and business processes were increasingly automated. Early books on data mining<sup><a href="#R6">6</a>,<a href="#R7">7</a>,<a href="#R17">17</a></sup> from the 1990s described how various methods from machine learning could be applied to a variety of business problems. A corresponding explosion involved software tools geared toward leveraging transactional and behavioral data for purposes of explanation and prediction.</p> <hr align="center" width="50%"/> <blockquote> <p align="center"><i>It is not uncommon for two experts in the social sciences to propose opposite relationships among the variables and offer diametrically opposite predictions based on the same sets of facts.</i></p> </blockquote> <hr align="center" width="50%"/> <p>An important lesson learned in the 1990s is that machine learning "works" in the sense that these methods detect subtle structure in data relatively easily without having to make strong assumptions about linearity, monotonicity, or parameters of distributions. The downside of these methods is they also pick up the noise in data,<sup><a href="#R31">31</a></sup> often with no way to distinguish between signal and noise, a point I return to shortly.</p> <p>Despite their drawbacks, a lot can be said for methods that do not force us to make assumptions about the nature of the relationship between variables before we begin our inquiry. This is not trivial. Most of us are trained to believe theory must originate in the human mind based on prior theory, with data then gathered to demonstrate the validity of the theory. Machine learning turns this process around. Given a large trove of data, the computer taunts us by saying, "If only you knew what question to ask me, I would give you some very interesting answers based on the data." Such a capability is powerful since we often do not know what question to ask. For example, consider a health-care database of individuals who have been using the health-care system for many years, where among them a group has been diagnosed with Type 2 diabetes, and some subset of this group has developed complications. It could be very useful to know whether there are any patterns to the complications and whether the probability of complications can be predicted and therefore acted upon. However, it is difficult to know what specific query, if any, might reveal such patterns.</p> <p>To make this scenario more concrete, consider the data emanating from a health-care system that essentially consists of "transactions," or points of contact over time between a patient and the system. Records include services rendered by health-care providers or medication dispensed on a particular date; notes and observations could also be part of the record. <a href="#F2">Figure 2</a> outlines what the raw data would look like for 10 individuals where the data is separated into a "clean period" (history prior to diagnosis), a red bar ("diagnosis"), and the "outcome period" (costs and other outcomes, including complications). Each colored bar in the clean period represents a medication, showing the first individual was on seven different medications prior to diagnosis, the second on nine, the third on six, and so on. The sixth and tenth individuals were the costliest to treat and developed complications, as did the first three, represented by the upward-pointing green arrows.</p> <p>Extracting interesting patterns is nontrivial, even from a tiny temporal database like this. Are complications associated with the yellow meds or with the gray meds? The yellows in the absence of the blues? Or is it more than three yellows or three blues? The list goes on. Even more significant, perhaps if we created "useful" features or aggregations from the raw data, could physicians, insurers, or policy makers predict likely complications for individuals or for groups of people?</p> <p>Feature construction is an important creative step in knowledge discovery. The raw data across individuals typically needs to be aggregated into some sort of canonical form before useful patterns can be discovered; for example, suppose we could count the number of prescriptions an individual is on without regard to the specifics of each prescription as one approximation of the "health status" of the individual prior to diagnosis. Such a feature ignores the "severity" or other characteristics of the individual medications, but such aggregation is nonetheless typical of feature engineering.</p> <p>Suppose, too, a "complications database" would be synthesized from the data, possibly including demographic information (such as patient age and medical history); it could also include health status based on a count of current medications; see <a href="#F3">Figure 3</a>, in which a learning algorithm, designated by the right-facing blue arrow, could be applied to discover the pattern on the right. The pattern represents an abstraction of the data, or the type of question we should ask the database, if only we knew what to ask. Other data transformations and aggregations could yield other medically insightful patterns.</p> <p>What makes the pattern on the right side of <a href="#F3">Figure 3</a> interesting? Suppose the overall complication rate in the population is 5%; that is, a random sample of the database includes, on average, 5% complications. In this scenario, the snippet on the right side of <a href="#F3">Figure 3</a> could be very interesting since its complication rate is many times greater than the average. The critical question is whether this is a pattern that is robust and hence predictive, likely to hold up in other cases in the future. The issue of determining robustness has been addressed extensively in the machine learning literature and is a key consideration for data scientists.<sup><a href="#R23">23</a></sup></p> <hr align="center" width="50%"/> <blockquote> <p align="center"><i>A new powerful method is available for theory development not previously practical due to the paucity of data.</i></p> </blockquote> <hr align="center" width="50%"/> <p>If <a href="#F3">Figure 3</a> is representative of the larger database, the box on the right tells us the interesting question to ask the database: "What is the incidence of complications in Type 2 diabetes for people over age 36 who are on six or more medications?" In terms of actionability, such a pattern might suggest being extra vigilant about people with such a profile who do not currently have a complication in light of their high susceptibility to complications.</p> <p>The general point is that when data is large and multidimensional, it is practically impossible for us to know a priori that a query (such as the one here concerning patterns in diabetes complications) is a good one, or one that provides a potentially interesting and actionable insight. Suitably designed machine learning algorithms help find such patterns for us. To be useful both practically and scientifically, the patterns must be predictive. The emphasis on predictability typically favors Occam's razor, or succinctness, since simpler models are more likely to hold up on future observations than more complex ones, all else being equal;<sup><a href="#R4">4</a></sup> for example, consider the diabetes complication pattern here:</p> <p align="center"><img vspace="5" src="https://web.archive.org/web/20141109113411im_/http://deliveryimages.acm.org/10.1145/2510000/2500499/ueq01.gif" hspace="2" alt="ueq01.gif" border="0"/></p> <p>A simpler competing model might ignore age altogether, stating simply that people on six or more medications tend to develop complications. The reliability of such a model would be more apparent when applied to future data; for example, does simplicity lead to greater future predictive accuracy in terms of fewer false positives and false negatives? If it does, it is favored. The practice of "out of sample" and "out of time" testing is used by data scientists to assess the robustness of patterns from a predictive standpoint.</p> <p>When predictive accuracy is a primary objective in domains involving massive amounts of data, the computer tends to play a significant role in model building and decision making. The computer itself can build predictive models through an intelligent "generate and test" process, with the end result an assembled model that is the decision maker; that is, it automates Popper's criterion of predictive accuracy for evaluating models at a scale in ways not feasible before.</p> <p>If we consider one of these patterns&#151;that people with "poor health status" (proxied by number of medications) have high rates of complications&#151;can we say poor health status "causes" complications? If so, perhaps we can intervene and influence the outcome by possibly controlling the number of medications. The answer is: it depends. It could be the case that the real cause is not in our observed set of variables. If we assume we have observed all relevant variables that could be causing complications, algorithms are available for extracting causal structure from data,<sup><a href="#R21">21</a></sup> depending how the data was generated. Specifically, we still need a clear understanding of the "story" behind the data in order to know whether the possibility of causation can and should be entertained, even in principle. In our example of patients over age 36 with Type 2 diabetes, for instance, was it the case that the people on seven or more medications were "inherently sicker" and would have developed complications anyway? If so, it might be incorrect to conclude that large numbers of medications cause complications. If, on the other hand, the observational data followed a "natural experiment" where treatments were assigned randomly to comparable individuals and enough data is available for calculating the relevant conditional probabilities, it might be feasible to extract a causal model that could be used for intervention. This issue of extracting a causal model from data is addressed in the following sections; for a more complete treatment on causal models, see Pearl,<sup><a href="#R21">21</a></sup> Sloman,<sup><a href="#R29">29</a></sup> and Spirtes et al.<sup><a href="#R30">30</a></sup></p> <!-- END BODY-3 --> <p class="totop"><a href="#PageTop">Back to Top</a></p>
+
+<!-- BEGIN BODY-4 --> <a name="body-4"></a>
+<h3>Skills</h3>  <p>Machine learning skills are fast becoming necessary for data scientists as companies navigate the data deluge and try to build automated decision systems that hinge on predictive accuracy.<sup><a href="#R25">25</a></sup> A basic course in machine learning is necessary in today's marketplace. In addition, knowledge of text processing and "text mining" is becoming essential in light of the explosion of text and other unstructured data in health-care systems, social networks, and other forums. Knowledge about markup languages like XML and its derivatives is also essential, as content becomes tagged and hence able to be interpreted automatically by computers.</p> <p>Data scientists' knowledge about machine learning must build on more basic skills that fall into three broad classes: The first is statistics, especially Bayesian statistics, which requires a working knowledge of probability, distributions, hypothesis testing, and multivariate analysis. It can be acquired in a two- or three-course sequence. Multivariate analysis often overlaps with econometrics, which is concerned with fitting robust statistical models to economic data. Unlike machine learning methods, which make no or few assumptions about the functional form of relationships among variables, multivariate analysis and econometrics by and large focus on estimating parameters of linear models where the relationship between the dependent and independent variables is expressed as a linear equality.</p> <p>The second class of skills comes from computer science and pertains to how data is internally represented and manipulated by computers. This involves a sequence of courses on data structures, algorithms, and systems, including distributed computing, databases, parallel computing, and fault-tolerant computing. Together with scripting languages (such as Python and Perl), systems skills are the fundamental building blocks required for dealing with reasonable-size datasets. For handling very large datasets, however, standard database systems built on the relational data model have severe limitations. The recent move toward cloud computing and nonrelational structures for dealing with enormous datasets in a robust manner signals a new set of required skills for data scientists.</p> <p>The third class of skills requires knowledge about correlation and causation and is at the heart of virtually any modeling exercise involving data. While observational data generally limits us to correlations, we can get lucky. Sometimes plentiful data might represent natural randomized trials and the possibility of calculating conditional probabilities reliably, enabling discovery of causal structure.<sup><a href="#R22">22</a></sup> Building causal models is desirable in domains where one has reasonable confidence as to the completeness of the formulated model and its stability, or whether the causal model "generating" the observed data is stable. At the very least, a data scientist should have a clear idea of the distinction between correlation and causality and the ability to assess which models are feasible, desirable, and practical in different settings.</p> <p>The final skill set is the least standardized and somewhat elusive and to some extent a craft but also a key differentiator to be an effective data scientist&#151;the ability to formulate problems in a way that results in effective solutions. Herbert Simon, the 20th-century American economist who coined the term "artificial intelligence" demonstrated that many seemingly different problems are often "isomorphic," or have the identical underlying structure. He demonstrated that many recursive problems could be expressed as the standard Towers of Hanoi problem, or involving identical initial and goal states and operators. His larger point was it is easy to solve seemingly difficult problems if represented creatively with isomorphism in mind.<sup><a href="#R28">28</a></sup></p> <p>In a broader sense, formulation expertise involves the ability to see commonalities across very different problems; for example, many problems have "unbalanced target classes" usually denoting the dependent variable is interesting only sometimes (such as when people develop diabetes complications or respond to marketing offers or promotions). These are the cases of interest we would like to predict. Such problems are a challenge for models that, in Popperian terms, must go out on a limb to make predictions that are likely to be wrong unless the model is extremely good at discriminating among the classes. Experienced data scientists are familiar with these problems and know how to formulate them in a way that gives a system a chance to make correct predictions under conditions where the priors are stacked heavily against it.</p> <p>Problem-formulation skills represent core skills for data scientists over the next decade. The term "computational thinking" coined by Papert<sup><a href="#R21">21</a></sup> and elaborated by Wing<sup><a href="#R32">32</a></sup> is similar in spirit to the skills described here. There is considerable activity in universities to train students in problem-formulation skills and provide electives structured around the core that are more suited to specific disciplines.</p> <p>The data science revolution also poses serious organizational challenges as to how organizations manage their data scientists. Besides recognizing and nurturing the appropriate skill sets, it requires a shift in managers' mind-sets toward data-driven decision making to replace or augment intuition and past practices. A famous quote by 20th-century American statistician W. Edwards Demming&#151;"In God we trust, everyone else please bring data"&#151;has come to characterize the new orientation, from intuition-based decision making to fact-based decision making.</p> <p>From a decision-making standpoint, we are moving into an era of big data where for many types of problems computers are inherently better decision makers than humans, where "better" could be defined in terms of cost, accuracy, and scalability. This shift has already happened in the world of data-intensive finance where computers make the majority of investment decisions, often in fractions of a second, as new information becomes available. The same holds in areas of online advertising where millions of auctions are conducted in milliseconds every day, air traffic control, routing of package delivery, and many types of planning tasks that require scale, speed, and accuracy simultaneously, a trend likely to accelerate in the next few years.</p> <!-- END BODY-4 --> <p class="totop"><a href="#PageTop">Back to Top</a></p>
+
+<!-- BEGIN BODY-5 --> <a name="body-5"></a>
+<h3>Knowledge Discovery</h3>  <p>Former editor of <i>Wired</i> magazine Chris Anderson<sup><a href="#R1">1</a></sup> drew on the quote by British-born statistician George Box that "All models are wrong, but some are useful," arguing, with the huge amounts of data available today, we do not need to settle for wrong models or any models at all. Anderson said prediction is of paramount importance to businesses, and data can be used to let such models emerge through machine learning algorithms, largely unaided by humans, pointing to companies like Google as symbolizing the triumph of machine learning over top-down theory development. Google's language translator does not "understand" language, nor do its algorithms know the contents of webpages. IBM's Watson does not "understand" the questions it is asked or use deep causal knowledge to generate questions to the answers it is given. There are dozens of lesser-known companies that likewise are able to predict the odds of someone responding to a display ad without a solid theory but rather based on gobs of data about the behavior of individuals and the similarities and differences in that behavior.</p> <p>Anderson's 2008 article launched a vigorous debate in academic circles. How can one have science and predictive models without first articulating a theory?</p> <p>The observation by Dhar and Chou<sup><a href="#R5">5</a></sup> that "patterns emerge before reasons for them become apparent" tends to resonate universally among professionals, particularly in financial markets, marketing, health care, and fields that study human behavior. If this is true, Box's observation becomes relevant: If a problem is nonstationary and a model is only an approximation anyway, why not build the best predictive model based on data available until that time and just update it periodically? Why bother developing a detailed causal model if it is poor at prediction and, more important, likely to get worse over time due to "concept drift"?</p> <p>Some scientists would say there is no theory without causality, that all observational data, except total chaos, must be generated from a causal model. In the earlier health-care example involving medical complications in patients with Type 2 diabetes, this seems obvious; some underlying mechanism must have been responsible for the observed outcomes. But we may not have observed or been capable of observing the causal picture. Even if we observed the right variables we would need to know how the observational data was generated before we can in principle draw causal connections. If the observations represent a natural experiment (such as physicians using a new drug vs. other physicians using an old one for comparable individuals), the data might reveal causality. On the other hand, if the new drug is prescribed primarily for "sicker" individuals, it would represent a specific kind of bias in the data.</p> <p>Anderson's point has particular relevance in the health, social, and earth sciences in the era of big data since these areas are generally characterized by a lack of solid theory but where we now see huge amounts of data that can serve as grist for theory building<sup><a href="#R3">3</a>,<a href="#R12">12</a>,<a href="#R13">13</a></sup> or understanding large-scale social behavior and attitudes and how they can be altered.<sup><a href="#R14">14</a></sup> Contrast physics and social sciences at opposite ends of the spectrum in terms of the predictive power of their theories. In physics, a theory is expected to be "complete" in the sense a relationship among certain variables is intended to explain the phenomenon completely, with no exceptions. Such a model is expected to make perfect predictions&#151;subject to measurement error but not to error due to omitted variables or unintended consequences. In such domains, the explanatory and predictive models are synonymous. The behavior of a space shuttle is, for example, explained completely by the causal model describing the physical forces acting on it. This model can also be used to predict what will happen if any input changes. It is not sufficient to have a model 95% sure of outcomes and leave the rest to chance. Engineering follows science.</p> <p>In contrast, the social sciences are generally characterized by incomplete models intended to be partial approximations of reality, often based on assumptions of human behavior known to be simplistic. A model correct 95% of the time in this world would be considered quite good. Ironically, however, the emphasis in social science theory development is often on proposing theories that embody causality without serious consideration of their predictive power. When such a theory claims "A causes B," data is gathered to confirm whether the relationship is indeed causal. But its predictive accuracy could be poor because the theory is incomplete. Indeed, it is not uncommon for two experts in the social sciences to propose opposite relationships among the variables and offer diametrically opposite predictions based on the same sets of facts; for example, economists routinely disagree on both theory and prediction, and error rates of forecasts tend to be high.</p> <hr align="center" width="50%"/> <blockquote> <p align="center"><i>Big data makes it feasible for a machine to ask and validate interesting questions humans might not consider.</i></p> </blockquote> <hr align="center" width="50%"/> <p>How could big data put these domains on firmer ground? In the "hard" sciences, where models can be assumed, for practical purposes, to be complete, there exists the possibility of extracting causal models from large amounts of data. In other fields, large amounts of data can result in accurate predictive models, even though no causal insights are immediately apparent. As long as their prediction errors are small, they could still point us in the right direction for theory development. As an example of being pointed in the right direction, a health-care research scientist recently remarked on an observed pattern of coronary failure being preceded months earlier by a serious infection. One of his conjectures was infections might have caused inflamed arteries and loosened plaque that subsequently caused coronary failure. There could be other explanations, but if the observed pattern is predictive, it might be worthy of publication and deeper inquiry. The questions such a case raise for gatekeepers of science is whether to more strongly consider the Popperian test of predictive accuracy on future data and favor simple accurate predictive models as potential components of future theory instead of requiring a causal model up front tested by the data.</p> <p>What makes predictive models accurate? Conversely, where do errors come from?</p> <p>Hastie et al.<sup><a href="#R10">10</a></sup> said errors in prediction come from three sources: The first is misspecification of a model, so, for example, a linear model that attempts to fit a nonlinear phenomenon could generate an error simply because the linear model imposes an inappropriate bias on the problem. The second is the samples used for estimating parameters; the smaller the samples, the greater the bias in the model's estimates. And the third is randomness, even when the model is specified perfectly.</p> <p>Big data allows data scientists to significantly reduce the first two types of error (see <a href="#F4">Figure 4</a>). Large amounts of data allow us to consider models that make fewer assumptions about functional form than linear or logistic regressions simply because there is a lot more data to test such models and compute reliable error bounds.<sup><a href="#R27">27</a></sup> Big data also eliminates the second type of error, as sample estimates become reasonable proxies for the population.</p> <p>The theoretical limitation of observational data of the sort in these examples, regardless of how big it is, is that the data is generally "passive," representing what actually happened in contrast to the multitude of things that could have happened had circumstances been different. In health care, it is like having observed the use of the health-care system passively and now having the chance of understand it in retrospect and extract predictive patterns from it. Unless we are fortunate enough that the data provided us the right experiments naturally, it does not tell us what could have happened if some other treatment had been administered to a specific patient or to an identical patient; that is, it does not represent a clean controlled randomized experiment where the researcher is able to establish controls and measure the differential effect of treatments on matched pairs.</p> <p>Interestingly, however, the Internet era is fertile ground for conducting inexpensive large-scale randomized experiments on social behavior; Kohavi et al.<sup><a href="#R15">15</a></sup> provide a number of examples. A 2012 controlled experiment by Aral and Walker<sup><a href="#R2">2</a></sup> on the adoption of video games asked whether it was "influence" or "homophily" that affected choice uncovered profiles of people who are influential and susceptible. Results include patterns (such as "older men are more influential than younger men" and "people of the same age group have more influence on each other than from other age groups"). While specific to games, these results suggest influence is nuanced, certainly more so than existing theories like Malcolm Gladwell's concept of "super influencers"<sup><a href="#R8">8</a></sup> and myriad other popular theories. Big data provides a basis for testing them.</p> <hr align="center" width="50%"/> <blockquote> <p align="center"><i>Predictive modeling and machine learning are increasingly central to the business models of Internet-based data-driven businesses.</i></p> </blockquote> <hr align="center" width="50%"/> <p>One of the most far-reaching modern applications of big data is in politics, as exemplified by the Democratic National Committee heavy investment in data and analytics prior to President Barack Obama's winning 2012 campaign, debunking widely held beliefs (such as voters in the "middle" are most critical to outcomes, when in fact issues that resonate with some segments of solidly partisan voters can sway them<sup><a href="#R14">14</a></sup>). In the campaign, the DNC crafted predictive models on the basis of results from large-scale experiments used to manipulate attitudes. The campaign predicted at the level of individual voters how each eligible voter would vote, as well as how to "turn someone into the type of person it wanted you to be."<sup><a href="#R14">14</a></sup></p> <p>Social science theory building is also likely to get a good boost from big data and machine learning. Never before have social scientists been able to observe human behavior at the degree of granularity and variability seen today with increasing amounts of human interaction and economic activity mediated by the Internet. While the inductive method has limitations, the sheer volume of data being generated makes induction not only feasible but productive. That is not to say the traditional scientific method is "dead," as claimed by Anderson.<sup><a href="#R1">1</a></sup> On the contrary, it continues to serve us well. However, a new powerful method is available for theory development not previously practical due to the paucity of data. That era of limited data and its associated assumptions is largely over.</p> <!-- END BODY-5 --> <p class="totop"><a href="#PageTop">Back to Top</a></p>
+
+<!-- BEGIN BODY-6 --> <a name="body-6"></a>
+<h3>Conclusion</h3>  <p>Hypothesis-driven research and approaches to theory development have served us well. But a lot of data is emanating around us where these traditional approaches to identifying structure do not scale well or take advantage of observations that would not occur under controlled circumstances; for example, in health care, controlled experiments have helped identify many causes of disease but may not reflect the actual complexities of health.<sup><a href="#R3">3</a>,<a href="#R18">18</a></sup> Indeed, some estimates claim clinical trials exclude as much as 80% of the situations in which a drug might be prescribed, as when a patient is on multiple medications.<sup><a href="#R3">3</a></sup> In situations where we are able to design randomized trials, big data makes it feasible to uncover the causal models generating the data.</p> <p>As shown earlier in the diabetes-related health-care example, big data makes it feasible for a machine to ask and validate interesting questions humans might not consider. This capability is indeed the foundation for building predictive modeling, which is key to actionable business decision making. For many data-starved areas of inquiry, especially health care and the social, ecological, and earth sciences, data provides an unprecedented opportunity for knowledge discovery and theory development. Never before have these areas had data of the variety and scale available today.</p> <p>This emerging landscape calls for the integrative skill set identified here as essential for emerging data scientists. Academic programs in computer science, engineering, and business management teach a subset of these skills but have yet to teach the integration of skills needed to function as a data scientist or to manage data scientists productively. Universities are scrambling to address the lacunae and provide a more integrated skill set covering basic skills in computer science, statistics, causal modeling, problem isomorphs and formulation, and computational thinking.</p> <p>Predictive modeling and machine learning are increasingly central to the business models of Internet-based data-driven businesses. An early success, Paypal, was able to capture and dominate consumer-to-consumer payments due to its ability to predict the distribution of losses for each transaction and act accordingly. This data-driven ability was in sharp contrast to the prevailing practice of treating transactions identically from a risk standpoint. Predictive modeling is also at the heart of Google's search engine and several other products. But the first machine that could arguably be considered to pass the Turing test and create new insights in the course of problem solving is IBM's Watson, which makes extensive use of learning and prediction in its problem-solving process. In a game like "Jeopardy!," where understanding the question itself is often nontrivial and the domain open-ended and nonstationary, it is not practical to be successful through an extensive enumeration of possibilities or top-down theory building. The solution is to endow a computer with the ability to train itself automatically based on large numbers of examples. Watson also demonstrated the power of machine learning is greatly amplified through the availability of high-quality human-curated data, as in Wikipedia. This trend&#151;combining human knowledge with machine learning&#151;also appears to be on the rise. Google's recent foray in the Knowledge Graph<sup><a href="#R16">16</a></sup> is intended to enable the system to understand the entities corresponding to the torrent of strings it processes continuously. Google wants to understand "things," not just "strings."<sup><a href="#R26">26</a></sup></p> <p>Organizations and managers face significant challenges in adapting to the new world of data. It is suddenly possible to test many of their established intuitions, experiment cheaply and accurately, and base decisions on data. This opportunity requires a fundamental shift in organizational culture, one seen in organizations that have embraced the emerging world of data for decision making.</p> <!-- END BODY-6 --> <p class="totop"><a href="#PageTop">Back to Top</a></p>
+
+<!-- BEGIN REFERENCES -->
+<div id="article-references">
+ <a name="references"></a>
+<h3 class="known-headings">References</h3>  <p><a name="R1"></a>1. Anderson, C. The end of theory: The data deluge makes the scientific method obsolete. <i>Wired 16</i>, 7 (June 23, 2008).</p> <p><a name="R2"></a>2. Aral, S. and Walker, D. Identifying influential and susceptible members of social networks. <i>Science 337</i>, 6092 (June 21, 2012).</p> <p><a name="R3"></a>3. Buchan, I., Winn, J., and Bishop, C. <i>A Unified Modeling Approach to Data-Intensive Healthcare. The Fourth Paradigm: Data-Intensive Scientific Discovery</i>. Microsoft Research, Redmond, WA, 2009.</p> <p><a name="R4"></a>4. Dhar, V. Prediction in financial markets: The case for small disjuncts. <i>ACM Transactions on Intelligent Systems and Technologies 2</i>, 3 (Apr. 2011).</p> <p><a name="R5"></a>5. Dhar, V. and Chou, D. A comparison of nonlinear models for financial prediction. <i>IEEE Transactions on Neural Networks 12</i>, 4 (June 2001), 907&#150;921.</p> <p><a name="R6"></a>6. Dhar, V. and Stein, R. <i>Seven Methods for Transforming Corporate Data Into Business Intelligence</i>. Prentice-Hall, Englewood Cliffs, NJ, 1997.</p> <p><a name="R7"></a>7. Frawley, W. and Piatetsky-Shapiro, G., Eds. <i>Knowledge Discovery in Databases</i>. AAAI/MIT Press, Cambridge, MA, 1991.</p> <p><a name="R8"></a>8. Gladwell, M. <i>The Tipping Point: How Little Things Can Make a Big Difference</i>. Little Brown, New York, 2000.</p> <p><a name="R9"></a>9. Goel, S., Watts, D., and Goldstein, D. The structure of online diffusion networks. In <i>Proceedings of the 13</i><sup><i>th</i></sup> <i>ACM Conference on Electronic Commerce</i> (2012), 623&#150;638.</p> <p><a name="R10"></a>10. Hastie, T., Tibsharani, R., and Friedman, J. <i>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</i>. Springer, New York, 2009.</p> <p><a name="R11"></a>11. Heilbron, J.L., Ed. <i>The Oxford Companion to the History of Modern Science</i>. Oxford University Press, New York, 2003.</p> <p><a name="R12"></a>12. Hey, T., Tansley, S., and Tolle, K., Eds. 2009. <i>The Fourth Paradigm: Data-Intensive Scientific Discovery</i>. Microsoft Research, Redmond, WA, 2009.</p> <p><a name="R13"></a>13. Hunt, J., Baldochi, D., and van Ingen, C. <i>Redefining Ecological Science Using Data. The Fourth Paradigm: Data-Intensive Scientific Discovery</i>. Microsoft Research, Redmond, WA, 2009.</p> <p><a name="R14"></a>14. Issenberg, S. A more perfect union: How President Obama's campaign used big data to rally individual voters. <i>MIT Technology Review</i> (Dec. 2012).</p> <p><a name="R15"></a>15. Kohavi, R., Longbotham, R., Sommerfield, D., and Henne, R. Controlled experiments on the Web: Survey and practical guide. <i>Data Mining and Knowledge Discovery 18</i> (2009), 140&#150;181.</p> <p><a name="R16"></a>16. Lin, T., Patrick, P., Gamon, M., Kannan, A., and Fuxman, A. Active objects: Actions for entity-centric search. In <i>Proceedings of the 21</i><sup><i>st</i></sup> <i>International Conference on the World Wide Web</i> (Lyon, France). ACM Press, New York, 2012.</p> <p><a name="R17"></a>17. Linoff, G. and Berry, M. <i>Data Mining Techniques: For Marketing, Sales, and Customer Support</i>. John Wiley &amp; Sons, Inc., New York, 1997.</p> <p><a name="R18"></a>18. Maguire, J. and Dhar, V. Comparative effectiveness for oral anti-diabetic treatments among newly diagnosed Type 2 diabetics: Data-driven predictive analytics in healthcare. <i>Health Systems 2</i> (2013), 73&#150;92.</p> <p><a name="R19"></a>19. McKinsey Global Institute. <i>Big Data: The Next Frontier for Innovation, Competition, and Productivity</i>. Technical Report, June 2011.</p> <p><a name="R20"></a>20. Meinshausen, N. Relaxed lasso. <i>Computational Statistics &amp; Data Analysis 52</i>, 1 (Sept. 15, 2007), 374&#150;393.</p> <p><a name="R21"></a>21. Papert, S. An exploration in the space of mathematics educations. <i>International Journal of Computers for Mathematical Learning 1</i>, 1 (1996), 95&#150;123.</p> <p><a name="R22"></a>22. Pearl, J. <i>Causality: Models, Reasoning, and Inference</i>. Cambridge University Press, Cambridge, U.K., 2000.</p> <p><a name="R23"></a>23. Perlich, C., Provost, F., and Simonoff, J. Tree induction vs. logistic regression: A learning-curve analysis. <i>Journal of Machine Learning Research 4</i>, 12 (2003), 211&#150;255.</p> <p><a name="R24"></a>24. Popper, K. <i>Conjectures and Refutations</i>. Routledge, London, 1963.</p> <p><a name="R25"></a>25. Provost, F. and Fawcett, T. <i>Data Science for Business</i>. O'Reilly Media, New York, 2013.</p> <p><a name="R26"></a>26. Roush, W. Google gets a second brain, changing everything about search. <i>Xconomy</i> (Dec. 12, 2012); <a href="https://web.archive.org/web/20141109113411/http://www.xconomy.com/san-francisco/2012/12/12/google-gets-a-second-brain-changing-everything-about-search/?single_page=true">http://www.xconomy.com/san-francisco/2012/12/12/google-gets-a-second-brain-changing-everything-about-search/?single_page=true</a></p> <p><a name="R27"></a>27. Shmueli, G. To explain or to predict? <i>Statistical Science 25</i>, 3 (Aug. 2010), 289&#150;310.</p> <p><a name="R28"></a>28. Simon, H.A. and Hayes, J.R. The understanding process: Problem isomorphs. <i>Cognitive Psychology 8</i>, 2 (Apr. 1976), 165&#150;190.</p> <p><a name="R29"></a>29. Sloman, S. <i>Causal Models</i>. Oxford University Press, Oxford, U.K. 2005.</p> <p><a name="R30"></a>30. Spirtes, P., Scheines, R., and Glymour, C. <i>Causation, Prediction and Search</i>. Springer, New York, 1993.</p> <p><a name="R31"></a>31. Tukey, J.W. <i>Exploratory Data Analysis</i>. Addison-Wesley, Boston, 1977.</p> <p><a name="R32"></a>32. Wing, J. Computational thinking. <i>Commun. ACM 49</i>, 3 (Mar. 2006), 33&#150;35.</p> 
+</div>
+<!-- END REFERENCES --> <p class="totop"><a href="#PageTop">Back to Top</a></p>
+
+<!-- BEGIN AUTHORINFO -->
+<div id="article-authorinfo">
+ <a name="authorinfo"></a>
+<h3 class="known-headings">Author</h3>  <p><b>Vasant Dhar</b> (<a href="https://web.archive.org/web/20141109113411/http://delivery.acm.org/10.1145/2510000/2500499/mailto:vdhar@stern.nyu.edu">vdhar@stern.nyu.edu</a>) is a professor and co-director of the Center for Business Analytics at the Stern School of Business at New York University, New York.</p> 
+</div>
+<!-- END AUTHORINFO --> <p class="totop"><a href="#PageTop">Back to Top</a></p>
+
+<!-- BEGIN FOOTNOTES -->
+<div id="article-footnotes">
+ <a name="footnotes"></a>
+<h3 class="known-headings">Footnotes</h3>  <p><a name="FNA"></a>a. Popper used opposite cases of a man who pushes a child into water with the intention of drowning the child and that of a man who sacrifices his life in an attempt to save the child. In Adler's view, the first man suffered from feelings of inferiority (producing perhaps the need to prove to himself that he dared to commit the crime), and so did the second man (whose need was to prove to himself that he dared to rescue the child at the expense of his own life).</p> 
+</div>
+<!-- END FOOTNOTES --> <p class="totop"><a href="#PageTop">Back to Top</a></p>
+
+<!-- BEGIN FIGURES -->
+<div id="article-figures">
+ <a name="figures"></a>
+<h3 class="known-headings">Figures</h3>  <p class="ThumbnailParagraph"><a name="F1"></a><a class="ThumbnailLink" href="https://web.archive.org/web/20141109113411/http://deliveryimages.acm.org/10.1145/2510000/2500499/figs/f1.jpg"><img src="https://web.archive.org/web/20141109113411im_/http://deliveryimages.acm.org/10.1145/2510000/2500499/thumbs/f1.jpg" alt="F1" border="0"/></a>Figure 1. Projected growth of unstructured and structured data.</p> <p class="ThumbnailParagraph"><a name="F2"></a><a class="ThumbnailLink" href="https://web.archive.org/web/20141109113411/http://deliveryimages.acm.org/10.1145/2510000/2500499/figs/f2.jpg"><img src="https://web.archive.org/web/20141109113411im_/http://deliveryimages.acm.org/10.1145/2510000/2500499/thumbs/f2.jpg" alt="F2" border="0"/></a>Figure 2. Health-care-use database snippet.</p> <p class="ThumbnailParagraph"><a name="F3"></a><a class="ThumbnailLink" href="https://web.archive.org/web/20141109113411/http://deliveryimages.acm.org/10.1145/2510000/2500499/figs/f3.jpg"><img src="https://web.archive.org/web/20141109113411im_/http://deliveryimages.acm.org/10.1145/2510000/2500499/thumbs/f3.jpg" alt="F3" border="0"/></a>Figure 3. Extracting interesting patterns in health outcomes from health-care system use.</p> <p class="ThumbnailParagraph"><a name="F4"></a><a class="ThumbnailLink" href="https://web.archive.org/web/20141109113411/http://deliveryimages.acm.org/10.1145/2510000/2500499/figs/f4.jpg"><img src="https://web.archive.org/web/20141109113411im_/http://deliveryimages.acm.org/10.1145/2510000/2500499/thumbs/f4.jpg" alt="F4" border="0"/></a>Figure 4. Sources of error in predictive models and their mitigation.</p> 
+</div><p class="totop"><a href="#PageTop">Back to top</a></p>
+<!-- END FIGURES --> <!-- BEGIN PERMISSION -->
+<div id="article-permission">
+ <hr class="Separator"/>
+<a name="permission"></a>  <p>Copyright held by Owner/Author(s). Publication rights licensed to ACM.</p> 
+</div>
+<!-- END PERMISSION --> <!-- BEGIN FOOTER --> <p>The Digital Library is published by the Association for Computing Machinery. Copyright&nbsp;&copy;&nbsp;2013 ACM, Inc.</p> <!-- END FOOTER --> 
+
+	
+	
+	<div class="clearer"></div>
+	<hr class="thick"/> 
+
+  
+    
+      <a name="comments"></a>
+
+
+
+  <h2>Comments</h2>
+  
+    <hr class="solid"/>
+    <h5>Ben Shneiderman</h5>
+    
+    <span class="byline">December 22, 2013 11:22</span>
+    <p><p>A strong and interesting article on data science, but how is it possible that information visualization is never mentioned?  The focus on enabling &quot;the system to understand&quot; undermines the value of this thoughtful analysis, when the author could easily have emphasized human control, insight, and responsibility, even for high-speed trading and other so-called &quot;autonomous systems&quot;. </p></p>
+  
+    <hr class="solid"/>
+    <h5>David Levine</h5>
+    
+    <span class="byline">July 25, 2014 11:26</span>
+    <p><p>I believe this article confounds information with knowledge.  The progression should be from data -&gt; information -&gt; knowledge.  Both man and machine can have all 3, but it's important to distinguish between these different words when discussing these topics.</p></p>
+  
+  <hr class="thick"/>
+
+
+<p class="view-all">
+
+  Displaying <b>all 2</b> comments
+  
+
+</p>
+
+      <!-- googleoff:all -->
+      <div id="comments-section">
+      <!-- googleoff:all -->
+
+<h2>Comment on this article</h2>
+
+<span class="instructional">
+  Signed comments submitted to this site are moderated and will appear if they are relevant to the topic and not abusive. Your comment will appear with your username if published. <a href="/web/20141109113411/http://cacm.acm.org/help#Q22">View our policy on comments</a>
+</span>  
+<div class="item" id="comment_box">
+  <form action="/web/20141109113411/http://cacm.acm.org/magazines/2013/12/169933-data-science-and-prediction/comments" id="comment-form" method="post">     
+    
+    <input type="hidden" id="a-id" name="a-id" value="169933"/>
+    <fieldset id="#comment">
+      <div class="LeftColumn">
+      
+    </div>
+      <textarea class="bigTextarea" cols="10" id="comment-textarea" name="comment" rows="6"></textarea>
+    
+        <p>(Please sign in or create an ACM Web Account to access this feature.)</p>
+        <p> <a href="/web/20141109113411/http://cacm.acm.org/accounts/new" target="_blank">Create an Account</a> </p>
+      
+      <button class="normalButton" id="comment-submit-anon">Submit for review</button>
+    </fieldset>
+  </form>
+</div>
+
+<div class="hiddenDiv">
+  <div class="signUpModal" id="signup">
+    <a href="javascript:void(0);" class="closeBox"></a>
+    <h2>Log in to Submit a Signed Comment</h2>
+    <div class="firstStep">
+      <h3 class="openSignIn"><a href="javascript:void(0);">Sign In &raquo;</a></h3>
+      <div class="firstContent">
+
+        <h3>Sign In</h3>
+        <span class="instructional">
+          Signed comments submitted to this site are moderated and will appear if they are relevant to the topic and not abusive. Your comment will appear with your username if published. <a href="/web/20141109113411/http://cacm.acm.org/help#Q22">View our policy on comments</a>
+        </span>
+
+        <form action="https://web.archive.org/web/20141109113411/https://cacm.acm.org/login" class="edit_oracle_session" id="popOverForm" method="post">
+          <input type="hidden" name="format" value="js"/>
+          <input type="hidden" name="comment_text" id="comment_text_container"/>
+          <div class="portaInputLightbox">
+            <label for="userNameLightbox">Username</label> <label for="userNameLightbox" class="withError" id="popSignError" style="display:none">Incorrect username or password.</label> 
+            <input id="userNameLightbox" name="current_member[user]" type="text"/>
+          </div>
+          <div class="portaInputLightbox">
+            <label for="passwordLightbox">Password</label> 
+            <input id="passwordLightbox" name="current_member[passwd]" type="password" value=""/>
+          </div>
+          <span class="instructional signUpInPage"><a onclick="APP.hopWallForgotPassword()" ;>Forgot Password?</a></span>
+          <button type="submit" class="normalButton">Sign In</button>
+        </form>
+      </div>
+    </div>
+    <div class="secondStep">
+      <h3 class="create"><a href="/web/20141109113411/http://cacm.acm.org/accounts/new" target="_blank">Create a Web Account</a></h3>
+      <div class="thirdContent">
+        <h5>An email verification has been sent to youremail@email.com</h5>
+        <span class="instructional">ACM veri�es that you are the owner of the email address you've provided by sending you a veri�cation message. The email message will contain a link that you must click to validate this account.</span>
+        <h5 class="moreTopMargin">NEXT STEP: CHECK YOUR EMAIL</h5>
+
+        <span class="instructional">You must click the link within the message in order to complete the process of creating your account. You may click on the link embedded in the message, or copy the link and paste it into your browser. </span>
+      </div>
+    </div>
+  </div> <!-- end #signup -->
+</div> <!-- end .hitddenDiv -->
+
+
+      </div>
+    
+  	
+	
+	
+</div>
+
+<div class="col3 floatLeft lastCol">
+  
+<div class="signInWidget widget">
+  <span class="signInTitle">Sign In <span class="noTransform">for Full Access</span></span>
+
+  <form action="https://web.archive.org/web/20141109113411/https://cacm.acm.org/login" method="post">
+
+    <div class="portaInputSignIn">
+
+      <label for="inputUser" class="inField">User Name</label>
+      <input name="current_member[user]" type="text" id="inputUser"/>
+    </div>
+
+
+    <div class="portaInputSignIn">
+      <label for="inputPassword" class="inField">Password</label> 
+      <input type="password" name="current_member[passwd]" id="inputPassword"/> 
+    </div>
+    <a href="/web/20141109113411/http://cacm.acm.org/accounts/forgot-password" class="subText">&raquo; Forgot Password?</a>
+    <a href="/web/20141109113411/http://cacm.acm.org/accounts/new" class="subText"><strong>&raquo; Create an ACM Web Account</strong></a>
+
+    <button type="submit" class="submitSignIn">Sign In</button>
+  </form>
+</div>
+
+
+
+	
+		
+
+  <div id="article-contents-widget" class="widget contentsWidget"> 
+    <h6 class="loud">Article Contents:</h6>
+  	  <li class="miniWidgetItem"><a href="#body-1">Introduction</a></li> <li class="miniWidgetItem"><a href="#body-2">Key Insights</a></li> <li class="miniWidgetItem"><a href="#body-3">Implications</a></li> <li class="miniWidgetItem"><a href="#body-4">Skills</a></li> <li class="miniWidgetItem"><a href="#body-5">Knowledge Discovery</a></li> <li class="miniWidgetItem"><a href="#body-6">Conclusion</a></li> <li class="miniWidgetItem"><a href="#references">References</a></li> <li class="miniWidgetItem"><a href="#authorinfo">Author</a></li> <li class="miniWidgetItem"><a href="#footnotes">Footnotes</a></li> <li class="miniWidgetItem"><a href="#figures">Figures</a></li> 
+  </div>
+
+
+	
+	
+	<div id="SideColumn">
+  <!-- googleoff:all -->
+  
+    
+	<div id="related-news-opinion-widget" class="blueWidget widget noBottom"> 
+		<span class="widgetName">More News &amp; opinions</span> 
+		
+			<a class="singleNews firstNews" href="/web/20141109113411/http://cacm.acm.org/news/177235-robot-learns-to-keep-going-with-broken-leg">
+				<h5>
+					<a href="/web/20141109113411/http://cacm.acm.org/news/177235-robot-learns-to-keep-going-with-broken-leg">Robot 'Learns to Keep Going with Broken Leg'</a>
+				</h5> 
+				<span class="dateNews">BBC News</span> 
+			</a>
+        
+			<a class="singleNews" href="/web/20141109113411/http://cacm.acm.org/blogs/blog-cacm/176894-human-subjects-research-for-the-twenty-first-century-or-what-can-we-learn-from-the-facebook-mood-study">
+				<h5>
+					<a href="/web/20141109113411/http://cacm.acm.org/blogs/blog-cacm/176894-human-subjects-research-for-the-twenty-first-century-or-what-can-we-learn-from-the-facebook-mood-study">Human Subjects Research for the Twenty-First Century, or, What Can We Learn from the Facebook Mood Study?</a>
+				</h5> 
+				<span class="dateNews">Jason Hong</span> 
+			</a>
+        
+			<a class="singleNews" href="/web/20141109113411/http://cacm.acm.org/opinion/articles/175729-time-travel-installing-an-atomic-clock-at-15000-feet">
+				<h5>
+					<a href="/web/20141109113411/http://cacm.acm.org/opinion/articles/175729-time-travel-installing-an-atomic-clock-at-15000-feet">Time Travel: Installing an Atomic Clock at 15,000 Feet</a>
+				</h5> 
+				<span class="dateNews">Scientific American</span> 
+			</a>
+        
+	</div>
+
+  
+  
+    <div class="widget resourcesWidget" properties=""> 
+	<div class="widgetBigTitle"> 
+		<span class="bigTitle">ACM Resources</span> 
+	</div> 
+	
+	
+	
+		<div class="singleBest"> 
+			<h5><a href="https://web.archive.org/web/20141109113411/https://pd.acm.org/ek_courses.cfm?crs=73392" target="_blank">Microsoft Office PowerPoint 2007: New Features<span class="iconNewPage">    </span></a></h5> 
+			<span class="dateNews">Courses</span> 
+		</div> 
+	
+</div>
+  
+  <!-- googleon:all -->
+</div>
+
+</div>
+<a class=" hidden video-link" href=" "></a>
+
+            </section> 
+        
+            <footer>
+  <nav>
+    <ul>
+      <li class="first-child"><a href="/web/20141109113411/http://cacm.acm.org/about-communications/author-center" title="For Authors">For Authors</a></li>
+      <li><a href="https://web.archive.org/web/20141109113411/http://www.acm-media.org/" title="For Advertisers" target="_blank">For Advertisers <img src="/web/20141109113411im_/http://cacm.acm.org/images/icons/new_page.png" alt="For Advertisers"/></a></li>
+      <li><a href="/web/20141109113411/http://cacm.acm.org/privacy" title="Privacy Policy">Privacy Policy</a></li>
+      <li><a href="/web/20141109113411/http://cacm.acm.org/help" title="Help">Help</a></li>
+      <li><a href="/web/20141109113411/http://cacm.acm.org/about-communications/contact-us" title="Contact Us">Contact Us</a></li>
+      <li><a class="toggle-mobile" href="https://web.archive.org/web/20141109113411/http://m.cacm.acm.org/">Mobile Site</a></li>
+    </ul>
+  </nav>
+  <span id="footerText">Copyright &#169; 2014 by the ACM. All rights reserved.</span>
+</footer>
+        
+        </div><!-- /layout --> 
+    </div><!-- /container --> 
+    
+<script src="//web.archive.org/web/20141109113411js_/http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="/web/20141109113411js_/http://cacm.acm.org/javascripts/lib/jquery.jplayer.js"></script>
+<!--[if lte IE 6]><script type="text/javascript" src="/javascripts/iepngfix_tilebg.js"></script><![endif]-->
+<script>!window.jQuery && document.write('<script src="/javascripts/jquery/jquery.min.js"><\/script>')</script>
+
+
+<script src="/web/20141109113411js_/http://cacm.acm.org/javascripts/jquery.infieldlabel.min.js"></script>
+<script src="/web/20141109113411js_/http://cacm.acm.org/javascripts/cufon.js"></script>
+<script src="/web/20141109113411js_/http://cacm.acm.org/javascripts/proxima_400.font.js"></script>
+<script src="/web/20141109113411js_/http://cacm.acm.org/javascripts/behaviors/jquery.tipsy.js"></script>
+<script src="/web/20141109113411js_/http://cacm.acm.org/javascripts/behaviors/jquery.colorbox-min.js"></script>
+<script src="/web/20141109113411js_/http://cacm.acm.org/javascripts/application.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6995646-3']);
+  _gaq.push(['_setDomainName', 'acm.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://web.archive.org/web/20141109113411/https://ssl' : 'https://web.archive.org/web/20141109113411/http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+ 
+</body>
+</html> 
+<!--
+     FILE ARCHIVED ON 11:34:11 Nov 09, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 20:22:45 Mar 24, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  LoadShardBlock: 137.927 (3)
+  esindex: 0.017
+  load_resource: 254.792
+  exclusion.robots: 0.264
+  PetaboxLoader3.datanode: 325.76 (4)
+  exclusion.robots.policy: 0.247
+  captures_list: 169.366
+  RedisCDXSource: 1.591
+  PetaboxLoader3.resolve: 55.277
+  CDXLines.iter: 22.23 (3)
+-->

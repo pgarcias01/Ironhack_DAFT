@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Ensemble learning - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"Xnkq3ApAAEYAAF6oThcAAAAK","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Ensemble_learning","wgTitle":"Ensemble learning","wgCurRevisionId":944724209,"wgRevisionId":944724209,"wgArticleId":22212276,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Webarchive template wayback links","CS1 errors: missing periodical","All articles with specifically marked weasel-worded phrases","Articles with specifically marked weasel-worded phrases from December 2017","All articles with unsourced statements",
+"Articles with unsourced statements from December 2017","Articles with unsourced statements from January 2012","Ensemble learning"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Ensemble_learning","wgRelevantArticleId":22212276,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0,"wgPopupsReferencePreviews":!1,"wgPopupsConflictsWithNavPopupGadget":!1,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":!0,"nearby":!0,"watchlist":!0,"tagline":!1},"wgWMESchemaEditAttemptStepOversample":!1,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q245652","wgCentralAuthMobileDomain":!1,"wgEditSubmitButtonLabelPublish":!0};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready",
+"noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","mediawiki.toc.styles":"ready","skins.vector.styles.legacy":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.startup","skins.vector.js","mediawiki.page.ready","mediawiki.toc","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns",
+"ext.quicksurveys.init","ext.centralNotice.geoIP","ext.centralNotice.startUp"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.tokens@tffin",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.0-wmf.24"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/1200px-Kernel_Machine.svg.png"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Ensemble_learning&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Ensemble_learning&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Ensemble_learning"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Ensemble_learning rootpage-Ensemble_learning skin-vector action-view">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+</div>
+
+	<h1 id="firstHeading" class="firstHeading" lang="en">Ensemble learning</h1>
+	
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#p-search">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div role="note" class="hatnote navigation-not-searchable">For an alternative meaning, see <a href="/wiki/Variational_Bayesian_methods" title="Variational Bayesian methods">variational Bayesian methods</a>.</div>
+<table class="vertical-navbox nowraplinks" style="float:right;clear:right;width:22.0em;margin:0 0 1.0em 1.0em;background:#f9f9f9;border:1px solid #aaa;padding:0.2em;border-spacing:0.4em 0;text-align:center;line-height:1.4em;font-size:88%"><tbody><tr><th style="padding:0.2em 0.4em 0.2em;font-size:145%;line-height:1.2em"><a href="/wiki/Machine_learning" title="Machine learning">Machine learning</a> and<br /><a href="/wiki/Data_mining" title="Data mining">data mining</a></th></tr><tr><td style="padding:0.2em 0 0.4em;padding:0.25em 0.25em 0.75em;"><a href="/wiki/File:Kernel_Machine.svg" class="image"><img alt="Kernel Machine.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/220px-Kernel_Machine.svg.png" decoding="async" width="220" height="100" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/330px-Kernel_Machine.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/440px-Kernel_Machine.svg.png 2x" data-file-width="512" data-file-height="233" /></a></td></tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Problems</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Statistical_classification" title="Statistical classification">Classification</a></li>
+<li><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></li>
+<li><a href="/wiki/Regression_analysis" title="Regression analysis">Regression</a></li>
+<li><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></li>
+<li><a href="/wiki/Automated_machine_learning" title="Automated machine learning">AutoML</a></li>
+<li><a href="/wiki/Association_rule_learning" title="Association rule learning">Association rules</a></li>
+<li><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></li>
+<li><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></li>
+<li><a href="/wiki/Feature_engineering" title="Feature engineering">Feature engineering</a></li>
+<li><a href="/wiki/Feature_learning" title="Feature learning">Feature learning</a></li>
+<li><a href="/wiki/Online_machine_learning" title="Online machine learning">Online learning</a></li>
+<li><a href="/wiki/Semi-supervised_learning" title="Semi-supervised learning">Semi-supervised learning</a></li>
+<li><a href="/wiki/Unsupervised_learning" title="Unsupervised learning">Unsupervised learning</a></li>
+<li><a href="/wiki/Learning_to_rank" title="Learning to rank">Learning to rank</a></li>
+<li><a href="/wiki/Grammar_induction" title="Grammar induction">Grammar induction</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><div style="padding:0.1em 0;line-height:1.2em;"><a href="/wiki/Supervised_learning" title="Supervised learning">Supervised learning</a><br /><style data-mw-deduplicate="TemplateStyles:r886047488">.mw-parser-output .nobold{font-weight:normal}</style><span class="nobold"><span style="font-size:85%;">(<b><a href="/wiki/Statistical_classification" title="Statistical classification">classification</a></b>&#160;&#8226;&#32;<b><a href="/wiki/Regression_analysis" title="Regression analysis">regression</a></b>)</span></span> </div></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Decision_tree_learning" title="Decision tree learning">Decision trees</a></li>
+<li><a class="mw-selflink selflink">Ensembles</a>
+<ul><li><a href="/wiki/Bootstrap_aggregating" title="Bootstrap aggregating">Bagging</a></li>
+<li><a href="/wiki/Boosting_(machine_learning)" title="Boosting (machine learning)">Boosting</a></li>
+<li><a href="/wiki/Random_forest" title="Random forest">Random forest</a></li></ul></li>
+<li><a href="/wiki/K-nearest_neighbors_algorithm" title="K-nearest neighbors algorithm"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Linear_regression" title="Linear regression">Linear regression</a></li>
+<li><a href="/wiki/Naive_Bayes_classifier" title="Naive Bayes classifier">Naive Bayes</a></li>
+<li><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural networks</a></li>
+<li><a href="/wiki/Logistic_regression" title="Logistic regression">Logistic regression</a></li>
+<li><a href="/wiki/Perceptron" title="Perceptron">Perceptron</a></li>
+<li><a href="/wiki/Relevance_vector_machine" title="Relevance vector machine">Relevance vector machine (RVM)</a></li>
+<li><a href="/wiki/Support-vector_machine" title="Support-vector machine">Support vector machine (SVM)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/BIRCH" title="BIRCH">BIRCH</a></li>
+<li><a href="/wiki/CURE_data_clustering_algorithm" class="mw-redirect" title="CURE data clustering algorithm">CURE</a></li>
+<li><a href="/wiki/Hierarchical_clustering" title="Hierarchical clustering">Hierarchical</a></li>
+<li><a href="/wiki/K-means_clustering" title="K-means clustering"><i>k</i>-means</a></li>
+<li><a href="/wiki/Expectation%E2%80%93maximization_algorithm" title="Expectation–maximization algorithm">Expectation–maximization (EM)</a></li>
+<li><br /><a href="/wiki/DBSCAN" title="DBSCAN">DBSCAN</a></li>
+<li><a href="/wiki/OPTICS_algorithm" title="OPTICS algorithm">OPTICS</a></li>
+<li><a href="/wiki/Mean-shift" class="mw-redirect" title="Mean-shift">Mean-shift</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Dimensionality_reduction" title="Dimensionality reduction">Dimensionality reduction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Factor_analysis" title="Factor analysis">Factor analysis</a></li>
+<li><a href="/wiki/Canonical_correlation_analysis" class="mw-redirect" title="Canonical correlation analysis">CCA</a></li>
+<li><a href="/wiki/Independent_component_analysis" title="Independent component analysis">ICA</a></li>
+<li><a href="/wiki/Linear_discriminant_analysis" title="Linear discriminant analysis">LDA</a></li>
+<li><a href="/wiki/Non-negative_matrix_factorization" title="Non-negative matrix factorization">NMF</a></li>
+<li><a href="/wiki/Principal_component_analysis" title="Principal component analysis">PCA</a></li>
+<li><a href="/wiki/T-distributed_stochastic_neighbor_embedding" title="T-distributed stochastic neighbor embedding">t-SNE</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Graphical_model" title="Graphical model">Graphical models</a>
+<ul><li><a href="/wiki/Bayesian_network" title="Bayesian network">Bayes net</a></li>
+<li><a href="/wiki/Conditional_random_field" title="Conditional random field">Conditional random field</a></li>
+<li><a href="/wiki/Hidden_Markov_model" title="Hidden Markov model">Hidden Markov</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/K-nearest_neighbors_classification" class="mw-redirect" title="K-nearest neighbors classification"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Local_outlier_factor" title="Local outlier factor">Local outlier factor</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural network</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Autoencoder" title="Autoencoder">Autoencoder</a></li>
+<li><a href="/wiki/Deep_learning" title="Deep learning">Deep learning</a></li>
+<li><a href="/wiki/DeepDream" title="DeepDream">DeepDream</a></li>
+<li><a href="/wiki/Multilayer_perceptron" title="Multilayer perceptron">Multilayer perceptron</a></li>
+<li><a href="/wiki/Recurrent_neural_network" title="Recurrent neural network">RNN</a>
+<ul><li><a href="/wiki/Long_short-term_memory" title="Long short-term memory">LSTM</a></li>
+<li><a href="/wiki/Gated_recurrent_unit" title="Gated recurrent unit">GRU</a></li></ul></li>
+<li><a href="/wiki/Restricted_Boltzmann_machine" title="Restricted Boltzmann machine">Restricted Boltzmann machine</a></li>
+<li><a href="/wiki/Generative_adversarial_network" title="Generative adversarial network">GAN</a></li>
+<li><a href="/wiki/Self-organizing_map" title="Self-organizing map">SOM</a></li>
+<li><a href="/wiki/Convolutional_neural_network" title="Convolutional neural network">Convolutional neural network</a>
+<ul><li><a href="/wiki/U-Net" title="U-Net">U-Net</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Q-learning" title="Q-learning">Q-learning</a></li>
+<li><a href="/wiki/State%E2%80%93action%E2%80%93reward%E2%80%93state%E2%80%93action" title="State–action–reward–state–action">SARSA</a></li>
+<li><a href="/wiki/Temporal_difference_learning" title="Temporal difference learning">Temporal difference (TD)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Theory</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Bias%E2%80%93variance_dilemma" class="mw-redirect" title="Bias–variance dilemma">Bias–variance dilemma</a></li>
+<li><a href="/wiki/Computational_learning_theory" title="Computational learning theory">Computational learning theory</a></li>
+<li><a href="/wiki/Empirical_risk_minimization" title="Empirical risk minimization">Empirical risk minimization</a></li>
+<li><a href="/wiki/Occam_learning" title="Occam learning">Occam learning</a></li>
+<li><a href="/wiki/Probably_approximately_correct_learning" title="Probably approximately correct learning">PAC learning</a></li>
+<li><a href="/wiki/Statistical_learning_theory" title="Statistical learning theory">Statistical learning</a></li>
+<li><a href="/wiki/Vapnik%E2%80%93Chervonenkis_theory" title="Vapnik–Chervonenkis theory">VC theory</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Machine-learning venues</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Conference_on_Neural_Information_Processing_Systems" title="Conference on Neural Information Processing Systems">NeurIPS</a></li>
+<li><a href="/wiki/International_Conference_on_Machine_Learning" title="International Conference on Machine Learning">ICML</a></li>
+<li><a href="/wiki/Machine_Learning_(journal)" title="Machine Learning (journal)">ML</a></li>
+<li><a href="/wiki/Journal_of_Machine_Learning_Research" title="Journal of Machine Learning Research">JMLR</a></li>
+<li><a rel="nofollow" class="external text" href="https://arxiv.org/list/cs.LG/recent">ArXiv:cs.LG</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Related articles</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/List_of_datasets_for_machine-learning_research" title="List of datasets for machine-learning research">List of datasets for machine-learning research</a></li>
+<li><a href="/wiki/Outline_of_machine_learning" title="Outline of machine learning">Outline of machine learning</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="text-align:right;font-size:115%;padding-top: 0.6em;"><div class="plainlinks hlist navbar mini"><ul><li class="nv-view"><a href="/wiki/Template:Machine_learning_bar" title="Template:Machine learning bar"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="/wiki/Template_talk:Machine_learning_bar" title="Template talk:Machine learning bar"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Machine_learning_bar&amp;action=edit"><abbr title="Edit this template">e</abbr></a></li></ul></div></td></tr></tbody></table>
+<p>In <a href="/wiki/Statistics" title="Statistics">statistics</a> and <a href="/wiki/Machine_learning" title="Machine learning">machine learning</a>, <b>ensemble methods</b> use multiple learning algorithms to obtain better <a href="/wiki/Predictive_inference" title="Predictive inference">predictive performance</a> than could be obtained from any of the constituent learning algorithms alone.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup><sup id="cite_ref-Rokach2010_3-0" class="reference"><a href="#cite_note-Rokach2010-3">&#91;3&#93;</a></sup>
+Unlike a <a href="/wiki/Statistical_ensemble" class="mw-redirect" title="Statistical ensemble">statistical ensemble</a> in statistical mechanics, which is usually infinite, a machine learning ensemble consists of only a concrete finite set of alternative models, but typically allows for much more flexible structure to exist among those alternatives.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Ensemble_theory"><span class="tocnumber">2</span> <span class="toctext">Ensemble theory</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Ensemble_size"><span class="tocnumber">3</span> <span class="toctext">Ensemble size</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Common_types_of_ensembles"><span class="tocnumber">4</span> <span class="toctext">Common types of ensembles</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Bayes_optimal_classifier"><span class="tocnumber">4.1</span> <span class="toctext">Bayes optimal classifier</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Bootstrap_aggregating_(bagging)"><span class="tocnumber">4.2</span> <span class="toctext">Bootstrap aggregating (bagging)</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Boosting"><span class="tocnumber">4.3</span> <span class="toctext">Boosting</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Bayesian_model_averaging"><span class="tocnumber">4.4</span> <span class="toctext">Bayesian model averaging</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Bayesian_model_combination"><span class="tocnumber">4.5</span> <span class="toctext">Bayesian model combination</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Bucket_of_models"><span class="tocnumber">4.6</span> <span class="toctext">Bucket of models</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Stacking"><span class="tocnumber">4.7</span> <span class="toctext">Stacking</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Implementations_in_statistics_packages"><span class="tocnumber">5</span> <span class="toctext">Implementations in statistics packages</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#Ensemble_learning_applications"><span class="tocnumber">6</span> <span class="toctext">Ensemble learning applications</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="#Remote_sensing"><span class="tocnumber">6.1</span> <span class="toctext">Remote sensing</span></a>
+<ul>
+<li class="toclevel-3 tocsection-15"><a href="#Land_cover_mapping"><span class="tocnumber">6.1.1</span> <span class="toctext">Land cover mapping</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="#Change_detection"><span class="tocnumber">6.1.2</span> <span class="toctext">Change detection</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-17"><a href="#Computer_security"><span class="tocnumber">6.2</span> <span class="toctext">Computer security</span></a>
+<ul>
+<li class="toclevel-3 tocsection-18"><a href="#Distributed_denial_of_service"><span class="tocnumber">6.2.1</span> <span class="toctext">Distributed denial of service</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#Malware_Detection"><span class="tocnumber">6.2.2</span> <span class="toctext">Malware Detection</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="#Intrusion_detection"><span class="tocnumber">6.2.3</span> <span class="toctext">Intrusion detection</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-21"><a href="#Face_recognition"><span class="tocnumber">6.3</span> <span class="toctext">Face recognition</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#Emotion_recognition"><span class="tocnumber">6.4</span> <span class="toctext">Emotion recognition</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#Fraud_detection"><span class="tocnumber">6.5</span> <span class="toctext">Fraud detection</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#Financial_decision-making"><span class="tocnumber">6.6</span> <span class="toctext">Financial decision-making</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#Medicine"><span class="tocnumber">6.7</span> <span class="toctext">Medicine</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-26"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-27"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-28"><a href="#Further_reading"><span class="tocnumber">9</span> <span class="toctext">Further reading</span></a></li>
+<li class="toclevel-1 tocsection-29"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=1" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><a href="/wiki/Supervised_learning" title="Supervised learning">Supervised learning</a> algorithms perform the task of searching through a hypothesis space to find a suitable hypothesis that will make good predictions with a particular problem.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup> Even if the hypothesis space contains hypotheses that are very well-suited for a particular problem, it may be very difficult to find a good one. Ensembles combine multiple hypotheses to form a (hopefully) better hypothesis. The term <i>ensemble</i> is usually reserved for methods that generate multiple hypotheses using the same base learner.<sup class="noprint Inline-Template" style="margin-left:0.1em; white-space:nowrap;">&#91;<i><a href="/wiki/Wikipedia:Manual_of_Style/Words_to_watch#Unsupported_attributions" title="Wikipedia:Manual of Style/Words to watch"><span title="The material near this tag may use weasel words or too-vague attribution. (December 2017)">according to whom?</span></a></i>&#93;</sup>
+The broader term of <i>multiple classifier systems</i> also covers hybridization of hypotheses that are not induced by the same base learner.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (December 2017)">citation needed</span></a></i>&#93;</sup>
+</p><p>Evaluating the prediction of an ensemble typically requires more computation than evaluating the prediction of a single model, so ensembles may be thought of as a way to compensate for poor learning algorithms by performing a lot of extra computation. Fast algorithms such as <a href="/wiki/Decision_tree_learning" title="Decision tree learning">decision trees</a> are commonly used in ensemble methods (for example, <a href="/wiki/Random_forest" title="Random forest">random forests</a>), although slower algorithms can benefit from ensemble techniques as well.
+</p><p>By analogy, ensemble techniques have been used also in <a href="/wiki/Unsupervised_learning" title="Unsupervised learning">unsupervised learning</a> scenarios, for example in <a href="/wiki/Consensus_clustering" title="Consensus clustering">consensus clustering</a> or in <a href="/wiki/Anomaly_detection" title="Anomaly detection">anomaly detection</a>.
+</p>
+<h2><span class="mw-headline" id="Ensemble_theory">Ensemble theory</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=2" title="Edit section: Ensemble theory">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>An ensemble is itself a supervised learning algorithm, because it can be trained and then used to make predictions. The trained ensemble, therefore, represents a single hypothesis. This hypothesis, however, is not necessarily contained within the hypothesis space of the models from which it is built. Thus, ensembles can be shown to have more flexibility in the functions they can represent. This flexibility can, in theory, enable them to <a href="/wiki/Overfitting" title="Overfitting">over-fit</a> the training data more than a single model would, but in practice, some ensemble techniques (especially <a href="/wiki/Bootstrap_aggregating" title="Bootstrap aggregating">bagging</a>) tend to reduce problems related to over-fitting of the training data.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (December 2017)">citation needed</span></a></i>&#93;</sup>
+</p><p>Empirically, ensembles tend to yield better results when there is a significant diversity among the models.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup> Many ensemble methods, therefore, seek to promote diversity among the models they combine.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup><sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup> Although perhaps non-intuitive, more random algorithms (like random decision trees) can be used to produce a stronger ensemble than very deliberate algorithms (like entropy-reducing decision trees).<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup> Using a variety of strong learning algorithms, however, has been shown to be more effective than using techniques that attempt to <i>dumb-down</i> the models in order to promote diversity.<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;10&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Ensemble_size">Ensemble size</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=3" title="Edit section: Ensemble size">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>While the number of component classifiers of an ensemble has a great impact on the accuracy of prediction, there is a limited number of studies addressing this problem. <i>A priori</i> determining of ensemble size and the volume and velocity of big data streams make this even more crucial for online ensemble classifiers. Mostly statistical tests were used for determining the proper number of components. More recently, a theoretical framework suggested that there is an ideal number of component classifiers for an ensemble such that having more or less than this number of classifiers would deteriorate the accuracy. It is called "the law of diminishing returns in ensemble construction." Their theoretical framework shows that using the same number of independent component classifiers as class labels gives the highest accuracy.<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">&#91;11&#93;</a></sup><sup id="cite_ref-12" class="reference"><a href="#cite_note-12">&#91;12&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Common_types_of_ensembles">Common types of ensembles</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=4" title="Edit section: Common types of ensembles">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Bayes_optimal_classifier">Bayes optimal classifier</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=5" title="Edit section: Bayes optimal classifier">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The Bayes optimal classifier is a classification technique. It is an ensemble of all the hypotheses in the hypothesis space. On average, no other ensemble can outperform it.<sup id="cite_ref-13" class="reference"><a href="#cite_note-13">&#91;13&#93;</a></sup> The naive Bayes optimal classifier is a version of this that assumes that the data is conditionally independent on the class and makes the computation more feasible. Each hypothesis is given a vote proportional to the likelihood that the training dataset would be sampled from a system if that hypothesis were true. To facilitate training data of finite size, the vote of each hypothesis is also multiplied by the prior probability of that hypothesis. The Bayes optimal classifier can be expressed with the following equation:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y={\underset {c_{j}\in C}{\mathrm {argmax} }}\sum _{h_{i}\in H}{P(c_{j}|h_{i})P(T|h_{i})P(h_{i})}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <munder>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">a</mi>
+              <mi mathvariant="normal">r</mi>
+              <mi mathvariant="normal">g</mi>
+              <mi mathvariant="normal">m</mi>
+              <mi mathvariant="normal">a</mi>
+              <mi mathvariant="normal">x</mi>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>c</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>j</mi>
+                </mrow>
+              </msub>
+              <mo>&#x2208;<!-- ∈ --></mo>
+              <mi>C</mi>
+            </mrow>
+          </munder>
+        </mrow>
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi>h</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mi>H</mi>
+          </mrow>
+        </munder>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi>P</mi>
+          <mo stretchy="false">(</mo>
+          <msub>
+            <mi>c</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">|</mo>
+          </mrow>
+          <msub>
+            <mi>h</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false">)</mo>
+          <mi>P</mi>
+          <mo stretchy="false">(</mo>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">|</mo>
+          </mrow>
+          <msub>
+            <mi>h</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false">)</mo>
+          <mi>P</mi>
+          <mo stretchy="false">(</mo>
+          <msub>
+            <mi>h</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false">)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y={\underset {c_{j}\in C}{\mathrm {argmax} }}\sum _{h_{i}\in H}{P(c_{j}|h_{i})P(T|h_{i})P(h_{i})}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/09892e2a0091cfa48b8662fbf4c5f196689693b8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.338ex; width:38.644ex; height:5.843ex;" alt="{\displaystyle y={\underset {c_{j}\in C}{\mathrm {argmax} }}\sum _{h_{i}\in H}{P(c_{j}|h_{i})P(T|h_{i})P(h_{i})}}"/></span></dd></dl>
+<p>where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b8a6208ec717213d4317e666f1ae872e00620a0d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.155ex; height:2.009ex;" alt="y"/></span> is the predicted class, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle C}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>C</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle C}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4fc55753007cd3c18576f7933f6f089196732029" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.766ex; height:2.176ex;" alt="C"/></span> is the set of all possible classes, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle H}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>H</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/75a9edddcca2f782014371f75dca39d7e13a9c1b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.064ex; height:2.176ex;" alt="H"/></span> is the hypothesis space, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle P}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b4dc73bf40314945ff376bd363916a738548d40a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.745ex; height:2.176ex;" alt="P"/></span> refers to a <i>probability</i>, and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle T}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>T</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ec7200acd984a1d3a3d7dc455e262fbe54f7f6e0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.636ex; height:2.176ex;" alt="T"/></span> is the training data. As an ensemble, the Bayes optimal classifier represents a hypothesis that is not necessarily in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle H}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>H</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/75a9edddcca2f782014371f75dca39d7e13a9c1b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.064ex; height:2.176ex;" alt="H"/></span>. The hypothesis represented by the Bayes optimal classifier, however, is the optimal hypothesis in <i>ensemble space</i> (the space of all possible ensembles consisting only of hypotheses in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle H}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>H</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/75a9edddcca2f782014371f75dca39d7e13a9c1b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.064ex; height:2.176ex;" alt="H"/></span>).
+</p><p>This formula can be restated using <a href="/wiki/Bayes%27_theorem" title="Bayes&#39; theorem">Bayes' theorem</a>, which says that the posterior is proportional to the likelihood times the prior:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle P(h_{i}|T)\propto P(T|h_{i})P(h_{i})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>T</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x221D;<!-- ∝ --></mo>
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <mi>T</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msub>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P(h_{i}|T)\propto P(T|h_{i})P(h_{i})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f2d5e48ddd526434d0f5f5c4acdf70ef5fd5042e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:24.745ex; height:2.843ex;" alt="{\displaystyle P(h_{i}|T)\propto P(T|h_{i})P(h_{i})}"/></span></dd></dl>
+<p>hence,
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y={\underset {c_{j}\in C}{\mathrm {argmax} }}\sum _{h_{i}\in H}{P(c_{j}|h_{i})P(h_{i}|T)}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <munder>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">a</mi>
+              <mi mathvariant="normal">r</mi>
+              <mi mathvariant="normal">g</mi>
+              <mi mathvariant="normal">m</mi>
+              <mi mathvariant="normal">a</mi>
+              <mi mathvariant="normal">x</mi>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>c</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>j</mi>
+                </mrow>
+              </msub>
+              <mo>&#x2208;<!-- ∈ --></mo>
+              <mi>C</mi>
+            </mrow>
+          </munder>
+        </mrow>
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi>h</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mi>H</mi>
+          </mrow>
+        </munder>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi>P</mi>
+          <mo stretchy="false">(</mo>
+          <msub>
+            <mi>c</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">|</mo>
+          </mrow>
+          <msub>
+            <mi>h</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false">)</mo>
+          <mi>P</mi>
+          <mo stretchy="false">(</mo>
+          <msub>
+            <mi>h</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">|</mo>
+          </mrow>
+          <mi>T</mi>
+          <mo stretchy="false">)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y={\underset {c_{j}\in C}{\mathrm {argmax} }}\sum _{h_{i}\in H}{P(c_{j}|h_{i})P(h_{i}|T)}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/48d556eedab703a192d805d526ab36c334081c58" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.338ex; width:32.951ex; height:5.843ex;" alt="{\displaystyle y={\underset {c_{j}\in C}{\mathrm {argmax} }}\sum _{h_{i}\in H}{P(c_{j}|h_{i})P(h_{i}|T)}}"/></span></dd></dl>
+<h3><span id="Bootstrap_aggregating_.28bagging.29"></span><span class="mw-headline" id="Bootstrap_aggregating_(bagging)">Bootstrap aggregating (bagging)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=6" title="Edit section: Bootstrap aggregating (bagging)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div role="note" class="hatnote navigation-not-searchable">Main article: <a href="/wiki/Bootstrap_aggregating" title="Bootstrap aggregating">Bootstrap aggregating</a></div>
+<p>Bootstrap aggregating, often abbreviated as <i>bagging</i>, involves having each model in the ensemble vote with equal weight. In order to promote model variance, bagging trains each model in the ensemble using a randomly drawn subset of the training set. As an example, the <a href="/wiki/Random_forest" title="Random forest">random forest</a> algorithm combines random decision trees with bagging to achieve very high classification accuracy.<sup id="cite_ref-14" class="reference"><a href="#cite_note-14">&#91;14&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Boosting">Boosting</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=7" title="Edit section: Boosting">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div role="note" class="hatnote navigation-not-searchable">Main article: <a href="/wiki/Boosting_(meta-algorithm)" class="mw-redirect" title="Boosting (meta-algorithm)">Boosting (meta-algorithm)</a></div>
+<p>Boosting involves incrementally building an ensemble by training each new model instance to emphasize the training instances that previous models mis-classified. In some cases, boosting has been shown to yield better accuracy than bagging, but it also tends to be more likely to over-fit the training data. By far, the most common implementation of boosting is <a href="/wiki/Adaboost" class="mw-redirect" title="Adaboost">Adaboost</a>, although some newer algorithms are reported to achieve better results.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (January 2012)">citation needed</span></a></i>&#93;</sup>
+</p>
+<h3><span class="mw-headline" id="Bayesian_model_averaging">Bayesian model averaging</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=8" title="Edit section: Bayesian model averaging">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Bayesian model averaging (BMA) is an ensemble technique that seeks to approximate the Bayes optimal classifier by sampling hypotheses from the hypothesis space, and combining them using Bayes' law.<sup id="cite_ref-15" class="reference"><a href="#cite_note-15">&#91;15&#93;</a></sup> Unlike the Bayes optimal classifier, Bayesian model averaging (BMA) can be practically implemented. Hypotheses are typically sampled using a <a href="/wiki/Monte_Carlo_sampling" class="mw-redirect" title="Monte Carlo sampling">Monte Carlo sampling</a> technique such as <a href="/wiki/Markov_chain_Monte_Carlo" title="Markov chain Monte Carlo">MCMC</a>. For example, <a href="/wiki/Gibbs_sampling" title="Gibbs sampling">Gibbs sampling</a> may be used to draw hypotheses that are representative of the distribution <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle P(T|H)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <mi>T</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>H</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P(T|H)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8860a1802bcfb0ff76035b51323073995d6733e9" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.901ex; height:2.843ex;" alt="P(T|H)"/></span>. It has been shown that under certain circumstances, when hypotheses are drawn in this manner and averaged according to Bayes' law, this technique has an expected error that is bounded to be at most twice the expected error of the Bayes optimal classifier.<sup id="cite_ref-16" class="reference"><a href="#cite_note-16">&#91;16&#93;</a></sup> Despite the theoretical correctness of this technique, early work showed experimental results suggesting that the method promoted over-fitting and performed worse compared to simpler ensemble techniques such as bagging;<sup id="cite_ref-17" class="reference"><a href="#cite_note-17">&#91;17&#93;</a></sup> however, these conclusions appear to be based on a misunderstanding of the purpose of Bayesian model averaging vs. model combination.<sup id="cite_ref-18" class="reference"><a href="#cite_note-18">&#91;18&#93;</a></sup> Additionally, there have been considerable advances in theory and practice of BMA. Recent rigorous proofs demonstrate the accuracy of BMA in variable selection and estimation in high-dimensional settings,<sup id="cite_ref-19" class="reference"><a href="#cite_note-19">&#91;19&#93;</a></sup> and provide empirical evidence highlighting the role of sparsity-enforcing priors within the BMA in alleviating overfitting.<sup id="cite_ref-20" class="reference"><a href="#cite_note-20">&#91;20&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Bayesian_model_combination">Bayesian model combination</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=9" title="Edit section: Bayesian model combination">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Bayesian model combination (BMC) is an algorithmic correction to Bayesian model averaging (BMA). Instead of sampling each model in the ensemble individually, it samples from the space of possible ensembles (with model weightings drawn randomly from a Dirichlet distribution having uniform parameters). This modification overcomes the tendency of BMA to converge toward giving all of the weight to a single model. Although BMC is somewhat more computationally expensive than BMA, it tends to yield dramatically better results. The results from BMC have been shown to be better on average (with statistical significance) than BMA, and bagging.<sup id="cite_ref-21" class="reference"><a href="#cite_note-21">&#91;21&#93;</a></sup>
+</p><p>The use of Bayes' law to compute model weights necessitates computing the probability of the data given each model. Typically, none of the models in the ensemble are exactly the distribution from which the training data were generated, so all of them correctly receive a value close to zero for this term. This would work well if the ensemble were big enough to sample the entire model-space, but such is rarely possible. Consequently, each pattern in the training data will cause the ensemble weight to shift toward the model in the ensemble that is closest to the distribution of the training data. It essentially reduces to an unnecessarily complex method for doing model selection.
+</p><p>The possible weightings for an ensemble can be visualized as lying on a simplex. At each vertex of the simplex, all of the weight is given to a single model in the ensemble. BMA converges toward the vertex that is closest to the distribution of the training data. By contrast, BMC converges toward the point where this distribution projects onto the simplex. In other words, instead of selecting the one model that is closest to the generating distribution, it seeks the combination of models that is closest to the generating distribution.
+</p><p>The results from BMA can often be approximated by using cross-validation to select the best model from a bucket of models. Likewise, the results from BMC may be approximated by using cross-validation to select the best ensemble combination from a random sampling of possible weightings.
+</p>
+<h3><span class="mw-headline" id="Bucket_of_models">Bucket of models</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=10" title="Edit section: Bucket of models">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>A "bucket of models" is an ensemble technique in which a model selection algorithm is used to choose the best model for each problem. When tested with only one problem, a bucket of models can produce no better results than the best model in the set, but when evaluated across many problems, it will typically produce much better results, on average, than any model in the set.
+</p><p>The most common approach used for model-selection is <a href="/wiki/Cross-validation_(statistics)" title="Cross-validation (statistics)">cross-validation</a> selection (sometimes called a "bake-off contest"). It is described with the following pseudo-code:
+</p>
+<pre>For each model m in the bucket:
+    Do c times: (where 'c' is some constant)
+        Randomly divide the training dataset into two datasets: A, and B.
+        Train m with A
+        Test m with B
+Select the model that obtains the highest average score
+</pre>
+<p>Cross-Validation Selection can be summed up as: "try them all with the training set, and pick the one that works best".<sup id="cite_ref-22" class="reference"><a href="#cite_note-22">&#91;22&#93;</a></sup>
+</p><p>Gating is a generalization of Cross-Validation Selection. It involves training another learning model to decide which of the models in the bucket is best-suited to solve the problem. Often, a <a href="/wiki/Perceptron" title="Perceptron">perceptron</a> is used for the gating model. It can be used to pick the "best" model, or it can be used to give a linear weight to the predictions from each model in the bucket.
+</p><p>When a bucket of models is used with a large set of problems, it may be desirable to avoid training some of the models that take a long time to train. Landmark learning is a meta-learning approach that seeks to solve this problem. It involves training only the fast (but imprecise) algorithms in the bucket, and then using the performance of these algorithms to help determine which slow (but accurate) algorithm is most likely to do best.<sup id="cite_ref-23" class="reference"><a href="#cite_note-23">&#91;23&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Stacking">Stacking</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=11" title="Edit section: Stacking">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Stacking (sometimes called <i>stacked generalization</i>) involves training a learning algorithm to combine the predictions of several other learning algorithms. First, all of the other algorithms are trained using the available data, then a combiner algorithm is trained to make a final prediction using all the predictions of the other algorithms as additional inputs. If an arbitrary combiner algorithm is used, then stacking can theoretically represent any of the ensemble techniques described in this article, although, in practice, a <a href="/wiki/Logistic_regression" title="Logistic regression">logistic regression</a> model is often used as the combiner.
+</p><p>Stacking typically yields performance better than any single one of the trained models.<sup id="cite_ref-24" class="reference"><a href="#cite_note-24">&#91;24&#93;</a></sup> 
+It has been successfully used on both supervised learning tasks 
+(regression,<sup id="cite_ref-25" class="reference"><a href="#cite_note-25">&#91;25&#93;</a></sup> classification and distance learning <sup id="cite_ref-26" class="reference"><a href="#cite_note-26">&#91;26&#93;</a></sup>)
+and unsupervised learning (density estimation).<sup id="cite_ref-27" class="reference"><a href="#cite_note-27">&#91;27&#93;</a></sup> It has also been used to
+estimate bagging's error rate.<sup id="cite_ref-Rokach2010_3-1" class="reference"><a href="#cite_note-Rokach2010-3">&#91;3&#93;</a></sup><sup id="cite_ref-28" class="reference"><a href="#cite_note-28">&#91;28&#93;</a></sup> It has been reported to out-perform Bayesian model-averaging.<sup id="cite_ref-29" class="reference"><a href="#cite_note-29">&#91;29&#93;</a></sup>
+The two top-performers in the Netflix competition utilized <i>blending</i>, which may be considered to be a form of stacking.<sup id="cite_ref-30" class="reference"><a href="#cite_note-30">&#91;30&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Implementations_in_statistics_packages">Implementations in statistics packages</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=12" title="Edit section: Implementations in statistics packages">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/R_(programming_language)" title="R (programming language)">R</a>: at least three packages offer Bayesian model averaging tools,<sup id="cite_ref-31" class="reference"><a href="#cite_note-31">&#91;31&#93;</a></sup> including the <tt>BMS</tt> (an acronym for Bayesian Model Selection) package,<sup id="cite_ref-32" class="reference"><a href="#cite_note-32">&#91;32&#93;</a></sup> the <tt>BAS</tt> (an acronym for Bayesian Adaptive Sampling) package,<sup id="cite_ref-33" class="reference"><a href="#cite_note-33">&#91;33&#93;</a></sup> and the <tt>BMA</tt> package.<sup id="cite_ref-34" class="reference"><a href="#cite_note-34">&#91;34&#93;</a></sup></li>
+<li><a href="/wiki/Python_(programming_language)" title="Python (programming language)">Python</a>: <a href="/wiki/Scikit-learn" title="Scikit-learn">Scikit-learn</a>, a package for machine learning in Python offers packages for ensemble learning including packages for bagging and averaging methods.</li>
+<li><a href="/wiki/MATLAB" title="MATLAB">MATLAB</a>: classification ensembles are implemented in Statistics and Machine Learning Toolbox.<sup id="cite_ref-35" class="reference"><a href="#cite_note-35">&#91;35&#93;</a></sup></li></ul>
+<h2><span class="mw-headline" id="Ensemble_learning_applications">Ensemble learning applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=13" title="Edit section: Ensemble learning applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In the recent years, due to the growing computational power which allows training large ensemble learning in a reasonable time frame, the number of its applications has grown increasingly.<sup id="cite_ref-s1_36-0" class="reference"><a href="#cite_note-s1-36">&#91;36&#93;</a></sup> Some of the applications of ensemble classifiers include:
+</p>
+<h3><span class="mw-headline" id="Remote_sensing">Remote sensing</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=14" title="Edit section: Remote sensing">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div role="note" class="hatnote navigation-not-searchable">Main article: <a href="/wiki/Remote_sensing" title="Remote sensing">Remote sensing</a></div>
+<h4><span class="mw-headline" id="Land_cover_mapping">Land cover mapping</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=15" title="Edit section: Land cover mapping">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p><a href="/wiki/Image_analysis#Land_cover_mapping" title="Image analysis">Land cover mapping</a> is one of the major applications of <a href="/wiki/Earth_observation_satellite" title="Earth observation satellite">Earth observation satellite</a> sensors, using <a href="/wiki/Remote_sensing" title="Remote sensing">remote sensing</a> and <a href="/wiki/Geospatial_data" class="mw-redirect" title="Geospatial data">geospatial data</a>, to identify the materials and objects which are located on the surface of target areas. Generally, the classes of target materials include roads, buildings, rivers, lakes, and vegetation.<sup id="cite_ref-rodriguez_37-0" class="reference"><a href="#cite_note-rodriguez-37">&#91;37&#93;</a></sup> Some different ensemble learning approaches based on <a href="/wiki/Artificial_neural_networks" class="mw-redirect" title="Artificial neural networks">artificial neural networks</a>,<sup id="cite_ref-38" class="reference"><a href="#cite_note-38">&#91;38&#93;</a></sup> <a href="/wiki/Kernel_principal_component_analysis" title="Kernel principal component analysis">kernel principal component analysis</a> (KPCA),<sup id="cite_ref-39" class="reference"><a href="#cite_note-39">&#91;39&#93;</a></sup> <a href="/wiki/Decision_trees" class="mw-redirect" title="Decision trees">decision trees</a> with <a href="/wiki/Boosting_(machine_learning)" title="Boosting (machine learning)">boosting</a>,<sup id="cite_ref-40" class="reference"><a href="#cite_note-40">&#91;40&#93;</a></sup> <a href="/wiki/Random_forest" title="Random forest">random forest</a><sup id="cite_ref-rodriguez_37-1" class="reference"><a href="#cite_note-rodriguez-37">&#91;37&#93;</a></sup> and automatic design of multiple classifier systems,<sup id="cite_ref-41" class="reference"><a href="#cite_note-41">&#91;41&#93;</a></sup> are proposed to efficiently identify <a href="/wiki/Land_cover" title="Land cover">land cover</a> objects.
+</p>
+<h4><span class="mw-headline" id="Change_detection">Change detection</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=16" title="Edit section: Change detection">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p><a href="/wiki/Change_detection_(GIS)" title="Change detection (GIS)">Change detection</a> is an <a href="/wiki/Image_analysis" title="Image analysis">image analysis</a> problem, consisting of the identification of places where the <a href="/wiki/Land_cover" title="Land cover">land cover</a> has changed over time. <a href="/wiki/Change_detection_(GIS)" title="Change detection (GIS)">Change detection</a> is widely used in fields such as <a href="/wiki/Urban_growth" class="mw-redirect" title="Urban growth">urban growth</a>, <a href="/wiki/Forest_dynamics" title="Forest dynamics">forest and vegetation dynamics</a>, <a href="/wiki/Land_use" title="Land use">land use</a> and <a href="/wiki/Disaster_Monitoring_Constellation" title="Disaster Monitoring Constellation">disaster monitoring</a>.<sup id="cite_ref-s2_42-0" class="reference"><a href="#cite_note-s2-42">&#91;42&#93;</a></sup>
+The earliest applications of ensemble classifiers in change detection are designed with the majority <a href="/wiki/Plurality_voting" title="Plurality voting">voting</a>,<sup id="cite_ref-43" class="reference"><a href="#cite_note-43">&#91;43&#93;</a></sup> <a href="/wiki/Bayesian_average" title="Bayesian average">Bayesian average</a> and the <a href="/wiki/Maximum_posterior_probability" class="mw-redirect" title="Maximum posterior probability">maximum posterior probability</a>.<sup id="cite_ref-Bruzzone_et_al_2002_44-0" class="reference"><a href="#cite_note-Bruzzone_et_al_2002-44">&#91;44&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Computer_security">Computer security</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=17" title="Edit section: Computer security">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="Distributed_denial_of_service">Distributed denial of service</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=18" title="Edit section: Distributed denial of service">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p><a href="/wiki/Denial-of-service_attack" title="Denial-of-service attack">Distributed denial of service</a> is one of the most threatening <a href="/wiki/Cyber-attack" class="mw-redirect" title="Cyber-attack">cyber-attacks</a> that may happen to an <a href="/wiki/Internet_service_provider" title="Internet service provider">internet service provider</a>.<sup id="cite_ref-s1_36-1" class="reference"><a href="#cite_note-s1-36">&#91;36&#93;</a></sup> By combining the output of single classifiers, ensemble classifiers reduce the total error of detecting and discriminating such attacks from legitimate <a href="/wiki/Flash_crowd" class="mw-redirect" title="Flash crowd">flash crowds</a>.<sup id="cite_ref-45" class="reference"><a href="#cite_note-45">&#91;45&#93;</a></sup>
+</p>
+<h4><span class="mw-headline" id="Malware_Detection">Malware Detection</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=19" title="Edit section: Malware Detection">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Classification of <a href="/wiki/Malware" title="Malware">malware</a> codes such as <a href="/wiki/Computer_virus" title="Computer virus">computer viruses</a>, <a href="/wiki/Computer_worm" title="Computer worm">computer worms</a>, <a href="/wiki/Trojan_horses" class="mw-redirect" title="Trojan horses">trojans</a>, <a href="/wiki/Ransomware" title="Ransomware">ransomware</a> and <a href="/wiki/Spyware" title="Spyware">spywares</a> with the usage of <a href="/wiki/Machine_learning" title="Machine learning">machine learning</a> techniques, is inspired by the <a href="/wiki/Document_classification" title="Document classification">document categorization problem</a>.<sup id="cite_ref-46" class="reference"><a href="#cite_note-46">&#91;46&#93;</a></sup> Ensemble learning systems have shown a proper efficacy in this area.<sup id="cite_ref-47" class="reference"><a href="#cite_note-47">&#91;47&#93;</a></sup><sup id="cite_ref-48" class="reference"><a href="#cite_note-48">&#91;48&#93;</a></sup>
+</p>
+<h4><span class="mw-headline" id="Intrusion_detection">Intrusion detection</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=20" title="Edit section: Intrusion detection">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>An <a href="/wiki/Intrusion_detection_system" title="Intrusion detection system">intrusion detection system</a> monitors <a href="/wiki/Computer_network" title="Computer network">computer network</a> or <a href="/wiki/Computer_system" class="mw-redirect" title="Computer system">computer systems</a> to identify intruder codes like an <a href="/wiki/Anomaly_detection" title="Anomaly detection">anomaly detection</a> process. Ensemble learning successfully aids such monitoring systems to reduce their total error.<sup id="cite_ref-49" class="reference"><a href="#cite_note-49">&#91;49&#93;</a></sup><sup id="cite_ref-50" class="reference"><a href="#cite_note-50">&#91;50&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Face_recognition">Face recognition</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=21" title="Edit section: Face recognition">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div role="note" class="hatnote navigation-not-searchable">Main article: <a href="/wiki/Face_recognition" class="mw-redirect" title="Face recognition">Face recognition</a></div>
+<p><a href="/wiki/Face_recognition" class="mw-redirect" title="Face recognition">Face recognition</a>, which recently has become one of the most popular research areas of <a href="/wiki/Pattern_recognition" title="Pattern recognition">pattern recognition</a>, copes with identification or verification of a person by his/her <a href="/wiki/Digital_image" title="Digital image">digital images</a>.<sup id="cite_ref-51" class="reference"><a href="#cite_note-51">&#91;51&#93;</a></sup>
+</p><p>Hierarchical ensembles based on Gabor Fisher classifier and <a href="/wiki/Independent_component_analysis" title="Independent component analysis">independent component analysis</a> <a href="/wiki/Data_pre-processing" title="Data pre-processing">preprocessing</a> techniques are some of the earliest ensembles employed in this field.<sup id="cite_ref-52" class="reference"><a href="#cite_note-52">&#91;52&#93;</a></sup><sup id="cite_ref-53" class="reference"><a href="#cite_note-53">&#91;53&#93;</a></sup><sup id="cite_ref-54" class="reference"><a href="#cite_note-54">&#91;54&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Emotion_recognition">Emotion recognition</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=22" title="Edit section: Emotion recognition">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div role="note" class="hatnote navigation-not-searchable">Main article: <a href="/wiki/Emotion_recognition" title="Emotion recognition">Emotion recognition</a></div>
+<p>While <a href="/wiki/Speech_recognition" title="Speech recognition">speech recognition</a> is mainly based on <a href="/wiki/Deep_learning" title="Deep learning">deep learning</a> because most of the industry players in this field like <a href="/wiki/Google" title="Google">Google</a>, <a href="/wiki/Microsoft" title="Microsoft">Microsoft</a> and <a href="/wiki/IBM" title="IBM">IBM</a> reveal that the core technology of their <a href="/wiki/Speech_recognition" title="Speech recognition">speech recognition</a> is based on this approach, speech-based <a href="/wiki/Emotion_recognition" title="Emotion recognition">emotion recognition</a> can also have a satisfactory performance with ensemble learning.<sup id="cite_ref-55" class="reference"><a href="#cite_note-55">&#91;55&#93;</a></sup><sup id="cite_ref-56" class="reference"><a href="#cite_note-56">&#91;56&#93;</a></sup>
+</p><p>It is also being successfully used in <a href="/wiki/Emotion_recognition" title="Emotion recognition">facial emotion recognition</a>.<sup id="cite_ref-57" class="reference"><a href="#cite_note-57">&#91;57&#93;</a></sup><sup id="cite_ref-58" class="reference"><a href="#cite_note-58">&#91;58&#93;</a></sup><sup id="cite_ref-59" class="reference"><a href="#cite_note-59">&#91;59&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Fraud_detection">Fraud detection</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=23" title="Edit section: Fraud detection">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div role="note" class="hatnote navigation-not-searchable">Main article: <a href="/wiki/Fraud_detection" class="mw-redirect" title="Fraud detection">Fraud detection</a></div>
+<p><a href="/wiki/Fraud_detection" class="mw-redirect" title="Fraud detection">Fraud detection</a> deals with the identification of <a href="/wiki/Bank_fraud" title="Bank fraud">bank fraud</a>, such as <a href="/wiki/Money_laundering" title="Money laundering">money laundering</a>, <a href="/wiki/Credit_card_fraud" title="Credit card fraud">credit card fraud</a> and <a href="/w/index.php?title=Telecommunication_fraud&amp;action=edit&amp;redlink=1" class="new" title="Telecommunication fraud (page does not exist)">telecommunication fraud</a>, which have vast domains of research and applications of <a href="/wiki/Machine_learning" title="Machine learning">machine learning</a>. Because ensemble learning improves the robustness of the normal behavior modelling, it has been proposed as an efficient technique to detect such fraudulent cases and activities in banking and credit card systems.<sup id="cite_ref-60" class="reference"><a href="#cite_note-60">&#91;60&#93;</a></sup><sup id="cite_ref-61" class="reference"><a href="#cite_note-61">&#91;61&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Financial_decision-making">Financial decision-making</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=24" title="Edit section: Financial decision-making">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The accuracy of prediction of business failure is a very crucial issue in financial decision-making. Therefore, different ensemble classifiers are proposed to predict <a href="/wiki/Financial_crisis" title="Financial crisis">financial crises</a> and <a href="/wiki/Financial_distress" title="Financial distress">financial distress</a>.<sup id="cite_ref-ReferenceA_62-0" class="reference"><a href="#cite_note-ReferenceA-62">&#91;62&#93;</a></sup> Also, in the <a href="/wiki/Market_manipulation" title="Market manipulation">trade-based manipulation</a> problem, where traders attempt to manipulate <a href="/wiki/Stock_price" class="mw-redirect" title="Stock price">stock prices</a> by buying and selling activities, ensemble classifiers are required to analyze the changes in the <a href="/wiki/Stock_market" title="Stock market">stock market</a> data and detect suspicious symptom of <a href="/wiki/Stock_price" class="mw-redirect" title="Stock price">stock price</a> <a href="/wiki/Market_manipulation" title="Market manipulation">manipulation</a>.<sup id="cite_ref-ReferenceA_62-1" class="reference"><a href="#cite_note-ReferenceA-62">&#91;62&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Medicine">Medicine</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=25" title="Edit section: Medicine">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Ensemble classifiers have been successfully applied in <a href="/wiki/Neuroscience" title="Neuroscience">neuroscience</a>, <a href="/wiki/Proteomics" title="Proteomics">proteomics</a> and <a href="/wiki/Medical_diagnosis" title="Medical diagnosis">medical diagnosis</a> like in <a href="/wiki/Neurocognitive" title="Neurocognitive">neuro-cognitive disorder</a> (i.e. <a href="/wiki/Alzheimer" class="mw-redirect" title="Alzheimer">Alzheimer</a> or <a href="/wiki/Myotonic_dystrophy" title="Myotonic dystrophy">myotonic dystrophy</a>) detection based on MRI datasets.<sup id="cite_ref-63" class="reference"><a href="#cite_note-63">&#91;63&#93;</a></sup><sup id="cite_ref-64" class="reference"><a href="#cite_note-64">&#91;64&#93;</a></sup><sup id="cite_ref-65" class="reference"><a href="#cite_note-65">&#91;65&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=26" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/Ensemble_averaging_(machine_learning)" title="Ensemble averaging (machine learning)">Ensemble averaging (machine learning)</a></li>
+<li><a href="/wiki/Bayesian_structural_time_series" title="Bayesian structural time series">Bayesian structural time series</a> (BSTS)</li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=27" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist columns references-column-width" style="-moz-column-width: 30em; -webkit-column-width: 30em; column-width: 30em; list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><cite class="citation journal">Opitz, D.; Maclin, R. (1999). "Popular ensemble methods: An empirical study". <i><a href="/wiki/Journal_of_Artificial_Intelligence_Research" title="Journal of Artificial Intelligence Research">Journal of Artificial Intelligence Research</a></i>. <b>11</b>: 169–198. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1613%2Fjair.614">10.1613/jair.614</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Artificial+Intelligence+Research&amp;rft.atitle=Popular+ensemble+methods%3A+An+empirical+study&amp;rft.volume=11&amp;rft.pages=169-198&amp;rft.date=1999&amp;rft_id=info%3Adoi%2F10.1613%2Fjair.614&amp;rft.aulast=Opitz&amp;rft.aufirst=D.&amp;rft.au=Maclin%2C+R.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><style data-mw-deduplicate="TemplateStyles:r935243608">.mw-parser-output cite.citation{font-style:inherit}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/9px-Lock-green.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lock-gray-alt-2.svg/9px-Lock-gray-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lock-red-alt-2.svg/9px-Lock-red-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration{color:#555}.mw-parser-output .cs1-subscription span,.mw-parser-output .cs1-registration span{border-bottom:1px dotted;cursor:help}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/12px-Wikisource-logo.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output code.cs1-code{color:inherit;background:inherit;border:inherit;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;font-size:100%}.mw-parser-output .cs1-visible-error{font-size:100%}.mw-parser-output .cs1-maint{display:none;color:#33aa33;margin-left:0.3em}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration,.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left,.mw-parser-output .cs1-kern-wl-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right,.mw-parser-output .cs1-kern-wl-right{padding-right:0.2em}</style></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><cite class="citation journal">Polikar, R. (2006). "Ensemble based systems in decision making". <i>IEEE Circuits and Systems Magazine</i>. <b>6</b> (3): 21–45. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FMCAS.2006.1688199">10.1109/MCAS.2006.1688199</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Circuits+and+Systems+Magazine&amp;rft.atitle=Ensemble+based+systems+in+decision+making&amp;rft.volume=6&amp;rft.issue=3&amp;rft.pages=21-45&amp;rft.date=2006&amp;rft_id=info%3Adoi%2F10.1109%2FMCAS.2006.1688199&amp;rft.aulast=Polikar&amp;rft.aufirst=R.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-Rokach2010-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-Rokach2010_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Rokach2010_3-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Rokach, L. (2010). "Ensemble-based classifiers". <i>Artificial Intelligence Review</i>. <b>33</b> (1–2): 1–39. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fs10462-009-9124-7">10.1007/s10462-009-9124-7</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Artificial+Intelligence+Review&amp;rft.atitle=Ensemble-based+classifiers&amp;rft.volume=33&amp;rft.issue=1%E2%80%932&amp;rft.pages=1-39&amp;rft.date=2010&amp;rft_id=info%3Adoi%2F10.1007%2Fs10462-009-9124-7&amp;rft.aulast=Rokach&amp;rft.aufirst=L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><cite class="citation journal">Blockeel H. (2011). "Hypothesis Space". <i>Encyclopedia of Machine Learning</i>: 511–513. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-0-387-30164-8_373">10.1007/978-0-387-30164-8_373</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-387-30768-8" title="Special:BookSources/978-0-387-30768-8"><bdi>978-0-387-30768-8</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Encyclopedia+of+Machine+Learning&amp;rft.atitle=Hypothesis+Space&amp;rft.pages=511-513&amp;rft.date=2011&amp;rft_id=info%3Adoi%2F10.1007%2F978-0-387-30164-8_373&amp;rft.isbn=978-0-387-30768-8&amp;rft.au=Blockeel+H.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text">Kuncheva, L. and Whitaker, C., Measures of diversity in classifier ensembles, <i>Machine Learning</i>, 51, pp. 181-207, 2003</span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text">Sollich, P. and Krogh, A., <i>Learning with ensembles: How overfitting can be useful</i>, Advances in Neural Information Processing Systems, volume 8, pp. 190-196, 1996.</span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text">Brown, G. and Wyatt, J. and Harris, R. and Yao, X., Diversity creation methods: a survey and categorisation., <i>Information Fusion</i>, 6(1), pp.5-20, 2005.</span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><i><a rel="nofollow" class="external text" href="http://www.clei.cl/cleiej/papers/v8i2p1.pdf">Accuracy and Diversity in Ensembles of Text Categorisers</a> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20110707010133/http://www.clei.cl/cleiej/papers/v8i2p1.pdf">Archived</a> 2011-07-07 at the <a href="/wiki/Wayback_Machine" title="Wayback Machine">Wayback Machine</a></i>. J. J. García Adeva, Ulises Cerviño, and R. Calvo, CLEI Journal, Vol. 8, No. 2, pp. 1 - 12, December 2005.</span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text">Ho, T., Random Decision Forests, <i>Proceedings of the Third International Conference on Document Analysis and Recognition</i>, pp. 278-282, 1995.</span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text">Gashler, M. and Giraud-Carrier, C. and Martinez, T., <i><a rel="nofollow" class="external text" href="http://axon.cs.byu.edu/papers/gashler2008icmla.pdf">Decision Tree Ensemble: Small Heterogeneous Is Better Than Large Homogeneous</a></i>, The Seventh International Conference on Machine Learning and Applications, 2008, pp. 900-905., <a rel="nofollow" class="external text" href="http://ieeexplore.ieee.org/search/wrapper.jsp?arnumber=4796917">DOI 10.1109/ICMLA.2008.154</a></span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text"><cite class="citation conference">R. Bonab, Hamed; Can, Fazli (2016). <a rel="nofollow" class="external text" href="http://dl.acm.org/citation.cfm?id=2983907"><i>A Theoretical Framework on the Ideal Number of Classifiers for Online Ensembles in Data Streams</i></a>. CIKM. USA: ACM. p.&#160;2053.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=A+Theoretical+Framework+on+the+Ideal+Number+of+Classifiers+for+Online+Ensembles+in+Data+Streams&amp;rft.place=USA&amp;rft.pages=2053&amp;rft.pub=ACM&amp;rft.date=2016&amp;rft.aulast=R.+Bonab&amp;rft.aufirst=Hamed&amp;rft.au=Can%2C+Fazli&amp;rft_id=http%3A%2F%2Fdl.acm.org%2Fcitation.cfm%3Fid%3D2983907&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text"><cite class="citation conference">R. Bonab, Hamed; Can, Fazli (2019). <i>Less Is More: A Comprehensive Framework for the Number of Components of Ensemble Classifiers</i>. TNNLS. USA: IEEE. <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/1709.02925">1709.02925</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Less+Is+More%3A+A+Comprehensive+Framework+for+the+Number+of+Components+of+Ensemble+Classifiers&amp;rft.place=USA&amp;rft.pub=IEEE&amp;rft.date=2019&amp;rft_id=info%3Aarxiv%2F1709.02925&amp;rft.aulast=R.+Bonab&amp;rft.aufirst=Hamed&amp;rft.au=Can%2C+Fazli&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-13">^</a></b></span> <span class="reference-text"><a href="/wiki/Tom_M._Mitchell" title="Tom M. Mitchell">Tom M. Mitchell</a>, <i>Machine Learning</i>, 1997, pp. 175</span>
+</li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text">Breiman, L., Bagging Predictors, <i>Machine Learning</i>, 24(2), pp.123-140, 1996.</span>
+</li>
+<li id="cite_note-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-15">^</a></b></span> <span class="reference-text"><cite class="citation journal"><a href="/wiki/Jennifer_A._Hoeting" title="Jennifer A. Hoeting">Hoeting, J. A.</a>; Madigan, D.; Raftery, A. E.; Volinsky, C. T. (1999). "Bayesian Model Averaging: A Tutorial". <i>Statistical Science</i>. <b>14</b> (4): 382–401. <a href="/wiki/JSTOR" title="JSTOR">JSTOR</a>&#160;<a rel="nofollow" class="external text" href="//www.jstor.org/stable/2676803">2676803</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Statistical+Science&amp;rft.atitle=Bayesian+Model+Averaging%3A+A+Tutorial&amp;rft.volume=14&amp;rft.issue=4&amp;rft.pages=382-401&amp;rft.date=1999&amp;rft_id=%2F%2Fwww.jstor.org%2Fstable%2F2676803&amp;rft.aulast=Hoeting&amp;rft.aufirst=J.+A.&amp;rft.au=Madigan%2C+D.&amp;rft.au=Raftery%2C+A.+E.&amp;rft.au=Volinsky%2C+C.+T.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-16">^</a></b></span> <span class="reference-text">David Haussler, Michael Kearns, and Robert E. Schapire. <i>Bounds on the sample complexity of Bayesian learning using information theory and the VC dimension</i>. Machine Learning, 14:83–113, 1994</span>
+</li>
+<li id="cite_note-17"><span class="mw-cite-backlink"><b><a href="#cite_ref-17">^</a></b></span> <span class="reference-text"><cite class="citation conference">Domingos, Pedro (2000). <a rel="nofollow" class="external text" href="http://www.cs.washington.edu/homes/pedrod/papers/mlc00b.pdf"><i>Bayesian averaging of classifiers and the overfitting problem</i></a> <span class="cs1-format">(PDF)</span>. Proceedings of the 17th <a href="/wiki/International_Conference_on_Machine_Learning" title="International Conference on Machine Learning">International Conference on Machine Learning (ICML)</a>. pp.&#160;223––230.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Bayesian+averaging+of+classifiers+and+the+overfitting+problem&amp;rft.pages=223--230&amp;rft.date=2000&amp;rft.aulast=Domingos&amp;rft.aufirst=Pedro&amp;rft_id=http%3A%2F%2Fwww.cs.washington.edu%2Fhomes%2Fpedrod%2Fpapers%2Fmlc00b.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-18"><span class="mw-cite-backlink"><b><a href="#cite_ref-18">^</a></b></span> <span class="reference-text"><cite id="CITEREFMinka2002" class="citation">Minka, Thomas (2002), <a rel="nofollow" class="external text" href="http://research.microsoft.com/en-us/um/people/minka/papers/minka-bma-isnt-mc.pdf"><i>Bayesian model averaging is not model combination</i></a> <span class="cs1-format">(PDF)</span></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Bayesian+model+averaging+is+not+model+combination&amp;rft.date=2002&amp;rft.aulast=Minka&amp;rft.aufirst=Thomas&amp;rft_id=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Fminka%2Fpapers%2Fminka-bma-isnt-mc.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-19"><span class="mw-cite-backlink"><b><a href="#cite_ref-19">^</a></b></span> <span class="reference-text"><cite class="citation journal">Castillo, I.; Schmidt-Hieber, J.; van der Vaart, A. (2015). "Bayesian linear regression with sparse priors". <i><a href="/wiki/Annals_of_Statistics" title="Annals of Statistics">Annals of Statistics</a></i>. <b>43</b> (5): 1986–2018. <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/1403.0735">1403.0735</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1214%2F15-AOS1334">10.1214/15-AOS1334</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Annals+of+Statistics&amp;rft.atitle=Bayesian+linear+regression+with+sparse+priors&amp;rft.volume=43&amp;rft.issue=5&amp;rft.pages=1986-2018&amp;rft.date=2015&amp;rft_id=info%3Aarxiv%2F1403.0735&amp;rft_id=info%3Adoi%2F10.1214%2F15-AOS1334&amp;rft.aulast=Castillo&amp;rft.aufirst=I.&amp;rft.au=Schmidt-Hieber%2C+J.&amp;rft.au=van+der+Vaart%2C+A.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-20"><span class="mw-cite-backlink"><b><a href="#cite_ref-20">^</a></b></span> <span class="reference-text"><cite class="citation journal">Hernández-Lobato, D.; Hernández-Lobato, J. M.; Dupont, P. (2013). <a rel="nofollow" class="external text" href="http://www.jmlr.org/papers/volume14/hernandez-lobato13a/hernandez-lobato13a.pdf">"Generalized Spike-and-Slab Priors for Bayesian Group Feature Selection Using Expectation Propagation"</a> <span class="cs1-format">(PDF)</span>. <i>Journal of Machine Learning Research</i>. <b>14</b>: 1891–1945.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Machine+Learning+Research&amp;rft.atitle=Generalized+Spike-and-Slab+Priors+for+Bayesian+Group+Feature+Selection+Using+Expectation+Propagation&amp;rft.volume=14&amp;rft.pages=1891-1945&amp;rft.date=2013&amp;rft.aulast=Hern%C3%A1ndez-Lobato&amp;rft.aufirst=D.&amp;rft.au=Hern%C3%A1ndez-Lobato%2C+J.+M.&amp;rft.au=Dupont%2C+P.&amp;rft_id=http%3A%2F%2Fwww.jmlr.org%2Fpapers%2Fvolume14%2Fhernandez-lobato13a%2Fhernandez-lobato13a.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-21"><span class="mw-cite-backlink"><b><a href="#cite_ref-21">^</a></b></span> <span class="reference-text"><cite class="citation conference">Monteith, Kristine; Carroll, James; Seppi, Kevin; Martinez, Tony. (2011). <a rel="nofollow" class="external text" href="http://axon.cs.byu.edu/papers/Kristine.ijcnn2011.pdf"><i>Turning Bayesian Model Averaging into Bayesian Model Combination</i></a> <span class="cs1-format">(PDF)</span>. Proceedings of the International Joint Conference on Neural Networks IJCNN'11. pp.&#160;2657–2663.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Turning+Bayesian+Model+Averaging+into+Bayesian+Model+Combination&amp;rft.pages=2657-2663&amp;rft.date=2011&amp;rft.au=Monteith%2C+Kristine&amp;rft.au=Carroll%2C+James&amp;rft.au=Seppi%2C+Kevin&amp;rft.au=Martinez%2C+Tony.&amp;rft_id=http%3A%2F%2Faxon.cs.byu.edu%2Fpapers%2FKristine.ijcnn2011.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-22"><span class="mw-cite-backlink"><b><a href="#cite_ref-22">^</a></b></span> <span class="reference-text">Saso Dzeroski, Bernard Zenko, <i><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.108.6096">Is Combining Classifiers Better than Selecting the Best One</a></i>, Machine Learning, 2004, pp. 255--273</span>
+</li>
+<li id="cite_note-23"><span class="mw-cite-backlink"><b><a href="#cite_ref-23">^</a></b></span> <span class="reference-text"><cite class="citation book">Bensusan, Hilan; Giraud-Carrier, Christophe (2000). <a rel="nofollow" class="external text" href="https://link.springer.com/content/pdf/10.1007/3-540-45372-5_32.pdf">"Discovering Task Neighbourhoods through Landmark Learning Performances"</a> <span class="cs1-format">(PDF)</span>. <i>Principles of Data Mining and Knowledge Discovery</i>. Lecture Notes in Computer Science. <b>1910</b>. pp.&#160;325–330. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F3-540-45372-5_32">10.1007/3-540-45372-5_32</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-3-540-41066-9" title="Special:BookSources/978-3-540-41066-9"><bdi>978-3-540-41066-9</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Discovering+Task+Neighbourhoods+through+Landmark+Learning+Performances&amp;rft.btitle=Principles+of+Data+Mining+and+Knowledge+Discovery&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=325-330&amp;rft.date=2000&amp;rft_id=info%3Adoi%2F10.1007%2F3-540-45372-5_32&amp;rft.isbn=978-3-540-41066-9&amp;rft.aulast=Bensusan&amp;rft.aufirst=Hilan&amp;rft.au=Giraud-Carrier%2C+Christophe&amp;rft_id=https%3A%2F%2Flink.springer.com%2Fcontent%2Fpdf%2F10.1007%2F3-540-45372-5_32.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-24"><span class="mw-cite-backlink"><b><a href="#cite_ref-24">^</a></b></span> <span class="reference-text">Wolpert, D., <i>Stacked Generalization.</i>, Neural Networks, 5(2), pp. 241-259., 1992</span>
+</li>
+<li id="cite_note-25"><span class="mw-cite-backlink"><b><a href="#cite_ref-25">^</a></b></span> <span class="reference-text">Breiman, L., <i>Stacked Regression</i>, Machine Learning, 24, 1996 <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF00117832">10.1007/BF00117832</a></span>
+</li>
+<li id="cite_note-26"><span class="mw-cite-backlink"><b><a href="#cite_ref-26">^</a></b></span> <span class="reference-text"><cite class="citation journal">Ozay, M.; Yarman Vural, F. T. (2013). "A New Fuzzy Stacked Generalization Technique and Analysis of its Performance". <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/1204.0171">1204.0171</a></span>. <a href="/wiki/Bibcode" title="Bibcode">Bibcode</a>:<a rel="nofollow" class="external text" href="https://ui.adsabs.harvard.edu/abs/2012arXiv1204.0171O">2012arXiv1204.0171O</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=A+New+Fuzzy+Stacked+Generalization+Technique+and+Analysis+of+its+Performance&amp;rft.date=2013&amp;rft_id=info%3Aarxiv%2F1204.0171&amp;rft_id=info%3Abibcode%2F2012arXiv1204.0171O&amp;rft.aulast=Ozay&amp;rft.aufirst=M.&amp;rft.au=Yarman+Vural%2C+F.+T.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span> <span class="cs1-hidden-error error citation-comment">Cite journal requires <code class="cs1-code">&#124;journal=</code> (<a href="/wiki/Help:CS1_errors#missing_periodical" title="Help:CS1 errors">help</a>)</span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-27"><span class="mw-cite-backlink"><b><a href="#cite_ref-27">^</a></b></span> <span class="reference-text">Smyth, P. and Wolpert, D. H., <i><a rel="nofollow" class="external text" href="https://link.springer.com/content/pdf/10.1023/A:1007511322260.pdf">Linearly Combining Density Estimators via Stacking</a></i>, Machine
+Learning Journal, 36, 59-83, 1999</span>
+</li>
+<li id="cite_note-28"><span class="mw-cite-backlink"><b><a href="#cite_ref-28">^</a></b></span> <span class="reference-text">Wolpert, D.H., and Macready, W.G., <i><a rel="nofollow" class="external text" href="https://link.springer.com/content/pdf/10.1023/A:1007519102914.pdf">An Efficient Method to Estimate Bagging’s Generalization Error</a></i>, Machine Learning Journal, 35, 41-55, 1999</span>
+</li>
+<li id="cite_note-29"><span class="mw-cite-backlink"><b><a href="#cite_ref-29">^</a></b></span> <span class="reference-text">Clarke, B., <i>Bayes model averaging and stacking when model approximation error cannot be ignored</i>, Journal of Machine Learning Research, pp 683-712, 2003</span>
+</li>
+<li id="cite_note-30"><span class="mw-cite-backlink"><b><a href="#cite_ref-30">^</a></b></span> <span class="reference-text"><cite class="citation journal">Sill, J.; Takacs, G.; Mackey, L.; Lin, D. (2009). "Feature-Weighted Linear Stacking". <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/0911.0460">0911.0460</a></span>. <a href="/wiki/Bibcode" title="Bibcode">Bibcode</a>:<a rel="nofollow" class="external text" href="https://ui.adsabs.harvard.edu/abs/2009arXiv0911.0460S">2009arXiv0911.0460S</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Feature-Weighted+Linear+Stacking&amp;rft.date=2009&amp;rft_id=info%3Aarxiv%2F0911.0460&amp;rft_id=info%3Abibcode%2F2009arXiv0911.0460S&amp;rft.aulast=Sill&amp;rft.aufirst=J.&amp;rft.au=Takacs%2C+G.&amp;rft.au=Mackey%2C+L.&amp;rft.au=Lin%2C+D.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span> <span class="cs1-hidden-error error citation-comment">Cite journal requires <code class="cs1-code">&#124;journal=</code> (<a href="/wiki/Help:CS1_errors#missing_periodical" title="Help:CS1 errors">help</a>)</span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-31"><span class="mw-cite-backlink"><b><a href="#cite_ref-31">^</a></b></span> <span class="reference-text"><cite class="citation journal">Amini, Shahram M.; Parmeter, Christopher F. (2011). <a rel="nofollow" class="external text" href="https://core.ac.uk/download/pdf/6494889.pdf">"Bayesian model averaging in R"</a> <span class="cs1-format">(PDF)</span>. <i>Journal of Economic and Social Measurement</i>. <b>36</b> (4): 253–287. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.3233%2FJEM-2011-0350">10.3233/JEM-2011-0350</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Economic+and+Social+Measurement&amp;rft.atitle=Bayesian+model+averaging+in+R&amp;rft.volume=36&amp;rft.issue=4&amp;rft.pages=253-287&amp;rft.date=2011&amp;rft_id=info%3Adoi%2F10.3233%2FJEM-2011-0350&amp;rft.aulast=Amini&amp;rft.aufirst=Shahram+M.&amp;rft.au=Parmeter%2C+Christopher+F.&amp;rft_id=https%3A%2F%2Fcore.ac.uk%2Fdownload%2Fpdf%2F6494889.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-32"><span class="mw-cite-backlink"><b><a href="#cite_ref-32">^</a></b></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="https://cran.r-project.org/web/packages/BMS/index.html">"BMS: Bayesian Model Averaging Library"</a>. <i>The Comprehensive R Archive Network</i>. 2015-11-24<span class="reference-accessdate">. Retrieved <span class="nowrap">September 9,</span> 2016</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=The+Comprehensive+R+Archive+Network&amp;rft.atitle=BMS%3A+Bayesian+Model+Averaging+Library&amp;rft.date=2015-11-24&amp;rft_id=https%3A%2F%2Fcran.r-project.org%2Fweb%2Fpackages%2FBMS%2Findex.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-33"><span class="mw-cite-backlink"><b><a href="#cite_ref-33">^</a></b></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="https://cran.r-project.org/web/packages/BAS/index.html">"BAS: Bayesian Model Averaging using Bayesian Adaptive Sampling"</a>. <i>The Comprehensive R Archive Network</i><span class="reference-accessdate">. Retrieved <span class="nowrap">September 9,</span> 2016</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=The+Comprehensive+R+Archive+Network&amp;rft.atitle=BAS%3A+Bayesian+Model+Averaging+using+Bayesian+Adaptive+Sampling&amp;rft_id=https%3A%2F%2Fcran.r-project.org%2Fweb%2Fpackages%2FBAS%2Findex.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-34"><span class="mw-cite-backlink"><b><a href="#cite_ref-34">^</a></b></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="https://cran.r-project.org/web/packages/BMA/index.html">"BMA: Bayesian Model Averaging"</a>. <i>The Comprehensive R Archive Network</i><span class="reference-accessdate">. Retrieved <span class="nowrap">September 9,</span> 2016</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=The+Comprehensive+R+Archive+Network&amp;rft.atitle=BMA%3A+Bayesian+Model+Averaging&amp;rft_id=https%3A%2F%2Fcran.r-project.org%2Fweb%2Fpackages%2FBMA%2Findex.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-35"><span class="mw-cite-backlink"><b><a href="#cite_ref-35">^</a></b></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="https://uk.mathworks.com/help/stats/classification-ensembles.html">"Classification Ensembles"</a>. <i>MATLAB &amp; Simulink</i><span class="reference-accessdate">. Retrieved <span class="nowrap">June 8,</span> 2017</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=MATLAB+%26+Simulink&amp;rft.atitle=Classification+Ensembles&amp;rft_id=https%3A%2F%2Fuk.mathworks.com%2Fhelp%2Fstats%2Fclassification-ensembles.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-s1-36"><span class="mw-cite-backlink">^ <a href="#cite_ref-s1_36-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-s1_36-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Woźniak, Michał; Graña, Manuel; Corchado, Emilio (March 2014). "A survey of multiple classifier systems as hybrid systems". <i>Information Fusion</i>. <b>16</b>: 3–17. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.inffus.2013.04.006">10.1016/j.inffus.2013.04.006</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+Fusion&amp;rft.atitle=A+survey+of+multiple+classifier+systems+as+hybrid+systems&amp;rft.volume=16&amp;rft.pages=3-17&amp;rft.date=2014-03&amp;rft_id=info%3Adoi%2F10.1016%2Fj.inffus.2013.04.006&amp;rft.aulast=Wo%C5%BAniak&amp;rft.aufirst=Micha%C5%82&amp;rft.au=Gra%C3%B1a%2C+Manuel&amp;rft.au=Corchado%2C+Emilio&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-rodriguez-37"><span class="mw-cite-backlink">^ <a href="#cite_ref-rodriguez_37-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-rodriguez_37-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Rodriguez-Galiano, V.F.; Ghimire, B.; Rogan, J.; Chica-Olmo, M.; Rigol-Sanchez, J.P. (January 2012). "An assessment of the effectiveness of a random forest classifier for land-cover classification". <i>ISPRS Journal of Photogrammetry and Remote Sensing</i>. <b>67</b>: 93–104. <a href="/wiki/Bibcode" title="Bibcode">Bibcode</a>:<a rel="nofollow" class="external text" href="https://ui.adsabs.harvard.edu/abs/2012JPRS...67...93R">2012JPRS...67...93R</a>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.isprsjprs.2011.11.002">10.1016/j.isprsjprs.2011.11.002</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=ISPRS+Journal+of+Photogrammetry+and+Remote+Sensing&amp;rft.atitle=An+assessment+of+the+effectiveness+of+a+random+forest+classifier+for+land-cover+classification&amp;rft.volume=67&amp;rft.pages=93-104&amp;rft.date=2012-01&amp;rft_id=info%3Adoi%2F10.1016%2Fj.isprsjprs.2011.11.002&amp;rft_id=info%3Abibcode%2F2012JPRS...67...93R&amp;rft.aulast=Rodriguez-Galiano&amp;rft.aufirst=V.F.&amp;rft.au=Ghimire%2C+B.&amp;rft.au=Rogan%2C+J.&amp;rft.au=Chica-Olmo%2C+M.&amp;rft.au=Rigol-Sanchez%2C+J.P.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-38"><span class="mw-cite-backlink"><b><a href="#cite_ref-38">^</a></b></span> <span class="reference-text"><cite class="citation journal">Giacinto, Giorgio; Roli, Fabio (August 2001). "Design of effective neural network ensembles for image classification purposes". <i>Image and Vision Computing</i>. <b>19</b> (9–10): 699–707. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.11.5820">10.1.1.11.5820</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0262-8856%2801%2900045-2">10.1016/S0262-8856(01)00045-2</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Image+and+Vision+Computing&amp;rft.atitle=Design+of+effective+neural+network+ensembles+for+image+classification+purposes&amp;rft.volume=19&amp;rft.issue=9%E2%80%9310&amp;rft.pages=699-707&amp;rft.date=2001-08&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.11.5820&amp;rft_id=info%3Adoi%2F10.1016%2FS0262-8856%2801%2900045-2&amp;rft.aulast=Giacinto&amp;rft.aufirst=Giorgio&amp;rft.au=Roli%2C+Fabio&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-39"><span class="mw-cite-backlink"><b><a href="#cite_ref-39">^</a></b></span> <span class="reference-text"><cite class="citation book">Xia, Junshi; Yokoya, Naoto; Iwasaki, Yakira (March 2017). <i>A novel ensemble classifier of hyperspectral and LiDAR data using morphological features</i>. <i>2017 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</i>. pp.&#160;6185–6189. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FICASSP.2017.7953345">10.1109/ICASSP.2017.7953345</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-1-5090-4117-6" title="Special:BookSources/978-1-5090-4117-6"><bdi>978-1-5090-4117-6</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=A+novel+ensemble+classifier+of+hyperspectral+and+LiDAR+data+using+morphological+features&amp;rft.pages=6185-6189&amp;rft.date=2017-03&amp;rft_id=info%3Adoi%2F10.1109%2FICASSP.2017.7953345&amp;rft.isbn=978-1-5090-4117-6&amp;rft.aulast=Xia&amp;rft.aufirst=Junshi&amp;rft.au=Yokoya%2C+Naoto&amp;rft.au=Iwasaki%2C+Yakira&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-40"><span class="mw-cite-backlink"><b><a href="#cite_ref-40">^</a></b></span> <span class="reference-text"><cite class="citation journal">Mochizuki, S.; Murakami, T. (November 2012). "Accuracy comparison of land cover mapping using the object-oriented image classification with machine learning algorithms". <i>33rd Asian Conference on Remote Sensing 2012, ACRS 2012</i>. <b>1</b>: 126–133.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=33rd+Asian+Conference+on+Remote+Sensing+2012%2C+ACRS+2012&amp;rft.atitle=Accuracy+comparison+of+land+cover+mapping+using+the+object-oriented+image+classification+with+machine+learning+algorithms&amp;rft.volume=1&amp;rft.pages=126-133&amp;rft.date=2012-11&amp;rft.aulast=Mochizuki&amp;rft.aufirst=S.&amp;rft.au=Murakami%2C+T.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-41"><span class="mw-cite-backlink"><b><a href="#cite_ref-41">^</a></b></span> <span class="reference-text"><cite class="citation book">Giacinto, G.; Roli, F.; Fumera, G. (September 2000). <i>Design of effective multiple classifier systems by clustering of classifiers</i>. <i>Proceedings 15th International Conference on Pattern Recognition. ICPR-2000</i>. <b>2</b>. pp.&#160;160–163. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.11.5328">10.1.1.11.5328</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FICPR.2000.906039">10.1109/ICPR.2000.906039</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-7695-0750-7" title="Special:BookSources/978-0-7695-0750-7"><bdi>978-0-7695-0750-7</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Design+of+effective+multiple+classifier+systems+by+clustering+of+classifiers&amp;rft.pages=160-163&amp;rft.date=2000-09&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.11.5328&amp;rft_id=info%3Adoi%2F10.1109%2FICPR.2000.906039&amp;rft.isbn=978-0-7695-0750-7&amp;rft.aulast=Giacinto&amp;rft.aufirst=G.&amp;rft.au=Roli%2C+F.&amp;rft.au=Fumera%2C+G.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-s2-42"><span class="mw-cite-backlink"><b><a href="#cite_ref-s2_42-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Du, Peijun; Liu, Sicong; Xia, Junshi; Zhao, Yindi (January 2013). "Information fusion techniques for change detection from multi-temporal remote sensing images". <i>Information Fusion</i>. <b>14</b> (1): 19–27. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.inffus.2012.05.003">10.1016/j.inffus.2012.05.003</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+Fusion&amp;rft.atitle=Information+fusion+techniques+for+change+detection+from+multi-temporal+remote+sensing+images&amp;rft.volume=14&amp;rft.issue=1&amp;rft.pages=19-27&amp;rft.date=2013-01&amp;rft_id=info%3Adoi%2F10.1016%2Fj.inffus.2012.05.003&amp;rft.aulast=Du&amp;rft.aufirst=Peijun&amp;rft.au=Liu%2C+Sicong&amp;rft.au=Xia%2C+Junshi&amp;rft.au=Zhao%2C+Yindi&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-43"><span class="mw-cite-backlink"><b><a href="#cite_ref-43">^</a></b></span> <span class="reference-text">Defined by Bruzzone et al. (2002) as "The data class that receives the largest number of votes is taken as the class of the input pattern", this is <i>simple majority</i>, more accurately described as <i>plurality</i> voting.</span>
+</li>
+<li id="cite_note-Bruzzone_et_al_2002-44"><span class="mw-cite-backlink"><b><a href="#cite_ref-Bruzzone_et_al_2002_44-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Bruzzone, Lorenzo; Cossu, Roberto; Vernazza, Gianni (December 2002). <a rel="nofollow" class="external text" href="http://eprints.biblio.unitn.it/105/1/24.pdf">"Combining parametric and non-parametric algorithms for a partially unsupervised classification of multitemporal remote-sensing images"</a> <span class="cs1-format">(PDF)</span>. <i>Information Fusion</i>. <b>3</b> (4): 289–297. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS1566-2535%2802%2900091-X">10.1016/S1566-2535(02)00091-X</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+Fusion&amp;rft.atitle=Combining+parametric+and+non-parametric+algorithms+for+a+partially+unsupervised+classification+of+multitemporal+remote-sensing+images&amp;rft.volume=3&amp;rft.issue=4&amp;rft.pages=289-297&amp;rft.date=2002-12&amp;rft_id=info%3Adoi%2F10.1016%2FS1566-2535%2802%2900091-X&amp;rft.aulast=Bruzzone&amp;rft.aufirst=Lorenzo&amp;rft.au=Cossu%2C+Roberto&amp;rft.au=Vernazza%2C+Gianni&amp;rft_id=http%3A%2F%2Feprints.biblio.unitn.it%2F105%2F1%2F24.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-45"><span class="mw-cite-backlink"><b><a href="#cite_ref-45">^</a></b></span> <span class="reference-text"><cite class="citation journal">Raj Kumar, P. Arun; Selvakumar, S. (July 2011). "Distributed denial of service attack detection using an ensemble of neural classifier". <i>Computer Communications</i>. <b>34</b> (11): 1328–1341. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.comcom.2011.01.012">10.1016/j.comcom.2011.01.012</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Computer+Communications&amp;rft.atitle=Distributed+denial+of+service+attack+detection+using+an+ensemble+of+neural+classifier&amp;rft.volume=34&amp;rft.issue=11&amp;rft.pages=1328-1341&amp;rft.date=2011-07&amp;rft_id=info%3Adoi%2F10.1016%2Fj.comcom.2011.01.012&amp;rft.aulast=Raj+Kumar&amp;rft.aufirst=P.+Arun&amp;rft.au=Selvakumar%2C+S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-46"><span class="mw-cite-backlink"><b><a href="#cite_ref-46">^</a></b></span> <span class="reference-text"><cite class="citation journal">Shabtai, Asaf; Moskovitch, Robert; Elovici, Yuval; Glezer, Chanan (February 2009). "Detection of malicious code by applying machine learning classifiers on static features: A state-of-the-art survey". <i>Information Security Technical Report</i>. <b>14</b> (1): 16–29. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.istr.2009.03.003">10.1016/j.istr.2009.03.003</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+Security+Technical+Report&amp;rft.atitle=Detection+of+malicious+code+by+applying+machine+learning+classifiers+on+static+features%3A+A+state-of-the-art+survey&amp;rft.volume=14&amp;rft.issue=1&amp;rft.pages=16-29&amp;rft.date=2009-02&amp;rft_id=info%3Adoi%2F10.1016%2Fj.istr.2009.03.003&amp;rft.aulast=Shabtai&amp;rft.aufirst=Asaf&amp;rft.au=Moskovitch%2C+Robert&amp;rft.au=Elovici%2C+Yuval&amp;rft.au=Glezer%2C+Chanan&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-47"><span class="mw-cite-backlink"><b><a href="#cite_ref-47">^</a></b></span> <span class="reference-text"><cite class="citation book">Zhang, Boyun; Yin, Jianping; Hao, Jingbo; Zhang, Dingxing; Wang, Shulin (2007). <i>Malicious Codes Detection Based on Ensemble Learning</i>. <i>Autonomic and Trusted Computing</i>. Lecture Notes in Computer Science. <b>4610</b>. pp.&#160;468–477. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-540-73547-2_48">10.1007/978-3-540-73547-2_48</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-3-540-73546-5" title="Special:BookSources/978-3-540-73546-5"><bdi>978-3-540-73546-5</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Malicious+Codes+Detection+Based+on+Ensemble+Learning&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=468-477&amp;rft.date=2007&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-540-73547-2_48&amp;rft.isbn=978-3-540-73546-5&amp;rft.aulast=Zhang&amp;rft.aufirst=Boyun&amp;rft.au=Yin%2C+Jianping&amp;rft.au=Hao%2C+Jingbo&amp;rft.au=Zhang%2C+Dingxing&amp;rft.au=Wang%2C+Shulin&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-48"><span class="mw-cite-backlink"><b><a href="#cite_ref-48">^</a></b></span> <span class="reference-text"><cite class="citation journal">Menahem, Eitan; Shabtai, Asaf; Rokach, Lior; Elovici, Yuval (February 2009). "Improving malware detection by applying multi-inducer ensemble". <i>Computational Statistics &amp; Data Analysis</i>. <b>53</b> (4): 1483–1494. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.150.2722">10.1.1.150.2722</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.csda.2008.10.015">10.1016/j.csda.2008.10.015</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Computational+Statistics+%26+Data+Analysis&amp;rft.atitle=Improving+malware+detection+by+applying+multi-inducer+ensemble&amp;rft.volume=53&amp;rft.issue=4&amp;rft.pages=1483-1494&amp;rft.date=2009-02&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.150.2722&amp;rft_id=info%3Adoi%2F10.1016%2Fj.csda.2008.10.015&amp;rft.aulast=Menahem&amp;rft.aufirst=Eitan&amp;rft.au=Shabtai%2C+Asaf&amp;rft.au=Rokach%2C+Lior&amp;rft.au=Elovici%2C+Yuval&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-49"><span class="mw-cite-backlink"><b><a href="#cite_ref-49">^</a></b></span> <span class="reference-text"><cite class="citation book">Locasto, Michael E.; Wang, Ke; Keromytis, Angeles D.; Salvatore, J. Stolfo (2005). <i>FLIPS: Hybrid Adaptive Intrusion Prevention</i>. <i>Recent Advances in Intrusion Detection</i>. Lecture Notes in Computer Science. <b>3858</b>. pp.&#160;82–101. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.60.3798">10.1.1.60.3798</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F11663812_5">10.1007/11663812_5</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-3-540-31778-4" title="Special:BookSources/978-3-540-31778-4"><bdi>978-3-540-31778-4</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=FLIPS%3A+Hybrid+Adaptive+Intrusion+Prevention&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=82-101&amp;rft.date=2005&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.60.3798&amp;rft_id=info%3Adoi%2F10.1007%2F11663812_5&amp;rft.isbn=978-3-540-31778-4&amp;rft.aulast=Locasto&amp;rft.aufirst=Michael+E.&amp;rft.au=Wang%2C+Ke&amp;rft.au=Keromytis%2C+Angeles+D.&amp;rft.au=Salvatore%2C+J.+Stolfo&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-50"><span class="mw-cite-backlink"><b><a href="#cite_ref-50">^</a></b></span> <span class="reference-text"><cite class="citation journal">Giacinto, Giorgio; Perdisci, Roberto; Del Rio, Mauro; Roli, Fabio (January 2008). "Intrusion detection in computer networks by a modular ensemble of one-class classifiers". <i>Information Fusion</i>. <b>9</b> (1): 69–82. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.69.9132">10.1.1.69.9132</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.inffus.2006.10.002">10.1016/j.inffus.2006.10.002</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+Fusion&amp;rft.atitle=Intrusion+detection+in+computer+networks+by+a+modular+ensemble+of+one-class+classifiers&amp;rft.volume=9&amp;rft.issue=1&amp;rft.pages=69-82&amp;rft.date=2008-01&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.69.9132&amp;rft_id=info%3Adoi%2F10.1016%2Fj.inffus.2006.10.002&amp;rft.aulast=Giacinto&amp;rft.aufirst=Giorgio&amp;rft.au=Perdisci%2C+Roberto&amp;rft.au=Del+Rio%2C+Mauro&amp;rft.au=Roli%2C+Fabio&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-51"><span class="mw-cite-backlink"><b><a href="#cite_ref-51">^</a></b></span> <span class="reference-text"><cite class="citation book">Mu, Xiaoyan; Lu, Jiangfeng; Watta, Paul; Hassoun, Mohamad H. (July 2009). <i>Weighted voting-based ensemble classifiers with application to human face recognition and voice recognition</i>. <i>2009 International Joint Conference on Neural Networks</i>. pp.&#160;2168–2171. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FIJCNN.2009.5178708">10.1109/IJCNN.2009.5178708</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-1-4244-3548-7" title="Special:BookSources/978-1-4244-3548-7"><bdi>978-1-4244-3548-7</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Weighted+voting-based+ensemble+classifiers+with+application+to+human+face+recognition+and+voice+recognition&amp;rft.pages=2168-2171&amp;rft.date=2009-07&amp;rft_id=info%3Adoi%2F10.1109%2FIJCNN.2009.5178708&amp;rft.isbn=978-1-4244-3548-7&amp;rft.aulast=Mu&amp;rft.aufirst=Xiaoyan&amp;rft.au=Lu%2C+Jiangfeng&amp;rft.au=Watta%2C+Paul&amp;rft.au=Hassoun%2C+Mohamad+H.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-52"><span class="mw-cite-backlink"><b><a href="#cite_ref-52">^</a></b></span> <span class="reference-text"><cite class="citation book">Yu, Su; Shan, Shiguang; Chen, Xilin; Gao, Wen (April 2006). <i>Hierarchical ensemble of Gabor Fisher classifier for face recognition</i>. <i>Automatic Face and Gesture Recognition, 2006. FGR 2006. 7th International Conference on Automatic Face and Gesture Recognition (FGR06)</i>. pp.&#160;91–96. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FFGR.2006.64">10.1109/FGR.2006.64</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-7695-2503-7" title="Special:BookSources/978-0-7695-2503-7"><bdi>978-0-7695-2503-7</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Hierarchical+ensemble+of+Gabor+Fisher+classifier+for+face+recognition&amp;rft.pages=91-96&amp;rft.date=2006-04&amp;rft_id=info%3Adoi%2F10.1109%2FFGR.2006.64&amp;rft.isbn=978-0-7695-2503-7&amp;rft.aulast=Yu&amp;rft.aufirst=Su&amp;rft.au=Shan%2C+Shiguang&amp;rft.au=Chen%2C+Xilin&amp;rft.au=Gao%2C+Wen&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-53"><span class="mw-cite-backlink"><b><a href="#cite_ref-53">^</a></b></span> <span class="reference-text"><cite class="citation book">Su, Y.; Shan, S.; Chen, X.; Gao, W. (September 2006). <i>Patch-based gabor fisher classifier for face recognition</i>. <i>Proceedings - International Conference on Pattern Recognition</i>. <b>2</b>. pp.&#160;528–531. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FICPR.2006.917">10.1109/ICPR.2006.917</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-7695-2521-1" title="Special:BookSources/978-0-7695-2521-1"><bdi>978-0-7695-2521-1</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Patch-based+gabor+fisher+classifier+for+face+recognition&amp;rft.pages=528-531&amp;rft.date=2006-09&amp;rft_id=info%3Adoi%2F10.1109%2FICPR.2006.917&amp;rft.isbn=978-0-7695-2521-1&amp;rft.aulast=Su&amp;rft.aufirst=Y.&amp;rft.au=Shan%2C+S.&amp;rft.au=Chen%2C+X.&amp;rft.au=Gao%2C+W.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-54"><span class="mw-cite-backlink"><b><a href="#cite_ref-54">^</a></b></span> <span class="reference-text"><cite class="citation book">Liu, Yang; Lin, Yongzheng; Chen, Yuehui (July 2008). <i>Ensemble Classification Based on ICA for Face Recognition</i>. <i>Proceedings - 1st International Congress on Image and Signal Processing, IEEE Conference, CISP 2008</i>. pp.&#160;144–148. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FCISP.2008.581">10.1109/CISP.2008.581</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-7695-3119-9" title="Special:BookSources/978-0-7695-3119-9"><bdi>978-0-7695-3119-9</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Ensemble+Classification+Based+on+ICA+for+Face+Recognition&amp;rft.pages=144-148&amp;rft.date=2008-07&amp;rft_id=info%3Adoi%2F10.1109%2FCISP.2008.581&amp;rft.isbn=978-0-7695-3119-9&amp;rft.aulast=Liu&amp;rft.aufirst=Yang&amp;rft.au=Lin%2C+Yongzheng&amp;rft.au=Chen%2C+Yuehui&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-55"><span class="mw-cite-backlink"><b><a href="#cite_ref-55">^</a></b></span> <span class="reference-text"><cite class="citation book">Rieger, Steven A.; Muraleedharan, Rajani; Ramachandran, Ravi P. (2014). <i>Speech based emotion recognition using spectral feature extraction and an ensemble of kNN classifiers</i>. <i>Proceedings of the 9th International Symposium on Chinese Spoken Language Processing, ISCSLP 2014</i>. pp.&#160;589–593. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FISCSLP.2014.6936711">10.1109/ISCSLP.2014.6936711</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-1-4799-4219-0" title="Special:BookSources/978-1-4799-4219-0"><bdi>978-1-4799-4219-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Speech+based+emotion+recognition+using+spectral+feature+extraction+and+an+ensemble+of+kNN+classifiers&amp;rft.pages=589-593&amp;rft.date=2014&amp;rft_id=info%3Adoi%2F10.1109%2FISCSLP.2014.6936711&amp;rft.isbn=978-1-4799-4219-0&amp;rft.aulast=Rieger&amp;rft.aufirst=Steven+A.&amp;rft.au=Muraleedharan%2C+Rajani&amp;rft.au=Ramachandran%2C+Ravi+P.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-56"><span class="mw-cite-backlink"><b><a href="#cite_ref-56">^</a></b></span> <span class="reference-text"><cite class="citation book">Krajewski, Jarek; Batliner, Anton; Kessel, Silke (October 2010). <i>Comparing Multiple Classifiers for Speech-Based Detection of Self-Confidence - A Pilot Study</i>. <i>2010 20th International Conference on Pattern Recognition</i>. pp.&#160;3716–3719. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FICPR.2010.905">10.1109/ICPR.2010.905</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-1-4244-7542-1" title="Special:BookSources/978-1-4244-7542-1"><bdi>978-1-4244-7542-1</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Comparing+Multiple+Classifiers+for+Speech-Based+Detection+of+Self-Confidence+-+A+Pilot+Study&amp;rft.pages=3716-3719&amp;rft.date=2010-10&amp;rft_id=info%3Adoi%2F10.1109%2FICPR.2010.905&amp;rft.isbn=978-1-4244-7542-1&amp;rft.aulast=Krajewski&amp;rft.aufirst=Jarek&amp;rft.au=Batliner%2C+Anton&amp;rft.au=Kessel%2C+Silke&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-57"><span class="mw-cite-backlink"><b><a href="#cite_ref-57">^</a></b></span> <span class="reference-text"><cite class="citation journal">Rani, P. Ithaya; Muneeswaran, K. (25 May 2016). "Recognize the facial emotion in video sequences using eye and mouth temporal Gabor features". <i>Multimedia Tools and Applications</i>. <b>76</b> (7): 10017–10040. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fs11042-016-3592-y">10.1007/s11042-016-3592-y</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Multimedia+Tools+and+Applications&amp;rft.atitle=Recognize+the+facial+emotion+in+video+sequences+using+eye+and+mouth+temporal+Gabor+features&amp;rft.volume=76&amp;rft.issue=7&amp;rft.pages=10017-10040&amp;rft.date=2016-05-25&amp;rft_id=info%3Adoi%2F10.1007%2Fs11042-016-3592-y&amp;rft.aulast=Rani&amp;rft.aufirst=P.+Ithaya&amp;rft.au=Muneeswaran%2C+K.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-58"><span class="mw-cite-backlink"><b><a href="#cite_ref-58">^</a></b></span> <span class="reference-text"><cite class="citation journal">Rani, P. Ithaya; Muneeswaran, K. (August 2016). "Facial Emotion Recognition Based on Eye and Mouth Regions". <i>International Journal of Pattern Recognition and Artificial Intelligence</i>. <b>30</b> (7): 1655020. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1142%2FS021800141655020X">10.1142/S021800141655020X</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=International+Journal+of+Pattern+Recognition+and+Artificial+Intelligence&amp;rft.atitle=Facial+Emotion+Recognition+Based+on+Eye+and+Mouth+Regions&amp;rft.volume=30&amp;rft.issue=7&amp;rft.pages=1655020&amp;rft.date=2016-08&amp;rft_id=info%3Adoi%2F10.1142%2FS021800141655020X&amp;rft.aulast=Rani&amp;rft.aufirst=P.+Ithaya&amp;rft.au=Muneeswaran%2C+K.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-59"><span class="mw-cite-backlink"><b><a href="#cite_ref-59">^</a></b></span> <span class="reference-text"><cite class="citation journal">Rani, P. Ithaya; Muneeswaran, K (28 March 2018). "Emotion recognition based on facial components". <i>Sādhanā</i>. <b>43</b> (3). <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fs12046-018-0801-6">10.1007/s12046-018-0801-6</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=S%C4%81dhan%C4%81&amp;rft.atitle=Emotion+recognition+based+on+facial+components&amp;rft.volume=43&amp;rft.issue=3&amp;rft.date=2018-03-28&amp;rft_id=info%3Adoi%2F10.1007%2Fs12046-018-0801-6&amp;rft.aulast=Rani&amp;rft.aufirst=P.+Ithaya&amp;rft.au=Muneeswaran%2C+K&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-60"><span class="mw-cite-backlink"><b><a href="#cite_ref-60">^</a></b></span> <span class="reference-text"><cite class="citation journal">Louzada, Francisco; Ara, Anderson (October 2012). "Bagging k-dependence probabilistic networks: An alternative powerful fraud detection tool". <i>Expert Systems with Applications</i>. <b>39</b> (14): 11583–11592. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.eswa.2012.04.024">10.1016/j.eswa.2012.04.024</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Expert+Systems+with+Applications&amp;rft.atitle=Bagging+k-dependence+probabilistic+networks%3A+An+alternative+powerful+fraud+detection+tool&amp;rft.volume=39&amp;rft.issue=14&amp;rft.pages=11583-11592&amp;rft.date=2012-10&amp;rft_id=info%3Adoi%2F10.1016%2Fj.eswa.2012.04.024&amp;rft.aulast=Louzada&amp;rft.aufirst=Francisco&amp;rft.au=Ara%2C+Anderson&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-61"><span class="mw-cite-backlink"><b><a href="#cite_ref-61">^</a></b></span> <span class="reference-text"><cite class="citation journal">Sundarkumar, G. Ganesh; Ravi, Vadlamani (January 2015). "A novel hybrid undersampling method for mining unbalanced datasets in banking and insurance". <i>Engineering Applications of Artificial Intelligence</i>. <b>37</b>: 368–377. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.engappai.2014.09.019">10.1016/j.engappai.2014.09.019</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Engineering+Applications+of+Artificial+Intelligence&amp;rft.atitle=A+novel+hybrid+undersampling+method+for+mining+unbalanced+datasets+in+banking+and+insurance&amp;rft.volume=37&amp;rft.pages=368-377&amp;rft.date=2015-01&amp;rft_id=info%3Adoi%2F10.1016%2Fj.engappai.2014.09.019&amp;rft.aulast=Sundarkumar&amp;rft.aufirst=G.+Ganesh&amp;rft.au=Ravi%2C+Vadlamani&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-ReferenceA-62"><span class="mw-cite-backlink">^ <a href="#cite_ref-ReferenceA_62-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-ReferenceA_62-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Kim, Yoonseong; Sohn, So Young (August 2012). "Stock fraud detection using peer group analysis". <i>Expert Systems with Applications</i>. <b>39</b> (10): 8986–8992. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.eswa.2012.02.025">10.1016/j.eswa.2012.02.025</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Expert+Systems+with+Applications&amp;rft.atitle=Stock+fraud+detection+using+peer+group+analysis&amp;rft.volume=39&amp;rft.issue=10&amp;rft.pages=8986-8992&amp;rft.date=2012-08&amp;rft_id=info%3Adoi%2F10.1016%2Fj.eswa.2012.02.025&amp;rft.aulast=Kim&amp;rft.aufirst=Yoonseong&amp;rft.au=Sohn%2C+So+Young&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-63"><span class="mw-cite-backlink"><b><a href="#cite_ref-63">^</a></b></span> <span class="reference-text"><cite class="citation journal">Savio, A.; García-Sebastián, M.T.; Chyzyk, D.; Hernandez, C.; Graña, M.; Sistiaga, A.; López de Munain, A.; Villanúa, J. (August 2011). "Neurocognitive disorder detection based on feature vectors extracted from VBM analysis of structural MRI". <i>Computers in Biology and Medicine</i>. <b>41</b> (8): 600–610. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.compbiomed.2011.05.010">10.1016/j.compbiomed.2011.05.010</a>. <a href="/wiki/PubMed_Identifier" class="mw-redirect" title="PubMed Identifier">PMID</a>&#160;<a rel="nofollow" class="external text" href="//pubmed.ncbi.nlm.nih.gov/21621760">21621760</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Computers+in+Biology+and+Medicine&amp;rft.atitle=Neurocognitive+disorder+detection+based+on+feature+vectors+extracted+from+VBM+analysis+of+structural+MRI&amp;rft.volume=41&amp;rft.issue=8&amp;rft.pages=600-610&amp;rft.date=2011-08&amp;rft_id=info%3Adoi%2F10.1016%2Fj.compbiomed.2011.05.010&amp;rft_id=info%3Apmid%2F21621760&amp;rft.aulast=Savio&amp;rft.aufirst=A.&amp;rft.au=Garc%C3%ADa-Sebasti%C3%A1n%2C+M.T.&amp;rft.au=Chyzyk%2C+D.&amp;rft.au=Hernandez%2C+C.&amp;rft.au=Gra%C3%B1a%2C+M.&amp;rft.au=Sistiaga%2C+A.&amp;rft.au=L%C3%B3pez+de+Munain%2C+A.&amp;rft.au=Villan%C3%BAa%2C+J.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-64"><span class="mw-cite-backlink"><b><a href="#cite_ref-64">^</a></b></span> <span class="reference-text"><cite class="citation book">Ayerdi, B.; Savio, A.; Graña, M. (June 2013). <i>Meta-ensembles of classifiers for Alzheimer's disease detection using independent ROI features</i>. <i>Lecture Notes in Computer Science (Including Subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)</i>. Lecture Notes in Computer Science. <b>7931</b>. pp.&#160;122–130. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-642-38622-0_13">10.1007/978-3-642-38622-0_13</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-3-642-38621-3" title="Special:BookSources/978-3-642-38621-3"><bdi>978-3-642-38621-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Meta-ensembles+of+classifiers+for+Alzheimer%27s+disease+detection+using+independent+ROI+features&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=122-130&amp;rft.date=2013-06&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-38622-0_13&amp;rft.isbn=978-3-642-38621-3&amp;rft.aulast=Ayerdi&amp;rft.aufirst=B.&amp;rft.au=Savio%2C+A.&amp;rft.au=Gra%C3%B1a%2C+M.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-65"><span class="mw-cite-backlink"><b><a href="#cite_ref-65">^</a></b></span> <span class="reference-text"><cite class="citation journal">Gu, Quan; Ding, Yong-Sheng; Zhang, Tong-Liang (April 2015). "An ensemble classifier based prediction of G-protein-coupled receptor classes in low homology". <i>Neurocomputing</i>. <b>154</b>: 110–118. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.neucom.2014.12.013">10.1016/j.neucom.2014.12.013</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Neurocomputing&amp;rft.atitle=An+ensemble+classifier+based+prediction+of+G-protein-coupled+receptor+classes+in+low+homology&amp;rft.volume=154&amp;rft.pages=110-118&amp;rft.date=2015-04&amp;rft_id=info%3Adoi%2F10.1016%2Fj.neucom.2014.12.013&amp;rft.aulast=Gu&amp;rft.aufirst=Quan&amp;rft.au=Ding%2C+Yong-Sheng&amp;rft.au=Zhang%2C+Tong-Liang&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+</ol></div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=28" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><cite class="citation book"><a href="/wiki/Zhou_Zhihua" class="mw-redirect" title="Zhou Zhihua">Zhou Zhihua</a> (2012). <i>Ensemble Methods: Foundations and Algorithms</i>. Chapman and Hall/CRC. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-1-439-83003-1" title="Special:BookSources/978-1-439-83003-1"><bdi>978-1-439-83003-1</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Ensemble+Methods%3A+Foundations+and+Algorithms&amp;rft.pub=Chapman+and+Hall%2FCRC&amp;rft.date=2012&amp;rft.isbn=978-1-439-83003-1&amp;rft.au=Zhou+Zhihua&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></li>
+<li><cite class="citation book"><a href="/wiki/Robert_Schapire" title="Robert Schapire">Robert Schapire</a>; <a href="/wiki/Yoav_Freund" title="Yoav Freund">Yoav Freund</a> (2012). <i>Boosting: Foundations and Algorithms</i>. MIT. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-262-01718-3" title="Special:BookSources/978-0-262-01718-3"><bdi>978-0-262-01718-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Boosting%3A+Foundations+and+Algorithms&amp;rft.pub=MIT&amp;rft.date=2012&amp;rft.isbn=978-0-262-01718-3&amp;rft.au=Robert+Schapire&amp;rft.au=Yoav+Freund&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Ensemble_learning&amp;action=edit&amp;section=29" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><cite class="citation web">Robi Polikar (ed.). <a rel="nofollow" class="external text" href="http://www.scholarpedia.org/article/Ensemble_learning">"Ensemble learning"</a>. <i><a href="/wiki/Scholarpedia" title="Scholarpedia">Scholarpedia</a></i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Scholarpedia&amp;rft.atitle=Ensemble+learning&amp;rft_id=http%3A%2F%2Fwww.scholarpedia.org%2Farticle%2FEnsemble_learning&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEnsemble+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></li>
+<li>The <a href="/wiki/Waffles_(machine_learning)" title="Waffles (machine learning)">Waffles (machine learning)</a> toolkit contains implementations of Bagging, Boosting, Bayesian Model Averaging, Bayesian Model Combination, Bucket-of-models, and other ensemble techniques</li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1388
+Cached time: 20200309151724
+Cache expiry: 2592000
+Dynamic content: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.716 seconds
+Real time usage: 0.872 seconds
+Preprocessor visited node count: 3560/1000000
+Post‐expand include size: 133624/2097152 bytes
+Template argument size: 3185/2097152 bytes
+Highest expansion depth: 12/40
+Expensive parser function count: 8/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 176522/5000000 bytes
+Number of Wikibase entities loaded: 5/400
+Lua time usage: 0.422/10.000 seconds
+Lua memory usage: 6.93 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  755.241      1 -total
+ 68.27%  515.586      1 Template:Reflist
+ 39.75%  300.236     28 Template:Cite_journal
+  9.76%   73.699     14 Template:Cite_book
+  6.27%   47.367      1 Template:According_to_whom
+  6.02%   45.464      1 Template:Machine_learning_bar
+  5.63%   42.498      1 Template:Sidebar_with_collapsible_lists
+  5.51%   41.592      3 Template:Citation_needed
+  5.41%   40.835      1 Template:For
+  5.41%   40.831      4 Template:Cite_conference
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:22212276-0!canonical!math=5 and timestamp 20200309151723 and revision id 944724209
+ -->
+</div><noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>
+		<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Ensemble_learning&amp;oldid=944724209">https://en.wikipedia.org/w/index.php?title=Ensemble_learning&amp;oldid=944724209</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Ensemble_learning" title="Category:Ensemble learning">Ensemble learning</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Webarchive_template_wayback_links" title="Category:Webarchive template wayback links">Webarchive template wayback links</a></li><li><a href="/wiki/Category:CS1_errors:_missing_periodical" title="Category:CS1 errors: missing periodical">CS1 errors: missing periodical</a></li><li><a href="/wiki/Category:All_articles_with_specifically_marked_weasel-worded_phrases" title="Category:All articles with specifically marked weasel-worded phrases">All articles with specifically marked weasel-worded phrases</a></li><li><a href="/wiki/Category:Articles_with_specifically_marked_weasel-worded_phrases_from_December_2017" title="Category:Articles with specifically marked weasel-worded phrases from December 2017">Articles with specifically marked weasel-worded phrases from December 2017</a></li><li><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_December_2017" title="Category:Articles with unsourced statements from December 2017">Articles with unsourced statements from December 2017</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_January_2012" title="Category:Articles with unsourced statements from January 2012">Articles with unsourced statements from January 2012</a></li></ul></div></div>
+		<div class="visualClear"></div>
+		
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+    <h2>Navigation menu</h2>
+    <div id="mw-head">
+        
+        <div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+        	<h3 id="p-personal-label">Personal tools</h3>
+        	<ul >
+        		
+        		<li id="pt-anonuserpage">Not logged in</li>
+        		<li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Ensemble+learning" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Ensemble+learning" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>
+        	</ul>
+        </div>
+        <div id="left-navigation">
+            <div id="p-namespaces" role="navigation" class="vectorTabs " aria-labelledby="p-namespaces-label">
+            	<h3 id="p-namespaces-label">Namespaces</h3>
+            	<ul >
+            		<li id="ca-nstab-main" class="selected"><a href="/wiki/Ensemble_learning" title="View the content page [c]" accesskey="c">Article</a></li><li id="ca-talk"><a href="/wiki/Talk:Ensemble_learning" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Talk</a></li>
+            	</ul>
+            </div>
+            <div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+            	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+            	<h3 id="p-variants-label">
+            		<span>Variants</span>
+            	</h3>
+            	<ul class="menu" >
+            		
+            	</ul>
+            </div>
+        </div>
+        <div id="right-navigation">
+            <div id="p-views" role="navigation" class="vectorTabs " aria-labelledby="p-views-label">
+            	<h3 id="p-views-label">Views</h3>
+            	<ul >
+            		<li id="ca-view" class="collapsible selected"><a href="/wiki/Ensemble_learning">Read</a></li><li id="ca-edit" class="collapsible"><a href="/w/index.php?title=Ensemble_learning&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/w/index.php?title=Ensemble_learning&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li>
+            	</ul>
+            </div>
+            <div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+            	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+            	<h3 id="p-cactions-label">
+            		<span>More</span>
+            	</h3>
+            	<ul class="menu" >
+            		
+            	</ul>
+            </div>
+            <div id="p-search" role="search">
+            	<h3 >
+            		<label for="searchInput">Search</label>
+            	</h3>
+            	<form action="/w/index.php" id="searchform">
+            		<div id="simpleSearch">
+            			<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/>
+            			<input type="hidden" value="Special:Search" name="title"/>
+            			<input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+            			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+            		</div>
+            	</form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="mw-panel">
+    	<div id="p-logo" role="banner">
+    		<a  title="Visit the main page" class="mw-wiki-logo" href="/wiki/Main_Page"></a>
+    	</div>
+    	<div class="portal" role="navigation" id="p-navigation"  aria-labelledby="p-navigation-label">
+    		<h3  id="p-navigation-label">
+    			Navigation
+    		</h3>
+    		<div class="body">
+    			<ul><li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Wikipedia:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-interaction"  aria-labelledby="p-interaction-label">
+    		<h3  id="p-interaction-label">
+    			Interaction
+    		</h3>
+    		<div class="body">
+    			<ul><li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-tb"  aria-labelledby="p-tb-label">
+    		<h3  id="p-tb-label">
+    			Tools
+    		</h3>
+    		<div class="body">
+    			<ul><li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Ensemble_learning" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Ensemble_learning" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Ensemble_learning&amp;oldid=944724209" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Ensemble_learning&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q245652" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Ensemble_learning&amp;id=944724209&amp;wpFormIdentifier=titleform" title="Information on how to cite this page">Cite this page</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-coll-print_export"  aria-labelledby="p-coll-print_export-label">
+    		<h3  id="p-coll-print_export-label">
+    			Print/export
+    		</h3>
+    		<div class="body">
+    			<ul><li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Ensemble+learning">Create a book</a></li><li id="coll-download-as-rl"><a href="/w/index.php?title=Special:ElectronPdf&amp;page=Ensemble+learning&amp;action=show-download-screen">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Ensemble_learning&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-lang"  aria-labelledby="p-lang-label">
+    		<h3  id="p-lang-label">
+    			Languages
+    		</h3>
+    		<div class="body">
+    			<ul><li class="interlanguage-link interwiki-de"><a href="https://de.wikipedia.org/wiki/Ensemble_learning" title="Ensemble learning – German" lang="de" hreflang="de" class="interlanguage-link-target">Deutsch</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.wikipedia.org/wiki/Apprentissage_ensembliste" title="Apprentissage ensembliste – French" lang="fr" hreflang="fr" class="interlanguage-link-target">Français</a></li><li class="interlanguage-link interwiki-ko"><a href="https://ko.wikipedia.org/wiki/%EC%95%99%EC%83%81%EB%B8%94_%ED%95%99%EC%8A%B5%EB%B2%95" title="앙상블 학습법 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target">한국어</a></li><li class="interlanguage-link interwiki-id"><a href="https://id.wikipedia.org/wiki/Metode_ensemble" title="Metode ensemble – Indonesian" lang="id" hreflang="id" class="interlanguage-link-target">Bahasa Indonesia</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Apprendimento_ensemble" title="Apprendimento ensemble – Italian" lang="it" hreflang="it" class="interlanguage-link-target">Italiano</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/%D0%90%D0%BD%D1%81%D0%B0%D0%BC%D0%B1%D0%BB%D1%8C_%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%BE%D0%B2_(%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BC%D0%B0%D1%88%D0%B8%D0%BD)" title="Ансамбль методов (обучение машин) – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target">Русский</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.wikipedia.org/wiki/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0" title="集成学习 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target">中文</a></li></ul>
+    			<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q245652#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+    		</div>
+    	</div>
+    	
+    </div>
+</div>
+
+<div id="footer" role="contentinfo" >
+	<ul id="footer-info" class="">
+		<li id="footer-info-lastmod"> This page was last edited on 9 March 2020, at 15:17<span class="anonymous-show">&#160;(UTC)</span>.</li>
+		<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+	</ul>
+	<ul id="footer-places" class="">
+		<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+		<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+		<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+		<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+		<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+		<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+		<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Ensemble_learning&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</div>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.716","walltime":"0.872","ppvisitednodes":{"value":3560,"limit":1000000},"postexpandincludesize":{"value":133624,"limit":2097152},"templateargumentsize":{"value":3185,"limit":2097152},"expansiondepth":{"value":12,"limit":40},"expensivefunctioncount":{"value":8,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":176522,"limit":5000000},"entityaccesscount":{"value":5,"limit":400},"timingprofile":["100.00%  755.241      1 -total"," 68.27%  515.586      1 Template:Reflist"," 39.75%  300.236     28 Template:Cite_journal","  9.76%   73.699     14 Template:Cite_book","  6.27%   47.367      1 Template:According_to_whom","  6.02%   45.464      1 Template:Machine_learning_bar","  5.63%   42.498      1 Template:Sidebar_with_collapsible_lists","  5.51%   41.592      3 Template:Citation_needed","  5.41%   40.835      1 Template:For","  5.41%   40.831      4 Template:Cite_conference"]},"scribunto":{"limitreport-timeusage":{"value":"0.422","limit":"10.000"},"limitreport-memusage":{"value":7270859,"limit":52428800}},"cachereport":{"origin":"mw1388","timestamp":"20200309151724","ttl":2592000,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Ensemble learning","url":"https:\/\/en.wikipedia.org\/wiki\/Ensemble_learning","sameAs":"http:\/\/www.wikidata.org\/entity\/Q245652","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q245652","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2009-03-30T20:50:15Z","dateModified":"2020-03-09T15:17:17Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/fe\/Kernel_Machine.svg","headline":"in statistics and machine learning, using multiple algorithms"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":134,"wgHostname":"mw1275"});});</script></body></html>

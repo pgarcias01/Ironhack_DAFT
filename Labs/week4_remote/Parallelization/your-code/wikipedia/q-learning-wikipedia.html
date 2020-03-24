@@ -1,0 +1,1565 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Q-learning - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRequestId":"XnJrFApAMMAAAGQDEiAAAACS","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Q-learning","wgTitle":"Q-learning","wgCurRevisionId":946174599,"wgRevisionId":946174599,"wgArticleId":1281850,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1 errors: missing periodical","All articles with unsourced statements","Articles with unsourced statements from December 2017","Wikipedia articles needing clarification from January 2020","Machine learning algorithms"
+,"Reinforcement learning"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Q-learning","wgRelevantArticleId":1281850,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0,"wgPopupsReferencePreviews":!1,"wgPopupsConflictsWithNavPopupGadget":!1,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":!0,"nearby":!0,"watchlist":!0,"tagline":!1},"wgWMESchemaEditAttemptStepOversample":!1,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q2664563","wgCentralAuthMobileDomain":!1,"wgEditSubmitButtonLabelPublish":!0};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"ready",
+"user.tokens":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.toc.styles":"ready","skins.vector.styles":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.startup","skins.vector.js","mediawiki.page.ready","mediawiki.toc","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns","ext.quicksurveys.init","ext.centralNotice.geoIP",
+"ext.centralNotice.startUp"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.tokens@tffin",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.toc.styles%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.0-wmf.23"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/1200px-Kernel_Machine.svg.png"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Q-learning&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Q-learning&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Q-learning"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Q-learning rootpage-Q-learning skin-vector action-view">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+</div>
+
+	<h1 id="firstHeading" class="firstHeading" lang="en">Q-learning</h1>
+	
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#p-search">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table class="vertical-navbox nowraplinks" style="float:right;clear:right;width:22.0em;margin:0 0 1.0em 1.0em;background:#f9f9f9;border:1px solid #aaa;padding:0.2em;border-spacing:0.4em 0;text-align:center;line-height:1.4em;font-size:88%"><tbody><tr><th style="padding:0.2em 0.4em 0.2em;font-size:145%;line-height:1.2em"><a href="/wiki/Machine_learning" title="Machine learning">Machine learning</a> and<br /><a href="/wiki/Data_mining" title="Data mining">data mining</a></th></tr><tr><td style="padding:0.2em 0 0.4em;padding:0.25em 0.25em 0.75em;"><a href="/wiki/File:Kernel_Machine.svg" class="image"><img alt="Kernel Machine.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/220px-Kernel_Machine.svg.png" decoding="async" width="220" height="100" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/330px-Kernel_Machine.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/440px-Kernel_Machine.svg.png 2x" data-file-width="512" data-file-height="233" /></a></td></tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Problems</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Statistical_classification" title="Statistical classification">Classification</a></li>
+<li><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></li>
+<li><a href="/wiki/Regression_analysis" title="Regression analysis">Regression</a></li>
+<li><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></li>
+<li><a href="/wiki/Automated_machine_learning" title="Automated machine learning">AutoML</a></li>
+<li><a href="/wiki/Association_rule_learning" title="Association rule learning">Association rules</a></li>
+<li><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></li>
+<li><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></li>
+<li><a href="/wiki/Feature_engineering" title="Feature engineering">Feature engineering</a></li>
+<li><a href="/wiki/Feature_learning" title="Feature learning">Feature learning</a></li>
+<li><a href="/wiki/Online_machine_learning" title="Online machine learning">Online learning</a></li>
+<li><a href="/wiki/Semi-supervised_learning" title="Semi-supervised learning">Semi-supervised learning</a></li>
+<li><a href="/wiki/Unsupervised_learning" title="Unsupervised learning">Unsupervised learning</a></li>
+<li><a href="/wiki/Learning_to_rank" title="Learning to rank">Learning to rank</a></li>
+<li><a href="/wiki/Grammar_induction" title="Grammar induction">Grammar induction</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><div style="padding:0.1em 0;line-height:1.2em;"><a href="/wiki/Supervised_learning" title="Supervised learning">Supervised learning</a><br /><style data-mw-deduplicate="TemplateStyles:r886047488">.mw-parser-output .nobold{font-weight:normal}</style><span class="nobold"><span style="font-size:85%;">(<b><a href="/wiki/Statistical_classification" title="Statistical classification">classification</a></b>&#160;&#8226;&#32;<b><a href="/wiki/Regression_analysis" title="Regression analysis">regression</a></b>)</span></span> </div></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Decision_tree_learning" title="Decision tree learning">Decision trees</a></li>
+<li><a href="/wiki/Ensemble_learning" title="Ensemble learning">Ensembles</a>
+<ul><li><a href="/wiki/Bootstrap_aggregating" title="Bootstrap aggregating">Bagging</a></li>
+<li><a href="/wiki/Boosting_(machine_learning)" title="Boosting (machine learning)">Boosting</a></li>
+<li><a href="/wiki/Random_forest" title="Random forest">Random forest</a></li></ul></li>
+<li><a href="/wiki/K-nearest_neighbors_algorithm" title="K-nearest neighbors algorithm"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Linear_regression" title="Linear regression">Linear regression</a></li>
+<li><a href="/wiki/Naive_Bayes_classifier" title="Naive Bayes classifier">Naive Bayes</a></li>
+<li><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural networks</a></li>
+<li><a href="/wiki/Logistic_regression" title="Logistic regression">Logistic regression</a></li>
+<li><a href="/wiki/Perceptron" title="Perceptron">Perceptron</a></li>
+<li><a href="/wiki/Relevance_vector_machine" title="Relevance vector machine">Relevance vector machine (RVM)</a></li>
+<li><a href="/wiki/Support-vector_machine" title="Support-vector machine">Support vector machine (SVM)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/BIRCH" title="BIRCH">BIRCH</a></li>
+<li><a href="/wiki/CURE_data_clustering_algorithm" class="mw-redirect" title="CURE data clustering algorithm">CURE</a></li>
+<li><a href="/wiki/Hierarchical_clustering" title="Hierarchical clustering">Hierarchical</a></li>
+<li><a href="/wiki/K-means_clustering" title="K-means clustering"><i>k</i>-means</a></li>
+<li><a href="/wiki/Expectation%E2%80%93maximization_algorithm" title="Expectation–maximization algorithm">Expectation–maximization (EM)</a></li>
+<li><br /><a href="/wiki/DBSCAN" title="DBSCAN">DBSCAN</a></li>
+<li><a href="/wiki/OPTICS_algorithm" title="OPTICS algorithm">OPTICS</a></li>
+<li><a href="/wiki/Mean-shift" class="mw-redirect" title="Mean-shift">Mean-shift</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Dimensionality_reduction" title="Dimensionality reduction">Dimensionality reduction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Factor_analysis" title="Factor analysis">Factor analysis</a></li>
+<li><a href="/wiki/Canonical_correlation_analysis" class="mw-redirect" title="Canonical correlation analysis">CCA</a></li>
+<li><a href="/wiki/Independent_component_analysis" title="Independent component analysis">ICA</a></li>
+<li><a href="/wiki/Linear_discriminant_analysis" title="Linear discriminant analysis">LDA</a></li>
+<li><a href="/wiki/Non-negative_matrix_factorization" title="Non-negative matrix factorization">NMF</a></li>
+<li><a href="/wiki/Principal_component_analysis" title="Principal component analysis">PCA</a></li>
+<li><a href="/wiki/T-distributed_stochastic_neighbor_embedding" title="T-distributed stochastic neighbor embedding">t-SNE</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Graphical_model" title="Graphical model">Graphical models</a>
+<ul><li><a href="/wiki/Bayesian_network" title="Bayesian network">Bayes net</a></li>
+<li><a href="/wiki/Conditional_random_field" title="Conditional random field">Conditional random field</a></li>
+<li><a href="/wiki/Hidden_Markov_model" title="Hidden Markov model">Hidden Markov</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/K-nearest_neighbors_classification" class="mw-redirect" title="K-nearest neighbors classification"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Local_outlier_factor" title="Local outlier factor">Local outlier factor</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural network</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Autoencoder" title="Autoencoder">Autoencoder</a></li>
+<li><a href="/wiki/Deep_learning" title="Deep learning">Deep learning</a></li>
+<li><a href="/wiki/DeepDream" title="DeepDream">DeepDream</a></li>
+<li><a href="/wiki/Multilayer_perceptron" title="Multilayer perceptron">Multilayer perceptron</a></li>
+<li><a href="/wiki/Recurrent_neural_network" title="Recurrent neural network">RNN</a>
+<ul><li><a href="/wiki/Long_short-term_memory" title="Long short-term memory">LSTM</a></li>
+<li><a href="/wiki/Gated_recurrent_unit" title="Gated recurrent unit">GRU</a></li></ul></li>
+<li><a href="/wiki/Restricted_Boltzmann_machine" title="Restricted Boltzmann machine">Restricted Boltzmann machine</a></li>
+<li><a href="/wiki/Generative_adversarial_network" title="Generative adversarial network">GAN</a></li>
+<li><a href="/wiki/Self-organizing_map" title="Self-organizing map">SOM</a></li>
+<li><a href="/wiki/Convolutional_neural_network" title="Convolutional neural network">Convolutional neural network</a>
+<ul><li><a href="/wiki/U-Net" title="U-Net">U-Net</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a class="mw-selflink selflink">Q-learning</a></li>
+<li><a href="/wiki/State%E2%80%93action%E2%80%93reward%E2%80%93state%E2%80%93action" title="State–action–reward–state–action">SARSA</a></li>
+<li><a href="/wiki/Temporal_difference_learning" title="Temporal difference learning">Temporal difference (TD)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Theory</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Bias%E2%80%93variance_dilemma" class="mw-redirect" title="Bias–variance dilemma">Bias–variance dilemma</a></li>
+<li><a href="/wiki/Computational_learning_theory" title="Computational learning theory">Computational learning theory</a></li>
+<li><a href="/wiki/Empirical_risk_minimization" title="Empirical risk minimization">Empirical risk minimization</a></li>
+<li><a href="/wiki/Occam_learning" title="Occam learning">Occam learning</a></li>
+<li><a href="/wiki/Probably_approximately_correct_learning" title="Probably approximately correct learning">PAC learning</a></li>
+<li><a href="/wiki/Statistical_learning_theory" title="Statistical learning theory">Statistical learning</a></li>
+<li><a href="/wiki/Vapnik%E2%80%93Chervonenkis_theory" title="Vapnik–Chervonenkis theory">VC theory</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Machine-learning venues</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Conference_on_Neural_Information_Processing_Systems" title="Conference on Neural Information Processing Systems">NeurIPS</a></li>
+<li><a href="/wiki/International_Conference_on_Machine_Learning" title="International Conference on Machine Learning">ICML</a></li>
+<li><a href="/wiki/Machine_Learning_(journal)" title="Machine Learning (journal)">ML</a></li>
+<li><a href="/wiki/Journal_of_Machine_Learning_Research" title="Journal of Machine Learning Research">JMLR</a></li>
+<li><a rel="nofollow" class="external text" href="https://arxiv.org/list/cs.LG/recent">ArXiv:cs.LG</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Related articles</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/List_of_datasets_for_machine-learning_research" title="List of datasets for machine-learning research">List of datasets for machine-learning research</a></li>
+<li><a href="/wiki/Outline_of_machine_learning" title="Outline of machine learning">Outline of machine learning</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="text-align:right;font-size:115%;padding-top: 0.6em;"><div class="plainlinks hlist navbar mini"><ul><li class="nv-view"><a href="/wiki/Template:Machine_learning_bar" title="Template:Machine learning bar"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="/wiki/Template_talk:Machine_learning_bar" title="Template talk:Machine learning bar"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Machine_learning_bar&amp;action=edit"><abbr title="Edit this template">e</abbr></a></li></ul></div></td></tr></tbody></table>
+<p><b><i>Q</i>-learning</b> is a <a href="/wiki/Model-free_(reinforcement_learning)" title="Model-free (reinforcement learning)">model-free</a> <a href="/wiki/Reinforcement_learning" title="Reinforcement learning">reinforcement learning</a> algorithm to learn a policy telling an agent what action to take under what circumstances. It does not require a model (hence the connotation "model-free") of the environment, and it can handle problems with stochastic transitions and rewards, without requiring adaptations.
+</p><p>For any finite <a href="/wiki/Markov_decision_process" title="Markov decision process">Markov decision process</a> (FMDP), <i>Q</i>-learning finds an optimal policy in the sense maximizing the expected value of the total reward over any and all successive steps, starting from the current state.<sup id="cite_ref-auto_1-0" class="reference"><a href="#cite_note-auto-1">&#91;1&#93;</a></sup> <i>Q</i>-learning can identify an optimal action-selection policy for any given FMDP, given infinite exploration time and a partly-random policy.<sup id="cite_ref-auto_1-1" class="reference"><a href="#cite_note-auto-1">&#91;1&#93;</a></sup> "Q" names the function that returns the reward used to provide the reinforcement and can be said to stand for the "quality" of an action taken in a given state.<sup id="cite_ref-:0_2-0" class="reference"><a href="#cite_note-:0-2">&#91;2&#93;</a></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Reinforcement_learning"><span class="tocnumber">1</span> <span class="toctext">Reinforcement learning</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Algorithm"><span class="tocnumber">2</span> <span class="toctext">Algorithm</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Influence_of_variables"><span class="tocnumber">3</span> <span class="toctext">Influence of variables</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Learning_Rate"><span class="tocnumber">3.1</span> <span class="toctext">Learning Rate</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Discount_factor"><span class="tocnumber">3.2</span> <span class="toctext">Discount factor</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Initial_conditions_(Q0)"><span class="tocnumber">3.3</span> <span class="toctext">Initial conditions (<i>Q</i><sub>0</sub>)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Implementation"><span class="tocnumber">4</span> <span class="toctext">Implementation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Function_approximation"><span class="tocnumber">4.1</span> <span class="toctext">Function approximation</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Quantization"><span class="tocnumber">4.2</span> <span class="toctext">Quantization</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#History"><span class="tocnumber">5</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Variants"><span class="tocnumber">6</span> <span class="toctext">Variants</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Deep_Q-learning"><span class="tocnumber">6.1</span> <span class="toctext">Deep Q-learning</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Double_Q-learning"><span class="tocnumber">6.2</span> <span class="toctext">Double Q-learning</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Others"><span class="tocnumber">6.3</span> <span class="toctext">Others</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#Challenges_and_problems"><span class="tocnumber">7</span> <span class="toctext">Challenges and problems</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Reinforcement_learning">Reinforcement learning</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=1" title="Edit section: Reinforcement learning">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div role="note" class="hatnote navigation-not-searchable">Main article: <a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></div>
+<p>Reinforcement learning involves an <a href="/wiki/Intelligent_agent" title="Intelligent agent">agent</a>, a set of <i>states</i> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="S"/></span>, and a set <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle A}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>A</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7daff47fa58cdfd29dc333def748ff5fa4c923e3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.743ex; height:2.176ex;" alt="A"/></span> of <i>actions</i> per state. By performing an action <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle a\in A}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>A</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a\in A}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a97387981adb5d65f74518e20b6785a284d7abd5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.814ex; height:2.176ex;" alt="a\in A"/></span>, the agent transitions from state to state. Executing an action in a specific state provides the agent with a <i>reward</i> (a numerical score).
+</p><p>The goal of the agent is to maximize its total reward. It does this by adding the maximum reward attainable from future states to the reward for achieving its current state, effectively influencing the current action by the potential future reward. This potential reward is a weighted sum of the <a href="/wiki/Expected_value" title="Expected value">expected values</a> of the rewards of all future steps starting from the current state.
+</p><p>As an example, consider the process of boarding a train, in which the reward is measured by the negative of the total time spent boarding (alternatively, the cost of boarding the train is equal to the boarding time). One strategy is to enter the train door as soon as they open, minimizing the initial wait time for yourself. If the train is crowded, however, then you will have a slow entry after the initial action of entering the door as people are fighting you to depart the train as you attempt to board. The total boarding time, or cost, is then:
+</p>
+<ul><li>0 seconds wait time + 15 seconds fight time</li></ul>
+<p>On the next day, by random chance (exploration), you decide to wait and let other people depart first. This initially results in a longer wait time. However, time fighting other passengers is less. Overall, this path has a higher reward than that of the previous day, since the total boarding time is now:
+</p>
+<ul><li>5 second wait time + 0 second fight time.</li></ul>
+<p>Through exploration, despite the initial (patient) action resulting in a larger cost (or negative reward) than in the forceful strategy, the overall cost is lower, thus revealing a more rewarding strategy.
+</p>
+<h2><span class="mw-headline" id="Algorithm">Algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=2" title="Edit section: Algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:442px;"><a href="/wiki/File:Q-Learning_Matrix_Initialized_and_After_Training.png" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Q-Learning_Matrix_Initialized_and_After_Training.png/440px-Q-Learning_Matrix_Initialized_and_After_Training.png" decoding="async" width="440" height="447" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Q-Learning_Matrix_Initialized_and_After_Training.png/660px-Q-Learning_Matrix_Initialized_and_After_Training.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Q-Learning_Matrix_Initialized_and_After_Training.png/880px-Q-Learning_Matrix_Initialized_and_After_Training.png 2x" data-file-width="1000" data-file-height="1016" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Q-Learning_Matrix_Initialized_and_After_Training.png" class="internal" title="Enlarge"></a></div>Q-Learning table of states by actions that is initialized to zero, then each cell is updated through training.</div></div></div>
+<p>The weight for a step from a state <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \Delta t}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x0394;<!-- Δ --></mi>
+        <mi>t</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Delta t}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8c28867ecd34e2caed12cf38feadf6a81a7ee542" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.775ex; height:2.176ex;" alt="\Delta t"/></span> steps into the future is calculated as <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gamma ^{\Delta t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>&#x03B3;<!-- γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">&#x0394;<!-- Δ --></mi>
+            <mi>t</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gamma ^{\Delta t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0b03cb6de5fe01243b53d0b622b4755f83fcc535" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:3.475ex; height:3.176ex;" alt="\gamma ^{{\Delta t}}"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03B3;<!-- γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a223c880b0ce3da8f64ee33c4f0010beee400b1a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:1.262ex; height:2.176ex;" alt="\gamma "/></span> (the <i>discount factor</i>) is a number between 0 and 1 (<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 0\leq \gamma \leq 1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>0</mn>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>&#x03B3;<!-- γ --></mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 0\leq \gamma \leq 1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/005a7c9599a70c20959e64abf585f73bdd474570" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.784ex; height:2.676ex;" alt="0\leq \gamma \leq 1"/></span>) and has the effect of valuing rewards received earlier higher than those received later (reflecting the value of a "good start"). <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03B3;<!-- γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a223c880b0ce3da8f64ee33c4f0010beee400b1a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:1.262ex; height:2.176ex;" alt="\gamma "/></span> may also be interpreted as the probability to succeed (or survive) at every step <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \Delta t}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x0394;<!-- Δ --></mi>
+        <mi>t</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Delta t}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8c28867ecd34e2caed12cf38feadf6a81a7ee542" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.775ex; height:2.176ex;" alt="\Delta t"/></span>.
+</p><p>The algorithm, therefore, has a function that calculates the quality of a state-action combination:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q:S\times A\to \mathbb {R} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Q</mi>
+        <mo>:</mo>
+        <mi>S</mi>
+        <mo>&#x00D7;<!-- × --></mo>
+        <mi>A</mi>
+        <mo stretchy="false">&#x2192;<!-- → --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">R</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q:S\times A\to \mathbb {R} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3c9001dc0d1aadc8841f816ac2261c3c59cd4c98" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:15.15ex; height:2.509ex;" alt="Q:S\times A\to {\mathbb  {R}}"/></span> .</dd></dl>
+<p>Before learning begins, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Q</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8752c7023b4b3286800fe3238271bbca681219ed" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.838ex; height:2.509ex;" alt="Q"/></span> is initialized to a possibly arbitrary fixed value (chosen by the programmer). Then, at each time <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle t}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>t</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle t}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65658b7b223af9e1acc877d848888ecdb4466560" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.84ex; height:2.009ex;" alt="t"/></span> the agent selects an action <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle a_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/77fce84b535e9e195e3d30ce5ae09b372d87e2e9" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.056ex; height:2.009ex;" alt="a_{t}"/></span>, observes a reward <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fb555a4a6332d0b3c8f786c87eccda2e940936d5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.875ex; height:2.009ex;" alt="r_{t}"/></span>, enters a new state <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s_{t+1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s_{t+1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/04abef475db835d93c80da6dcbc6bf5acaac1329" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.017ex; height:2.009ex;" alt="s_{t+1}"/></span> (that may depend on both the previous state <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/92a402d151a0173378ee252a634c77898ebe4b06" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.916ex; height:2.009ex;" alt="s_{t}"/></span> and the selected action), and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Q</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8752c7023b4b3286800fe3238271bbca681219ed" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.838ex; height:2.509ex;" alt="Q"/></span> is updated. The core of the algorithm is a <a href="/wiki/Bellman_equation" title="Bellman equation">Bellman equation</a> as a simple <a href="/wiki/Markov_decision_process#Value_iteration" title="Markov decision process">value iteration update</a>, using the weighted average of the old value and the new information:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q^{new}(s_{t},a_{t})\leftarrow \underbrace {Q(s_{t},a_{t})} _{\text{old value}}+\underbrace {\alpha } _{\text{learning rate}}\cdot \overbrace {{\bigg (}\underbrace {\underbrace {r_{t}} _{\text{reward}}+\underbrace {\gamma } _{\text{discount factor}}\cdot \underbrace {\max _{a}Q(s_{t+1},a)} _{\text{estimate of optimal future value}}} _{\text{new value (temporal difference target)}}-\underbrace {Q(s_{t},a_{t})} _{\text{old value}}{\bigg )}} ^{\text{temporal difference}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mi>e</mi>
+            <mi>w</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <munder>
+          <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+            <munder>
+              <mrow>
+                <mi>Q</mi>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>s</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+                <mo>,</mo>
+                <msub>
+                  <mi>a</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+              </mrow>
+              <mo>&#x23DF;<!-- ⏟ --></mo>
+            </munder>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>old value</mtext>
+          </mrow>
+        </munder>
+        <mo>+</mo>
+        <munder>
+          <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+            <munder>
+              <mi>&#x03B1;<!-- α --></mi>
+              <mo>&#x23DF;<!-- ⏟ --></mo>
+            </munder>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>learning rate</mtext>
+          </mrow>
+        </munder>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mover>
+          <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+            <mover>
+              <mrow>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo maxsize="2.047em" minsize="2.047em">(</mo>
+                  </mrow>
+                </mrow>
+                <munder>
+                  <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                    <munder>
+                      <mrow>
+                        <munder>
+                          <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                            <munder>
+                              <msub>
+                                <mi>r</mi>
+                                <mrow class="MJX-TeXAtom-ORD">
+                                  <mi>t</mi>
+                                </mrow>
+                              </msub>
+                              <mo>&#x23DF;<!-- ⏟ --></mo>
+                            </munder>
+                          </mrow>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mtext>reward</mtext>
+                          </mrow>
+                        </munder>
+                        <mo>+</mo>
+                        <munder>
+                          <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                            <munder>
+                              <mi>&#x03B3;<!-- γ --></mi>
+                              <mo>&#x23DF;<!-- ⏟ --></mo>
+                            </munder>
+                          </mrow>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mtext>discount factor</mtext>
+                          </mrow>
+                        </munder>
+                        <mo>&#x22C5;<!-- ⋅ --></mo>
+                        <munder>
+                          <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                            <munder>
+                              <mrow>
+                                <munder>
+                                  <mo movablelimits="true" form="prefix">max</mo>
+                                  <mrow class="MJX-TeXAtom-ORD">
+                                    <mi>a</mi>
+                                  </mrow>
+                                </munder>
+                                <mi>Q</mi>
+                                <mo stretchy="false">(</mo>
+                                <msub>
+                                  <mi>s</mi>
+                                  <mrow class="MJX-TeXAtom-ORD">
+                                    <mi>t</mi>
+                                    <mo>+</mo>
+                                    <mn>1</mn>
+                                  </mrow>
+                                </msub>
+                                <mo>,</mo>
+                                <mi>a</mi>
+                                <mo stretchy="false">)</mo>
+                              </mrow>
+                              <mo>&#x23DF;<!-- ⏟ --></mo>
+                            </munder>
+                          </mrow>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mtext>estimate of optimal future value</mtext>
+                          </mrow>
+                        </munder>
+                      </mrow>
+                      <mo>&#x23DF;<!-- ⏟ --></mo>
+                    </munder>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>new value (temporal difference target)</mtext>
+                  </mrow>
+                </munder>
+                <mo>&#x2212;<!-- − --></mo>
+                <munder>
+                  <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                    <munder>
+                      <mrow>
+                        <mi>Q</mi>
+                        <mo stretchy="false">(</mo>
+                        <msub>
+                          <mi>s</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>t</mi>
+                          </mrow>
+                        </msub>
+                        <mo>,</mo>
+                        <msub>
+                          <mi>a</mi>
+                          <mrow class="MJX-TeXAtom-ORD">
+                            <mi>t</mi>
+                          </mrow>
+                        </msub>
+                        <mo stretchy="false">)</mo>
+                      </mrow>
+                      <mo>&#x23DF;<!-- ⏟ --></mo>
+                    </munder>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>old value</mtext>
+                  </mrow>
+                </munder>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mo maxsize="2.047em" minsize="2.047em">)</mo>
+                  </mrow>
+                </mrow>
+              </mrow>
+              <mo>&#x23DE;<!-- ⏞ --></mo>
+            </mover>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>temporal difference</mtext>
+          </mrow>
+        </mover>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q^{new}(s_{t},a_{t})\leftarrow \underbrace {Q(s_{t},a_{t})} _{\text{old value}}+\underbrace {\alpha } _{\text{learning rate}}\cdot \overbrace {{\bigg (}\underbrace {\underbrace {r_{t}} _{\text{reward}}+\underbrace {\gamma } _{\text{discount factor}}\cdot \underbrace {\max _{a}Q(s_{t+1},a)} _{\text{estimate of optimal future value}}} _{\text{new value (temporal difference target)}}-\underbrace {Q(s_{t},a_{t})} _{\text{old value}}{\bigg )}} ^{\text{temporal difference}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/678cb558a9d59c33ef4810c9618baf34a9577686" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -9.671ex; margin-right: -0.028ex; width:96.268ex; height:16.843ex;" alt="{\displaystyle Q^{new}(s_{t},a_{t})\leftarrow \underbrace {Q(s_{t},a_{t})} _{\text{old value}}+\underbrace {\alpha } _{\text{learning rate}}\cdot \overbrace {{\bigg (}\underbrace {\underbrace {r_{t}} _{\text{reward}}+\underbrace {\gamma } _{\text{discount factor}}\cdot \underbrace {\max _{a}Q(s_{t+1},a)} _{\text{estimate of optimal future value}}} _{\text{new value (temporal difference target)}}-\underbrace {Q(s_{t},a_{t})} _{\text{old value}}{\bigg )}} ^{\text{temporal difference}}}"/></span></dd></dl>
+<p>where <i><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fb555a4a6332d0b3c8f786c87eccda2e940936d5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.875ex; height:2.009ex;" alt="{\displaystyle r_{t}}"/></span></i> is the reward received when moving from the state <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/92a402d151a0173378ee252a634c77898ebe4b06" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.916ex; height:2.009ex;" alt="s_{{t}}"/></span> to the state <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s_{t+1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s_{t+1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/04abef475db835d93c80da6dcbc6bf5acaac1329" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.017ex; height:2.009ex;" alt="s_{t+1}"/></span>, and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \alpha }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03B1;<!-- α --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \alpha }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b79333175c8b3f0840bfb4ec41b8072c83ea88d3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.488ex; height:1.676ex;" alt="\alpha "/></span> is the <a href="/wiki/Learning_rate" title="Learning rate">learning rate</a> (<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 0&lt;\alpha \leq 1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>0</mn>
+        <mo>&lt;</mo>
+        <mi>&#x03B1;<!-- α --></mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 0&lt;\alpha \leq 1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/46f3744f24aac421ebcecd035fe6d84f7d152740" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:10.009ex; height:2.343ex;" alt="0&lt;\alpha \leq 1"/></span>).
+</p><p>An episode of the algorithm ends when state <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s_{t+1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s_{t+1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/04abef475db835d93c80da6dcbc6bf5acaac1329" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.017ex; height:2.009ex;" alt="s_{t+1}"/></span> is a final or <i>terminal state</i>. However, <i>Q</i>-learning can also learn in non-episodic tasks.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (December 2017)">citation needed</span></a></i>&#93;</sup> If the discount factor is lower than 1, the action values are finite even if the problem can contain infinite loops.
+</p><p>For all final states <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s_{f}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>f</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s_{f}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/861eb1d6654456882863ba0b53ca9ab551ad903c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.227ex; height:2.343ex;" alt="s_{f}"/></span>, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q(s_{f},a)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Q</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>f</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q(s_{f},a)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/92e2c5c3189c29875e4ab2a1b41a54479f2ebe74" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:8.138ex; height:3.009ex;" alt="Q(s_{f},a)"/></span> is never updated, but is set to the reward value <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>r</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d1ecb613aa2984f0576f70f86650b7c2a132538" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.049ex; height:1.676ex;" alt="r"/></span> observed for state <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s_{f}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>f</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s_{f}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/861eb1d6654456882863ba0b53ca9ab551ad903c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.227ex; height:2.343ex;" alt="s_{f}"/></span>. In most cases, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q(s_{f},a)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Q</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>f</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q(s_{f},a)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/92e2c5c3189c29875e4ab2a1b41a54479f2ebe74" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:8.138ex; height:3.009ex;" alt="Q(s_{f},a)"/></span> can be taken to equal zero.
+</p>
+<h2><span class="mw-headline" id="Influence_of_variables">Influence of variables</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=3" title="Edit section: Influence of variables">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Learning_Rate">Learning Rate</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=4" title="Edit section: Learning Rate">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <a href="/wiki/Learning_rate" title="Learning rate">learning rate</a> or <i>step size</i> determines to what extent newly acquired information overrides old information. A factor of 0 makes the agent learn nothing (exclusively exploiting prior knowledge), while a factor of 1 makes the agent consider only the most recent information (ignoring prior knowledge to explore possibilities). In fully <a href="/wiki/Deterministic_system" title="Deterministic system">deterministic</a> environments, a learning rate of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \alpha _{t}=1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>&#x03B1;<!-- α --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \alpha _{t}=1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b6be8b0004058b07e1a81a9d4840948844ccddc9" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:6.574ex; height:2.509ex;" alt="{\displaystyle \alpha _{t}=1}"/></span> is optimal. When the problem is <a href="/wiki/Stochastic_systems" class="mw-redirect" title="Stochastic systems">stochastic</a>, the algorithm converges under some technical conditions on the learning rate that require it to decrease to zero. In practice, often a constant learning rate is used, such as <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \alpha _{t}=0.1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>&#x03B1;<!-- α --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mn>0.1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \alpha _{t}=0.1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2eebc9fd3f841f6766ade351b95aaee0d00df927" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:8.384ex; height:2.509ex;" alt="{\displaystyle \alpha _{t}=0.1}"/></span> for all <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle t}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>t</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle t}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65658b7b223af9e1acc877d848888ecdb4466560" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.84ex; height:2.009ex;" alt="t"/></span>.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Discount_factor">Discount factor</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=5" title="Edit section: Discount factor">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The discount factor <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03B3;<!-- γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a223c880b0ce3da8f64ee33c4f0010beee400b1a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:1.262ex; height:2.176ex;" alt="\gamma "/></span> determines the importance of future rewards. A factor of 0 will make the agent "myopic" (or short-sighted) by only considering current rewards, i.e. <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fb555a4a6332d0b3c8f786c87eccda2e940936d5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.875ex; height:2.009ex;" alt="r_{t}"/></span> (in the update rule above), while a factor approaching 1 will make it strive for a long-term high reward. If the discount factor meets or exceeds 1, the action values may diverge. For <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gamma =1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03B3;<!-- γ --></mi>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gamma =1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5682ebb86d6f024a15f4a2c1c7cb08412720bcaf" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.523ex; height:2.676ex;" alt="\gamma =1"/></span>, without a terminal state, or if the agent never reaches one, all environment histories become infinitely long, and utilities with additive, undiscounted rewards generally become infinite.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup> Even with a discount factor only slightly lower than 1, <i>Q</i>-function learning leads to propagation of errors and instabilities when the value function is approximated with an <a href="/wiki/Artificial_neural_network" title="Artificial neural network">artificial neural network</a>.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup> In that case, starting with a lower discount factor and increasing it towards its final value accelerates learning.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup>
+</p>
+<h3><span id="Initial_conditions_.28Q0.29"></span><span class="mw-headline" id="Initial_conditions_(Q0)">Initial conditions (<i>Q</i><sub>0</sub>)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=6" title="Edit section: Initial conditions (Q0)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Since <i>Q</i>-learning is an iterative algorithm, it implicitly assumes an initial condition before the first update occurs. High initial values, also known as "optimistic initial conditions",<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup> can encourage exploration: no matter what action is selected, the update rule will cause it to have lower values than the other alternative, thus increasing their choice probability. The first reward <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>r</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d1ecb613aa2984f0576f70f86650b7c2a132538" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.049ex; height:1.676ex;" alt="r"/></span> can be used to reset the initial conditions.<sup id="cite_ref-hshteingart_8-0" class="reference"><a href="#cite_note-hshteingart-8">&#91;8&#93;</a></sup> According to this idea, the first time an action is taken the reward is used to set the value of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Q</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8752c7023b4b3286800fe3238271bbca681219ed" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.838ex; height:2.509ex;" alt="Q"/></span>. This allows immediate learning in case of fixed deterministic rewards. A model that incorporates <i>reset of initial conditions</i> (RIC) is expected to predict participants' behavior better than a model that assumes any <i>arbitrary initial condition</i> (AIC).<sup id="cite_ref-hshteingart_8-1" class="reference"><a href="#cite_note-hshteingart-8">&#91;8&#93;</a></sup> RIC seems to be consistent with human behaviour in repeated binary choice experiments.<sup id="cite_ref-hshteingart_8-2" class="reference"><a href="#cite_note-hshteingart-8">&#91;8&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Implementation">Implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=7" title="Edit section: Implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><i>Q</i>-learning at its simplest stores data in tables. This approach falters with increasing numbers of states/actions since the likelihood of the agent visiting a particular state and performing a particular action is increasingly small.
+</p>
+<h3><span class="mw-headline" id="Function_approximation">Function approximation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=8" title="Edit section: Function approximation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><i>Q</i>-learning can be combined with <a href="/wiki/Function_approximation" title="Function approximation">function approximation</a>.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup> This makes it possible to apply the algorithm to larger problems, even when the state space is continuous.
+</p><p>One solution is to use an (adapted) <a href="/wiki/Artificial_neural_network" title="Artificial neural network">artificial neural network</a> as a function approximator.<sup id="cite_ref-CACM_10-0" class="reference"><a href="#cite_note-CACM-10">&#91;10&#93;</a></sup> Function approximation may speed up learning in finite problems, due to the fact that the algorithm can generalize earlier experiences to previously unseen states.
+</p>
+<h3><span class="mw-headline" id="Quantization">Quantization</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=9" title="Edit section: Quantization">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Another technique to decrease the state/action space quantizes possible values. Consider the example of learning to balance a stick on a finger. To describe a state at a certain point in time involves the position of the finger in space, its velocity, the angle of the stick and the <a href="/wiki/Angular_velocity" title="Angular velocity">angular velocity</a> of the stick. This yields a four-element vector that describes one state, i.e. a snapshot of one state encoded into four values. The problem is that infinitely many possible states are present. To shrink the possible space of valid actions multiple values can be assigned to a bucket. The exact distance of the finger from its starting position (-Infinity to Infinity) is not known, but rather whether it is far away or not (Near, Far).
+</p>
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=10" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><i>Q</i>-learning was introduced by <a href="/w/index.php?title=Chris_Watkins&amp;action=edit&amp;redlink=1" class="new" title="Chris Watkins (page does not exist)">Chris Watkins</a><sup id="cite_ref-11" class="reference"><a href="#cite_note-11">&#91;11&#93;</a></sup> in 1989. A convergence proof was presented by Watkins and Dayan<sup id="cite_ref-12" class="reference"><a href="#cite_note-12">&#91;12&#93;</a></sup> in 1992.
+</p><p>Watkins was addressing “Learning from delayed rewards”, the title of his PhD Thesis. Eight years earlier in 1981 the same problem, under the name of “Delayed reinforcement learning”, was solved by Bozinovski's Crossbar Adaptive Array (CAA).<sup id="cite_ref-DobnikarSteele1999_13-0" class="reference"><a href="#cite_note-DobnikarSteele1999-13">&#91;13&#93;</a></sup><sup id="cite_ref-Trappl1982_14-0" class="reference"><a href="#cite_note-Trappl1982-14">&#91;14&#93;</a></sup> The memory matrix W =||w(a,s)|| was the same as the eight years later Q-table of Q-learning. The architecture introduced the term “state evaluation” in reinforcement learning. The crossbar learning algorithm, written in mathematical <a href="/wiki/Pseudocode" title="Pseudocode">pseudocode</a> in the paper, in each iteration performs the following computation:
+</p>
+<ul><li>In state s perform action a;</li>
+<li>Receive consequence state s’;</li>
+<li>Compute state evaluation v(s’);</li>
+<li>Update crossbar value w’(a,s) = w(a,s) + v(s’).</li></ul>
+<p>The term “secondary reinforcement” is borrowed from animal learning theory, to model state values via <a href="/wiki/Backpropagation" title="Backpropagation">backpropagation</a>: the state value v(s’) of the consequence situation is backpropagated to the previously encountered situations. CAA computes state values vertically and actions horizontally (the "crossbar"). Demonstration graphs showing delayed reinforcement learning contained states (desirable, undesirable, and neutral states), which were computed by the state evaluation function. This learning system was a forerunner of the Q-learning algorithm.<sup id="cite_ref-OmidvarElliott1997_15-0" class="reference"><a href="#cite_note-OmidvarElliott1997-15">&#91;15&#93;</a></sup>
+</p><p>In 2014 <a href="/wiki/Google_DeepMind" class="mw-redirect" title="Google DeepMind">Google DeepMind</a> patented<sup id="cite_ref-16" class="reference"><a href="#cite_note-16">&#91;16&#93;</a></sup> an application of Q-learning to <a href="/wiki/Deep_learning" title="Deep learning">deep learning</a>, titled "deep reinforcement learning" or "deep Q-learning" that can play <a href="/wiki/Atari_2600" title="Atari 2600">Atari 2600</a> games at expert human levels.
+</p>
+<h2><span class="mw-headline" id="Variants">Variants</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=11" title="Edit section: Variants">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Deep_Q-learning">Deep Q-learning</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=12" title="Edit section: Deep Q-learning">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The DeepMind system used a deep <a href="/wiki/Convolutional_neural_network" title="Convolutional neural network">convolutional neural network</a>, with layers of tiled <a href="/wiki/Convolution" title="Convolution">convolutional</a> filters to mimic the effects of receptive fields. Reinforcement learning is unstable or divergent when a nonlinear function approximator such as a neural network is used to represent Q. This instability comes from the correlations present in the sequence of observations, the fact that small updates to Q may significantly change the policy and the data distribution, and the correlations between Q and the target values.
+</p><p>The technique used <i>experience replay,</i> a biologically inspired mechanism that uses a random sample of prior actions instead of the most recent action to proceed.<sup id="cite_ref-:0_2-1" class="reference"><a href="#cite_note-:0-2">&#91;2&#93;</a></sup> This removes correlations in the observation sequence and smooths changes in the data distribution. Iterative updates adjust Q towards target values that are only periodically updated, further reducing correlations with the target.<sup id="cite_ref-DQN_17-0" class="reference"><a href="#cite_note-DQN-17">&#91;17&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Double_Q-learning">Double Q-learning</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=13" title="Edit section: Double Q-learning">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Because the future maximum approximated action value in Q-learning is evaluated using the same Q function as in current action selection policy, in noisy environments Q-learning can sometimes overestimate the action values, slowing the learning. A variant called Double Q-learning was proposed to correct this. Double Q-learning<sup id="cite_ref-18" class="reference"><a href="#cite_note-18">&#91;18&#93;</a></sup> is an off-policy reinforcement learning algorithm, where a different policy is used for value evaluation than what is used to select the next action.
+</p><p>In practice, two separate value functions are trained in a mutually symmetric fashion using separate experiences, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q^{A}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>A</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q^{A}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/587c22643cd3bddd90ed5f1f05a9b1aa51ba6a81" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:3.303ex; height:3.009ex;" alt="{\displaystyle Q^{A}}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q^{B}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>B</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q^{B}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/255994667943473a103d1113c29fc299392b73ec" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:3.318ex; height:3.009ex;" alt="{\displaystyle Q^{B}}"/></span>. The double Q-learning update step is then as follows:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q_{t+1}^{A}(s_{t},a_{t})=Q_{t}^{A}(s_{t},a_{t})+\alpha _{t}(s_{t},a_{t})\left(r_{t}+\gamma Q_{t}^{B}\left(s_{t+1},\mathop {\operatorname {arg~max} } _{a}Q_{t}^{A}(s_{t+1},a)\right)-Q_{t}^{A}(s_{t},a_{t})\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>A</mi>
+          </mrow>
+        </msubsup>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>A</mi>
+          </mrow>
+        </msubsup>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <msub>
+          <mi>&#x03B1;<!-- α --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <msub>
+              <mi>r</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>t</mi>
+              </mrow>
+            </msub>
+            <mo>+</mo>
+            <mi>&#x03B3;<!-- γ --></mi>
+            <msubsup>
+              <mi>Q</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>t</mi>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>B</mi>
+              </mrow>
+            </msubsup>
+            <mrow>
+              <mo>(</mo>
+              <mrow>
+                <msub>
+                  <mi>s</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>+</mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>,</mo>
+                <munder>
+                  <mrow class="MJX-TeXAtom-OP">
+                    <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                      <mi mathvariant="normal">a</mi>
+                      <mi mathvariant="normal">r</mi>
+                      <mi mathvariant="normal">g</mi>
+                      <mtext>&#xA0;</mtext>
+                      <mi mathvariant="normal">m</mi>
+                      <mi mathvariant="normal">a</mi>
+                      <mi mathvariant="normal">x</mi>
+                    </mrow>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>a</mi>
+                  </mrow>
+                </munder>
+                <mo>&#x2061;<!-- ⁡ --></mo>
+                <msubsup>
+                  <mi>Q</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>A</mi>
+                  </mrow>
+                </msubsup>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>s</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>+</mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>,</mo>
+                <mi>a</mi>
+                <mo stretchy="false">)</mo>
+              </mrow>
+              <mo>)</mo>
+            </mrow>
+            <mo>&#x2212;<!-- − --></mo>
+            <msubsup>
+              <mi>Q</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>t</mi>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>A</mi>
+              </mrow>
+            </msubsup>
+            <mo stretchy="false">(</mo>
+            <msub>
+              <mi>s</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>t</mi>
+              </mrow>
+            </msub>
+            <mo>,</mo>
+            <msub>
+              <mi>a</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>t</mi>
+              </mrow>
+            </msub>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q_{t+1}^{A}(s_{t},a_{t})=Q_{t}^{A}(s_{t},a_{t})+\alpha _{t}(s_{t},a_{t})\left(r_{t}+\gamma Q_{t}^{B}\left(s_{t+1},\mathop {\operatorname {arg~max} } _{a}Q_{t}^{A}(s_{t+1},a)\right)-Q_{t}^{A}(s_{t},a_{t})\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4941acabf5144d1b3e9c271606011abdc0df444d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:91.612ex; height:6.176ex;" alt="{\displaystyle Q_{t+1}^{A}(s_{t},a_{t})=Q_{t}^{A}(s_{t},a_{t})+\alpha _{t}(s_{t},a_{t})\left(r_{t}+\gamma Q_{t}^{B}\left(s_{t+1},\mathop {\operatorname {arg~max} } _{a}Q_{t}^{A}(s_{t+1},a)\right)-Q_{t}^{A}(s_{t},a_{t})\right)}"/></span>, and</dd>
+<dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q_{t+1}^{B}(s_{t},a_{t})=Q_{t}^{B}(s_{t},a_{t})+\alpha _{t}(s_{t},a_{t})\left(r_{t}+\gamma Q_{t}^{A}\left(s_{t+1},\mathop {\operatorname {arg~max} } _{a}Q_{t}^{B}(s_{t+1},a)\right)-Q_{t}^{B}(s_{t},a_{t})\right).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>B</mi>
+          </mrow>
+        </msubsup>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>B</mi>
+          </mrow>
+        </msubsup>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <msub>
+          <mi>&#x03B1;<!-- α --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <msub>
+              <mi>r</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>t</mi>
+              </mrow>
+            </msub>
+            <mo>+</mo>
+            <mi>&#x03B3;<!-- γ --></mi>
+            <msubsup>
+              <mi>Q</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>t</mi>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>A</mi>
+              </mrow>
+            </msubsup>
+            <mrow>
+              <mo>(</mo>
+              <mrow>
+                <msub>
+                  <mi>s</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>+</mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>,</mo>
+                <munder>
+                  <mrow class="MJX-TeXAtom-OP">
+                    <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+                      <mi mathvariant="normal">a</mi>
+                      <mi mathvariant="normal">r</mi>
+                      <mi mathvariant="normal">g</mi>
+                      <mtext>&#xA0;</mtext>
+                      <mi mathvariant="normal">m</mi>
+                      <mi mathvariant="normal">a</mi>
+                      <mi mathvariant="normal">x</mi>
+                    </mrow>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>a</mi>
+                  </mrow>
+                </munder>
+                <mo>&#x2061;<!-- ⁡ --></mo>
+                <msubsup>
+                  <mi>Q</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>B</mi>
+                  </mrow>
+                </msubsup>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>s</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>+</mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>,</mo>
+                <mi>a</mi>
+                <mo stretchy="false">)</mo>
+              </mrow>
+              <mo>)</mo>
+            </mrow>
+            <mo>&#x2212;<!-- − --></mo>
+            <msubsup>
+              <mi>Q</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>t</mi>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>B</mi>
+              </mrow>
+            </msubsup>
+            <mo stretchy="false">(</mo>
+            <msub>
+              <mi>s</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>t</mi>
+              </mrow>
+            </msub>
+            <mo>,</mo>
+            <msub>
+              <mi>a</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>t</mi>
+              </mrow>
+            </msub>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q_{t+1}^{B}(s_{t},a_{t})=Q_{t}^{B}(s_{t},a_{t})+\alpha _{t}(s_{t},a_{t})\left(r_{t}+\gamma Q_{t}^{A}\left(s_{t+1},\mathop {\operatorname {arg~max} } _{a}Q_{t}^{B}(s_{t+1},a)\right)-Q_{t}^{B}(s_{t},a_{t})\right).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3e37476013126ddd4afdba69ef7b03767f4c4b75" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:92.675ex; height:6.176ex;" alt="{\displaystyle Q_{t+1}^{B}(s_{t},a_{t})=Q_{t}^{B}(s_{t},a_{t})+\alpha _{t}(s_{t},a_{t})\left(r_{t}+\gamma Q_{t}^{A}\left(s_{t+1},\mathop {\operatorname {arg~max} } _{a}Q_{t}^{B}(s_{t+1},a)\right)-Q_{t}^{B}(s_{t},a_{t})\right).}"/></span></dd></dl>
+<p>Now the estimated value of the discounted future is evaluated using a different policy, which solves the overestimation issue.
+</p><p>This algorithm was later modified<sup class="noprint Inline-Template" style="margin-left:0.1em; white-space:nowrap;">&#91;<i><a href="/wiki/Wikipedia:Please_clarify" title="Wikipedia:Please clarify"><span title="The text near this tag may need clarification or removal of jargon. (January 2020)">clarification needed</span></a></i>&#93;</sup> in 2015 and combined with <a href="/wiki/Deep_learning" title="Deep learning">deep learning</a>, as in the DQN algorithm, resulting in Double DQN, which outperforms the original DQN algorithm.<sup id="cite_ref-19" class="reference"><a href="#cite_note-19">&#91;19&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Others">Others</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=14" title="Edit section: Others">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Delayed Q-learning is an alternative implementation of the online <i>Q</i>-learning algorithm, with <a href="/wiki/Probably_approximately_correct_learning" title="Probably approximately correct learning">probably approximately correct (PAC) learning</a>.<sup id="cite_ref-20" class="reference"><a href="#cite_note-20">&#91;20&#93;</a></sup>
+</p><p>Greedy GQ is a variant of <i>Q</i>-learning to use in combination with (linear) function approximation.<sup id="cite_ref-21" class="reference"><a href="#cite_note-21">&#91;21&#93;</a></sup> The advantage of Greedy GQ is that convergence is guaranteed even when function approximation is used to estimate the action values.
+</p>
+<h2><span class="mw-headline" id="Challenges_and_problems">Challenges and problems</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=15" title="Edit section: Challenges and problems">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=16" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></li>
+<li><a href="/wiki/Temporal_difference_learning" title="Temporal difference learning">Temporal difference learning</a></li>
+<li><a href="/wiki/State-Action-Reward-State-Action" class="mw-redirect" title="State-Action-Reward-State-Action">SARSA</a></li>
+<li><a href="/wiki/Prisoner%27s_dilemma#The_iterated_prisoner.27s_dilemma" title="Prisoner&#39;s dilemma">Iterated prisoner's dilemma</a></li>
+<li><a href="/wiki/Game_theory" title="Game theory">Game theory</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=17" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist columns references-column-width" style="-moz-column-width: 30em; -webkit-column-width: 30em; column-width: 30em; list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-auto-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-auto_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-auto_1-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Melo, Francisco S. <a rel="nofollow" class="external text" href="http://users.isr.ist.utl.pt/~mtjspaan/readingGroup/ProofQlearning.pdf">"Convergence of Q-learning: a simple proof"</a> <span class="cs1-format">(PDF)</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Convergence+of+Q-learning%3A+a+simple+proof&amp;rft.aulast=Melo&amp;rft.aufirst=Francisco+S.&amp;rft_id=http%3A%2F%2Fusers.isr.ist.utl.pt%2F~mtjspaan%2FreadingGroup%2FProofQlearning.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span> <span class="cs1-hidden-error error citation-comment">Cite journal requires <code class="cs1-code">&#124;journal=</code> (<a href="/wiki/Help:CS1_errors#missing_periodical" title="Help:CS1 errors">help</a>)</span><style data-mw-deduplicate="TemplateStyles:r935243608">.mw-parser-output cite.citation{font-style:inherit}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/9px-Lock-green.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lock-gray-alt-2.svg/9px-Lock-gray-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lock-red-alt-2.svg/9px-Lock-red-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration{color:#555}.mw-parser-output .cs1-subscription span,.mw-parser-output .cs1-registration span{border-bottom:1px dotted;cursor:help}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/12px-Wikisource-logo.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output code.cs1-code{color:inherit;background:inherit;border:inherit;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;font-size:100%}.mw-parser-output .cs1-visible-error{font-size:100%}.mw-parser-output .cs1-maint{display:none;color:#33aa33;margin-left:0.3em}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration,.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left,.mw-parser-output .cs1-kern-wl-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right,.mw-parser-output .cs1-kern-wl-right{padding-right:0.2em}</style></span>
+</li>
+<li id="cite_note-:0-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-:0_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-:0_2-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation web">Matiisen, Tambet (December 19, 2015). <a rel="nofollow" class="external text" href="http://neuro.cs.ut.ee/demystifying-deep-reinforcement-learning/">"Demystifying Deep Reinforcement Learning"</a>. <i>neuro.cs.ut.ee</i>. Computational Neuroscience Lab<span class="reference-accessdate">. Retrieved <span class="nowrap">2018-04-06</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=neuro.cs.ut.ee&amp;rft.atitle=Demystifying+Deep+Reinforcement+Learning&amp;rft.date=2015-12-19&amp;rft.aulast=Matiisen&amp;rft.aufirst=Tambet&amp;rft_id=http%3A%2F%2Fneuro.cs.ut.ee%2Fdemystifying-deep-reinforcement-learning%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><cite class="citation book">Sutton, Richard; Barto, Andrew (1998). <a rel="nofollow" class="external text" href="http://incompleteideas.net/sutton/book/ebook/the-book.html"><i>Reinforcement Learning: An Introduction</i></a>. MIT Press.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Reinforcement+Learning%3A+An+Introduction&amp;rft.pub=MIT+Press&amp;rft.date=1998&amp;rft.aulast=Sutton&amp;rft.aufirst=Richard&amp;rft.au=Barto%2C+Andrew&amp;rft_id=http%3A%2F%2Fincompleteideas.net%2Fsutton%2Fbook%2Febook%2Fthe-book.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><cite class="citation book"><a href="/wiki/Stuart_J._Russell" title="Stuart J. Russell">Russell, Stuart J.</a>; <a href="/wiki/Peter_Norvig" title="Peter Norvig">Norvig, Peter</a> (2010). <i>Artificial Intelligence: A Modern Approach</i> (Third ed.). <a href="/wiki/Prentice_Hall" title="Prentice Hall">Prentice Hall</a>. p.&#160;649. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0136042594" title="Special:BookSources/978-0136042594"><bdi>978-0136042594</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Artificial+Intelligence%3A+A+Modern+Approach&amp;rft.pages=649&amp;rft.edition=Third&amp;rft.pub=Prentice+Hall&amp;rft.date=2010&amp;rft.isbn=978-0136042594&amp;rft.aulast=Russell&amp;rft.aufirst=Stuart+J.&amp;rft.au=Norvig%2C+Peter&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><cite class="citation journal">Baird, Leemon (1995). <a rel="nofollow" class="external text" href="http://www.leemon.com/papers/1995b.pdf">"Residual algorithms: Reinforcement learning with function approximation"</a> <span class="cs1-format">(PDF)</span>. <i>ICML</i>: 30–37.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=ICML&amp;rft.atitle=Residual+algorithms%3A+Reinforcement+learning+with+function+approximation&amp;rft.pages=30-37&amp;rft.date=1995&amp;rft.aulast=Baird&amp;rft.aufirst=Leemon&amp;rft_id=http%3A%2F%2Fwww.leemon.com%2Fpapers%2F1995b.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><cite class="citation arxiv">François-Lavet, Vincent; Fonteneau, Raphael; Ernst, Damien (2015-12-07). "How to Discount Deep Reinforcement Learning: Towards New Dynamic Strategies". <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/1512.02011">1512.02011</a></span> [<a rel="nofollow" class="external text" href="//arxiv.org/archive/cs.LG">cs.LG</a>].</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=preprint&amp;rft.jtitle=arXiv&amp;rft.atitle=How+to+Discount+Deep+Reinforcement+Learning%3A+Towards+New+Dynamic+Strategies&amp;rft.date=2015-12-07&amp;rft_id=info%3Aarxiv%2F1512.02011&amp;rft.aulast=Fran%C3%A7ois-Lavet&amp;rft.aufirst=Vincent&amp;rft.au=Fonteneau%2C+Raphael&amp;rft.au=Ernst%2C+Damien&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><cite class="citation book">Sutton, Richard S.; Barto, Andrew G. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20130908031737/http://webdocs.cs.ualberta.ca/~sutton/book/ebook/node21.html">"2.7 Optimistic Initial Values"</a>. <i>Reinforcement Learning: An Introduction</i>. Archived from <a rel="nofollow" class="external text" href="http://webdocs.cs.ualberta.ca/~sutton/book/ebook/node21.html">the original</a> on 2013-09-08<span class="reference-accessdate">. Retrieved <span class="nowrap">2013-07-18</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=2.7+Optimistic+Initial+Values&amp;rft.btitle=Reinforcement+Learning%3A+An+Introduction&amp;rft.aulast=Sutton&amp;rft.aufirst=Richard+S.&amp;rft.au=Barto%2C+Andrew+G.&amp;rft_id=http%3A%2F%2Fwebdocs.cs.ualberta.ca%2F~sutton%2Fbook%2Febook%2Fnode21.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-hshteingart-8"><span class="mw-cite-backlink">^ <a href="#cite_ref-hshteingart_8-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-hshteingart_8-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-hshteingart_8-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Shteingart, Hanan; Neiman, Tal; Loewenstein, Yonatan (May 2013). <a rel="nofollow" class="external text" href="http://ratio.huji.ac.il/sites/default/files/publications/dp626.pdf">"The role of first impression in operant learning"</a> <span class="cs1-format">(PDF)</span>. <i>Journal of Experimental Psychology: General</i>. <b>142</b> (2): 476–488. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1037%2Fa0029550">10.1037/a0029550</a>. <a href="/wiki/International_Standard_Serial_Number" title="International Standard Serial Number">ISSN</a>&#160;<a rel="nofollow" class="external text" href="//www.worldcat.org/issn/1939-2222">1939-2222</a>. <a href="/wiki/PubMed_Identifier" class="mw-redirect" title="PubMed Identifier">PMID</a>&#160;<a rel="nofollow" class="external text" href="//pubmed.ncbi.nlm.nih.gov/22924882">22924882</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Experimental+Psychology%3A+General&amp;rft.atitle=The+role+of+first+impression+in+operant+learning.&amp;rft.volume=142&amp;rft.issue=2&amp;rft.pages=476-488&amp;rft.date=2013-05&amp;rft.issn=1939-2222&amp;rft_id=info%3Apmid%2F22924882&amp;rft_id=info%3Adoi%2F10.1037%2Fa0029550&amp;rft.aulast=Shteingart&amp;rft.aufirst=Hanan&amp;rft.au=Neiman%2C+Tal&amp;rft.au=Loewenstein%2C+Yonatan&amp;rft_id=http%3A%2F%2Fratio.huji.ac.il%2Fsites%2Fdefault%2Ffiles%2Fpublications%2Fdp626.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><cite class="citation book">Hasselt, Hado van (5 March 2012). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=YPjNuvrJR0MC">"Reinforcement Learning in Continuous State and Action Spaces"</a>.  In Wiering, Marco; Otterlo, Martijn van (eds.). <i>Reinforcement Learning: State-of-the-Art</i>. Springer Science &amp; Business Media. pp.&#160;207–251. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-3-642-27645-3" title="Special:BookSources/978-3-642-27645-3"><bdi>978-3-642-27645-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Reinforcement+Learning+in+Continuous+State+and+Action+Spaces&amp;rft.btitle=Reinforcement+Learning%3A+State-of-the-Art&amp;rft.pages=207-251&amp;rft.pub=Springer+Science+%26+Business+Media&amp;rft.date=2012-03-05&amp;rft.isbn=978-3-642-27645-3&amp;rft.aulast=Hasselt&amp;rft.aufirst=Hado+van&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DYPjNuvrJR0MC&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-CACM-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-CACM_10-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Tesauro, Gerald (March 1995). <a rel="nofollow" class="external text" href="http://www.bkgm.com/articles/tesauro/tdl.html">"Temporal Difference Learning and TD-Gammon"</a>. <i>Communications of the ACM</i>. <b>38</b> (3): 58–68. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F203330.203343">10.1145/203330.203343</a><span class="reference-accessdate">. Retrieved <span class="nowrap">2010-02-08</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.atitle=Temporal+Difference+Learning+and+TD-Gammon&amp;rft.volume=38&amp;rft.issue=3&amp;rft.pages=58-68&amp;rft.date=1995-03&amp;rft_id=info%3Adoi%2F10.1145%2F203330.203343&amp;rft.aulast=Tesauro&amp;rft.aufirst=Gerald&amp;rft_id=http%3A%2F%2Fwww.bkgm.com%2Farticles%2Ftesauro%2Ftdl.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text"><cite id="CITEREFWatkins1989" class="citation">Watkins, C.J.C.H. (1989), <a rel="nofollow" class="external text" href="http://www.cs.rhul.ac.uk/~chrisw/new_thesis.pdf"><i>Learning from Delayed Rewards</i></a> <span class="cs1-format">(PDF)</span> (Ph.D. thesis), Cambridge University</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Learning+from+Delayed+Rewards&amp;rft.pub=Cambridge+University&amp;rft.date=1989&amp;rft.aulast=Watkins&amp;rft.aufirst=C.J.C.H.&amp;rft_id=http%3A%2F%2Fwww.cs.rhul.ac.uk%2F~chrisw%2Fnew_thesis.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text">Watkins and Dayan, C.J.C.H., (1992), 'Q-learning.Machine Learning'</span>
+</li>
+<li id="cite_note-DobnikarSteele1999-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-DobnikarSteele1999_13-0">^</a></b></span> <span class="reference-text"><cite class="citation book">Bozinovski, S. (15 July 1999). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=clKwynlfZYkC&amp;pg=PA320-325">"Crossbar Adaptive Array: The first connectionist network that solved the delayed reinforcement learning problem"</a>.  In Dobnikar, Andrej; Steele, Nigel C.; Pearson, David W.; Albrecht, Rudolf F. (eds.). <i>Artificial Neural Nets and Genetic Algorithms: Proceedings of the International Conference in Portorož, Slovenia, 1999</i>. Springer Science &amp; Business Media. pp.&#160;320–325. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-3-211-83364-3" title="Special:BookSources/978-3-211-83364-3"><bdi>978-3-211-83364-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Crossbar+Adaptive+Array%3A+The+first+connectionist+network+that+solved+the+delayed+reinforcement+learning+problem&amp;rft.btitle=Artificial+Neural+Nets+and+Genetic+Algorithms%3A+Proceedings+of+the+International+Conference+in+Portoro%C5%BE%2C+Slovenia%2C+1999&amp;rft.pages=320-325&amp;rft.pub=Springer+Science+%26+Business+Media&amp;rft.date=1999-07-15&amp;rft.isbn=978-3-211-83364-3&amp;rft.aulast=Bozinovski&amp;rft.aufirst=S.&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DclKwynlfZYkC%26pg%3DPA320-325&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-Trappl1982-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-Trappl1982_14-0">^</a></b></span> <span class="reference-text"><cite class="citation book">Bozinovski, S. (1982). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=mGtQAAAAMAAJ&amp;pg=PA397">"A self learning system using secondary reinforcement"</a>.  In Trappl, Robert (ed.). <i>Cybernetics and Systems Research: Proceedings of the Sixth European Meeting on Cybernetics and Systems Research</i>. North Holland. pp.&#160;397–402. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-444-86488-8" title="Special:BookSources/978-0-444-86488-8"><bdi>978-0-444-86488-8</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=A+self+learning+system+using+secondary+reinforcement&amp;rft.btitle=Cybernetics+and+Systems+Research%3A+Proceedings+of+the+Sixth+European+Meeting+on+Cybernetics+and+Systems+Research&amp;rft.pages=397-402&amp;rft.pub=North+Holland&amp;rft.date=1982&amp;rft.isbn=978-0-444-86488-8&amp;rft.aulast=Bozinovski&amp;rft.aufirst=S.&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DmGtQAAAAMAAJ%26pg%3DPA397&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-OmidvarElliott1997-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-OmidvarElliott1997_15-0">^</a></b></span> <span class="reference-text"><cite class="citation book">Barto, A. (24 February 1997). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=oLcAiySCow0C">"Reinforcement learning"</a>.  In Omidvar, Omid; Elliott, David L. (eds.). <i>Neural Systems for Control</i>. Elsevier. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-08-053739-9" title="Special:BookSources/978-0-08-053739-9"><bdi>978-0-08-053739-9</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Reinforcement+learning&amp;rft.btitle=Neural+Systems+for+Control&amp;rft.pub=Elsevier&amp;rft.date=1997-02-24&amp;rft.isbn=978-0-08-053739-9&amp;rft.aulast=Barto&amp;rft.aufirst=A.&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DoLcAiySCow0C&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-16">^</a></b></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="https://patentimages.storage.googleapis.com/71/91/4a/c5cf4ffa56f705/US20150100530A1.pdf">"Methods and Apparatus for Reinforcement Learning, US Patent #20150100530A1"</a> <span class="cs1-format">(PDF)</span>. US Patent Office. 9 April 2015<span class="reference-accessdate">. Retrieved <span class="nowrap">28 July</span> 2018</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Methods+and+Apparatus+for+Reinforcement+Learning%2C+US+Patent+%2320150100530A1&amp;rft.pub=US+Patent+Office&amp;rft.date=2015-04-09&amp;rft_id=https%3A%2F%2Fpatentimages.storage.googleapis.com%2F71%2F91%2F4a%2Fc5cf4ffa56f705%2FUS20150100530A1.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-DQN-17"><span class="mw-cite-backlink"><b><a href="#cite_ref-DQN_17-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Mnih, Volodymyr; Kavukcuoglu, Koray; Silver, David; Rusu, Andrei A.; Veness, Joel; Bellemare, Marc G.; Graves, Alex; Riedmiller, Martin; Fidjeland, Andreas K. (Feb 2015). "Human-level control through deep reinforcement learning". <i>Nature</i>. <b>518</b> (7540): 529–533. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1038%2Fnature14236">10.1038/nature14236</a>. <a href="/wiki/International_Standard_Serial_Number" title="International Standard Serial Number">ISSN</a>&#160;<a rel="nofollow" class="external text" href="//www.worldcat.org/issn/0028-0836">0028-0836</a>. <a href="/wiki/PubMed_Identifier" class="mw-redirect" title="PubMed Identifier">PMID</a>&#160;<a rel="nofollow" class="external text" href="//pubmed.ncbi.nlm.nih.gov/25719670">25719670</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Nature&amp;rft.atitle=Human-level+control+through+deep+reinforcement+learning&amp;rft.volume=518&amp;rft.issue=7540&amp;rft.pages=529-533&amp;rft.date=2015-02&amp;rft.issn=0028-0836&amp;rft_id=info%3Apmid%2F25719670&amp;rft_id=info%3Adoi%2F10.1038%2Fnature14236&amp;rft.aulast=Mnih&amp;rft.aufirst=Volodymyr&amp;rft.au=Kavukcuoglu%2C+Koray&amp;rft.au=Silver%2C+David&amp;rft.au=Rusu%2C+Andrei+A.&amp;rft.au=Veness%2C+Joel&amp;rft.au=Bellemare%2C+Marc+G.&amp;rft.au=Graves%2C+Alex&amp;rft.au=Riedmiller%2C+Martin&amp;rft.au=Fidjeland%2C+Andreas+K.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-18"><span class="mw-cite-backlink"><b><a href="#cite_ref-18">^</a></b></span> <span class="reference-text"><cite class="citation journal">van Hasselt, Hado (2011). <a rel="nofollow" class="external text" href="http://papers.nips.cc/paper/3964-double-q-learning">"Double Q-learning"</a> <span class="cs1-format">(PDF)</span>. <i>Advances in Neural Information Processing Systems</i>. <b>23</b>: 2613–2622.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Advances+in+Neural+Information+Processing+Systems&amp;rft.atitle=Double+Q-learning&amp;rft.volume=23&amp;rft.pages=2613-2622&amp;rft.date=2011&amp;rft.aulast=van+Hasselt&amp;rft.aufirst=Hado&amp;rft_id=http%3A%2F%2Fpapers.nips.cc%2Fpaper%2F3964-double-q-learning&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-19"><span class="mw-cite-backlink"><b><a href="#cite_ref-19">^</a></b></span> <span class="reference-text"><cite class="citation journal">van Hasselt, Hado; Guez, Arthur; Silver, David (2015). <a rel="nofollow" class="external text" href="https://www.aaai.org/ocs/index.php/AAAI/AAAI16/paper/download/12389/11847">"Deep reinforcement learning with double Q-learning"</a> <span class="cs1-format">(PDF)</span>. <i>AAAI Conference on Artificial Intelligence</i>: 2094–2100.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=AAAI+Conference+on+Artificial+Intelligence&amp;rft.atitle=Deep+reinforcement+learning+with+double+Q-learning&amp;rft.pages=2094-2100&amp;rft.date=2015&amp;rft.aulast=van+Hasselt&amp;rft.aufirst=Hado&amp;rft.au=Guez%2C+Arthur&amp;rft.au=Silver%2C+David&amp;rft_id=https%3A%2F%2Fwww.aaai.org%2Focs%2Findex.php%2FAAAI%2FAAAI16%2Fpaper%2Fdownload%2F12389%2F11847&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-20"><span class="mw-cite-backlink"><b><a href="#cite_ref-20">^</a></b></span> <span class="reference-text"><cite class="citation journal">Strehl, Alexander L.; Li, Lihong; Wiewiora, Eric; Langford, John; Littman, Michael L. (2006). <a rel="nofollow" class="external text" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/published-14.pdf">"Pac model-free reinforcement learning"</a> <span class="cs1-format">(PDF)</span>. <i>Proc. 22nd ICML</i>: 881–888.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Proc.+22nd+ICML&amp;rft.atitle=Pac+model-free+reinforcement+learning&amp;rft.pages=881-888&amp;rft.date=2006&amp;rft.aulast=Strehl&amp;rft.aufirst=Alexander+L.&amp;rft.au=Li%2C+Lihong&amp;rft.au=Wiewiora%2C+Eric&amp;rft.au=Langford%2C+John&amp;rft.au=Littman%2C+Michael+L.&amp;rft_id=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fresearch%2Fwp-content%2Fuploads%2F2016%2F02%2Fpublished-14.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-21"><span class="mw-cite-backlink"><b><a href="#cite_ref-21">^</a></b></span> <span class="reference-text"><cite class="citation web">Maei, Hamid; Szepesvári, Csaba; Bhatnagar, Shalabh; Sutton, Richard (2010). <a rel="nofollow" class="external text" href="https://webdocs.cs.ualberta.ca/~sutton/papers/MSBS-10.pdf">"Toward off-policy learning control with function approximation in Proceedings of the 27th International Conference on Machine Learning"</a> <span class="cs1-format">(PDF)</span>. pp.&#160;719–726.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Toward+off-policy+learning+control+with+function+approximation+in+Proceedings+of+the+27th+International+Conference+on+Machine+Learning&amp;rft.pages=719-726&amp;rft.date=2010&amp;rft.aulast=Maei&amp;rft.aufirst=Hamid&amp;rft.au=Szepesv%C3%A1ri%2C+Csaba&amp;rft.au=Bhatnagar%2C+Shalabh&amp;rft.au=Sutton%2C+Richard&amp;rft_id=https%3A%2F%2Fwebdocs.cs.ualberta.ca%2F~sutton%2Fpapers%2FMSBS-10.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQ-learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+</ol></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Q-learning&amp;action=edit&amp;section=18" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://www.cs.rhul.ac.uk/~chrisw/thesis.html">Watkins, C.J.C.H. (1989). Learning from Delayed Rewards. PhD thesis, Cambridge University, Cambridge, England.</a></li>
+<li><a rel="nofollow" class="external text" href="http://portal.acm.org/citation.cfm?id=1143955">Strehl, Li, Wiewiora, Langford, Littman (2006). PAC model-free reinforcement learning</a></li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20050806080008/http://www.cs.ualberta.ca/~sutton/book/the-book.html"><i>Reinforcement Learning: An Introduction</i></a> by Richard Sutton and Andrew S. Barto, an online textbook. See <a rel="nofollow" class="external text" href="https://web.archive.org/web/20081202105235/http://www.cs.ualberta.ca/~sutton/book/ebook/node65.html">"6.5 Q-Learning: Off-Policy TD Control"</a>.</li>
+<li><a rel="nofollow" class="external text" href="http://sourceforge.net/projects/piqle/">Piqle: a Generic Java Platform for Reinforcement Learning</a></li>
+<li><a rel="nofollow" class="external text" href="http://ccl.northwestern.edu/netlogo/models/community/Reinforcement%20Learning%20Maze">Reinforcement Learning Maze</a>, a demonstration of guiding an ant through a maze using <i>Q</i>-learning.</li>
+<li><a rel="nofollow" class="external text" href="http://www.research.ibm.com/infoecon/paps/html/ijcai99_qnn/node4.html"><i>Q</i>-learning work by Gerald Tesauro</a></li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1344
+Cached time: 20200318153734
+Cache expiry: 2592000
+Dynamic content: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.512 seconds
+Real time usage: 0.970 seconds
+Preprocessor visited node count: 1892/1000000
+Post‐expand include size: 68086/2097152 bytes
+Template argument size: 1917/2097152 bytes
+Highest expansion depth: 12/40
+Expensive parser function count: 5/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 68218/5000000 bytes
+Number of Wikibase entities loaded: 3/400
+Lua time usage: 0.245/10.000 seconds
+Lua memory usage: 5.24 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  741.965      1 -total
+ 72.58%  538.550      1 Template:Reflist
+ 38.89%  288.534      7 Template:Cite_journal
+ 10.55%   78.295      1 Template:Cite_paper
+ 10.03%   74.382      1 Template:Machine_learning_bar
+  9.49%   70.418      1 Template:Sidebar_with_collapsible_lists
+  7.74%   57.433      1 Template:Citation_needed
+  7.60%   56.416      7 Template:Cite_book
+  6.71%   49.753      1 Template:Fix
+  6.37%   47.298      1 Template:Cite_arxiv
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:1281850-0!canonical!math=5 and timestamp 20200318153735 and revision id 946174599
+ -->
+</div><noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>
+		<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Q-learning&amp;oldid=946174599">https://en.wikipedia.org/w/index.php?title=Q-learning&amp;oldid=946174599</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Machine_learning_algorithms" title="Category:Machine learning algorithms">Machine learning algorithms</a></li><li><a href="/wiki/Category:Reinforcement_learning" title="Category:Reinforcement learning">Reinforcement learning</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:CS1_errors:_missing_periodical" title="Category:CS1 errors: missing periodical">CS1 errors: missing periodical</a></li><li><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_December_2017" title="Category:Articles with unsourced statements from December 2017">Articles with unsourced statements from December 2017</a></li><li><a href="/wiki/Category:Wikipedia_articles_needing_clarification_from_January_2020" title="Category:Wikipedia articles needing clarification from January 2020">Wikipedia articles needing clarification from January 2020</a></li></ul></div></div>
+		<div class="visualClear"></div>
+		
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+    <h2>Navigation menu</h2>
+    <div id="mw-head">
+        
+        <div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+        	<h3 id="p-personal-label">Personal tools</h3>
+        	<ul >
+        		
+        		<li id="pt-anonuserpage">Not logged in</li>
+        		<li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Q-learning" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Q-learning" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>
+        	</ul>
+        </div>
+        <div id="left-navigation">
+            <div id="p-namespaces" role="navigation" class="vectorTabs " aria-labelledby="p-namespaces-label">
+            	<h3 id="p-namespaces-label">Namespaces</h3>
+            	<ul >
+            		<li id="ca-nstab-main" class="selected"><a href="/wiki/Q-learning" title="View the content page [c]" accesskey="c">Article</a></li><li id="ca-talk"><a href="/wiki/Talk:Q-learning" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Talk</a></li>
+            	</ul>
+            </div>
+            <div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+            	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+            	<h3 id="p-variants-label">
+            		<span>Variants</span>
+            	</h3>
+            	<ul class="menu" >
+            		
+            	</ul>
+            </div>
+        </div>
+        <div id="right-navigation">
+            <div id="p-views" role="navigation" class="vectorTabs " aria-labelledby="p-views-label">
+            	<h3 id="p-views-label">Views</h3>
+            	<ul >
+            		<li id="ca-view" class="collapsible selected"><a href="/wiki/Q-learning">Read</a></li><li id="ca-edit" class="collapsible"><a href="/w/index.php?title=Q-learning&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/w/index.php?title=Q-learning&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li>
+            	</ul>
+            </div>
+            <div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+            	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+            	<h3 id="p-cactions-label">
+            		<span>More</span>
+            	</h3>
+            	<ul class="menu" >
+            		
+            	</ul>
+            </div>
+            <div id="p-search" role="search">
+            	<h3 >
+            		<label for="searchInput">Search</label>
+            	</h3>
+            	<form action="/w/index.php" id="searchform">
+            		<div id="simpleSearch">
+            			<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/>
+            			<input type="hidden" value="Special:Search" name="title"/>
+            			<input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+            			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+            		</div>
+            	</form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="mw-panel">
+    	<div id="p-logo" role="banner">
+    		<a  title="Visit the main page" class="mw-wiki-logo" href="/wiki/Main_Page"></a>
+    	</div>
+    	<div class="portal" role="navigation" id="p-navigation"  aria-labelledby="p-navigation-label">
+    		<h3  id="p-navigation-label">
+    			Navigation
+    		</h3>
+    		<div class="body">
+    			<ul><li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Wikipedia:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-interaction"  aria-labelledby="p-interaction-label">
+    		<h3  id="p-interaction-label">
+    			Interaction
+    		</h3>
+    		<div class="body">
+    			<ul><li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-tb"  aria-labelledby="p-tb-label">
+    		<h3  id="p-tb-label">
+    			Tools
+    		</h3>
+    		<div class="body">
+    			<ul><li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Q-learning" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Q-learning" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Q-learning&amp;oldid=946174599" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Q-learning&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q2664563" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Q-learning&amp;id=946174599&amp;wpFormIdentifier=titleform" title="Information on how to cite this page">Cite this page</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-coll-print_export"  aria-labelledby="p-coll-print_export-label">
+    		<h3  id="p-coll-print_export-label">
+    			Print/export
+    		</h3>
+    		<div class="body">
+    			<ul><li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Q-learning">Create a book</a></li><li id="coll-download-as-rl"><a href="/w/index.php?title=Special:ElectronPdf&amp;page=Q-learning&amp;action=show-download-screen">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Q-learning&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-lang"  aria-labelledby="p-lang-label">
+    		<h3  id="p-lang-label">
+    			Languages
+    		</h3>
+    		<div class="body">
+    			<ul><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/Q-learning" title="Q-learning – Spanish" lang="es" hreflang="es" class="interlanguage-link-target">Español</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/%DA%A9%DB%8C%D9%88-%DB%8C%D8%A7%D8%AF%DA%AF%DB%8C%D8%B1%DB%8C" title="کیو-یادگیری – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target">فارسی</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.wikipedia.org/wiki/Q-learning" title="Q-learning – French" lang="fr" hreflang="fr" class="interlanguage-link-target">Français</a></li><li class="interlanguage-link interwiki-ko"><a href="https://ko.wikipedia.org/wiki/Q_%EB%9F%AC%EB%8B%9D" title="Q 러닝 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target">한국어</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Q-learning" title="Q-learning – Italian" lang="it" hreflang="it" class="interlanguage-link-target">Italiano</a></li><li class="interlanguage-link interwiki-he"><a href="https://he.wikipedia.org/wiki/Q-learning" title="Q-learning – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target">עברית</a></li><li class="interlanguage-link interwiki-ja"><a href="https://ja.wikipedia.org/wiki/Q%E5%AD%A6%E7%BF%92" title="Q学習 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target">日本語</a></li><li class="interlanguage-link interwiki-no"><a href="https://no.wikipedia.org/wiki/Q-l%C3%A6ring" title="Q-læring – Norwegian Bokmål" lang="nb" hreflang="nb" class="interlanguage-link-target">Norsk bokmål</a></li><li class="interlanguage-link interwiki-ro"><a href="https://ro.wikipedia.org/wiki/Q-learning" title="Q-learning – Romanian" lang="ro" hreflang="ro" class="interlanguage-link-target">Română</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/Q-%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5" title="Q-обучение – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target">Русский</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/Q-%D0%BD%D0%B0%D0%B2%D1%87%D0%B0%D0%BD%D0%BD%D1%8F" title="Q-навчання – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target">Українська</a></li><li class="interlanguage-link interwiki-vi"><a href="https://vi.wikipedia.org/wiki/Q-learning_(h%E1%BB%8Dc_t%C4%83ng_c%C6%B0%E1%BB%9Dng)" title="Q-learning (học tăng cường) – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target">Tiếng Việt</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.wikipedia.org/wiki/Q%E5%AD%A6%E4%B9%A0" title="Q学习 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target">中文</a></li></ul>
+    			<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q2664563#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+    		</div>
+    	</div>
+    	
+    </div>
+</div>
+
+<div id="footer" role="contentinfo" >
+	<ul id="footer-info" class="">
+		<li id="footer-info-lastmod"> This page was last edited on 18 March 2020, at 15:37<span class="anonymous-show">&#160;(UTC)</span>.</li>
+		<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+	</ul>
+	<ul id="footer-places" class="">
+		<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+		<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+		<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+		<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+		<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+		<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+		<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Q-learning&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</div>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.512","walltime":"0.970","ppvisitednodes":{"value":1892,"limit":1000000},"postexpandincludesize":{"value":68086,"limit":2097152},"templateargumentsize":{"value":1917,"limit":2097152},"expansiondepth":{"value":12,"limit":40},"expensivefunctioncount":{"value":5,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":68218,"limit":5000000},"entityaccesscount":{"value":3,"limit":400},"timingprofile":["100.00%  741.965      1 -total"," 72.58%  538.550      1 Template:Reflist"," 38.89%  288.534      7 Template:Cite_journal"," 10.55%   78.295      1 Template:Cite_paper"," 10.03%   74.382      1 Template:Machine_learning_bar","  9.49%   70.418      1 Template:Sidebar_with_collapsible_lists","  7.74%   57.433      1 Template:Citation_needed","  7.60%   56.416      7 Template:Cite_book","  6.71%   49.753      1 Template:Fix","  6.37%   47.298      1 Template:Cite_arxiv"]},"scribunto":{"limitreport-timeusage":{"value":"0.245","limit":"10.000"},"limitreport-memusage":{"value":5496153,"limit":52428800}},"cachereport":{"origin":"mw1344","timestamp":"20200318153734","ttl":2592000,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Q-learning","url":"https:\/\/en.wikipedia.org\/wiki\/Q-learning","sameAs":"http:\/\/www.wikidata.org\/entity\/Q2664563","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q2664563","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-12-15T17:38:13Z","dateModified":"2020-03-18T15:37:35Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/fe\/Kernel_Machine.svg","headline":"algorithm"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":100,"wgHostname":"mw1350"});});</script></body></html>

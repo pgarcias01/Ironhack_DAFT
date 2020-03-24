@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Hierarchical clustering - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRequestId":"Xm@J6QpAIEIAAJf7qNEAAAAL","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Hierarchical_clustering","wgTitle":"Hierarchical clustering","wgCurRevisionId":945452428,"wgRevisionId":945452428,"wgArticleId":477573,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles with short description","All articles with unsourced statements","Articles with unsourced statements from April 2009","Network analysis","Cluster analysis algorithms"],
+"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Hierarchical_clustering","wgRelevantArticleId":477573,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0,"wgPopupsReferencePreviews":!1,"wgPopupsConflictsWithNavPopupGadget":!1,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":!0,"nearby":!0,"watchlist":!0,"tagline":!1},"wgWMESchemaEditAttemptStepOversample":!1,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q1277447","wgCentralAuthMobileDomain":!1,"wgEditSubmitButtonLabelPublish":!0};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"ready","user.tokens":"loading",
+"ext.cite.styles":"ready","ext.math.styles":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.toc.styles":"ready","skins.vector.styles":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.startup","skins.vector.js","mediawiki.page.ready","mediawiki.toc","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns","ext.quicksurveys.init","ext.centralNotice.geoIP",
+"ext.centralNotice.startUp"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.tokens@tffin",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.toc.styles%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.0-wmf.22"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/1200px-Kernel_Machine.svg.png"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Hierarchical_clustering&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Hierarchical_clustering&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Hierarchical_clustering"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Hierarchical_clustering rootpage-Hierarchical_clustering skin-vector action-view">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+</div>
+
+	<h1 id="firstHeading" class="firstHeading" lang="en">Hierarchical clustering</h1>
+	
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#p-search">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">A statistical method of analysis which seeks to build a hierarchy of clusters</div>
+<table class="vertical-navbox nowraplinks" style="float:right;clear:right;width:22.0em;margin:0 0 1.0em 1.0em;background:#f9f9f9;border:1px solid #aaa;padding:0.2em;border-spacing:0.4em 0;text-align:center;line-height:1.4em;font-size:88%"><tbody><tr><th style="padding:0.2em 0.4em 0.2em;font-size:145%;line-height:1.2em"><a href="/wiki/Machine_learning" title="Machine learning">Machine learning</a> and<br /><a href="/wiki/Data_mining" title="Data mining">data mining</a></th></tr><tr><td style="padding:0.2em 0 0.4em;padding:0.25em 0.25em 0.75em;"><a href="/wiki/File:Kernel_Machine.svg" class="image"><img alt="Kernel Machine.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/220px-Kernel_Machine.svg.png" decoding="async" width="220" height="100" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/330px-Kernel_Machine.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/440px-Kernel_Machine.svg.png 2x" data-file-width="512" data-file-height="233" /></a></td></tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Problems</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Statistical_classification" title="Statistical classification">Classification</a></li>
+<li><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></li>
+<li><a href="/wiki/Regression_analysis" title="Regression analysis">Regression</a></li>
+<li><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></li>
+<li><a href="/wiki/Automated_machine_learning" title="Automated machine learning">AutoML</a></li>
+<li><a href="/wiki/Association_rule_learning" title="Association rule learning">Association rules</a></li>
+<li><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></li>
+<li><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></li>
+<li><a href="/wiki/Feature_engineering" title="Feature engineering">Feature engineering</a></li>
+<li><a href="/wiki/Feature_learning" title="Feature learning">Feature learning</a></li>
+<li><a href="/wiki/Online_machine_learning" title="Online machine learning">Online learning</a></li>
+<li><a href="/wiki/Semi-supervised_learning" title="Semi-supervised learning">Semi-supervised learning</a></li>
+<li><a href="/wiki/Unsupervised_learning" title="Unsupervised learning">Unsupervised learning</a></li>
+<li><a href="/wiki/Learning_to_rank" title="Learning to rank">Learning to rank</a></li>
+<li><a href="/wiki/Grammar_induction" title="Grammar induction">Grammar induction</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><div style="padding:0.1em 0;line-height:1.2em;"><a href="/wiki/Supervised_learning" title="Supervised learning">Supervised learning</a><br /><style data-mw-deduplicate="TemplateStyles:r886047488">.mw-parser-output .nobold{font-weight:normal}</style><span class="nobold"><span style="font-size:85%;">(<b><a href="/wiki/Statistical_classification" title="Statistical classification">classification</a></b>&#160;&#8226;&#32;<b><a href="/wiki/Regression_analysis" title="Regression analysis">regression</a></b>)</span></span> </div></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Decision_tree_learning" title="Decision tree learning">Decision trees</a></li>
+<li><a href="/wiki/Ensemble_learning" title="Ensemble learning">Ensembles</a>
+<ul><li><a href="/wiki/Bootstrap_aggregating" title="Bootstrap aggregating">Bagging</a></li>
+<li><a href="/wiki/Boosting_(machine_learning)" title="Boosting (machine learning)">Boosting</a></li>
+<li><a href="/wiki/Random_forest" title="Random forest">Random forest</a></li></ul></li>
+<li><a href="/wiki/K-nearest_neighbors_algorithm" title="K-nearest neighbors algorithm"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Linear_regression" title="Linear regression">Linear regression</a></li>
+<li><a href="/wiki/Naive_Bayes_classifier" title="Naive Bayes classifier">Naive Bayes</a></li>
+<li><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural networks</a></li>
+<li><a href="/wiki/Logistic_regression" title="Logistic regression">Logistic regression</a></li>
+<li><a href="/wiki/Perceptron" title="Perceptron">Perceptron</a></li>
+<li><a href="/wiki/Relevance_vector_machine" title="Relevance vector machine">Relevance vector machine (RVM)</a></li>
+<li><a href="/wiki/Support-vector_machine" title="Support-vector machine">Support vector machine (SVM)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/BIRCH" title="BIRCH">BIRCH</a></li>
+<li><a href="/wiki/CURE_data_clustering_algorithm" class="mw-redirect" title="CURE data clustering algorithm">CURE</a></li>
+<li><a class="mw-selflink selflink">Hierarchical</a></li>
+<li><a href="/wiki/K-means_clustering" title="K-means clustering"><i>k</i>-means</a></li>
+<li><a href="/wiki/Expectation%E2%80%93maximization_algorithm" title="Expectation–maximization algorithm">Expectation–maximization (EM)</a></li>
+<li><br /><a href="/wiki/DBSCAN" title="DBSCAN">DBSCAN</a></li>
+<li><a href="/wiki/OPTICS_algorithm" title="OPTICS algorithm">OPTICS</a></li>
+<li><a href="/wiki/Mean-shift" class="mw-redirect" title="Mean-shift">Mean-shift</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Dimensionality_reduction" title="Dimensionality reduction">Dimensionality reduction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Factor_analysis" title="Factor analysis">Factor analysis</a></li>
+<li><a href="/wiki/Canonical_correlation_analysis" class="mw-redirect" title="Canonical correlation analysis">CCA</a></li>
+<li><a href="/wiki/Independent_component_analysis" title="Independent component analysis">ICA</a></li>
+<li><a href="/wiki/Linear_discriminant_analysis" title="Linear discriminant analysis">LDA</a></li>
+<li><a href="/wiki/Non-negative_matrix_factorization" title="Non-negative matrix factorization">NMF</a></li>
+<li><a href="/wiki/Principal_component_analysis" title="Principal component analysis">PCA</a></li>
+<li><a href="/wiki/T-distributed_stochastic_neighbor_embedding" title="T-distributed stochastic neighbor embedding">t-SNE</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Graphical_model" title="Graphical model">Graphical models</a>
+<ul><li><a href="/wiki/Bayesian_network" title="Bayesian network">Bayes net</a></li>
+<li><a href="/wiki/Conditional_random_field" title="Conditional random field">Conditional random field</a></li>
+<li><a href="/wiki/Hidden_Markov_model" title="Hidden Markov model">Hidden Markov</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/K-nearest_neighbors_classification" class="mw-redirect" title="K-nearest neighbors classification"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Local_outlier_factor" title="Local outlier factor">Local outlier factor</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural network</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Autoencoder" title="Autoencoder">Autoencoder</a></li>
+<li><a href="/wiki/Deep_learning" title="Deep learning">Deep learning</a></li>
+<li><a href="/wiki/DeepDream" title="DeepDream">DeepDream</a></li>
+<li><a href="/wiki/Multilayer_perceptron" title="Multilayer perceptron">Multilayer perceptron</a></li>
+<li><a href="/wiki/Recurrent_neural_network" title="Recurrent neural network">RNN</a>
+<ul><li><a href="/wiki/Long_short-term_memory" title="Long short-term memory">LSTM</a></li>
+<li><a href="/wiki/Gated_recurrent_unit" title="Gated recurrent unit">GRU</a></li></ul></li>
+<li><a href="/wiki/Restricted_Boltzmann_machine" title="Restricted Boltzmann machine">Restricted Boltzmann machine</a></li>
+<li><a href="/wiki/Generative_adversarial_network" title="Generative adversarial network">GAN</a></li>
+<li><a href="/wiki/Self-organizing_map" title="Self-organizing map">SOM</a></li>
+<li><a href="/wiki/Convolutional_neural_network" title="Convolutional neural network">Convolutional neural network</a>
+<ul><li><a href="/wiki/U-Net" title="U-Net">U-Net</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Q-learning" title="Q-learning">Q-learning</a></li>
+<li><a href="/wiki/State%E2%80%93action%E2%80%93reward%E2%80%93state%E2%80%93action" title="State–action–reward–state–action">SARSA</a></li>
+<li><a href="/wiki/Temporal_difference_learning" title="Temporal difference learning">Temporal difference (TD)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Theory</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Bias%E2%80%93variance_dilemma" class="mw-redirect" title="Bias–variance dilemma">Bias–variance dilemma</a></li>
+<li><a href="/wiki/Computational_learning_theory" title="Computational learning theory">Computational learning theory</a></li>
+<li><a href="/wiki/Empirical_risk_minimization" title="Empirical risk minimization">Empirical risk minimization</a></li>
+<li><a href="/wiki/Occam_learning" title="Occam learning">Occam learning</a></li>
+<li><a href="/wiki/Probably_approximately_correct_learning" title="Probably approximately correct learning">PAC learning</a></li>
+<li><a href="/wiki/Statistical_learning_theory" title="Statistical learning theory">Statistical learning</a></li>
+<li><a href="/wiki/Vapnik%E2%80%93Chervonenkis_theory" title="Vapnik–Chervonenkis theory">VC theory</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Machine-learning venues</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Conference_on_Neural_Information_Processing_Systems" title="Conference on Neural Information Processing Systems">NeurIPS</a></li>
+<li><a href="/wiki/International_Conference_on_Machine_Learning" title="International Conference on Machine Learning">ICML</a></li>
+<li><a href="/wiki/Machine_Learning_(journal)" title="Machine Learning (journal)">ML</a></li>
+<li><a href="/wiki/Journal_of_Machine_Learning_Research" title="Journal of Machine Learning Research">JMLR</a></li>
+<li><a rel="nofollow" class="external text" href="https://arxiv.org/list/cs.LG/recent">ArXiv:cs.LG</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Related articles</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/List_of_datasets_for_machine-learning_research" title="List of datasets for machine-learning research">List of datasets for machine-learning research</a></li>
+<li><a href="/wiki/Outline_of_machine_learning" title="Outline of machine learning">Outline of machine learning</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="text-align:right;font-size:115%;padding-top: 0.6em;"><div class="plainlinks hlist navbar mini"><ul><li class="nv-view"><a href="/wiki/Template:Machine_learning_bar" title="Template:Machine learning bar"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="/wiki/Template_talk:Machine_learning_bar" title="Template talk:Machine learning bar"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Machine_learning_bar&amp;action=edit"><abbr title="Edit this template">e</abbr></a></li></ul></div></td></tr></tbody></table>
+<p>In <a href="/wiki/Data_mining" title="Data mining">data mining</a> and <a href="/wiki/Statistics" title="Statistics">statistics</a>, <b>hierarchical clustering</b> (also called <b>hierarchical cluster analysis</b> or <b>HCA</b>) is a method of <a href="/wiki/Cluster_analysis" title="Cluster analysis">cluster analysis</a> which seeks to build a <a href="/wiki/Hierarchy" title="Hierarchy">hierarchy</a> of clusters. Strategies for hierarchical clustering generally fall into two types:<sup id="cite_ref-clusteringMethods_1-0" class="reference"><a href="#cite_note-clusteringMethods-1">&#91;1&#93;</a></sup>
+</p>
+<ul><li><b>Agglomerative</b>: This is a "<a href="/wiki/Top-down_and_bottom-up_design" title="Top-down and bottom-up design">bottom-up</a>" approach: each observation starts in its own cluster, and pairs of clusters are merged as one moves up the hierarchy.</li>
+<li><b>Divisive</b>: This is a "<a href="/wiki/Top-down_and_bottom-up_design" title="Top-down and bottom-up design">top-down</a>" approach: all observations start in one cluster, and splits are performed recursively as one moves down the hierarchy.</li></ul>
+<p>In general, the merges and splits are determined in a <a href="/wiki/Greedy_algorithm" title="Greedy algorithm">greedy</a> manner. The results of hierarchical clustering<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> are usually presented in a <a href="/wiki/Dendrogram" title="Dendrogram">dendrogram</a>.
+</p><p>The standard algorithm for <b>hierarchical agglomerative clustering</b> (HAC) has a <a href="/wiki/Time_complexity" title="Time complexity">time complexity</a> of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {O}}(n^{3})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">O</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {O}}(n^{3})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ff78e74de3bf7a5246829c66bc5acf0c2a94b67c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.108ex; height:3.176ex;" alt="{\mathcal {O}}(n^{3})"/></span> and requires <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {O}}(n^{2})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">O</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {O}}(n^{2})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4441d9689c0e6b2c47994e2f587ac5378faeefba" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.108ex; height:3.176ex;" alt="{\mathcal {O}}(n^{2})"/></span> memory, which makes it too slow for even medium data sets. However, for some special cases, optimal efficient agglomerative methods (of complexity <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {O}}(n^{2})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">O</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {O}}(n^{2})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4441d9689c0e6b2c47994e2f587ac5378faeefba" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.108ex; height:3.176ex;" alt="{\mathcal {O}}(n^{2})"/></span>) are known: SLINK<sup id="cite_ref-SLINK_3-0" class="reference"><a href="#cite_note-SLINK-3">&#91;3&#93;</a></sup> for <a href="/wiki/Single-linkage_clustering" title="Single-linkage clustering">single-linkage</a> and CLINK<sup id="cite_ref-CLINK_4-0" class="reference"><a href="#cite_note-CLINK-4">&#91;4&#93;</a></sup> for <a href="/wiki/Complete-linkage_clustering" title="Complete-linkage clustering">complete-linkage clustering</a>. With a <a href="/wiki/Heap_(data_structure)" title="Heap (data structure)">heap</a> the runtime of the general case can be reduced to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {O}}(n^{2}\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">O</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {O}}(n^{2}\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ff9d8247a11fce04adfd903d817db246a6d3d44b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.249ex; height:3.176ex;" alt="{\mathcal  {O}}(n^{2}\log n)"/></span> at the cost of further increasing the memory requirements. In many cases, the memory overheads of this approach are too large to make it practically usable.
+</p><p>Except for the special case of single-linkage, none of the algorithms (except exhaustive search in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {O}}(2^{n})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">O</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {O}}(2^{n})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9e36948445d0efd3f0b41d0bd7d281571e72492d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.04ex; height:2.843ex;" alt="{\displaystyle {\mathcal {O}}(2^{n})}"/></span>) can be guaranteed to find the optimum solution.
+</p><p>Divisive clustering with an exhaustive search is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {O}}(2^{n})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">O</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {O}}(2^{n})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9e36948445d0efd3f0b41d0bd7d281571e72492d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.04ex; height:2.843ex;" alt="{\displaystyle {\mathcal {O}}(2^{n})}"/></span>, but it is common to use faster heuristics to choose splits, such as k-means.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Cluster_dissimilarity"><span class="tocnumber">1</span> <span class="toctext">Cluster dissimilarity</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Metric"><span class="tocnumber">1.1</span> <span class="toctext">Metric</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Linkage_criteria"><span class="tocnumber">1.2</span> <span class="toctext">Linkage criteria</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Discussion"><span class="tocnumber">2</span> <span class="toctext">Discussion</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Agglomerative_clustering_example"><span class="tocnumber">3</span> <span class="toctext">Agglomerative clustering example</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Divisive_clustering"><span class="tocnumber">4</span> <span class="toctext">Divisive clustering</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Software"><span class="tocnumber">5</span> <span class="toctext">Software</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Open_source_implementations"><span class="tocnumber">5.1</span> <span class="toctext">Open source implementations</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Commercial_implementations"><span class="tocnumber">5.2</span> <span class="toctext">Commercial implementations</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Further_reading"><span class="tocnumber">8</span> <span class="toctext">Further reading</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Cluster_dissimilarity">Cluster dissimilarity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Hierarchical_clustering&amp;action=edit&amp;section=1" title="Edit section: Cluster dissimilarity">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In order to decide which clusters should be combined (for agglomerative), or where a cluster should be split (for divisive), a measure of dissimilarity between sets of observations is required. In most methods of hierarchical clustering, this is achieved by use of an appropriate <a href="/wiki/Metric_(mathematics)" title="Metric (mathematics)">metric</a> (a measure of <a href="/wiki/Distance" title="Distance">distance</a> between pairs of observations), and a linkage criterion which specifies the dissimilarity of sets as a function of the pairwise distances of observations in the sets.
+</p>
+<h3><span class="mw-headline" id="Metric">Metric</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Hierarchical_clustering&amp;action=edit&amp;section=2" title="Edit section: Metric">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div role="note" class="hatnote navigation-not-searchable">Further information: <a href="/wiki/Metric_(mathematics)" title="Metric (mathematics)">Metric (mathematics)</a></div>
+<p>The choice of an appropriate metric will influence the shape of the clusters, as some elements may be close to one another according to one distance and farther away according to another. For example, in a 2-dimensional space, the distance between the point (1,0) and the origin (0,0) is always 1 according to the usual norms, but the distance between the point (1,1) and the origin (0,0) can be 2 under Manhattan distance, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \scriptstyle {\sqrt {2}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mstyle displaystyle="false" scriptlevel="1">
+          <mrow class="MJX-TeXAtom-ORD">
+            <msqrt>
+              <mn>2</mn>
+            </msqrt>
+          </mrow>
+        </mstyle>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \scriptstyle {\sqrt {2}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7b6ac02637a190523aa10dde1b52ae41964dfff0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:2.191ex; height:2.176ex;" alt="\scriptstyle {\sqrt {2}}"/></span> under Euclidean distance, or 1 under maximum distance.
+</p><p>Some commonly used metrics for hierarchical clustering are:<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup>
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Names
+</th>
+<th>Formula
+</th></tr>
+<tr>
+<td><a href="/wiki/Euclidean_distance" title="Euclidean distance">Euclidean distance</a>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \|a-b\|_{2}={\sqrt {\sum _{i}(a_{i}-b_{i})^{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+        <mi>a</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>b</mi>
+        <msub>
+          <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msqrt>
+            <munder>
+              <mo>&#x2211;<!-- ∑ --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </munder>
+            <mo stretchy="false">(</mo>
+            <msub>
+              <mi>a</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <mo>&#x2212;<!-- − --></mo>
+            <msub>
+              <mi>b</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <msup>
+              <mo stretchy="false">)</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msup>
+          </msqrt>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \|a-b\|_{2}={\sqrt {\sum _{i}(a_{i}-b_{i})^{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c28af99d6b7c1ff13d2b79347e90fec407aa9ef0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.338ex; width:26.755ex; height:6.176ex;" alt="\|a-b\|_{2}={\sqrt  {\sum _{i}(a_{i}-b_{i})^{2}}}"/></span>
+</td></tr>
+<tr>
+<td>Squared Euclidean distance
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \|a-b\|_{2}^{2}=\sum _{i}(a_{i}-b_{i})^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+        <mi>a</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>b</mi>
+        <msubsup>
+          <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msubsup>
+        <mo>=</mo>
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </munder>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \|a-b\|_{2}^{2}=\sum _{i}(a_{i}-b_{i})^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/be73281c1511a38c598b2a40c2985e2ede226eab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.005ex; width:24.431ex; height:5.509ex;" alt="\|a-b\|_{2}^{2}=\sum _{i}(a_{i}-b_{i})^{2}"/></span>
+</td></tr>
+<tr>
+<td><a href="/wiki/Manhattan_distance" class="mw-redirect" title="Manhattan distance">Manhattan distance</a>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \|a-b\|_{1}=\sum _{i}|a_{i}-b_{i}|}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+        <mi>a</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>b</mi>
+        <msub>
+          <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </munder>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \|a-b\|_{1}=\sum _{i}|a_{i}-b_{i}|}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6a2e701957744dcdf361a0dc0d79633491e17bfb" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.005ex; width:23.248ex; height:5.509ex;" alt="\|a-b\|_{1}=\sum _{i}|a_{i}-b_{i}|"/></span>
+</td></tr>
+<tr>
+<td><a href="/wiki/Uniform_norm" title="Uniform norm">Maximum distance</a>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \|a-b\|_{\infty }=\max _{i}|a_{i}-b_{i}|}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+        <mi>a</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>b</mi>
+        <msub>
+          <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <munder>
+          <mo movablelimits="true" form="prefix">max</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </munder>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \|a-b\|_{\infty }=\max _{i}|a_{i}-b_{i}|}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c275abbd06f5262461af5fda82cf7f53eb8161e8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.005ex; width:25.04ex; height:4.009ex;" alt="\|a-b\|_{\infty }=\max _{i}|a_{i}-b_{i}|"/></span>
+</td></tr>
+<tr>
+<td><a href="/wiki/Mahalanobis_distance" title="Mahalanobis distance">Mahalanobis distance</a>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\sqrt {(a-b)^{\top }S^{-1}(a-b)}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <msqrt>
+            <mo stretchy="false">(</mo>
+            <mi>a</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mi>b</mi>
+            <msup>
+              <mo stretchy="false">)</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">&#x22A4;<!-- ⊤ --></mi>
+              </mrow>
+            </msup>
+            <msup>
+              <mi>S</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>&#x2212;<!-- − --></mo>
+                <mn>1</mn>
+              </mrow>
+            </msup>
+            <mo stretchy="false">(</mo>
+            <mi>a</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mi>b</mi>
+            <mo stretchy="false">)</mo>
+          </msqrt>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\sqrt {(a-b)^{\top }S^{-1}(a-b)}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4394a5fa306f849f2f712e765697deff7685279f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.671ex; width:21.443ex; height:4.843ex;" alt="{\sqrt  {(a-b)^{{\top }}S^{{-1}}(a-b)}}"/></span> where <i>S</i> is the <a href="/wiki/Covariance_matrix" title="Covariance matrix">Covariance matrix</a>
+</td></tr>
+</tbody></table>
+<p>For text or other non-numeric data, metrics such as the <a href="/wiki/Hamming_distance" title="Hamming distance">Hamming distance</a> or <a href="/wiki/Levenshtein_distance" title="Levenshtein distance">Levenshtein distance</a> are often used.
+</p><p>A review of cluster analysis in health psychology research found that the most common distance measure in published studies in that research area is the Euclidean distance or the squared Euclidean distance.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (April 2009)">citation needed</span></a></i>&#93;</sup>
+</p>
+<h3><span class="mw-headline" id="Linkage_criteria">Linkage criteria</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Hierarchical_clustering&amp;action=edit&amp;section=3" title="Edit section: Linkage criteria">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The linkage criterion determines the distance between sets of observations as a function of the pairwise distances between observations.
+</p><p>Some commonly used linkage criteria between two sets of observations <i>A</i> and <i>B</i> are:<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup><sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup>
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Names
+</th>
+<th>Formula
+</th></tr>
+<tr>
+<td>Maximum or <a href="/wiki/Complete-linkage_clustering" title="Complete-linkage clustering">complete-linkage clustering</a>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \max \,\{\,d(a,b):a\in A,\,b\in B\,\}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo movablelimits="true" form="prefix">max</mo>
+        <mspace width="thinmathspace" />
+        <mo fence="false" stretchy="false">{</mo>
+        <mspace width="thinmathspace" />
+        <mi>d</mi>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>:</mo>
+        <mi>a</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>A</mi>
+        <mo>,</mo>
+        <mspace width="thinmathspace" />
+        <mi>b</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>B</mi>
+        <mspace width="thinmathspace" />
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \max \,\{\,d(a,b):a\in A,\,b\in B\,\}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4ea47cb29523a267681865d874c59575c56860d0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:29.519ex; height:2.843ex;" alt="\max \,\{\,d(a,b):a\in A,\,b\in B\,\}."/></span>
+</td></tr>
+<tr>
+<td>Minimum or <a href="/wiki/Single-linkage_clustering" title="Single-linkage clustering">single-linkage clustering</a>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \min \,\{\,d(a,b):a\in A,\,b\in B\,\}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo movablelimits="true" form="prefix">min</mo>
+        <mspace width="thinmathspace" />
+        <mo fence="false" stretchy="false">{</mo>
+        <mspace width="thinmathspace" />
+        <mi>d</mi>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>:</mo>
+        <mi>a</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>A</mi>
+        <mo>,</mo>
+        <mspace width="thinmathspace" />
+        <mi>b</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>B</mi>
+        <mspace width="thinmathspace" />
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \min \,\{\,d(a,b):a\in A,\,b\in B\,\}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d701e358058dbf66bb18b11a570a089a150ef356" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:29.069ex; height:2.843ex;" alt="\min \,\{\,d(a,b):a\in A,\,b\in B\,\}."/></span>
+</td></tr>
+<tr>
+<td>Unweighted average linkage clustering (or <a href="/wiki/UPGMA" title="UPGMA">UPGMA</a>)
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {1}{|A|\cdot |B|}}\sum _{a\in A}\sum _{b\in B}d(a,b).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <mi>A</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <mo>&#x22C5;<!-- ⋅ --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <mi>B</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>a</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mi>A</mi>
+          </mrow>
+        </munder>
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>b</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mi>B</mi>
+          </mrow>
+        </munder>
+        <mi>d</mi>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {1}{|A|\cdot |B|}}\sum _{a\in A}\sum _{b\in B}d(a,b).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/82a2de7a124d8e0f2166fd2d495cd1e437a03d7a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.171ex; width:23.414ex; height:6.509ex;" alt="{\displaystyle {\frac {1}{|A|\cdot |B|}}\sum _{a\in A}\sum _{b\in B}d(a,b).}"/></span>
+</td></tr>
+<tr>
+<td>Weighted average linkage clustering (or <a href="/wiki/WPGMA" title="WPGMA">WPGMA</a>)
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle d(i\cup j,k)={\frac {d(i,k)+d(j,k)}{2}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>d</mi>
+        <mo stretchy="false">(</mo>
+        <mi>i</mi>
+        <mo>&#x222A;<!-- ∪ --></mo>
+        <mi>j</mi>
+        <mo>,</mo>
+        <mi>k</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mi>d</mi>
+              <mo stretchy="false">(</mo>
+              <mi>i</mi>
+              <mo>,</mo>
+              <mi>k</mi>
+              <mo stretchy="false">)</mo>
+              <mo>+</mo>
+              <mi>d</mi>
+              <mo stretchy="false">(</mo>
+              <mi>j</mi>
+              <mo>,</mo>
+              <mi>k</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mn>2</mn>
+          </mfrac>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d(i\cup j,k)={\frac {d(i,k)+d(j,k)}{2}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e1b3c894e5ba8264d8b80c22e1056fde29e1f1e0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:29.336ex; height:5.676ex;" alt="{\displaystyle d(i\cup j,k)={\frac {d(i,k)+d(j,k)}{2}}.}"/></span>
+</td></tr>
+<tr>
+<td>Centroid linkage clustering, or UPGMC
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \|c_{s}-c_{t}\|}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+        <msub>
+          <mi>c</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>c</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \|c_{s}-c_{t}\|}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3982c2dbc00dc22b17e5d18f9881fae054d0823e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.008ex; height:2.843ex;" alt="{\displaystyle \|c_{s}-c_{t}\|}"/></span> where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle c_{s}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>c</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle c_{s}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/75b83e050da28fa0d83e2aa786963805742ab756" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.01ex; height:2.009ex;" alt="c_{s}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle c_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>c</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle c_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/93578e37f3234419a34df79845836bc0ec5ef76c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.833ex; height:2.009ex;" alt="c_{t}"/></span> are the centroids of clusters <i>s</i> and <i>t</i>, respectively.
+</td></tr>
+<tr>
+<td><a href="/wiki/Energy_distance" title="Energy distance">Minimum energy clustering</a>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {2}{nm}}\sum _{i,j=1}^{n,m}\|a_{i}-b_{j}\|_{2}-{\frac {1}{n^{2}}}\sum _{i,j=1}^{n}\|a_{i}-a_{j}\|_{2}-{\frac {1}{m^{2}}}\sum _{i,j=1}^{m}\|b_{i}-b_{j}\|_{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>2</mn>
+            <mrow>
+              <mi>n</mi>
+              <mi>m</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>,</mo>
+            <mi>j</mi>
+            <mo>=</mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>,</mo>
+            <mi>m</mi>
+          </mrow>
+        </munderover>
+        <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <msup>
+              <mi>n</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msup>
+          </mfrac>
+        </mrow>
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>,</mo>
+            <mi>j</mi>
+            <mo>=</mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </munderover>
+        <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <msup>
+              <mi>m</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msup>
+          </mfrac>
+        </mrow>
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>,</mo>
+            <mi>j</mi>
+            <mo>=</mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+        </munderover>
+        <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+        <msub>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {2}{nm}}\sum _{i,j=1}^{n,m}\|a_{i}-b_{j}\|_{2}-{\frac {1}{n^{2}}}\sum _{i,j=1}^{n}\|a_{i}-a_{j}\|_{2}-{\frac {1}{m^{2}}}\sum _{i,j=1}^{m}\|b_{i}-b_{j}\|_{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e140be09a89b1c70b4e002083daed90df2ee63d4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.338ex; width:61.368ex; height:7.343ex;" alt="{\frac  {2}{nm}}\sum _{{i,j=1}}^{{n,m}}\|a_{i}-b_{j}\|_{2}-{\frac  {1}{n^{2}}}\sum _{{i,j=1}}^{{n}}\|a_{i}-a_{j}\|_{2}-{\frac  {1}{m^{2}}}\sum _{{i,j=1}}^{{m}}\|b_{i}-b_{j}\|_{2}"/></span>
+</td></tr></tbody></table>
+<p>where <i>d</i> is the chosen metric.  Other linkage criteria include:
+</p>
+<ul><li>The sum of all intra-cluster variance.</li>
+<li>The increase in variance for the cluster being merged (<a href="/wiki/Ward%27s_method" title="Ward&#39;s method">Ward's criterion</a>).<sup id="cite_ref-wards_method_8-0" class="reference"><a href="#cite_note-wards_method-8">&#91;8&#93;</a></sup></li>
+<li>The probability that candidate clusters spawn from the same distribution function (V-linkage).</li>
+<li>The product of in-degree and out-degree on a k-nearest-neighbour graph (graph degree linkage).<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup></li>
+<li>The increment of some cluster descriptor (i.e., a quantity defined for measuring the quality of a cluster) after merging two clusters.<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;10&#93;</a></sup><sup id="cite_ref-11" class="reference"><a href="#cite_note-11">&#91;11&#93;</a></sup><sup id="cite_ref-12" class="reference"><a href="#cite_note-12">&#91;12&#93;</a></sup></li></ul>
+<h2><span class="mw-headline" id="Discussion">Discussion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Hierarchical_clustering&amp;action=edit&amp;section=4" title="Edit section: Discussion">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Hierarchical clustering has the distinct advantage that any valid measure of distance can be used. In fact, the observations themselves are not required: all that is used is a matrix of distances.
+</p>
+<h2><span class="mw-headline" id="Agglomerative_clustering_example">Agglomerative clustering example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Hierarchical_clustering&amp;action=edit&amp;section=5" title="Edit section: Agglomerative clustering example">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tnone"><div class="thumbinner" style="width:252px;"><a href="/wiki/File:Clusters.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Clusters.svg/250px-Clusters.svg.png" decoding="async" width="250" height="251" class="thumbimage" data-file-width="250" data-file-height="251" /></a>  <div class="thumbcaption">Raw data</div></div></div>
+<p>For example, suppose this data is to be clustered, and the <a href="/wiki/Euclidean_distance" title="Euclidean distance">Euclidean distance</a> is the <a href="/wiki/Metric_(mathematics)" title="Metric (mathematics)">distance metric</a>.
+</p><p>The hierarchical clustering <a href="/wiki/Dendrogram" title="Dendrogram">dendrogram</a> would be as such:
+</p>
+<div class="thumb tnone"><div class="thumbinner" style="width:420px;"><a href="/wiki/File:Hierarchical_clustering_simple_diagram.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Hierarchical_clustering_simple_diagram.svg/418px-Hierarchical_clustering_simple_diagram.svg.png" decoding="async" width="418" height="333" class="thumbimage" data-file-width="418" data-file-height="333" /></a>  <div class="thumbcaption">Traditional representation</div></div></div>
+<p>Cutting the tree at a given height will give a partitioning clustering at a selected precision. In this example, cutting after the second row (from the top) of the <a href="/wiki/Dendrogram" title="Dendrogram">dendrogram</a> will yield clusters {a} {b c} {d e} {f}. Cutting after the third row will yield clusters {a} {b c} {d e f}, which is a coarser clustering, with a smaller number but larger clusters.
+</p><p>This method builds the hierarchy from the individual elements by progressively merging clusters. In our example, we have six elements {a} {b} {c} {d} {e} and {f}. The first step is to determine which elements to merge in a cluster. Usually, we want to take the two closest elements, according to the chosen distance.
+</p><p>Optionally, one can also construct a <a href="/wiki/Distance_matrix" title="Distance matrix">distance matrix</a> at this stage, where the number in the <i>i</i>-th row <i>j</i>-th column is the distance between the <i>i</i>-th and <i>j</i>-th elements. Then, as clustering progresses, rows and columns are merged as the clusters are merged and the distances updated. This is a common way to implement this type of clustering, and has the benefit of caching distances between clusters. A simple agglomerative clustering algorithm is described in the <a href="/wiki/Single-linkage_clustering" title="Single-linkage clustering">single-linkage clustering</a> page; it can easily be adapted to different types of linkage (see below).
+</p><p>Suppose we have merged the two closest elements <i>b</i> and <i>c</i>, we now have the following clusters {<i>a</i>}, {<i>b</i>, <i>c</i>}, {<i>d</i>}, {<i>e</i>} and {<i>f</i>}, and want to merge them further. To do that, we need to take the distance between {a} and {b c}, and therefore define the distance between two clusters.
+Usually the distance between two clusters <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {A}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">A</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {A}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/280ae03440942ab348c2ca9b8db6b56ffa9618f8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.903ex; height:2.343ex;" alt="{\mathcal {A}}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {B}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">B</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {B}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e5622de88a69f68340f8dcb43d0b8bd443ba9e13" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.543ex; height:2.176ex;" alt="{\mathcal {B}}"/></span> is one of the following:
+</p>
+<ul><li>The maximum distance between elements of each cluster (also called <a href="/wiki/Complete-linkage_clustering" title="Complete-linkage clustering">complete-linkage clustering</a>):</li></ul>
+<dl><dd><dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \max\{\,d(x,y):x\in {\mathcal {A}},\,y\in {\mathcal {B}}\,\}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo movablelimits="true" form="prefix">max</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mspace width="thinmathspace" />
+        <mi>d</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>:</mo>
+        <mi>x</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">A</mi>
+          </mrow>
+        </mrow>
+        <mo>,</mo>
+        <mspace width="thinmathspace" />
+        <mi>y</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">B</mi>
+          </mrow>
+        </mrow>
+        <mspace width="thinmathspace" />
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \max\{\,d(x,y):x\in {\mathcal {A}},\,y\in {\mathcal {B}}\,\}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6b1f1ffd5fd585304a25e76ed387979afa70694f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:29.587ex; height:2.843ex;" alt="\max\{\,d(x,y):x\in {\mathcal  {A}},\,y\in {\mathcal  {B}}\,\}."/></span></dd></dl></dd></dl>
+<ul><li>The minimum distance between elements of each cluster (also called <a href="/wiki/Single-linkage_clustering" title="Single-linkage clustering">single-linkage clustering</a>):</li></ul>
+<dl><dd><dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \min\{\,d(x,y):x\in {\mathcal {A}},\,y\in {\mathcal {B}}\,\}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo movablelimits="true" form="prefix">min</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mspace width="thinmathspace" />
+        <mi>d</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>:</mo>
+        <mi>x</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">A</mi>
+          </mrow>
+        </mrow>
+        <mo>,</mo>
+        <mspace width="thinmathspace" />
+        <mi>y</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">B</mi>
+          </mrow>
+        </mrow>
+        <mspace width="thinmathspace" />
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \min\{\,d(x,y):x\in {\mathcal {A}},\,y\in {\mathcal {B}}\,\}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65bc2866cb68a9e595f3887113eb4d3c784ae66f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:29.137ex; height:2.843ex;" alt="\min\{\,d(x,y):x\in {\mathcal  {A}},\,y\in {\mathcal  {B}}\,\}."/></span></dd></dl></dd></dl>
+<ul><li>The mean distance between elements of each cluster (also called average linkage clustering, used e.g. in <a href="/wiki/UPGMA" title="UPGMA">UPGMA</a>):</li></ul>
+<dl><dd><dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {1 \over {|{\mathcal {A}}|\cdot |{\mathcal {B}}|}}\sum _{x\in {\mathcal {A}}}\sum _{y\in {\mathcal {B}}}d(x,y).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi class="MJX-tex-caligraphic" mathvariant="script">A</mi>
+                </mrow>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <mo>&#x22C5;<!-- ⋅ --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi class="MJX-tex-caligraphic" mathvariant="script">B</mi>
+                </mrow>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>x</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi class="MJX-tex-caligraphic" mathvariant="script">A</mi>
+              </mrow>
+            </mrow>
+          </mrow>
+        </munder>
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>y</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi class="MJX-tex-caligraphic" mathvariant="script">B</mi>
+              </mrow>
+            </mrow>
+          </mrow>
+        </munder>
+        <mi>d</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {1 \over {|{\mathcal {A}}|\cdot |{\mathcal {B}}|}}\sum _{x\in {\mathcal {A}}}\sum _{y\in {\mathcal {B}}}d(x,y).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3e29192983147607536e467cd1bcf9ce3cb86b49" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.338ex; width:23.639ex; height:6.676ex;" alt="{1 \over {|{\mathcal  {A}}|\cdot |{\mathcal  {B}}|}}\sum _{{x\in {\mathcal  {A}}}}\sum _{{y\in {\mathcal  {B}}}}d(x,y)."/></span></dd></dl></dd></dl>
+<ul><li>The sum of all intra-cluster variance.</li>
+<li>The increase in variance for the cluster being merged (<a href="/wiki/Ward%27s_method" title="Ward&#39;s method">Ward's method</a><sup id="cite_ref-wards_method_8-1" class="reference"><a href="#cite_note-wards_method-8">&#91;8&#93;</a></sup>)</li>
+<li>The probability that candidate clusters spawn from the same distribution function (V-linkage).</li></ul>
+<p>In case of tied minimum distances, a pair is randomly chosen, thus being able to generate several structurally different dendrograms. Alternatively, all tied pairs may be joined at the same time, generating a unique dendrogram.<sup id="cite_ref-13" class="reference"><a href="#cite_note-13">&#91;13&#93;</a></sup>
+</p><p>One can always decide to stop clustering when there is a sufficiently small number of clusters (number criterion). Some linkages may also guarantee that agglomeration occurs at a greater distance between clusters than the previous agglomeration, and then one can stop clustering when the clusters are too far apart to be merged (distance criterion). However, this is not the case of, e.g., the centroid linkage where the so-called reversals<sup id="cite_ref-14" class="reference"><a href="#cite_note-14">&#91;14&#93;</a></sup> (inversions, departures from ultrametricity) may occur.
+</p>
+<h2><span class="mw-headline" id="Divisive_clustering">Divisive clustering</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Hierarchical_clustering&amp;action=edit&amp;section=6" title="Edit section: Divisive clustering">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The basic principle of divisive clustering was published as the DIANA (DIvisive ANAlysis Clustering) algorithm.<sup id="cite_ref-15" class="reference"><a href="#cite_note-15">&#91;15&#93;</a></sup> Initially, all data is in the same cluster, and the largest cluster is split until every object is separate.
+Because there exist <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(2^{n})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(2^{n})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d4b1a4ff0bc4f81ebf79f28260c6fb54ee08ff8d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.964ex; height:2.843ex;" alt="O(2^{n})"/></span> ways of splitting each cluster, heuristics are needed. DIANA chooses the object with the maximum average dissimilarity and then moves all objects to this cluster that are more similar to the new cluster than to the remainder.
+</p>
+<h2><span class="mw-headline" id="Software">Software</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Hierarchical_clustering&amp;action=edit&amp;section=7" title="Edit section: Software">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Open_source_implementations">Open source implementations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Hierarchical_clustering&amp;action=edit&amp;section=8" title="Edit section: Open source implementations">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:Iris_dendrogram.png" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/12/Iris_dendrogram.png/220px-Iris_dendrogram.png" decoding="async" width="220" height="314" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/12/Iris_dendrogram.png/330px-Iris_dendrogram.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/12/Iris_dendrogram.png/440px-Iris_dendrogram.png 2x" data-file-width="910" data-file-height="1300" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Iris_dendrogram.png" class="internal" title="Enlarge"></a></div>Hierarchical clustering <a href="/wiki/Dendrogram" title="Dendrogram">dendrogram</a> of the <a href="/wiki/Iris_flower_data_set" title="Iris flower data set">Iris dataset</a> (using <a href="/wiki/R_(programming_language)" title="R (programming language)">R</a>). <a rel="nofollow" class="external text" href="https://cran.r-project.org/web/packages/dendextend/vignettes/Cluster_Analysis.html">Source</a></div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:Orange-data-mining-hierarchical-clustering.png" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/97/Orange-data-mining-hierarchical-clustering.png/220px-Orange-data-mining-hierarchical-clustering.png" decoding="async" width="220" height="228" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/97/Orange-data-mining-hierarchical-clustering.png/330px-Orange-data-mining-hierarchical-clustering.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/97/Orange-data-mining-hierarchical-clustering.png/440px-Orange-data-mining-hierarchical-clustering.png 2x" data-file-width="1224" data-file-height="1270" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Orange-data-mining-hierarchical-clustering.png" class="internal" title="Enlarge"></a></div>Hierarchical clustering and interactive dendrogram visualization in <a href="/wiki/Orange_(software)" title="Orange (software)">Orange data mining suite</a>.</div></div></div>
+<ul><li><a href="/wiki/ALGLIB" title="ALGLIB">ALGLIB</a> implements several hierarchical clustering algorithms (single-link, complete-link, Ward) in C++ and C# with O(n²) memory and O(n³) run time.</li>
+<li><a href="/wiki/ELKI" title="ELKI">ELKI</a> includes multiple hierarchical clustering algorithms, various linkage strategies and also includes the efficient SLINK,<sup id="cite_ref-SLINK_3-1" class="reference"><a href="#cite_note-SLINK-3">&#91;3&#93;</a></sup> CLINK<sup id="cite_ref-CLINK_4-1" class="reference"><a href="#cite_note-CLINK-4">&#91;4&#93;</a></sup> and Anderberg algorithms, flexible cluster extraction from dendrograms and various other <a href="/wiki/Cluster_analysis" title="Cluster analysis">cluster analysis</a> algorithms.</li>
+<li><a href="/wiki/GNU_Octave" title="GNU Octave">Octave</a>, the <a href="/wiki/GNU" title="GNU">GNU</a> analog to <a href="/wiki/MATLAB" title="MATLAB">MATLAB</a> implements hierarchical clustering in function "linkage".</li>
+<li><a href="/wiki/Orange_(software)" title="Orange (software)">Orange</a>, a data mining software suite, includes hierarchical clustering with interactive dendrogram visualisation.</li>
+<li><a href="/wiki/R_(programming_language)" title="R (programming language)">R</a> has many packages that provide functions for hierarchical clustering.</li>
+<li><a href="/wiki/SciPy" title="SciPy">SciPy</a> implements hierarchical clustering in Python, including the efficient SLINK algorithm.</li>
+<li><a href="/wiki/Scikit-learn" title="Scikit-learn">scikit-learn</a> also implements hierarchical clustering in Python.</li>
+<li><a href="/wiki/Weka_(machine_learning)" title="Weka (machine learning)">Weka</a> includes hierarchical cluster analysis.</li></ul>
+<h3><span class="mw-headline" id="Commercial_implementations">Commercial implementations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Hierarchical_clustering&amp;action=edit&amp;section=9" title="Edit section: Commercial implementations">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li><a href="/wiki/MathWorks" title="MathWorks">MATLAB</a> includes hierarchical cluster analysis.</li>
+<li><a href="/wiki/SAS_System" class="mw-redirect" title="SAS System">SAS</a> includes hierarchical cluster analysis in PROC CLUSTER.</li>
+<li><a href="/wiki/Mathematica" class="mw-redirect" title="Mathematica">Mathematica</a> includes a Hierarchical Clustering Package.</li>
+<li><a href="/wiki/NCSS_(statistical_software)" title="NCSS (statistical software)">NCSS</a> includes hierarchical cluster analysis.</li>
+<li><a href="/wiki/SPSS" title="SPSS">SPSS</a> includes hierarchical cluster analysis.</li>
+<li><a href="/wiki/Qlucore" title="Qlucore">Qlucore</a> Omics Explorer includes hierarchical cluster analysis.</li>
+<li><a href="/wiki/Stata" title="Stata">Stata</a> includes hierarchical cluster analysis.</li>
+<li><a href="/wiki/CrimeStat" title="CrimeStat">CrimeStat</a> includes a nearest neighbor hierarchical cluster algorithm with a graphical output for a Geographic Information System.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Hierarchical_clustering&amp;action=edit&amp;section=10" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="div-col columns column-width" style="-moz-column-width: 20em; -webkit-column-width: 20em; column-width: 20em;">
+<ul><li><a href="/wiki/Binary_space_partitioning" title="Binary space partitioning">Binary space partitioning</a></li>
+<li><a href="/wiki/Bounding_volume_hierarchy" title="Bounding volume hierarchy">Bounding volume hierarchy</a></li>
+<li><a href="/wiki/Brown_clustering" title="Brown clustering">Brown clustering</a></li>
+<li><a href="/wiki/Cladistics" title="Cladistics">Cladistics</a></li>
+<li><a href="/wiki/Cluster_analysis" title="Cluster analysis">Cluster analysis</a></li>
+<li><a href="/wiki/Computational_phylogenetics" title="Computational phylogenetics">Computational phylogenetics</a></li>
+<li><a href="/wiki/CURE_data_clustering_algorithm" class="mw-redirect" title="CURE data clustering algorithm">CURE data clustering algorithm</a></li>
+<li><a href="/wiki/Dasgupta%27s_objective" title="Dasgupta&#39;s objective">Dasgupta's objective</a></li>
+<li><a href="/wiki/Dendrogram" title="Dendrogram">Dendrogram</a></li>
+<li><a href="/wiki/Determining_the_number_of_clusters_in_a_data_set" title="Determining the number of clusters in a data set">Determining the number of clusters in a data set</a></li>
+<li><a href="/wiki/Hierarchical_clustering_of_networks" title="Hierarchical clustering of networks">Hierarchical clustering of networks</a></li>
+<li><a href="/wiki/Locality-sensitive_hashing" title="Locality-sensitive hashing">Locality-sensitive hashing</a></li>
+<li><a href="/wiki/Nearest_neighbor_search" title="Nearest neighbor search">Nearest neighbor search</a></li>
+<li><a href="/wiki/Nearest-neighbor_chain_algorithm" title="Nearest-neighbor chain algorithm">Nearest-neighbor chain algorithm</a></li>
+<li><a href="/wiki/Numerical_taxonomy" title="Numerical taxonomy">Numerical taxonomy</a></li>
+<li><a href="/wiki/OPTICS_algorithm" title="OPTICS algorithm">OPTICS algorithm</a></li>
+<li><a href="/wiki/Statistical_distance" title="Statistical distance">Statistical distance</a></li>
+<li><a href="/wiki/Persistent_homology" title="Persistent homology">Persistent homology</a></li></ul></div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Hierarchical_clustering&amp;action=edit&amp;section=11" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist columns references-column-width" style="-moz-column-width: 30em; -webkit-column-width: 30em; column-width: 30em; list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-clusteringMethods-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-clusteringMethods_1-0">^</a></b></span> <span class="reference-text">Rokach, Lior, and Oded Maimon. "Clustering methods." Data mining and knowledge discovery handbook. Springer US, 2005. 321-352.</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><cite class="citation book">Frank Nielsen (2016). <a rel="nofollow" class="external text" href="https://www.researchgate.net/publication/314700681_Hierarchical_Clustering">"Chapter 8: Hierarchical Clustering"</a>. <a rel="nofollow" class="external text" href="https://www.springer.com/gp/book/9783319219028"><i>Introduction to HPC with MPI for Data Science</i></a>. Springer.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Chapter+8%3A+Hierarchical+Clustering&amp;rft.btitle=Introduction+to+HPC+with+MPI+for+Data+Science&amp;rft.pub=Springer&amp;rft.date=2016&amp;rft.au=Frank+Nielsen&amp;rft_id=https%3A%2F%2Fwww.researchgate.net%2Fpublication%2F314700681_Hierarchical_Clustering&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHierarchical+clustering" class="Z3988"></span><style data-mw-deduplicate="TemplateStyles:r935243608">.mw-parser-output cite.citation{font-style:inherit}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/9px-Lock-green.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lock-gray-alt-2.svg/9px-Lock-gray-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lock-red-alt-2.svg/9px-Lock-red-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration{color:#555}.mw-parser-output .cs1-subscription span,.mw-parser-output .cs1-registration span{border-bottom:1px dotted;cursor:help}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/12px-Wikisource-logo.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output code.cs1-code{color:inherit;background:inherit;border:inherit;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;font-size:100%}.mw-parser-output .cs1-visible-error{font-size:100%}.mw-parser-output .cs1-maint{display:none;color:#33aa33;margin-left:0.3em}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration,.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left,.mw-parser-output .cs1-kern-wl-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right,.mw-parser-output .cs1-kern-wl-right{padding-right:0.2em}</style></span>
+</li>
+<li id="cite_note-SLINK-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-SLINK_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-SLINK_3-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">R. Sibson (1973). <a rel="nofollow" class="external text" href="http://www.cs.gsu.edu/~wkim/index_files/papers/sibson.pdf">"SLINK: an optimally efficient algorithm for the single-link cluster method"</a> <span class="cs1-format">(PDF)</span>. <i>The Computer Journal</i>. British Computer Society. <b>16</b> (1): 30–34. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1093%2Fcomjnl%2F16.1.30">10.1093/comjnl/16.1.30</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=The+Computer+Journal&amp;rft.atitle=SLINK%3A+an+optimally+efficient+algorithm+for+the+single-link+cluster+method&amp;rft.volume=16&amp;rft.issue=1&amp;rft.pages=30-34&amp;rft.date=1973&amp;rft_id=info%3Adoi%2F10.1093%2Fcomjnl%2F16.1.30&amp;rft.au=R.+Sibson&amp;rft_id=http%3A%2F%2Fwww.cs.gsu.edu%2F~wkim%2Findex_files%2Fpapers%2Fsibson.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHierarchical+clustering" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-CLINK-4"><span class="mw-cite-backlink">^ <a href="#cite_ref-CLINK_4-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-CLINK_4-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">D. Defays (1977). <a rel="nofollow" class="external text" href="http://comjnl.oxfordjournals.org/content/20/4/364.abstract">"An efficient algorithm for a complete-link method"</a>. <i>The Computer Journal</i>. British Computer Society. <b>20</b> (4): 364–366. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1093%2Fcomjnl%2F20.4.364">10.1093/comjnl/20.4.364</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=The+Computer+Journal&amp;rft.atitle=An+efficient+algorithm+for+a+complete-link+method&amp;rft.volume=20&amp;rft.issue=4&amp;rft.pages=364-366&amp;rft.date=1977&amp;rft_id=info%3Adoi%2F10.1093%2Fcomjnl%2F20.4.364&amp;rft.au=D.+Defays&amp;rft_id=http%3A%2F%2Fcomjnl.oxfordjournals.org%2Fcontent%2F20%2F4%2F364.abstract&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHierarchical+clustering" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/statug_distance_sect016.htm">"The DISTANCE Procedure: Proximity Measures"</a>. <i>SAS/STAT 9.2 Users Guide</i>. <a href="/wiki/SAS_Institute" title="SAS Institute">SAS Institute</a><span class="reference-accessdate">. Retrieved <span class="nowrap">2009-04-26</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=SAS%2FSTAT+9.2+Users+Guide&amp;rft.atitle=The+DISTANCE+Procedure%3A+Proximity+Measures&amp;rft_id=https%3A%2F%2Fsupport.sas.com%2Fdocumentation%2Fcdl%2Fen%2Fstatug%2F63033%2FHTML%2Fdefault%2Fstatug_distance_sect016.htm&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHierarchical+clustering" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/statug_cluster_sect012.htm">"The CLUSTER Procedure: Clustering Methods"</a>. <i>SAS/STAT 9.2 Users Guide</i>. <a href="/wiki/SAS_Institute" title="SAS Institute">SAS Institute</a><span class="reference-accessdate">. Retrieved <span class="nowrap">2009-04-26</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=SAS%2FSTAT+9.2+Users+Guide&amp;rft.atitle=The+CLUSTER+Procedure%3A+Clustering+Methods&amp;rft_id=https%3A%2F%2Fsupport.sas.com%2Fdocumentation%2Fcdl%2Fen%2Fstatug%2F63033%2FHTML%2Fdefault%2Fstatug_cluster_sect012.htm&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHierarchical+clustering" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><cite class="citation journal">Székely, G. J.; Rizzo, M. L. (2005). "Hierarchical clustering via Joint Between-Within Distances: Extending Ward's Minimum Variance Method". <i>Journal of Classification</i>. <b>22</b> (2): 151–183. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fs00357-005-0012-9">10.1007/s00357-005-0012-9</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Classification&amp;rft.atitle=Hierarchical+clustering+via+Joint+Between-Within+Distances%3A+Extending+Ward%27s+Minimum+Variance+Method&amp;rft.volume=22&amp;rft.issue=2&amp;rft.pages=151-183&amp;rft.date=2005&amp;rft_id=info%3Adoi%2F10.1007%2Fs00357-005-0012-9&amp;rft.aulast=Sz%C3%A9kely&amp;rft.aufirst=G.+J.&amp;rft.au=Rizzo%2C+M.+L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHierarchical+clustering" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-wards_method-8"><span class="mw-cite-backlink">^ <a href="#cite_ref-wards_method_8-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-wards_method_8-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Ward, Joe H. (1963). "Hierarchical Grouping to Optimize an Objective Function". <i>Journal of the American Statistical Association</i>. <b>58</b> (301): 236–244. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.2307%2F2282967">10.2307/2282967</a>. <a href="/wiki/JSTOR" title="JSTOR">JSTOR</a>&#160;<a rel="nofollow" class="external text" href="//www.jstor.org/stable/2282967">2282967</a>. <a href="/wiki/Mathematical_Reviews" title="Mathematical Reviews">MR</a>&#160;<a rel="nofollow" class="external text" href="//www.ams.org/mathscinet-getitem?mr=0148188">0148188</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+American+Statistical+Association&amp;rft.atitle=Hierarchical+Grouping+to+Optimize+an+Objective+Function&amp;rft.volume=58&amp;rft.issue=301&amp;rft.pages=236-244&amp;rft.date=1963&amp;rft_id=%2F%2Fwww.ams.org%2Fmathscinet-getitem%3Fmr%3D0148188&amp;rft_id=%2F%2Fwww.jstor.org%2Fstable%2F2282967&amp;rft_id=info%3Adoi%2F10.2307%2F2282967&amp;rft.aulast=Ward&amp;rft.aufirst=Joe+H.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHierarchical+clustering" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><cite class="citation journal">Zhang, Wei; Wang, Xiaogang; Zhao, Deli; Tang, Xiaoou (2012).  Fitzgibbon, Andrew; Lazebnik, Svetlana; Perona, Pietro; Sato, Yoichi; Schmid, Cordelia (eds.). <a rel="nofollow" class="external text" href="https://arxiv.org/abs/1208.5092v1">"Graph Degree Linkage: Agglomerative Clustering on a Directed Graph"</a>. <i>Computer Vision – ECCV 2012</i>. Lecture Notes in Computer Science. Springer Berlin Heidelberg: 428–441. <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/1208.5092">1208.5092</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-642-33718-5_31">10.1007/978-3-642-33718-5_31</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/9783642337185" title="Special:BookSources/9783642337185"><bdi>9783642337185</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Computer+Vision+%E2%80%93+ECCV+2012&amp;rft.atitle=Graph+Degree+Linkage%3A+Agglomerative+Clustering+on+a+Directed+Graph&amp;rft.pages=428-441&amp;rft.date=2012&amp;rft_id=info%3Aarxiv%2F1208.5092&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-33718-5_31&amp;rft.isbn=9783642337185&amp;rft.aulast=Zhang&amp;rft.aufirst=Wei&amp;rft.au=Wang%2C+Xiaogang&amp;rft.au=Zhao%2C+Deli&amp;rft.au=Tang%2C+Xiaoou&amp;rft_id=https%3A%2F%2Farxiv.org%2Fabs%2F1208.5092v1&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHierarchical+clustering" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/> See also: <a rel="nofollow" class="external free" href="https://github.com/waynezhanghk/gacluster">https://github.com/waynezhanghk/gacluster</a></span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text">Zhang, et al. "Agglomerative clustering via maximum incremental path integral." Pattern Recognition (2013).</span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text">Zhao, and Tang. "Cyclizing clusters via zeta function of a graph."Advances in Neural Information Processing Systems. 2008.</span>
+</li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text">Ma, et al. "Segmentation of multivariate mixed data via lossy data coding and compression." IEEE Transactions on Pattern Analysis and Machine Intelligence, 29(9) (2007): 1546-1562.</span>
+</li>
+<li id="cite_note-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-13">^</a></b></span> <span class="reference-text"><cite class="citation journal">Fernández, Alberto; Gómez, Sergio (2008). "Solving Non-uniqueness in Agglomerative Hierarchical Clustering Using Multidendrograms". <i>Journal of Classification</i>. <b>25</b> (1): 43–65. <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/cs/0608049">cs/0608049</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fs00357-008-9004-x">10.1007/s00357-008-9004-x</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Classification&amp;rft.atitle=Solving+Non-uniqueness+in+Agglomerative+Hierarchical+Clustering+Using+Multidendrograms&amp;rft.volume=25&amp;rft.issue=1&amp;rft.pages=43-65&amp;rft.date=2008&amp;rft_id=info%3Aarxiv%2Fcs%2F0608049&amp;rft_id=info%3Adoi%2F10.1007%2Fs00357-008-9004-x&amp;rft.aulast=Fern%C3%A1ndez&amp;rft.aufirst=Alberto&amp;rft.au=G%C3%B3mez%2C+Sergio&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHierarchical+clustering" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text"><cite class="citation book">Legendre, P.; Legendre, L. (2003). <i>Numerical Ecology</i>. Elsevier Science BV.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Numerical+Ecology&amp;rft.pub=Elsevier+Science+BV&amp;rft.date=2003&amp;rft.aulast=Legendre&amp;rft.aufirst=P.&amp;rft.au=Legendre%2C+L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHierarchical+clustering" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-15">^</a></b></span> <span class="reference-text">Kaufman, L., &amp; Roussew, P. J. (1990). Finding Groups in Data - An Introduction to Cluster Analysis. A Wiley-Science Publication John Wiley &amp; Sons.</span>
+</li>
+</ol></div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Hierarchical_clustering&amp;action=edit&amp;section=12" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><cite class="citation book">Kaufman, L.; Rousseeuw, P.J. (1990). <span class="cs1-lock-registration" title="Free registration required"><a rel="nofollow" class="external text" href="https://archive.org/details/findinggroupsind00kauf"><i>Finding Groups in Data: An Introduction to Cluster Analysis</i></a></span> (1 ed.). New York: John Wiley. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/0-471-87876-6" title="Special:BookSources/0-471-87876-6"><bdi>0-471-87876-6</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Finding+Groups+in+Data%3A+An+Introduction+to+Cluster+Analysis&amp;rft.place=New+York&amp;rft.edition=1&amp;rft.pub=John+Wiley&amp;rft.date=1990&amp;rft.isbn=0-471-87876-6&amp;rft.aulast=Kaufman&amp;rft.aufirst=L.&amp;rft.au=Rousseeuw%2C+P.J.&amp;rft_id=https%3A%2F%2Farchive.org%2Fdetails%2Ffindinggroupsind00kauf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHierarchical+clustering" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></li>
+<li><cite class="citation book"><a href="/wiki/Trevor_Hastie" title="Trevor Hastie">Hastie, Trevor</a>; <a href="/wiki/Robert_Tibshirani" title="Robert Tibshirani">Tibshirani, Robert</a>; Friedman, Jerome (2009). <a rel="nofollow" class="external text" href="https://web.archive.org/web/20091110212529/http://www-stat.stanford.edu/~tibs/ElemStatLearn/">"14.3.12 Hierarchical clustering"</a>. <i>The Elements of Statistical Learning</i> (2nd ed.). New York: Springer. pp.&#160;520–528. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-387-84857-0" title="Special:BookSources/978-0-387-84857-0"><bdi>978-0-387-84857-0</bdi></a>. Archived from <a rel="nofollow" class="external text" href="http://www-stat.stanford.edu/~tibs/ElemStatLearn/">the original</a> <span class="cs1-format">(PDF)</span> on 2009-11-10<span class="reference-accessdate">. Retrieved <span class="nowrap">2009-10-20</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=14.3.12+Hierarchical+clustering&amp;rft.btitle=The+Elements+of+Statistical+Learning&amp;rft.place=New+York&amp;rft.pages=520-528&amp;rft.edition=2nd&amp;rft.pub=Springer&amp;rft.date=2009&amp;rft.isbn=978-0-387-84857-0&amp;rft.aulast=Hastie&amp;rft.aufirst=Trevor&amp;rft.au=Tibshirani%2C+Robert&amp;rft.au=Friedman%2C+Jerome&amp;rft_id=http%3A%2F%2Fwww-stat.stanford.edu%2F~tibs%2FElemStatLearn%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHierarchical+clustering" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1289
+Cached time: 20200314014811
+Cache expiry: 2592000
+Dynamic content: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.440 seconds
+Real time usage: 0.689 seconds
+Preprocessor visited node count: 1339/1000000
+Post‐expand include size: 51850/2097152 bytes
+Template argument size: 1708/2097152 bytes
+Highest expansion depth: 12/40
+Expensive parser function count: 5/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 40525/5000000 bytes
+Number of Wikibase entities loaded: 4/400
+Lua time usage: 0.207/10.000 seconds
+Lua memory usage: 5.17 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  474.034      1 -total
+ 46.40%  219.960      1 Template:Reflist
+ 23.37%  110.775      6 Template:Cite_journal
+ 19.00%   90.073      4 Template:Cite_book
+ 16.14%   76.524      1 Template:Short_description
+ 13.97%   66.230      1 Template:Citation_needed
+ 12.09%   57.331      1 Template:Pagetype
+ 11.75%   55.718      1 Template:Fix
+ 11.29%   53.507      1 Template:Machine_learning_bar
+ 10.43%   49.420      1 Template:Sidebar_with_collapsible_lists
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:477573-0!canonical!math=5 and timestamp 20200314014811 and revision id 945452428
+ -->
+</div><noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>
+		<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Hierarchical_clustering&amp;oldid=945452428">https://en.wikipedia.org/w/index.php?title=Hierarchical_clustering&amp;oldid=945452428</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Network_analysis" title="Category:Network analysis">Network analysis</a></li><li><a href="/wiki/Category:Cluster_analysis_algorithms" title="Category:Cluster analysis algorithms">Cluster analysis algorithms</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_April_2009" title="Category:Articles with unsourced statements from April 2009">Articles with unsourced statements from April 2009</a></li></ul></div></div>
+		<div class="visualClear"></div>
+		
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+    <h2>Navigation menu</h2>
+    <div id="mw-head">
+        
+<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+	<h3 id="p-personal-label">Personal tools</h3>
+	<ul >
+		
+		<li id="pt-anonuserpage">Not logged in</li>
+		<li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Hierarchical+clustering" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Hierarchical+clustering" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>
+	</ul>
+</div>
+
+        <div id="left-navigation">
+            <div id="p-namespaces" role="navigation" class="vectorTabs " aria-labelledby="p-namespaces-label">
+	<h3 id="p-namespaces-label">Namespaces</h3>
+	<ul >
+		<li id="ca-nstab-main" class="selected"><a href="/wiki/Hierarchical_clustering" title="View the content page [c]" accesskey="c">Article</a></li><li id="ca-talk"><a href="/wiki/Talk:Hierarchical_clustering" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Talk</a></li>
+	</ul>
+</div>
+<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<ul class="menu" >
+		
+	</ul>
+</div>
+
+        </div>
+        <div id="right-navigation">
+            <div id="p-views" role="navigation" class="vectorTabs " aria-labelledby="p-views-label">
+	<h3 id="p-views-label">Views</h3>
+	<ul >
+		<li id="ca-view" class="collapsible selected"><a href="/wiki/Hierarchical_clustering">Read</a></li><li id="ca-edit" class="collapsible"><a href="/w/index.php?title=Hierarchical_clustering&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/w/index.php?title=Hierarchical_clustering&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li>
+	</ul>
+</div>
+<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<ul class="menu" >
+		
+	</ul>
+</div>
+<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="/w/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" value="Special:Search" name="title"/>
+			<input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+        </div>
+    </div>
+    
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="/wiki/Main_Page"></a>
+	</div>
+	<div class="portal" role="navigation" id="p-navigation"  aria-labelledby="p-navigation-label">
+		<h3  id="p-navigation-label">
+			Navigation
+		</h3>
+		<div class="body">
+			<ul><li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Wikipedia:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li></ul>
+			
+		</div>
+	</div>
+	
+	<div class="portal" role="navigation" id="p-interaction"  aria-labelledby="p-interaction-label">
+		<h3  id="p-interaction-label">
+			Interaction
+		</h3>
+		<div class="body">
+			<ul><li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li></ul>
+			
+		</div>
+	</div>
+	
+	<div class="portal" role="navigation" id="p-tb"  aria-labelledby="p-tb-label">
+		<h3  id="p-tb-label">
+			Tools
+		</h3>
+		<div class="body">
+			<ul><li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Hierarchical_clustering" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Hierarchical_clustering" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Hierarchical_clustering&amp;oldid=945452428" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Hierarchical_clustering&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q1277447" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Hierarchical_clustering&amp;id=945452428" title="Information on how to cite this page">Cite this page</a></li></ul>
+			
+		</div>
+	</div>
+	
+	<div class="portal" role="navigation" id="p-wikibase-otherprojects"  aria-labelledby="p-wikibase-otherprojects-label">
+		<h3  id="p-wikibase-otherprojects-label">
+			In other projects
+		</h3>
+		<div class="body">
+			<ul><li class="wb-otherproject-link wb-otherproject-commons"><a href="https://commons.wikimedia.org/wiki/Category:Hierarchical_clustering" hreflang="en">Wikimedia Commons</a></li></ul>
+			
+		</div>
+	</div>
+	
+	<div class="portal" role="navigation" id="p-coll-print_export"  aria-labelledby="p-coll-print_export-label">
+		<h3  id="p-coll-print_export-label">
+			Print/export
+		</h3>
+		<div class="body">
+			<ul><li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Hierarchical+clustering">Create a book</a></li><li id="coll-download-as-rl"><a href="/w/index.php?title=Special:ElectronPdf&amp;page=Hierarchical+clustering&amp;action=show-download-screen">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Hierarchical_clustering&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li></ul>
+			
+		</div>
+	</div>
+	
+	<div class="portal" role="navigation" id="p-lang"  aria-labelledby="p-lang-label">
+		<h3  id="p-lang-label">
+			Languages
+		</h3>
+		<div class="body">
+			<ul><li class="interlanguage-link interwiki-ar"><a href="https://ar.wikipedia.org/wiki/%D8%AA%D8%AC%D9%85%D9%8A%D8%B9_%D9%87%D8%B1%D9%85%D9%8A" title="تجميع هرمي – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target">العربية</a></li><li class="interlanguage-link interwiki-cs"><a href="https://cs.wikipedia.org/wiki/Hierarchick%C3%A9_shlukov%C3%A1n%C3%AD" title="Hierarchické shlukování – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target">Čeština</a></li><li class="interlanguage-link interwiki-de"><a href="https://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse" title="Hierarchische Clusteranalyse – German" lang="de" hreflang="de" class="interlanguage-link-target">Deutsch</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/Agrupamiento_jer%C3%A1rquico" title="Agrupamiento jerárquico – Spanish" lang="es" hreflang="es" class="interlanguage-link-target">Español</a></li><li class="interlanguage-link interwiki-eu"><a href="https://eu.wikipedia.org/wiki/Multzokatze_hierarkiko" title="Multzokatze hierarkiko – Basque" lang="eu" hreflang="eu" class="interlanguage-link-target">Euskara</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/%D8%AE%D9%88%D8%B4%D9%87%E2%80%8C%D8%A8%D9%86%D8%AF%DB%8C_%D8%B3%D9%84%D8%B3%D9%84%D9%87%E2%80%8C%D9%85%D8%B1%D8%A7%D8%AA%D8%A8%DB%8C" title="خوشه‌بندی سلسله‌مراتبی – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target">فارسی</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.wikipedia.org/wiki/Regroupement_hi%C3%A9rarchique" title="Regroupement hiérarchique – French" lang="fr" hreflang="fr" class="interlanguage-link-target">Français</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Clustering_gerarchico" title="Clustering gerarchico – Italian" lang="it" hreflang="it" class="interlanguage-link-target">Italiano</a></li><li class="interlanguage-link interwiki-pl"><a href="https://pl.wikipedia.org/wiki/Grupowanie_hierarchiczne" title="Grupowanie hierarchiczne – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target">Polski</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/%D0%98%D0%B5%D1%80%D0%B0%D1%80%D1%85%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D0%BA%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F" title="Иерархическая кластеризация – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target">Русский</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/%D0%86%D1%94%D1%80%D0%B0%D1%80%D1%85%D1%96%D1%87%D0%BD%D0%B0_%D0%BA%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D1%96%D1%8F" title="Ієрархічна кластеризація – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target">Українська</a></li></ul>
+			<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q1277447#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+		</div>
+	</div>
+	
+</div>
+
+</div>
+
+
+<div id="footer" role="contentinfo" >
+	<ul id="footer-info" class="">
+		<li id="footer-info-lastmod"> This page was last edited on 14 March 2020, at 01:48<span class="anonymous-show">&#160;(UTC)</span>.</li>
+		<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+	</ul>
+	<ul id="footer-places" class="">
+		<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+		<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+		<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+		<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+		<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+		<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+		<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Hierarchical_clustering&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</div>
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.440","walltime":"0.689","ppvisitednodes":{"value":1339,"limit":1000000},"postexpandincludesize":{"value":51850,"limit":2097152},"templateargumentsize":{"value":1708,"limit":2097152},"expansiondepth":{"value":12,"limit":40},"expensivefunctioncount":{"value":5,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":40525,"limit":5000000},"entityaccesscount":{"value":4,"limit":400},"timingprofile":["100.00%  474.034      1 -total"," 46.40%  219.960      1 Template:Reflist"," 23.37%  110.775      6 Template:Cite_journal"," 19.00%   90.073      4 Template:Cite_book"," 16.14%   76.524      1 Template:Short_description"," 13.97%   66.230      1 Template:Citation_needed"," 12.09%   57.331      1 Template:Pagetype"," 11.75%   55.718      1 Template:Fix"," 11.29%   53.507      1 Template:Machine_learning_bar"," 10.43%   49.420      1 Template:Sidebar_with_collapsible_lists"]},"scribunto":{"limitreport-timeusage":{"value":"0.207","limit":"10.000"},"limitreport-memusage":{"value":5420316,"limit":52428800}},"cachereport":{"origin":"mw1289","timestamp":"20200314014811","ttl":2592000,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Hierarchical clustering","url":"https:\/\/en.wikipedia.org\/wiki\/Hierarchical_clustering","sameAs":"http:\/\/www.wikidata.org\/entity\/Q1277447","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q1277447","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-02-20T01:38:40Z","dateModified":"2020-03-14T01:48:06Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/fe\/Kernel_Machine.svg","headline":"method of cluster analysis which seeks to build a hierarchy of clusters"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":97,"wgHostname":"mw1329"});});</script></body></html>

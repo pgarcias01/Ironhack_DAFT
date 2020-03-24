@@ -1,0 +1,1118 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Empirical risk minimization - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"Xnn0@gpAIIQABDB5Uq8AAACO","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Empirical_risk_minimization","wgTitle":"Empirical risk minimization","wgCurRevisionId":926149186,"wgRevisionId":926149186,"wgArticleId":1455062,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles to be expanded from February 2010","All articles to be expanded","Articles using small message boxes","Machine learning"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Empirical_risk_minimization","wgRelevantArticleId":1455062,
+"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0,"wgPopupsReferencePreviews":!1,"wgPopupsConflictsWithNavPopupGadget":!1,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":!0,"nearby":!0,"watchlist":!0,"tagline":!1},"wgWMESchemaEditAttemptStepOversample":!1,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q5374254","wgCentralAuthMobileDomain":!1,"wgEditSubmitButtonLabelPublish":!0};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.math.styles":"ready","ext.cite.styles":"ready","mediawiki.toc.styles":"ready","skins.vector.styles.legacy":"ready",
+"wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready"};RLPAGEMODULES=["ext.math.scripts","ext.cite.ux-enhancements","site","mediawiki.page.startup","skins.vector.js","mediawiki.page.ready","mediawiki.toc","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns","ext.quicksurveys.init","ext.centralNotice.geoIP","ext.centralNotice.startUp"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.tokens@tffin",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.0-wmf.24"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/1200px-Kernel_Machine.svg.png"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Empirical_risk_minimization&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Empirical_risk_minimization&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Empirical_risk_minimization"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Empirical_risk_minimization rootpage-Empirical_risk_minimization skin-vector action-view">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+</div>
+
+	<h1 id="firstHeading" class="firstHeading" lang="en">Empirical risk minimization</h1>
+	
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#p-search">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table class="vertical-navbox nowraplinks" style="float:right;clear:right;width:22.0em;margin:0 0 1.0em 1.0em;background:#f9f9f9;border:1px solid #aaa;padding:0.2em;border-spacing:0.4em 0;text-align:center;line-height:1.4em;font-size:88%"><tbody><tr><th style="padding:0.2em 0.4em 0.2em;font-size:145%;line-height:1.2em"><a href="/wiki/Machine_learning" title="Machine learning">Machine learning</a> and<br /><a href="/wiki/Data_mining" title="Data mining">data mining</a></th></tr><tr><td style="padding:0.2em 0 0.4em;padding:0.25em 0.25em 0.75em;"><a href="/wiki/File:Kernel_Machine.svg" class="image"><img alt="Kernel Machine.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/220px-Kernel_Machine.svg.png" decoding="async" width="220" height="100" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/330px-Kernel_Machine.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/440px-Kernel_Machine.svg.png 2x" data-file-width="512" data-file-height="233" /></a></td></tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Problems</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Statistical_classification" title="Statistical classification">Classification</a></li>
+<li><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></li>
+<li><a href="/wiki/Regression_analysis" title="Regression analysis">Regression</a></li>
+<li><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></li>
+<li><a href="/wiki/Automated_machine_learning" title="Automated machine learning">AutoML</a></li>
+<li><a href="/wiki/Association_rule_learning" title="Association rule learning">Association rules</a></li>
+<li><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></li>
+<li><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></li>
+<li><a href="/wiki/Feature_engineering" title="Feature engineering">Feature engineering</a></li>
+<li><a href="/wiki/Feature_learning" title="Feature learning">Feature learning</a></li>
+<li><a href="/wiki/Online_machine_learning" title="Online machine learning">Online learning</a></li>
+<li><a href="/wiki/Semi-supervised_learning" title="Semi-supervised learning">Semi-supervised learning</a></li>
+<li><a href="/wiki/Unsupervised_learning" title="Unsupervised learning">Unsupervised learning</a></li>
+<li><a href="/wiki/Learning_to_rank" title="Learning to rank">Learning to rank</a></li>
+<li><a href="/wiki/Grammar_induction" title="Grammar induction">Grammar induction</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><div style="padding:0.1em 0;line-height:1.2em;"><a href="/wiki/Supervised_learning" title="Supervised learning">Supervised learning</a><br /><style data-mw-deduplicate="TemplateStyles:r886047488">.mw-parser-output .nobold{font-weight:normal}</style><span class="nobold"><span style="font-size:85%;">(<b><a href="/wiki/Statistical_classification" title="Statistical classification">classification</a></b>&#160;&#8226;&#32;<b><a href="/wiki/Regression_analysis" title="Regression analysis">regression</a></b>)</span></span> </div></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Decision_tree_learning" title="Decision tree learning">Decision trees</a></li>
+<li><a href="/wiki/Ensemble_learning" title="Ensemble learning">Ensembles</a>
+<ul><li><a href="/wiki/Bootstrap_aggregating" title="Bootstrap aggregating">Bagging</a></li>
+<li><a href="/wiki/Boosting_(machine_learning)" title="Boosting (machine learning)">Boosting</a></li>
+<li><a href="/wiki/Random_forest" title="Random forest">Random forest</a></li></ul></li>
+<li><a href="/wiki/K-nearest_neighbors_algorithm" title="K-nearest neighbors algorithm"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Linear_regression" title="Linear regression">Linear regression</a></li>
+<li><a href="/wiki/Naive_Bayes_classifier" title="Naive Bayes classifier">Naive Bayes</a></li>
+<li><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural networks</a></li>
+<li><a href="/wiki/Logistic_regression" title="Logistic regression">Logistic regression</a></li>
+<li><a href="/wiki/Perceptron" title="Perceptron">Perceptron</a></li>
+<li><a href="/wiki/Relevance_vector_machine" title="Relevance vector machine">Relevance vector machine (RVM)</a></li>
+<li><a href="/wiki/Support-vector_machine" title="Support-vector machine">Support vector machine (SVM)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/BIRCH" title="BIRCH">BIRCH</a></li>
+<li><a href="/wiki/CURE_data_clustering_algorithm" class="mw-redirect" title="CURE data clustering algorithm">CURE</a></li>
+<li><a href="/wiki/Hierarchical_clustering" title="Hierarchical clustering">Hierarchical</a></li>
+<li><a href="/wiki/K-means_clustering" title="K-means clustering"><i>k</i>-means</a></li>
+<li><a href="/wiki/Expectation%E2%80%93maximization_algorithm" title="Expectation–maximization algorithm">Expectation–maximization (EM)</a></li>
+<li><br /><a href="/wiki/DBSCAN" title="DBSCAN">DBSCAN</a></li>
+<li><a href="/wiki/OPTICS_algorithm" title="OPTICS algorithm">OPTICS</a></li>
+<li><a href="/wiki/Mean-shift" class="mw-redirect" title="Mean-shift">Mean-shift</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Dimensionality_reduction" title="Dimensionality reduction">Dimensionality reduction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Factor_analysis" title="Factor analysis">Factor analysis</a></li>
+<li><a href="/wiki/Canonical_correlation_analysis" class="mw-redirect" title="Canonical correlation analysis">CCA</a></li>
+<li><a href="/wiki/Independent_component_analysis" title="Independent component analysis">ICA</a></li>
+<li><a href="/wiki/Linear_discriminant_analysis" title="Linear discriminant analysis">LDA</a></li>
+<li><a href="/wiki/Non-negative_matrix_factorization" title="Non-negative matrix factorization">NMF</a></li>
+<li><a href="/wiki/Principal_component_analysis" title="Principal component analysis">PCA</a></li>
+<li><a href="/wiki/T-distributed_stochastic_neighbor_embedding" title="T-distributed stochastic neighbor embedding">t-SNE</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Graphical_model" title="Graphical model">Graphical models</a>
+<ul><li><a href="/wiki/Bayesian_network" title="Bayesian network">Bayes net</a></li>
+<li><a href="/wiki/Conditional_random_field" title="Conditional random field">Conditional random field</a></li>
+<li><a href="/wiki/Hidden_Markov_model" title="Hidden Markov model">Hidden Markov</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/K-nearest_neighbors_classification" class="mw-redirect" title="K-nearest neighbors classification"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Local_outlier_factor" title="Local outlier factor">Local outlier factor</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural network</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Autoencoder" title="Autoencoder">Autoencoder</a></li>
+<li><a href="/wiki/Deep_learning" title="Deep learning">Deep learning</a></li>
+<li><a href="/wiki/DeepDream" title="DeepDream">DeepDream</a></li>
+<li><a href="/wiki/Multilayer_perceptron" title="Multilayer perceptron">Multilayer perceptron</a></li>
+<li><a href="/wiki/Recurrent_neural_network" title="Recurrent neural network">RNN</a>
+<ul><li><a href="/wiki/Long_short-term_memory" title="Long short-term memory">LSTM</a></li>
+<li><a href="/wiki/Gated_recurrent_unit" title="Gated recurrent unit">GRU</a></li></ul></li>
+<li><a href="/wiki/Restricted_Boltzmann_machine" title="Restricted Boltzmann machine">Restricted Boltzmann machine</a></li>
+<li><a href="/wiki/Generative_adversarial_network" title="Generative adversarial network">GAN</a></li>
+<li><a href="/wiki/Self-organizing_map" title="Self-organizing map">SOM</a></li>
+<li><a href="/wiki/Convolutional_neural_network" title="Convolutional neural network">Convolutional neural network</a>
+<ul><li><a href="/wiki/U-Net" title="U-Net">U-Net</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Q-learning" title="Q-learning">Q-learning</a></li>
+<li><a href="/wiki/State%E2%80%93action%E2%80%93reward%E2%80%93state%E2%80%93action" title="State–action–reward–state–action">SARSA</a></li>
+<li><a href="/wiki/Temporal_difference_learning" title="Temporal difference learning">Temporal difference (TD)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Theory</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Bias%E2%80%93variance_dilemma" class="mw-redirect" title="Bias–variance dilemma">Bias–variance dilemma</a></li>
+<li><a href="/wiki/Computational_learning_theory" title="Computational learning theory">Computational learning theory</a></li>
+<li><a class="mw-selflink selflink">Empirical risk minimization</a></li>
+<li><a href="/wiki/Occam_learning" title="Occam learning">Occam learning</a></li>
+<li><a href="/wiki/Probably_approximately_correct_learning" title="Probably approximately correct learning">PAC learning</a></li>
+<li><a href="/wiki/Statistical_learning_theory" title="Statistical learning theory">Statistical learning</a></li>
+<li><a href="/wiki/Vapnik%E2%80%93Chervonenkis_theory" title="Vapnik–Chervonenkis theory">VC theory</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Machine-learning venues</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Conference_on_Neural_Information_Processing_Systems" title="Conference on Neural Information Processing Systems">NeurIPS</a></li>
+<li><a href="/wiki/International_Conference_on_Machine_Learning" title="International Conference on Machine Learning">ICML</a></li>
+<li><a href="/wiki/Machine_Learning_(journal)" title="Machine Learning (journal)">ML</a></li>
+<li><a href="/wiki/Journal_of_Machine_Learning_Research" title="Journal of Machine Learning Research">JMLR</a></li>
+<li><a rel="nofollow" class="external text" href="https://arxiv.org/list/cs.LG/recent">ArXiv:cs.LG</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Related articles</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/List_of_datasets_for_machine-learning_research" title="List of datasets for machine-learning research">List of datasets for machine-learning research</a></li>
+<li><a href="/wiki/Outline_of_machine_learning" title="Outline of machine learning">Outline of machine learning</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="text-align:right;font-size:115%;padding-top: 0.6em;"><div class="plainlinks hlist navbar mini"><ul><li class="nv-view"><a href="/wiki/Template:Machine_learning_bar" title="Template:Machine learning bar"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="/wiki/Template_talk:Machine_learning_bar" title="Template talk:Machine learning bar"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Machine_learning_bar&amp;action=edit"><abbr title="Edit this template">e</abbr></a></li></ul></div></td></tr></tbody></table>
+<p><b>Empirical risk minimization</b> (ERM) is a principle in <a href="/wiki/Statistical_learning_theory" title="Statistical learning theory">statistical learning theory</a> which defines a family of <a href="/wiki/Machine_learning" title="Machine learning">learning algorithms</a> and is used to give theoretical bounds on their performance. The core idea is that we cannot know exactly how well an algorithm will work in practice (the true "risk") because we don't know the true distribution of data that the algorithm will work on, but we can instead measure its performance on a known set of training data (the "empirical" risk). 
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Background"><span class="tocnumber">1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Empirical_risk_minimization"><span class="tocnumber">2</span> <span class="toctext">Empirical risk minimization</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Properties"><span class="tocnumber">3</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Computational_complexity"><span class="tocnumber">3.1</span> <span class="toctext">Computational complexity</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Further_reading"><span class="tocnumber">6</span> <span class="toctext">Further reading</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Background">Background</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Empirical_risk_minimization&amp;action=edit&amp;section=1" title="Edit section: Background">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Consider the following situation, which is a general setting of many <a href="/wiki/Supervised_learning" title="Supervised learning">supervised learning</a> problems. We have two spaces of objects <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="X"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/961d67d6b454b4df2301ac571808a3538b3a6d3f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.171ex; width:1.773ex; height:2.009ex;" alt="Y"/></span> and would like to learn a function <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \ h:X\to Y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mtext>&#xA0;</mtext>
+        <mi>h</mi>
+        <mo>:</mo>
+        <mi>X</mi>
+        <mo stretchy="false">&#x2192;<!-- → --></mo>
+        <mi>Y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \ h:X\to Y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f73d520c0a5d1b9bae8757d89111da64488533a5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:11.224ex; height:2.176ex;" alt="{\displaystyle \ h:X\to Y}"/></span> (often called <i>hypothesis</i>) which outputs an object <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y\in Y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>Y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y\in Y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cee1c0ec36a82f33f5e3d7434d5667881b4ec323" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:5.769ex; height:2.509ex;" alt="y\in Y"/></span>, given <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x\in X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x\in X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3e580967f68f36743e894aa7944f032dda6ea01d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:6.15ex; height:2.176ex;" alt="x\in X"/></span>. To do so, we have at our disposal a <i>training set</i> of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> examples <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \ (x_{1},y_{1}),\ldots ,(x_{n},y_{n})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mtext>&#xA0;</mtext>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \ (x_{1},y_{1}),\ldots ,(x_{n},y_{n})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e84db8871194bb90f3b8352bd1ccc6fe715094d0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:20.929ex; height:2.843ex;" alt="{\displaystyle \ (x_{1},y_{1}),\ldots ,(x_{n},y_{n})}"/></span> where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{i}\in X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{i}\in X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b2ea6d0515864dd80d66a0bdc4cc074088a7647f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:6.95ex; height:2.509ex;" alt="x_{i}\in X"/></span> is an input and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y_{i}\in Y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>Y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y_{i}\in Y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b0717b773e813620a14036f6db3e96a589fb301c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:6.553ex; height:2.509ex;" alt="y_{i}\in Y"/></span> is the corresponding response that we wish to get from <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \ h(x_{i})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mtext>&#xA0;</mtext>
+        <mi>h</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \ h(x_{i})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f56e17c328005cfe791efdb9deec6c7293cbbef2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.858ex; height:2.843ex;" alt="{\displaystyle \ h(x_{i})}"/></span>.
+</p><p>To put it more formally, we assume that there is a <a href="/wiki/Joint_probability_distribution" title="Joint probability distribution">joint probability distribution</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle P(x,y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P(x,y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d5b3d8f37f5458c22b61eaf26e5af0523acb63e2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.074ex; height:2.843ex;" alt="P(x,y)"/></span> over <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="X"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/961d67d6b454b4df2301ac571808a3538b3a6d3f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.171ex; width:1.773ex; height:2.009ex;" alt="Y"/></span>, and that the training set consists of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> instances <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \ (x_{1},y_{1}),\ldots ,(x_{n},y_{n})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mtext>&#xA0;</mtext>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \ (x_{1},y_{1}),\ldots ,(x_{n},y_{n})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e84db8871194bb90f3b8352bd1ccc6fe715094d0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:20.929ex; height:2.843ex;" alt="{\displaystyle \ (x_{1},y_{1}),\ldots ,(x_{n},y_{n})}"/></span> drawn <a href="/wiki/I.i.d." class="mw-redirect" title="I.i.d.">i.i.d.</a> from <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle P(x,y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P(x,y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d5b3d8f37f5458c22b61eaf26e5af0523acb63e2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.074ex; height:2.843ex;" alt="P(x,y)"/></span>. Note that the assumption of a joint probability distribution allows us to model uncertainty in predictions (e.g. from noise in data) because <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b8a6208ec717213d4317e666f1ae872e00620a0d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.155ex; height:2.009ex;" alt="y"/></span> is not a deterministic function of <span class="nowrap"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f9e315fd7e2ba406057a97300593c4802b53e4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="x"/></span>,</span> but rather a <a href="/wiki/Random_variable" title="Random variable">random variable</a> with <a href="/wiki/Conditional_distribution" class="mw-redirect" title="Conditional distribution">conditional distribution</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle P(y|x)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <mi>y</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P(y|x)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5d08508dff9e465cc317804ff19999c4ffbf7d94" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.687ex; height:2.843ex;" alt="P(y|x)"/></span> for a fixed <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f9e315fd7e2ba406057a97300593c4802b53e4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="x"/></span>.
+</p><p>We also assume that we are given a non-negative real-valued <a href="/wiki/Loss_function" title="Loss function">loss function</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle L({\hat {y}},y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>L</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>y</mi>
+              <mo stretchy="false">&#x005E;<!-- ^ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle L({\hat {y}},y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/51f00d4c0ba1e96c746e553312f9ea3e2e4c5904" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.884ex; height:2.843ex;" alt="L({\hat  {y}},y)"/></span> which measures how different the prediction <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\hat {y}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>y</mi>
+              <mo stretchy="false">&#x005E;<!-- ^ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\hat {y}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3dc8de3d8ea01304329ef9518fad7a6d196c4c01" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.302ex; height:2.509ex;" alt="{\hat {y}}"/></span> of a hypothesis is from the true outcome <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/83f72471aff7c6fbb27df0f971283a068efe091f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.802ex; height:2.009ex;" alt="y."/></span> The <a href="/wiki/Risk_(statistics)" class="mw-redirect" title="Risk (statistics)">risk</a> associated with hypothesis <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle h(x)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>h</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle h(x)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/02c07825dae28705df03d15daeb8844d49c4dbd4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.478ex; height:2.843ex;" alt="h(x)"/></span> is then defined as the <a href="/wiki/Expected_value" title="Expected value">expectation</a> of the loss function:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle R(h)=\mathbf {E} [L(h(x),y)]=\int L(h(x),y)\,dP(x,y).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>R</mi>
+        <mo stretchy="false">(</mo>
+        <mi>h</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">E</mi>
+        </mrow>
+        <mo stretchy="false">[</mo>
+        <mi>L</mi>
+        <mo stretchy="false">(</mo>
+        <mi>h</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">]</mo>
+        <mo>=</mo>
+        <mo>&#x222B;<!-- ∫ --></mo>
+        <mi>L</mi>
+        <mo stretchy="false">(</mo>
+        <mi>h</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mspace width="thinmathspace" />
+        <mi>d</mi>
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R(h)=\mathbf {E} [L(h(x),y)]=\int L(h(x),y)\,dP(x,y).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7ad0926c0c7dbf4fa719987b028ff25c5fd678cb" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.338ex; width:46.183ex; height:5.676ex;" alt="R(h)={\mathbf  {E}}[L(h(x),y)]=\int L(h(x),y)\,dP(x,y)."/></span></dd></dl>
+<p>A loss function commonly used in theory is the <a href="/wiki/0-1_loss_function" class="mw-redirect" title="0-1 loss function">0-1 loss function</a>: <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle L({\hat {y}},y)={\begin{cases}1&amp;{\mbox{ If }}\quad {\hat {y}}\neq y\\0&amp;{\mbox{ If }}\quad {\hat {y}}=y\end{cases}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>L</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>y</mi>
+              <mo stretchy="false">&#x005E;<!-- ^ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>{</mo>
+            <mtable columnalign="left left" rowspacing=".2em" columnspacing="1em" displaystyle="false">
+              <mtr>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mstyle displaystyle="false" scriptlevel="0">
+                      <mtext>&#xA0;If&#xA0;</mtext>
+                    </mstyle>
+                  </mrow>
+                  <mspace width="1em" />
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mover>
+                        <mi>y</mi>
+                        <mo stretchy="false">&#x005E;<!-- ^ --></mo>
+                      </mover>
+                    </mrow>
+                  </mrow>
+                  <mo>&#x2260;<!-- ≠ --></mo>
+                  <mi>y</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mstyle displaystyle="false" scriptlevel="0">
+                      <mtext>&#xA0;If&#xA0;</mtext>
+                    </mstyle>
+                  </mrow>
+                  <mspace width="1em" />
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mover>
+                        <mi>y</mi>
+                        <mo stretchy="false">&#x005E;<!-- ^ --></mo>
+                      </mover>
+                    </mrow>
+                  </mrow>
+                  <mo>=</mo>
+                  <mi>y</mi>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo fence="true" stretchy="true" symmetric="true"></mo>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle L({\hat {y}},y)={\begin{cases}1&amp;{\mbox{ If }}\quad {\hat {y}}\neq y\\0&amp;{\mbox{ If }}\quad {\hat {y}}=y\end{cases}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/52a4d80047a2319818e45933e96f0fd72b438a31" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:26.553ex; height:6.176ex;" alt="{\displaystyle L({\hat {y}},y)={\begin{cases}1&amp;{\mbox{ If }}\quad {\hat {y}}\neq y\\0&amp;{\mbox{ If }}\quad {\hat {y}}=y\end{cases}}}"/></span>.
+</p><p>The ultimate goal of a learning algorithm is to find a hypothesis <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle h^{*}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2217;<!-- ∗ --></mo>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle h^{*}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e1588e001b9d1955b96fb2cea41496c45b0b5cee" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.393ex; height:2.343ex;" alt="h^{*}"/></span> among a fixed class of functions <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {H}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">H</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {H}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/19ef4c7b923a5125ac91aa491838a95ee15b804f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.964ex; height:2.176ex;" alt="{\mathcal {H}}"/></span> for which the risk <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle R(h)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>R</mi>
+        <mo stretchy="false">(</mo>
+        <mi>h</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R(h)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7ce1412254687ff3b361ddf5f23ede63062affb1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.912ex; height:2.843ex;" alt="R(h)"/></span> is minimal:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle h^{*}=\arg \min _{h\in {\mathcal {H}}}R(h).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2217;<!-- ∗ --></mo>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <mi>arg</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <munder>
+          <mo movablelimits="true" form="prefix">min</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>h</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi class="MJX-tex-caligraphic" mathvariant="script">H</mi>
+              </mrow>
+            </mrow>
+          </mrow>
+        </munder>
+        <mi>R</mi>
+        <mo stretchy="false">(</mo>
+        <mi>h</mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle h^{*}=\arg \min _{h\in {\mathcal {H}}}R(h).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e07104bf49d2332d04a36db48aa272d20665fdc7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.171ex; width:18.937ex; height:4.176ex;" alt="h^{*}=\arg \min _{{h\in {\mathcal  {H}}}}R(h)."/></span></dd></dl>
+<h2><span class="mw-headline" id="Empirical_risk_minimization">Empirical risk minimization</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Empirical_risk_minimization&amp;action=edit&amp;section=2" title="Edit section: Empirical risk minimization">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In general, the risk <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle R(h)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>R</mi>
+        <mo stretchy="false">(</mo>
+        <mi>h</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R(h)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7ce1412254687ff3b361ddf5f23ede63062affb1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.912ex; height:2.843ex;" alt="R(h)"/></span> cannot be computed because the distribution <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle P(x,y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P(x,y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d5b3d8f37f5458c22b61eaf26e5af0523acb63e2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.074ex; height:2.843ex;" alt="P(x,y)"/></span> is unknown to the learning algorithm (this situation is referred to as <a href="/w/index.php?title=Agnostic_learning&amp;action=edit&amp;redlink=1" class="new" title="Agnostic learning (page does not exist)">agnostic learning</a>). However, we can compute an approximation, called <i>empirical risk</i>, by averaging the loss function on the training set:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \!R_{\text{emp}}(h)={\frac {1}{n}}\sum _{i=1}^{n}L(h(x_{i}),y_{i}).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mspace width="negativethinmathspace" />
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>emp</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>h</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mi>n</mi>
+          </mfrac>
+        </mrow>
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>=</mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </munderover>
+        <mi>L</mi>
+        <mo stretchy="false">(</mo>
+        <mi>h</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \!R_{\text{emp}}(h)={\frac {1}{n}}\sum _{i=1}^{n}L(h(x_{i}),y_{i}).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c99dd7a58f6ba695ad3cf208fb100088aa6bfb0f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.005ex; margin-left: -0.387ex; width:29.905ex; height:6.843ex;" alt="{\displaystyle \!R_{\text{emp}}(h)={\frac {1}{n}}\sum _{i=1}^{n}L(h(x_{i}),y_{i}).}"/></span></dd></dl>
+<p>The empirical risk minimization principle<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> states that the learning algorithm should choose a hypothesis <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\hat {h}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>h</mi>
+              <mo stretchy="false">&#x005E;<!-- ^ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\hat {h}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/61505780f3740aa55551090a2b23c668c934a82b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.339ex; height:2.843ex;" alt="{\hat {h}}"/></span> which minimizes the empirical risk:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\hat {h}}=\arg \min _{h\in {\mathcal {H}}}R_{\text{emp}}(h).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>h</mi>
+              <mo stretchy="false">&#x005E;<!-- ^ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <mi>arg</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <munder>
+          <mo movablelimits="true" form="prefix">min</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>h</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi class="MJX-tex-caligraphic" mathvariant="script">H</mi>
+              </mrow>
+            </mrow>
+          </mrow>
+        </munder>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>emp</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>h</mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\hat {h}}=\arg \min _{h\in {\mathcal {H}}}R_{\text{emp}}(h).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d4d49862460994cb8a7a4b4f42607d9312e94b58" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.171ex; width:21.128ex; height:4.676ex;" alt="{\displaystyle {\hat {h}}=\arg \min _{h\in {\mathcal {H}}}R_{\text{emp}}(h).}"/></span></dd></dl>
+<p>Thus the learning algorithm defined by the ERM principle consists in solving the above <a href="/wiki/Mathematical_optimization" title="Mathematical optimization">optimization</a> problem.
+</p>
+<h2><span class="mw-headline" id="Properties">Properties</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Empirical_risk_minimization&amp;action=edit&amp;section=3" title="Edit section: Properties">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="box-Expand_section plainlinks metadata ambox mbox-small-left ambox-content" role="presentation"><tbody><tr><td class="mbox-image"><a href="/wiki/File:Wiki_letter_w_cropped.svg" class="image"><img alt="[icon]" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/20px-Wiki_letter_w_cropped.svg.png" decoding="async" width="20" height="14" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/30px-Wiki_letter_w_cropped.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/40px-Wiki_letter_w_cropped.svg.png 2x" data-file-width="44" data-file-height="31" /></a></td><td class="mbox-text"><div class="mbox-text-span">This section <b>needs expansion</b>. <small>You can help by <a class="external text" href="https://en.wikipedia.org/w/index.php?title=Empirical_risk_minimization&amp;action=edit&amp;section=">adding to it</a>.</small>  <small class="date-container"><i>(<span class="date">February 2010</span>)</i></small></div></td></tr></tbody></table>
+<h3><span class="mw-headline" id="Computational_complexity">Computational complexity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Empirical_risk_minimization&amp;action=edit&amp;section=4" title="Edit section: Computational complexity">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Empirical risk minimization for a classification problem with a <a href="/wiki/0-1_loss_function" class="mw-redirect" title="0-1 loss function">0-1 loss function</a> is known to be an <a href="/wiki/NP-hard" class="mw-redirect" title="NP-hard">NP-hard</a> problem even for such a relatively simple class of functions as <a href="/wiki/Linear_classifier" title="Linear classifier">linear classifiers</a>.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> Though, it can be solved efficiently when the minimal empirical risk is zero, i.e. data is <a href="/wiki/Linearly_separable" class="mw-redirect" title="Linearly separable">linearly separable</a>.
+</p><p>In practice, machine learning algorithms cope with that either by employing a <a href="/wiki/Convex_optimization" title="Convex optimization">convex approximation</a> to the 0-1 loss function (like <a href="/wiki/Hinge_loss" title="Hinge loss">hinge loss</a> for <a href="/wiki/Support_vector_machine" class="mw-redirect" title="Support vector machine">SVM</a>), which is easier to optimize, or by imposing assumptions on the distribution <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle P(x,y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P(x,y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d5b3d8f37f5458c22b61eaf26e5af0523acb63e2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.074ex; height:2.843ex;" alt="P(x,y)"/></span> (and thus stop being agnostic learning algorithms to which the above result applies).
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Empirical_risk_minimization&amp;action=edit&amp;section=5" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/Maximum_likelihood_estimation" title="Maximum likelihood estimation">Maximum likelihood estimation</a></li>
+<li><a href="/wiki/M-estimator" title="M-estimator">M-estimator</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Empirical_risk_minimization&amp;action=edit&amp;section=6" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="list-style-type: decimal;">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text">V. Vapnik (1992). [<a rel="nofollow" class="external free" href="http://papers.nips.cc/paper/506-principles-of-risk-minimization-for-learning-theory.pdf">http://papers.nips.cc/paper/506-principles-of-risk-minimization-for-learning-theory.pdf</a> <i>Principles of Risk Minimization</i>
+for Learning Theory.<i>]</i></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text">V. Feldman, V. Guruswami, P. Raghavendra and Yi Wu (2009). <a rel="nofollow" class="external text" href="https://arxiv.org/abs/1012.0729"><i>Agnostic Learning of Monomials by Halfspaces is Hard.</i></a> (See the paper and references therein)</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Empirical_risk_minimization&amp;action=edit&amp;section=7" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><cite class="citation book"><a href="/wiki/Vladimir_Vapnik" title="Vladimir Vapnik">Vapnik, V.</a> (2000). <i>The Nature of Statistical Learning Theory</i>. Information Science and Statistics. <a href="/wiki/Springer-Verlag" class="mw-redirect" title="Springer-Verlag">Springer-Verlag</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-387-98780-4" title="Special:BookSources/978-0-387-98780-4"><bdi>978-0-387-98780-4</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Nature+of+Statistical+Learning+Theory&amp;rft.series=Information+Science+and+Statistics&amp;rft.pub=Springer-Verlag&amp;rft.date=2000&amp;rft.isbn=978-0-387-98780-4&amp;rft.aulast=Vapnik&amp;rft.aufirst=V.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AEmpirical+risk+minimization" class="Z3988"></span><style data-mw-deduplicate="TemplateStyles:r935243608">.mw-parser-output cite.citation{font-style:inherit}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/9px-Lock-green.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lock-gray-alt-2.svg/9px-Lock-gray-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lock-red-alt-2.svg/9px-Lock-red-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration{color:#555}.mw-parser-output .cs1-subscription span,.mw-parser-output .cs1-registration span{border-bottom:1px dotted;cursor:help}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/12px-Wikisource-logo.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output code.cs1-code{color:inherit;background:inherit;border:inherit;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;font-size:100%}.mw-parser-output .cs1-visible-error{font-size:100%}.mw-parser-output .cs1-maint{display:none;color:#33aa33;margin-left:0.3em}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration,.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left,.mw-parser-output .cs1-kern-wl-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right,.mw-parser-output .cs1-kern-wl-right{padding-right:0.2em}</style></li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1389
+Cached time: 20200306195509
+Cache expiry: 2592000
+Dynamic content: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.232 seconds
+Real time usage: 0.409 seconds
+Preprocessor visited node count: 567/1000000
+Post‐expand include size: 30301/2097152 bytes
+Template argument size: 752/2097152 bytes
+Highest expansion depth: 11/40
+Expensive parser function count: 1/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 4534/5000000 bytes
+Number of Wikibase entities loaded: 0/400
+Lua time usage: 0.083/10.000 seconds
+Lua memory usage: 2.08 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  211.655      1 -total
+ 39.27%   83.117      1 Template:Cite_book
+ 24.73%   52.351      1 Template:Machine_learning_bar
+ 23.11%   48.907      1 Template:Sidebar_with_collapsible_lists
+ 22.98%   48.639      1 Template:Expand_section
+ 19.44%   41.154      1 Template:Ambox
+  8.73%   18.487      1 Template:Longitem
+  7.81%   16.538      1 Template:Nobold
+  7.81%   16.531      1 Template:Reflist
+  2.40%    5.071      1 Template:Small
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:1455062-0!canonical!math=5 and timestamp 20200306195508 and revision id 926149186
+ -->
+</div><noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>
+		<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Empirical_risk_minimization&amp;oldid=926149186">https://en.wikipedia.org/w/index.php?title=Empirical_risk_minimization&amp;oldid=926149186</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Machine_learning" title="Category:Machine learning">Machine learning</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Articles_to_be_expanded_from_February_2010" title="Category:Articles to be expanded from February 2010">Articles to be expanded from February 2010</a></li><li><a href="/wiki/Category:All_articles_to_be_expanded" title="Category:All articles to be expanded">All articles to be expanded</a></li><li><a href="/wiki/Category:Articles_using_small_message_boxes" title="Category:Articles using small message boxes">Articles using small message boxes</a></li></ul></div></div>
+		<div class="visualClear"></div>
+		
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+    <h2>Navigation menu</h2>
+    <div id="mw-head">
+        
+        <div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+        	<h3 id="p-personal-label">Personal tools</h3>
+        	<ul >
+        		
+        		<li id="pt-anonuserpage">Not logged in</li>
+        		<li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Empirical+risk+minimization" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Empirical+risk+minimization" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>
+        	</ul>
+        </div>
+        <div id="left-navigation">
+            <div id="p-namespaces" role="navigation" class="vectorTabs " aria-labelledby="p-namespaces-label">
+            	<h3 id="p-namespaces-label">Namespaces</h3>
+            	<ul >
+            		<li id="ca-nstab-main" class="selected"><a href="/wiki/Empirical_risk_minimization" title="View the content page [c]" accesskey="c">Article</a></li><li id="ca-talk"><a href="/wiki/Talk:Empirical_risk_minimization" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Talk</a></li>
+            	</ul>
+            </div>
+            <div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+            	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+            	<h3 id="p-variants-label">
+            		<span>Variants</span>
+            	</h3>
+            	<ul class="menu" >
+            		
+            	</ul>
+            </div>
+        </div>
+        <div id="right-navigation">
+            <div id="p-views" role="navigation" class="vectorTabs " aria-labelledby="p-views-label">
+            	<h3 id="p-views-label">Views</h3>
+            	<ul >
+            		<li id="ca-view" class="collapsible selected"><a href="/wiki/Empirical_risk_minimization">Read</a></li><li id="ca-edit" class="collapsible"><a href="/w/index.php?title=Empirical_risk_minimization&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/w/index.php?title=Empirical_risk_minimization&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li>
+            	</ul>
+            </div>
+            <div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+            	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+            	<h3 id="p-cactions-label">
+            		<span>More</span>
+            	</h3>
+            	<ul class="menu" >
+            		
+            	</ul>
+            </div>
+            <div id="p-search" role="search">
+            	<h3 >
+            		<label for="searchInput">Search</label>
+            	</h3>
+            	<form action="/w/index.php" id="searchform">
+            		<div id="simpleSearch">
+            			<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/>
+            			<input type="hidden" value="Special:Search" name="title"/>
+            			<input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+            			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+            		</div>
+            	</form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="mw-panel">
+    	<div id="p-logo" role="banner">
+    		<a  title="Visit the main page" class="mw-wiki-logo" href="/wiki/Main_Page"></a>
+    	</div>
+    	<div class="portal" role="navigation" id="p-navigation"  aria-labelledby="p-navigation-label">
+    		<h3  id="p-navigation-label">
+    			Navigation
+    		</h3>
+    		<div class="body">
+    			<ul><li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Wikipedia:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-interaction"  aria-labelledby="p-interaction-label">
+    		<h3  id="p-interaction-label">
+    			Interaction
+    		</h3>
+    		<div class="body">
+    			<ul><li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-tb"  aria-labelledby="p-tb-label">
+    		<h3  id="p-tb-label">
+    			Tools
+    		</h3>
+    		<div class="body">
+    			<ul><li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Empirical_risk_minimization" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Empirical_risk_minimization" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Empirical_risk_minimization&amp;oldid=926149186" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Empirical_risk_minimization&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q5374254" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Empirical_risk_minimization&amp;id=926149186&amp;wpFormIdentifier=titleform" title="Information on how to cite this page">Cite this page</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-coll-print_export"  aria-labelledby="p-coll-print_export-label">
+    		<h3  id="p-coll-print_export-label">
+    			Print/export
+    		</h3>
+    		<div class="body">
+    			<ul><li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Empirical+risk+minimization">Create a book</a></li><li id="coll-download-as-rl"><a href="/w/index.php?title=Special:ElectronPdf&amp;page=Empirical+risk+minimization&amp;action=show-download-screen">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Empirical_risk_minimization&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-lang"  aria-labelledby="p-lang-label">
+    		<h3  id="p-lang-label">
+    			Languages
+    		</h3>
+    		<div class="body">
+    			<ul><li class="interlanguage-link interwiki-he"><a href="https://he.wikipedia.org/wiki/%D7%9E%D7%96%D7%A2%D7%95%D7%A8_%D7%A1%D7%99%D7%9B%D7%95%D7%A0%D7%99%D7%9D_%D7%90%D7%9E%D7%A4%D7%99%D7%A8%D7%99_(ERM)" title="מזעור סיכונים אמפירי (ERM) – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target">עברית</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B8%D0%BD%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F_%D1%8D%D0%BC%D0%BF%D0%B8%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D1%80%D0%B8%D1%81%D0%BA%D0%B0" title="Минимизация эмпирического риска – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target">Русский</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/%D0%9C%D1%96%D0%BD%D1%96%D0%BC%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%8F_%D0%B5%D0%BC%D0%BF%D1%96%D1%80%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE_%D1%80%D0%B8%D0%B7%D0%B8%D0%BA%D1%83" title="Мінімізація емпіричного ризику – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target">Українська</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.wikipedia.org/wiki/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96" title="经验风险最小化 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target">中文</a></li></ul>
+    			<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q5374254#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+    		</div>
+    	</div>
+    	
+    </div>
+</div>
+
+<div id="footer" role="contentinfo" >
+	<ul id="footer-info" class="">
+		<li id="footer-info-lastmod"> This page was last edited on 14 November 2019, at 15:11<span class="anonymous-show">&#160;(UTC)</span>.</li>
+		<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+	</ul>
+	<ul id="footer-places" class="">
+		<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+		<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+		<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+		<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+		<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+		<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+		<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Empirical_risk_minimization&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</div>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.232","walltime":"0.409","ppvisitednodes":{"value":567,"limit":1000000},"postexpandincludesize":{"value":30301,"limit":2097152},"templateargumentsize":{"value":752,"limit":2097152},"expansiondepth":{"value":11,"limit":40},"expensivefunctioncount":{"value":1,"limit":500},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":4534,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  211.655      1 -total"," 39.27%   83.117      1 Template:Cite_book"," 24.73%   52.351      1 Template:Machine_learning_bar"," 23.11%   48.907      1 Template:Sidebar_with_collapsible_lists"," 22.98%   48.639      1 Template:Expand_section"," 19.44%   41.154      1 Template:Ambox","  8.73%   18.487      1 Template:Longitem","  7.81%   16.538      1 Template:Nobold","  7.81%   16.531      1 Template:Reflist","  2.40%    5.071      1 Template:Small"]},"scribunto":{"limitreport-timeusage":{"value":"0.083","limit":"10.000"},"limitreport-memusage":{"value":2178633,"limit":52428800}},"cachereport":{"origin":"mw1389","timestamp":"20200306195509","ttl":2592000,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Empirical risk minimization","url":"https:\/\/en.wikipedia.org\/wiki\/Empirical_risk_minimization","sameAs":"http:\/\/www.wikidata.org\/entity\/Q5374254","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q5374254","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2005-02-01T06:53:00Z","dateModified":"2019-11-14T15:11:52Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/fe\/Kernel_Machine.svg"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":91,"wgHostname":"mw1413"});});</script></body></html>

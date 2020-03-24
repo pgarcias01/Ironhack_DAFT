@@ -1,0 +1,1212 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Gated recurrent unit - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"Xnk45wpAAD0AAImY10wAAAFA","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Gated_recurrent_unit","wgTitle":"Gated recurrent unit","wgCurRevisionId":942734154,"wgRevisionId":942734154,"wgArticleId":50569499,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Artificial neural networks"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Gated_recurrent_unit","wgRelevantArticleId":50569499,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],
+"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0,"wgPopupsReferencePreviews":!1,"wgPopupsConflictsWithNavPopupGadget":!1,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":!0,"nearby":!0,"watchlist":!0,"tagline":!1},"wgWMESchemaEditAttemptStepOversample":!1,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q25325415","wgCentralAuthMobileDomain":!1,"wgEditSubmitButtonLabelPublish":!0};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","mediawiki.toc.styles":"ready","skins.vector.styles.legacy":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready",
+"ext.wikimediaBadges":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.startup","skins.vector.js","mediawiki.page.ready","mediawiki.toc","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns","ext.quicksurveys.init","ext.centralNotice.geoIP","ext.centralNotice.startUp"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.tokens@tffin",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.0-wmf.24"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Gated_recurrent_unit&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Gated_recurrent_unit&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Gated_recurrent_unit"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Gated_recurrent_unit rootpage-Gated_recurrent_unit skin-vector action-view">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+</div>
+
+	<h1 id="firstHeading" class="firstHeading" lang="en">Gated recurrent unit</h1>
+	
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#p-search">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p><b>Gated recurrent unit</b>s (<b>GRU</b>s) are a gating mechanism in <a href="/wiki/Recurrent_neural_networks" class="mw-redirect" title="Recurrent neural networks">recurrent neural networks</a>, introduced in 2014 by Kyunghyun Cho et al.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> The GRU is like a <a href="/wiki/Long_short-term_memory" title="Long short-term memory">long short-term memory</a> (LSTM) with forget gate<sup id="cite_ref-lstm1999_2-0" class="reference"><a href="#cite_note-lstm1999-2">&#91;2&#93;</a></sup> but has fewer parameters than LSTM, as it lacks an output gate.<sup id="cite_ref-MyUser_Wildml.com_May_18_2016c_3-0" class="reference"><a href="#cite_note-MyUser_Wildml.com_May_18_2016c-3">&#91;3&#93;</a></sup> 
+GRU's performance on certain tasks of polyphonic music modeling and speech signal modeling was found to be similar to that of LSTM. GRUs have been shown to exhibit even better performance on certain smaller datasets.<sup id="cite_ref-MyUser_Arxiv.org_May_18_2016c_4-0" class="reference"><a href="#cite_note-MyUser_Arxiv.org_May_18_2016c-4">&#91;4&#93;</a></sup> 
+</p><p>However, as shown by Gail Weiss &amp; Yoav Goldberg &amp; Eran Yahav, the LSTM  is "strictly stronger" than the GRU as it can  easily perform unbounded counting, while the GRU cannot.<sup id="cite_ref-weiss2018_5-0" class="reference"><a href="#cite_note-weiss2018-5">&#91;5&#93;</a></sup> That's why the GRU fails to learn simple languages that are learnable by the LSTM.<sup id="cite_ref-weiss2018_5-1" class="reference"><a href="#cite_note-weiss2018-5">&#91;5&#93;</a></sup>
+</p><p>Similarly, as shown by Denny Britz &amp; Anna Goldie &amp; Minh-Thang Luong &amp; Quoc Le of <a href="/wiki/Google_Brain" title="Google Brain">Google Brain</a>, LSTM cells consistently outperform GRU cells in "the first large-scale analysis of architecture variations for Neural Machine Translation."<sup id="cite_ref-britz2018_6-0" class="reference"><a href="#cite_note-britz2018-6">&#91;6&#93;</a></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Architecture"><span class="tocnumber">1</span> <span class="toctext">Architecture</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Fully_gated_unit"><span class="tocnumber">1.1</span> <span class="toctext">Fully gated unit</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Minimal_gated_unit"><span class="tocnumber">1.2</span> <span class="toctext">Minimal gated unit</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#References"><span class="tocnumber">2</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Architecture">Architecture</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Gated_recurrent_unit&amp;action=edit&amp;section=1" title="Edit section: Architecture">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There are several variations on the full gated unit, with gating done using the previous hidden state and the bias in various combinations, and a simplified form called minimal gated unit.
+</p><p>The operator <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \odot }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo>&#x2299;<!-- ⊙ --></mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \odot }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e89e009eb8a8839c82aa5c76c15e9f2d67006276" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:1.808ex; height:2.176ex;" alt="\odot "/></span> denotes the <a href="/wiki/Hadamard_product_(matrices)" title="Hadamard product (matrices)">Hadamard product</a> in the following.
+</p>
+<h3><span class="mw-headline" id="Fully_gated_unit">Fully gated unit</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Gated_recurrent_unit&amp;action=edit&amp;section=2" title="Edit section: Fully gated unit">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:Gated_Recurrent_Unit,_base_type.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/37/Gated_Recurrent_Unit%2C_base_type.svg/220px-Gated_Recurrent_Unit%2C_base_type.svg.png" decoding="async" width="220" height="110" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/37/Gated_Recurrent_Unit%2C_base_type.svg/330px-Gated_Recurrent_Unit%2C_base_type.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/37/Gated_Recurrent_Unit%2C_base_type.svg/440px-Gated_Recurrent_Unit%2C_base_type.svg.png 2x" data-file-width="780" data-file-height="390" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Gated_Recurrent_Unit,_base_type.svg" class="internal" title="Enlarge"></a></div>Gated Recurrent Unit, fully gated version</div></div></div>
+<p>Initially, for <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle t=0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>t</mi>
+        <mo>=</mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle t=0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/43469ec032d858feae5aa87029e22eaaf0109e9c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.101ex; height:2.176ex;" alt="t=0"/></span>, the output vector is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle h_{0}=0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle h_{0}=0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/14a294b6cf9cbde4c37efd966913a63d316e615c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:6.654ex; height:2.509ex;" alt="{\displaystyle h_{0}=0}"/></span>. 
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\begin{aligned}z_{t}&amp;=\sigma _{g}(W_{z}x_{t}+U_{z}h_{t-1}+b_{z})\\r_{t}&amp;=\sigma _{g}(W_{r}x_{t}+U_{r}h_{t-1}+b_{r})\\h_{t}&amp;=z_{t}\odot h_{t-1}+(1-z_{t})\odot \phi _{h}(W_{h}x_{t}+U_{h}(r_{t}\odot h_{t-1})+b_{h})\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>z</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mi>&#x03C3;<!-- σ --></mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>g</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>W</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>z</mi>
+                  </mrow>
+                </msub>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <msub>
+                  <mi>U</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>z</mi>
+                  </mrow>
+                </msub>
+                <msub>
+                  <mi>h</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <msub>
+                  <mi>b</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>z</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>r</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mi>&#x03C3;<!-- σ --></mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>g</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>W</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>r</mi>
+                  </mrow>
+                </msub>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <msub>
+                  <mi>U</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>r</mi>
+                  </mrow>
+                </msub>
+                <msub>
+                  <mi>h</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <msub>
+                  <mi>b</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>r</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>h</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mi>z</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+                <mo>&#x2299;<!-- ⊙ --></mo>
+                <msub>
+                  <mi>h</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <mo stretchy="false">(</mo>
+                <mn>1</mn>
+                <mo>&#x2212;<!-- − --></mo>
+                <msub>
+                  <mi>z</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+                <mo>&#x2299;<!-- ⊙ --></mo>
+                <msub>
+                  <mi>&#x03D5;<!-- ϕ --></mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>h</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>W</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>h</mi>
+                  </mrow>
+                </msub>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <msub>
+                  <mi>U</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>h</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>r</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+                <mo>&#x2299;<!-- ⊙ --></mo>
+                <msub>
+                  <mi>h</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+                <mo>+</mo>
+                <msub>
+                  <mi>b</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>h</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}z_{t}&amp;=\sigma _{g}(W_{z}x_{t}+U_{z}h_{t-1}+b_{z})\\r_{t}&amp;=\sigma _{g}(W_{r}x_{t}+U_{r}h_{t-1}+b_{r})\\h_{t}&amp;=z_{t}\odot h_{t-1}+(1-z_{t})\odot \phi _{h}(W_{h}x_{t}+U_{h}(r_{t}\odot h_{t-1})+b_{h})\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/12dd26f9c68a2dc8aab60bb9627d9440d4e6952b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -4.171ex; width:59.744ex; height:9.509ex;" alt="{\displaystyle {\begin{aligned}z_{t}&amp;=\sigma _{g}(W_{z}x_{t}+U_{z}h_{t-1}+b_{z})\\r_{t}&amp;=\sigma _{g}(W_{r}x_{t}+U_{r}h_{t-1}+b_{r})\\h_{t}&amp;=z_{t}\odot h_{t-1}+(1-z_{t})\odot \phi _{h}(W_{h}x_{t}+U_{h}(r_{t}\odot h_{t-1})+b_{h})\end{aligned}}}"/></span></dd></dl>
+<p>Variables
+</p>
+<ul><li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f279a30bc8eabc788f3fe81c9cfb674e72e858db" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.156ex; height:2.009ex;" alt="x_{t}"/></span>: input vector</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle h_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle h_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e8dbf3d8bfe322f68ff6400385578f8d78e1ba7c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.165ex; height:2.509ex;" alt="h_{t}"/></span>: output vector</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle z_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle z_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e396fb172660aa223e35c928e2e6985f511d8cc6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.907ex; height:2.009ex;" alt="z_{t}"/></span>: update gate vector</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fb555a4a6332d0b3c8f786c87eccda2e940936d5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.875ex; height:2.009ex;" alt="r_{t}"/></span>: reset gate vector</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle W}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>W</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle W}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/54a9c4c547f4d6111f81946cad242b18298d70b7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.435ex; height:2.176ex;" alt="W"/></span>, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle U}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>U</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle U}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.783ex; height:2.176ex;" alt="U"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle b}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>b</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle b}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f11423fbb2e967f986e36804a8ae4271734917c3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.998ex; height:2.176ex;" alt="b"/></span>: parameter matrices and vector</li></ul>
+<p><a href="/wiki/Activation_function" title="Activation function">Activation functions</a>
+</p>
+<ul><li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sigma _{g}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>&#x03C3;<!-- σ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>g</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sigma _{g}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/086f92de077f853afd7f5d22fb3d305cbf5e0ac3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.349ex; height:2.343ex;" alt="\sigma _{g}"/></span>: The original is a <a href="/wiki/Sigmoid_function" title="Sigmoid function">sigmoid function</a>.</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \phi _{h}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>&#x03D5;<!-- ϕ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>h</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \phi _{h}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a0efaeeeb3e5b6117eb7f25127a310868923d82a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.564ex; height:2.509ex;" alt="\phi _{h}"/></span>: The original is a <a href="/wiki/Hyperbolic_tangent" class="mw-redirect" title="Hyperbolic tangent">hyperbolic tangent</a>.</li></ul>
+<p>Alternative activation functions are possible, provided that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sigma _{g}(x)\in [0,1]}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>&#x03C3;<!-- σ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>g</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mo stretchy="false">[</mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mn>1</mn>
+        <mo stretchy="false">]</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sigma _{g}(x)\in [0,1]}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a8f89ffab2458ee612dd596a937f8e001c66d689" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:12.981ex; height:3.009ex;" alt="{\displaystyle \sigma _{g}(x)\in [0,1]}"/></span>.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:Gated_Recurrent_Unit,_type_1.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Gated_Recurrent_Unit%2C_type_1.svg/220px-Gated_Recurrent_Unit%2C_type_1.svg.png" decoding="async" width="220" height="110" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Gated_Recurrent_Unit%2C_type_1.svg/330px-Gated_Recurrent_Unit%2C_type_1.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Gated_Recurrent_Unit%2C_type_1.svg/440px-Gated_Recurrent_Unit%2C_type_1.svg.png 2x" data-file-width="780" data-file-height="390" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Gated_Recurrent_Unit,_type_1.svg" class="internal" title="Enlarge"></a></div>Type 1</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:Gated_Recurrent_Unit,_type_2.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Gated_Recurrent_Unit%2C_type_2.svg/220px-Gated_Recurrent_Unit%2C_type_2.svg.png" decoding="async" width="220" height="110" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Gated_Recurrent_Unit%2C_type_2.svg/330px-Gated_Recurrent_Unit%2C_type_2.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Gated_Recurrent_Unit%2C_type_2.svg/440px-Gated_Recurrent_Unit%2C_type_2.svg.png 2x" data-file-width="780" data-file-height="390" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Gated_Recurrent_Unit,_type_2.svg" class="internal" title="Enlarge"></a></div>Type 2</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:Gated_Recurrent_Unit,_type_3.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Gated_Recurrent_Unit%2C_type_3.svg/220px-Gated_Recurrent_Unit%2C_type_3.svg.png" decoding="async" width="220" height="110" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Gated_Recurrent_Unit%2C_type_3.svg/330px-Gated_Recurrent_Unit%2C_type_3.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Gated_Recurrent_Unit%2C_type_3.svg/440px-Gated_Recurrent_Unit%2C_type_3.svg.png 2x" data-file-width="780" data-file-height="390" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Gated_Recurrent_Unit,_type_3.svg" class="internal" title="Enlarge"></a></div>Type 3</div></div></div>
+<p>Alternate forms can be created by changing <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle z_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle z_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e396fb172660aa223e35c928e2e6985f511d8cc6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.907ex; height:2.009ex;" alt="z_{t}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fb555a4a6332d0b3c8f786c87eccda2e940936d5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.875ex; height:2.009ex;" alt="r_{t}"/></span> <sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup>
+</p>
+<ul><li>Type 1, each gate depends only on the previous hidden state and the bias.
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\begin{aligned}z_{t}&amp;=\sigma _{g}(U_{z}h_{t-1}+b_{z})\\r_{t}&amp;=\sigma _{g}(U_{r}h_{t-1}+b_{r})\\\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>z</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mi>&#x03C3;<!-- σ --></mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>g</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>U</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>z</mi>
+                  </mrow>
+                </msub>
+                <msub>
+                  <mi>h</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <msub>
+                  <mi>b</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>z</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>r</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mi>&#x03C3;<!-- σ --></mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>g</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>U</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>r</mi>
+                  </mrow>
+                </msub>
+                <msub>
+                  <mi>h</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <msub>
+                  <mi>b</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>r</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}z_{t}&amp;=\sigma _{g}(U_{z}h_{t-1}+b_{z})\\r_{t}&amp;=\sigma _{g}(U_{r}h_{t-1}+b_{r})\\\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1ac95f6e89abca0342fa08eef2a3a5b56573804d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:21.609ex; height:6.176ex;" alt="{\displaystyle {\begin{aligned}z_{t}&amp;=\sigma _{g}(U_{z}h_{t-1}+b_{z})\\r_{t}&amp;=\sigma _{g}(U_{r}h_{t-1}+b_{r})\\\end{aligned}}}"/></span></dd></dl></li>
+<li>Type 2, each gate depends only on  the previous hidden state.
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\begin{aligned}z_{t}&amp;=\sigma _{g}(U_{z}h_{t-1})\\r_{t}&amp;=\sigma _{g}(U_{r}h_{t-1})\\\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>z</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mi>&#x03C3;<!-- σ --></mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>g</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>U</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>z</mi>
+                  </mrow>
+                </msub>
+                <msub>
+                  <mi>h</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>r</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mi>&#x03C3;<!-- σ --></mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>g</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>U</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>r</mi>
+                  </mrow>
+                </msub>
+                <msub>
+                  <mi>h</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}z_{t}&amp;=\sigma _{g}(U_{z}h_{t-1})\\r_{t}&amp;=\sigma _{g}(U_{r}h_{t-1})\\\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1857896e539cb5561d8fdaa65657c9995b788aec" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:16.77ex; height:6.176ex;" alt="{\displaystyle {\begin{aligned}z_{t}&amp;=\sigma _{g}(U_{z}h_{t-1})\\r_{t}&amp;=\sigma _{g}(U_{r}h_{t-1})\\\end{aligned}}}"/></span></dd></dl></li>
+<li>Type 3, each gate is computed using only the bias.
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\begin{aligned}z_{t}&amp;=\sigma _{g}(b_{z})\\r_{t}&amp;=\sigma _{g}(b_{r})\\\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>z</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mi>&#x03C3;<!-- σ --></mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>g</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>b</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>z</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>r</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mi>&#x03C3;<!-- σ --></mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>g</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>b</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>r</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}z_{t}&amp;=\sigma _{g}(b_{z})\\r_{t}&amp;=\sigma _{g}(b_{r})\\\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/133cd4c8e8abc3e81ee20a0c4f40de1146c5ec6c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:11.914ex; height:6.176ex;" alt="{\displaystyle {\begin{aligned}z_{t}&amp;=\sigma _{g}(b_{z})\\r_{t}&amp;=\sigma _{g}(b_{r})\\\end{aligned}}}"/></span></dd></dl></li></ul>
+<h3><span class="mw-headline" id="Minimal_gated_unit">Minimal gated unit</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Gated_recurrent_unit&amp;action=edit&amp;section=3" title="Edit section: Minimal gated unit">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The minimal gated unit is similar to the fully gated unit, except the update and reset gate vector is merged into a forget gate. This also implies that the equation for the output vector must be changed <sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup>
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\begin{aligned}f_{t}&amp;=\sigma _{g}(W_{f}x_{t}+U_{f}h_{t-1}+b_{f})\\h_{t}&amp;=f_{t}\odot h_{t-1}+(1-f_{t})\odot \phi _{h}(W_{h}x_{t}+U_{h}(f_{t}\odot h_{t-1})+b_{h})\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>f</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mi>&#x03C3;<!-- σ --></mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>g</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>W</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>f</mi>
+                  </mrow>
+                </msub>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <msub>
+                  <mi>U</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>f</mi>
+                  </mrow>
+                </msub>
+                <msub>
+                  <mi>h</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <msub>
+                  <mi>b</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>f</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>h</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <msub>
+                  <mi>f</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+                <mo>&#x2299;<!-- ⊙ --></mo>
+                <msub>
+                  <mi>h</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <mo stretchy="false">(</mo>
+                <mn>1</mn>
+                <mo>&#x2212;<!-- − --></mo>
+                <msub>
+                  <mi>f</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+                <mo>&#x2299;<!-- ⊙ --></mo>
+                <msub>
+                  <mi>&#x03D5;<!-- ϕ --></mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>h</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>W</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>h</mi>
+                  </mrow>
+                </msub>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <msub>
+                  <mi>U</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>h</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>f</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                  </mrow>
+                </msub>
+                <mo>&#x2299;<!-- ⊙ --></mo>
+                <msub>
+                  <mi>h</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>t</mi>
+                    <mo>&#x2212;<!-- − --></mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+                <mo>+</mo>
+                <msub>
+                  <mi>b</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>h</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">)</mo>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}f_{t}&amp;=\sigma _{g}(W_{f}x_{t}+U_{f}h_{t-1}+b_{f})\\h_{t}&amp;=f_{t}\odot h_{t-1}+(1-f_{t})\odot \phi _{h}(W_{h}x_{t}+U_{h}(f_{t}\odot h_{t-1})+b_{h})\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b48f758b97aa283825127bf4904bf5b5a6964883" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:59.95ex; height:6.176ex;" alt="{\displaystyle {\begin{aligned}f_{t}&amp;=\sigma _{g}(W_{f}x_{t}+U_{f}h_{t-1}+b_{f})\\h_{t}&amp;=f_{t}\odot h_{t-1}+(1-f_{t})\odot \phi _{h}(W_{h}x_{t}+U_{h}(f_{t}\odot h_{t-1})+b_{h})\end{aligned}}}"/></span></dd></dl>
+<p>Variables
+</p>
+<ul><li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f279a30bc8eabc788f3fe81c9cfb674e72e858db" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.156ex; height:2.009ex;" alt="x_{t}"/></span>: input vector</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle h_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle h_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e8dbf3d8bfe322f68ff6400385578f8d78e1ba7c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.165ex; height:2.509ex;" alt="h_{t}"/></span>: output vector</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f_{t}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>f</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f_{t}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/874c306411e808e8191e8aeb95e3440e1c68d6e9" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.965ex; height:2.509ex;" alt="f_{t}"/></span>: forget vector</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle W}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>W</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle W}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/54a9c4c547f4d6111f81946cad242b18298d70b7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.435ex; height:2.176ex;" alt="W"/></span>, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle U}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>U</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle U}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.783ex; height:2.176ex;" alt="U"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle b}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>b</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle b}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f11423fbb2e967f986e36804a8ae4271734917c3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.998ex; height:2.176ex;" alt="b"/></span>: parameter matrices and vector</li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Gated_recurrent_unit&amp;action=edit&amp;section=4" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="list-style-type: decimal;">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><cite class="citation arxiv">Cho, Kyunghyun; van Merrienboer, Bart; Gulcehre, Caglar; Bahdanau, Dzmitry; Bougares, Fethi; Schwenk, Holger; Bengio, Yoshua (2014). "Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation". <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/1406.1078">1406.1078</a></span> [<a rel="nofollow" class="external text" href="//arxiv.org/archive/cs.CL">cs.CL</a>].</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=preprint&amp;rft.jtitle=arXiv&amp;rft.atitle=Learning+Phrase+Representations+using+RNN+Encoder-Decoder+for+Statistical+Machine+Translation&amp;rft.date=2014&amp;rft_id=info%3Aarxiv%2F1406.1078&amp;rft.aulast=Cho&amp;rft.aufirst=Kyunghyun&amp;rft.au=van+Merrienboer%2C+Bart&amp;rft.au=Gulcehre%2C+Caglar&amp;rft.au=Bahdanau%2C+Dzmitry&amp;rft.au=Bougares%2C+Fethi&amp;rft.au=Schwenk%2C+Holger&amp;rft.au=Bengio%2C+Yoshua&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGated+recurrent+unit" class="Z3988"></span><style data-mw-deduplicate="TemplateStyles:r935243608">.mw-parser-output cite.citation{font-style:inherit}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/9px-Lock-green.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lock-gray-alt-2.svg/9px-Lock-gray-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lock-red-alt-2.svg/9px-Lock-red-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration{color:#555}.mw-parser-output .cs1-subscription span,.mw-parser-output .cs1-registration span{border-bottom:1px dotted;cursor:help}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/12px-Wikisource-logo.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output code.cs1-code{color:inherit;background:inherit;border:inherit;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;font-size:100%}.mw-parser-output .cs1-visible-error{font-size:100%}.mw-parser-output .cs1-maint{display:none;color:#33aa33;margin-left:0.3em}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration,.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left,.mw-parser-output .cs1-kern-wl-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right,.mw-parser-output .cs1-kern-wl-right{padding-right:0.2em}</style></span>
+</li>
+<li id="cite_note-lstm1999-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-lstm1999_2-0">^</a></b></span> <span class="reference-text"><cite class="citation journal"><a href="/wiki/Felix_Gers" title="Felix Gers">Felix Gers</a>; <a href="/wiki/J%C3%BCrgen_Schmidhuber" title="Jürgen Schmidhuber">Jürgen Schmidhuber</a>; Fred Cummins (1999). <a rel="nofollow" class="external text" href="https://ieeexplore.ieee.org/document/818041">"Learning to Forget: Continual Prediction with LSTM"</a>. <i>Proc. ICANN'99, IEE, London</i>. <b>1999</b>: 850–855. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1049%2Fcp%3A19991218">10.1049/cp:19991218</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/0-85296-721-7" title="Special:BookSources/0-85296-721-7"><bdi>0-85296-721-7</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Proc.+ICANN%2799%2C+IEE%2C+London&amp;rft.atitle=Learning+to+Forget%3A+Continual+Prediction+with+LSTM&amp;rft.volume=1999&amp;rft.pages=850-855&amp;rft.date=1999&amp;rft_id=info%3Adoi%2F10.1049%2Fcp%3A19991218&amp;rft.isbn=0-85296-721-7&amp;rft.au=Felix+Gers&amp;rft.au=J%C3%BCrgen+Schmidhuber&amp;rft.au=Fred+Cummins&amp;rft_id=https%3A%2F%2Fieeexplore.ieee.org%2Fdocument%2F818041&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGated+recurrent+unit" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-MyUser_Wildml.com_May_18_2016c-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-MyUser_Wildml.com_May_18_2016c_3-0">^</a></b></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/">"Recurrent Neural Network Tutorial, Part 4 – Implementing a GRU/LSTM RNN with Python and Theano – WildML"</a>. <i>Wildml.com</i>. 2015-10-27<span class="reference-accessdate">. Retrieved <span class="nowrap">May 18,</span> 2016</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Wildml.com&amp;rft.atitle=Recurrent+Neural+Network+Tutorial%2C+Part+4+%E2%80%93+Implementing+a+GRU%2FLSTM+RNN+with+Python+and+Theano+%E2%80%93+WildML&amp;rft.date=2015-10-27&amp;rft_id=http%3A%2F%2Fwww.wildml.com%2F2015%2F10%2Frecurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGated+recurrent+unit" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-MyUser_Arxiv.org_May_18_2016c-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-MyUser_Arxiv.org_May_18_2016c_4-0">^</a></b></span> <span class="reference-text"><cite class="citation arxiv">Chung, Junyoung; Gulcehre, Caglar; Cho, KyungHyun; Bengio, Yoshua (2014). "Empirical Evaluation of Gated Recurrent Neural Networks on Sequence Modeling". <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/1412.3555">1412.3555</a></span> [<a rel="nofollow" class="external text" href="//arxiv.org/archive/cs.NE">cs.NE</a>].</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=preprint&amp;rft.jtitle=arXiv&amp;rft.atitle=Empirical+Evaluation+of+Gated+Recurrent+Neural+Networks+on+Sequence+Modeling&amp;rft.date=2014&amp;rft_id=info%3Aarxiv%2F1412.3555&amp;rft.aulast=Chung&amp;rft.aufirst=Junyoung&amp;rft.au=Gulcehre%2C+Caglar&amp;rft.au=Cho%2C+KyungHyun&amp;rft.au=Bengio%2C+Yoshua&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGated+recurrent+unit" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-weiss2018-5"><span class="mw-cite-backlink">^ <a href="#cite_ref-weiss2018_5-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-weiss2018_5-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation arxiv">Weiss, Gail; Goldberg, Yoav; Yahav, Eran (2018). "On the Practical Computational Power of Finite Precision RNNs for Language Recognition". <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/1805.04908">1805.04908</a></span> [<a rel="nofollow" class="external text" href="//arxiv.org/archive/cs.NE">cs.NE</a>].</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=preprint&amp;rft.jtitle=arXiv&amp;rft.atitle=On+the+Practical+Computational+Power+of+Finite+Precision+RNNs+for+Language+Recognition&amp;rft.date=2018&amp;rft_id=info%3Aarxiv%2F1805.04908&amp;rft.aulast=Weiss&amp;rft.aufirst=Gail&amp;rft.au=Goldberg%2C+Yoav&amp;rft.au=Yahav%2C+Eran&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGated+recurrent+unit" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-britz2018-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-britz2018_6-0">^</a></b></span> <span class="reference-text"><cite class="citation arxiv">Britz, Denny; Goldie, Anna; Luong, Minh-Thang; Le, Quoc (2018). "Massive Exploration of Neural Machine Translation Architectures". <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/1703.03906">1703.03906</a></span> [<a rel="nofollow" class="external text" href="//arxiv.org/archive/cs.NE">cs.NE</a>].</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=preprint&amp;rft.jtitle=arXiv&amp;rft.atitle=Massive+Exploration+of+Neural+Machine+Translation+Architectures&amp;rft.date=2018&amp;rft_id=info%3Aarxiv%2F1703.03906&amp;rft.aulast=Britz&amp;rft.aufirst=Denny&amp;rft.au=Goldie%2C+Anna&amp;rft.au=Luong%2C+Minh-Thang&amp;rft.au=Le%2C+Quoc&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGated+recurrent+unit" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><cite class="citation arxiv">Dey, Rahul; Salem, Fathi M. (2017-01-20). "Gate-Variants of Gated Recurrent Unit (GRU) Neural Networks". <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/1701.05923">1701.05923</a></span> [<a rel="nofollow" class="external text" href="//arxiv.org/archive/cs.NE">cs.NE</a>].</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=preprint&amp;rft.jtitle=arXiv&amp;rft.atitle=Gate-Variants+of+Gated+Recurrent+Unit+%28GRU%29+Neural+Networks&amp;rft.date=2017-01-20&amp;rft_id=info%3Aarxiv%2F1701.05923&amp;rft.aulast=Dey&amp;rft.aufirst=Rahul&amp;rft.au=Salem%2C+Fathi+M.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGated+recurrent+unit" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><cite class="citation arxiv">Heck, Joel; Salem, Fathi M. (2017-01-12). "Simplified Minimal Gated Unit Variations for Recurrent Neural Networks". <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/1701.03452">1701.03452</a></span> [<a rel="nofollow" class="external text" href="//arxiv.org/archive/cs.NE">cs.NE</a>].</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=preprint&amp;rft.jtitle=arXiv&amp;rft.atitle=Simplified+Minimal+Gated+Unit+Variations+for+Recurrent+Neural+Networks&amp;rft.date=2017-01-12&amp;rft_id=info%3Aarxiv%2F1701.03452&amp;rft.aulast=Heck&amp;rft.aufirst=Joel&amp;rft.au=Salem%2C+Fathi+M.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGated+recurrent+unit" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+</ol></div></div>
+<!-- 
+NewPP limit report
+Parsed by mw1332
+Cached time: 20200306223637
+Cache expiry: 2592000
+Dynamic content: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.220 seconds
+Real time usage: 0.325 seconds
+Preprocessor visited node count: 659/1000000
+Post‐expand include size: 19114/2097152 bytes
+Template argument size: 556/2097152 bytes
+Highest expansion depth: 8/40
+Expensive parser function count: 2/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 27549/5000000 bytes
+Number of Wikibase entities loaded: 2/400
+Lua time usage: 0.109/10.000 seconds
+Lua memory usage: 3.41 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  205.258      1 -total
+100.00%  205.258      1 Template:Reflist
+ 70.49%  144.683      4 Template:Cite_arXiv
+  8.26%   16.962      1 Template:Cite_journal
+  6.43%   13.197      2 Template:Cite_arxiv
+  3.41%    7.001      1 Template:Cite_web
+  1.29%    2.645      1 Template:Main_other
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:50569499-0!canonical!math=5 and timestamp 20200306223636 and revision id 942734154
+ -->
+</div><noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>
+		<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Gated_recurrent_unit&amp;oldid=942734154">https://en.wikipedia.org/w/index.php?title=Gated_recurrent_unit&amp;oldid=942734154</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Artificial_neural_networks" title="Category:Artificial neural networks">Artificial neural networks</a></li></ul></div></div>
+		<div class="visualClear"></div>
+		
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+    <h2>Navigation menu</h2>
+    <div id="mw-head">
+        
+        <div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+        	<h3 id="p-personal-label">Personal tools</h3>
+        	<ul >
+        		
+        		<li id="pt-anonuserpage">Not logged in</li>
+        		<li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Gated+recurrent+unit" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Gated+recurrent+unit" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>
+        	</ul>
+        </div>
+        <div id="left-navigation">
+            <div id="p-namespaces" role="navigation" class="vectorTabs " aria-labelledby="p-namespaces-label">
+            	<h3 id="p-namespaces-label">Namespaces</h3>
+            	<ul >
+            		<li id="ca-nstab-main" class="selected"><a href="/wiki/Gated_recurrent_unit" title="View the content page [c]" accesskey="c">Article</a></li><li id="ca-talk"><a href="/wiki/Talk:Gated_recurrent_unit" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Talk</a></li>
+            	</ul>
+            </div>
+            <div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+            	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+            	<h3 id="p-variants-label">
+            		<span>Variants</span>
+            	</h3>
+            	<ul class="menu" >
+            		
+            	</ul>
+            </div>
+        </div>
+        <div id="right-navigation">
+            <div id="p-views" role="navigation" class="vectorTabs " aria-labelledby="p-views-label">
+            	<h3 id="p-views-label">Views</h3>
+            	<ul >
+            		<li id="ca-view" class="collapsible selected"><a href="/wiki/Gated_recurrent_unit">Read</a></li><li id="ca-edit" class="collapsible"><a href="/w/index.php?title=Gated_recurrent_unit&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/w/index.php?title=Gated_recurrent_unit&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li>
+            	</ul>
+            </div>
+            <div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+            	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+            	<h3 id="p-cactions-label">
+            		<span>More</span>
+            	</h3>
+            	<ul class="menu" >
+            		
+            	</ul>
+            </div>
+            <div id="p-search" role="search">
+            	<h3 >
+            		<label for="searchInput">Search</label>
+            	</h3>
+            	<form action="/w/index.php" id="searchform">
+            		<div id="simpleSearch">
+            			<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/>
+            			<input type="hidden" value="Special:Search" name="title"/>
+            			<input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+            			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+            		</div>
+            	</form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="mw-panel">
+    	<div id="p-logo" role="banner">
+    		<a  title="Visit the main page" class="mw-wiki-logo" href="/wiki/Main_Page"></a>
+    	</div>
+    	<div class="portal" role="navigation" id="p-navigation"  aria-labelledby="p-navigation-label">
+    		<h3  id="p-navigation-label">
+    			Navigation
+    		</h3>
+    		<div class="body">
+    			<ul><li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Wikipedia:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-interaction"  aria-labelledby="p-interaction-label">
+    		<h3  id="p-interaction-label">
+    			Interaction
+    		</h3>
+    		<div class="body">
+    			<ul><li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-tb"  aria-labelledby="p-tb-label">
+    		<h3  id="p-tb-label">
+    			Tools
+    		</h3>
+    		<div class="body">
+    			<ul><li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Gated_recurrent_unit" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Gated_recurrent_unit" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Gated_recurrent_unit&amp;oldid=942734154" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Gated_recurrent_unit&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q25325415" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Gated_recurrent_unit&amp;id=942734154&amp;wpFormIdentifier=titleform" title="Information on how to cite this page">Cite this page</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-coll-print_export"  aria-labelledby="p-coll-print_export-label">
+    		<h3  id="p-coll-print_export-label">
+    			Print/export
+    		</h3>
+    		<div class="body">
+    			<ul><li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Gated+recurrent+unit">Create a book</a></li><li id="coll-download-as-rl"><a href="/w/index.php?title=Special:ElectronPdf&amp;page=Gated+recurrent+unit&amp;action=show-download-screen">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Gated_recurrent_unit&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-lang"  aria-labelledby="p-lang-label">
+    		<h3  id="p-lang-label">
+    			Languages
+    		</h3>
+    		<div class="body">
+    			<ul><li class="interlanguage-link interwiki-ja"><a href="https://ja.wikipedia.org/wiki/%E3%82%B2%E3%83%BC%E3%83%88%E4%BB%98%E3%81%8D%E5%9B%9E%E5%B8%B0%E5%9E%8B%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88" title="ゲート付き回帰型ユニット – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target">日本語</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D0%BC%D1%8B%D0%B9_%D1%80%D0%B5%D0%BA%D1%83%D1%80%D1%80%D0%B5%D0%BD%D1%82%D0%BD%D1%8B%D0%B9_%D0%B1%D0%BB%D0%BE%D0%BA" title="Управляемый рекуррентный блок – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target">Русский</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/%D0%92%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9_%D1%80%D0%B5%D0%BA%D1%83%D1%80%D0%B5%D0%BD%D1%82%D0%BD%D0%B8%D0%B9_%D0%B2%D1%83%D0%B7%D0%BE%D0%BB" title="Вентильний рекурентний вузол – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target">Українська</a></li></ul>
+    			<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q25325415#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+    		</div>
+    	</div>
+    	
+    </div>
+</div>
+
+<div id="footer" role="contentinfo" >
+	<ul id="footer-info" class="">
+		<li id="footer-info-lastmod"> This page was last edited on 26 February 2020, at 14:24<span class="anonymous-show">&#160;(UTC)</span>.</li>
+		<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+	</ul>
+	<ul id="footer-places" class="">
+		<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+		<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+		<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+		<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+		<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+		<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+		<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Gated_recurrent_unit&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</div>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.220","walltime":"0.325","ppvisitednodes":{"value":659,"limit":1000000},"postexpandincludesize":{"value":19114,"limit":2097152},"templateargumentsize":{"value":556,"limit":2097152},"expansiondepth":{"value":8,"limit":40},"expensivefunctioncount":{"value":2,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":27549,"limit":5000000},"entityaccesscount":{"value":2,"limit":400},"timingprofile":["100.00%  205.258      1 -total","100.00%  205.258      1 Template:Reflist"," 70.49%  144.683      4 Template:Cite_arXiv","  8.26%   16.962      1 Template:Cite_journal","  6.43%   13.197      2 Template:Cite_arxiv","  3.41%    7.001      1 Template:Cite_web","  1.29%    2.645      1 Template:Main_other"]},"scribunto":{"limitreport-timeusage":{"value":"0.109","limit":"10.000"},"limitreport-memusage":{"value":3575067,"limit":52428800}},"cachereport":{"origin":"mw1332","timestamp":"20200306223637","ttl":2592000,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Gated recurrent unit","url":"https:\/\/en.wikipedia.org\/wiki\/Gated_recurrent_unit","sameAs":"http:\/\/www.wikidata.org\/entity\/Q25325415","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q25325415","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2016-05-18T04:16:49Z","dateModified":"2020-02-26T14:24:35Z"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":95,"wgHostname":"mw1266"});});</script></body></html>

@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Temporal difference learning - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRequestId":"XnDGxwpAMFUAAHWAyqgAAABL","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Temporal_difference_learning","wgTitle":"Temporal difference learning","wgCurRevisionId":945036975,"wgRevisionId":945036975,"wgArticleId":1209759,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Webarchive template wayback links","CS1 maint: multiple names: authors list","Pages with DOIs inactive as of 2020 January","Computational neuroscience","Reinforcement learning",
+"Subtraction"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Temporal_difference_learning","wgRelevantArticleId":1209759,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0,"wgPopupsReferencePreviews":!1,"wgPopupsConflictsWithNavPopupGadget":!1,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":!0,"nearby":!0,"watchlist":!0,"tagline":!1},"wgWMESchemaEditAttemptStepOversample":!1,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q7698910","wgCentralAuthMobileDomain":!1,"wgEditSubmitButtonLabelPublish":!0};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"ready",
+"user.tokens":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.toc.styles":"ready","skins.vector.styles":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.startup","skins.vector.js","mediawiki.page.ready","mediawiki.toc","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns","ext.quicksurveys.init","ext.centralNotice.geoIP",
+"ext.centralNotice.startUp"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.tokens@tffin",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.toc.styles%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.0-wmf.22"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/1200px-Kernel_Machine.svg.png"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Temporal_difference_learning&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Temporal_difference_learning&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Temporal_difference_learning"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Temporal_difference_learning rootpage-Temporal_difference_learning skin-vector action-view">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+</div>
+
+	<h1 id="firstHeading" class="firstHeading" lang="en">Temporal difference learning</h1>
+	
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#p-search">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table class="vertical-navbox nowraplinks" style="float:right;clear:right;width:22.0em;margin:0 0 1.0em 1.0em;background:#f9f9f9;border:1px solid #aaa;padding:0.2em;border-spacing:0.4em 0;text-align:center;line-height:1.4em;font-size:88%"><tbody><tr><th style="padding:0.2em 0.4em 0.2em;font-size:145%;line-height:1.2em"><a href="/wiki/Machine_learning" title="Machine learning">Machine learning</a> and<br /><a href="/wiki/Data_mining" title="Data mining">data mining</a></th></tr><tr><td style="padding:0.2em 0 0.4em;padding:0.25em 0.25em 0.75em;"><a href="/wiki/File:Kernel_Machine.svg" class="image"><img alt="Kernel Machine.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/220px-Kernel_Machine.svg.png" decoding="async" width="220" height="100" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/330px-Kernel_Machine.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/440px-Kernel_Machine.svg.png 2x" data-file-width="512" data-file-height="233" /></a></td></tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Problems</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Statistical_classification" title="Statistical classification">Classification</a></li>
+<li><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></li>
+<li><a href="/wiki/Regression_analysis" title="Regression analysis">Regression</a></li>
+<li><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></li>
+<li><a href="/wiki/Automated_machine_learning" title="Automated machine learning">AutoML</a></li>
+<li><a href="/wiki/Association_rule_learning" title="Association rule learning">Association rules</a></li>
+<li><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></li>
+<li><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></li>
+<li><a href="/wiki/Feature_engineering" title="Feature engineering">Feature engineering</a></li>
+<li><a href="/wiki/Feature_learning" title="Feature learning">Feature learning</a></li>
+<li><a href="/wiki/Online_machine_learning" title="Online machine learning">Online learning</a></li>
+<li><a href="/wiki/Semi-supervised_learning" title="Semi-supervised learning">Semi-supervised learning</a></li>
+<li><a href="/wiki/Unsupervised_learning" title="Unsupervised learning">Unsupervised learning</a></li>
+<li><a href="/wiki/Learning_to_rank" title="Learning to rank">Learning to rank</a></li>
+<li><a href="/wiki/Grammar_induction" title="Grammar induction">Grammar induction</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><div style="padding:0.1em 0;line-height:1.2em;"><a href="/wiki/Supervised_learning" title="Supervised learning">Supervised learning</a><br /><style data-mw-deduplicate="TemplateStyles:r886047488">.mw-parser-output .nobold{font-weight:normal}</style><span class="nobold"><span style="font-size:85%;">(<b><a href="/wiki/Statistical_classification" title="Statistical classification">classification</a></b>&#160;&#8226;&#32;<b><a href="/wiki/Regression_analysis" title="Regression analysis">regression</a></b>)</span></span> </div></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Decision_tree_learning" title="Decision tree learning">Decision trees</a></li>
+<li><a href="/wiki/Ensemble_learning" title="Ensemble learning">Ensembles</a>
+<ul><li><a href="/wiki/Bootstrap_aggregating" title="Bootstrap aggregating">Bagging</a></li>
+<li><a href="/wiki/Boosting_(machine_learning)" title="Boosting (machine learning)">Boosting</a></li>
+<li><a href="/wiki/Random_forest" title="Random forest">Random forest</a></li></ul></li>
+<li><a href="/wiki/K-nearest_neighbors_algorithm" title="K-nearest neighbors algorithm"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Linear_regression" title="Linear regression">Linear regression</a></li>
+<li><a href="/wiki/Naive_Bayes_classifier" title="Naive Bayes classifier">Naive Bayes</a></li>
+<li><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural networks</a></li>
+<li><a href="/wiki/Logistic_regression" title="Logistic regression">Logistic regression</a></li>
+<li><a href="/wiki/Perceptron" title="Perceptron">Perceptron</a></li>
+<li><a href="/wiki/Relevance_vector_machine" title="Relevance vector machine">Relevance vector machine (RVM)</a></li>
+<li><a href="/wiki/Support-vector_machine" title="Support-vector machine">Support vector machine (SVM)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/BIRCH" title="BIRCH">BIRCH</a></li>
+<li><a href="/wiki/CURE_data_clustering_algorithm" class="mw-redirect" title="CURE data clustering algorithm">CURE</a></li>
+<li><a href="/wiki/Hierarchical_clustering" title="Hierarchical clustering">Hierarchical</a></li>
+<li><a href="/wiki/K-means_clustering" title="K-means clustering"><i>k</i>-means</a></li>
+<li><a href="/wiki/Expectation%E2%80%93maximization_algorithm" title="Expectation–maximization algorithm">Expectation–maximization (EM)</a></li>
+<li><br /><a href="/wiki/DBSCAN" title="DBSCAN">DBSCAN</a></li>
+<li><a href="/wiki/OPTICS_algorithm" title="OPTICS algorithm">OPTICS</a></li>
+<li><a href="/wiki/Mean-shift" class="mw-redirect" title="Mean-shift">Mean-shift</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Dimensionality_reduction" title="Dimensionality reduction">Dimensionality reduction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Factor_analysis" title="Factor analysis">Factor analysis</a></li>
+<li><a href="/wiki/Canonical_correlation_analysis" class="mw-redirect" title="Canonical correlation analysis">CCA</a></li>
+<li><a href="/wiki/Independent_component_analysis" title="Independent component analysis">ICA</a></li>
+<li><a href="/wiki/Linear_discriminant_analysis" title="Linear discriminant analysis">LDA</a></li>
+<li><a href="/wiki/Non-negative_matrix_factorization" title="Non-negative matrix factorization">NMF</a></li>
+<li><a href="/wiki/Principal_component_analysis" title="Principal component analysis">PCA</a></li>
+<li><a href="/wiki/T-distributed_stochastic_neighbor_embedding" title="T-distributed stochastic neighbor embedding">t-SNE</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Graphical_model" title="Graphical model">Graphical models</a>
+<ul><li><a href="/wiki/Bayesian_network" title="Bayesian network">Bayes net</a></li>
+<li><a href="/wiki/Conditional_random_field" title="Conditional random field">Conditional random field</a></li>
+<li><a href="/wiki/Hidden_Markov_model" title="Hidden Markov model">Hidden Markov</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/K-nearest_neighbors_classification" class="mw-redirect" title="K-nearest neighbors classification"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Local_outlier_factor" title="Local outlier factor">Local outlier factor</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural network</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Autoencoder" title="Autoencoder">Autoencoder</a></li>
+<li><a href="/wiki/Deep_learning" title="Deep learning">Deep learning</a></li>
+<li><a href="/wiki/DeepDream" title="DeepDream">DeepDream</a></li>
+<li><a href="/wiki/Multilayer_perceptron" title="Multilayer perceptron">Multilayer perceptron</a></li>
+<li><a href="/wiki/Recurrent_neural_network" title="Recurrent neural network">RNN</a>
+<ul><li><a href="/wiki/Long_short-term_memory" title="Long short-term memory">LSTM</a></li>
+<li><a href="/wiki/Gated_recurrent_unit" title="Gated recurrent unit">GRU</a></li></ul></li>
+<li><a href="/wiki/Restricted_Boltzmann_machine" title="Restricted Boltzmann machine">Restricted Boltzmann machine</a></li>
+<li><a href="/wiki/Generative_adversarial_network" title="Generative adversarial network">GAN</a></li>
+<li><a href="/wiki/Self-organizing_map" title="Self-organizing map">SOM</a></li>
+<li><a href="/wiki/Convolutional_neural_network" title="Convolutional neural network">Convolutional neural network</a>
+<ul><li><a href="/wiki/U-Net" title="U-Net">U-Net</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Q-learning" title="Q-learning">Q-learning</a></li>
+<li><a href="/wiki/State%E2%80%93action%E2%80%93reward%E2%80%93state%E2%80%93action" title="State–action–reward–state–action">SARSA</a></li>
+<li><a class="mw-selflink selflink">Temporal difference (TD)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Theory</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Bias%E2%80%93variance_dilemma" class="mw-redirect" title="Bias–variance dilemma">Bias–variance dilemma</a></li>
+<li><a href="/wiki/Computational_learning_theory" title="Computational learning theory">Computational learning theory</a></li>
+<li><a href="/wiki/Empirical_risk_minimization" title="Empirical risk minimization">Empirical risk minimization</a></li>
+<li><a href="/wiki/Occam_learning" title="Occam learning">Occam learning</a></li>
+<li><a href="/wiki/Probably_approximately_correct_learning" title="Probably approximately correct learning">PAC learning</a></li>
+<li><a href="/wiki/Statistical_learning_theory" title="Statistical learning theory">Statistical learning</a></li>
+<li><a href="/wiki/Vapnik%E2%80%93Chervonenkis_theory" title="Vapnik–Chervonenkis theory">VC theory</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Machine-learning venues</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Conference_on_Neural_Information_Processing_Systems" title="Conference on Neural Information Processing Systems">NeurIPS</a></li>
+<li><a href="/wiki/International_Conference_on_Machine_Learning" title="International Conference on Machine Learning">ICML</a></li>
+<li><a href="/wiki/Machine_Learning_(journal)" title="Machine Learning (journal)">ML</a></li>
+<li><a href="/wiki/Journal_of_Machine_Learning_Research" title="Journal of Machine Learning Research">JMLR</a></li>
+<li><a rel="nofollow" class="external text" href="https://arxiv.org/list/cs.LG/recent">ArXiv:cs.LG</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Related articles</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/List_of_datasets_for_machine-learning_research" title="List of datasets for machine-learning research">List of datasets for machine-learning research</a></li>
+<li><a href="/wiki/Outline_of_machine_learning" title="Outline of machine learning">Outline of machine learning</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="text-align:right;font-size:115%;padding-top: 0.6em;"><div class="plainlinks hlist navbar mini"><ul><li class="nv-view"><a href="/wiki/Template:Machine_learning_bar" title="Template:Machine learning bar"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="/wiki/Template_talk:Machine_learning_bar" title="Template talk:Machine learning bar"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Machine_learning_bar&amp;action=edit"><abbr title="Edit this template">e</abbr></a></li></ul></div></td></tr></tbody></table>
+<p><b>Temporal difference</b> (<b>TD</b>) <b>learning</b> refers to a class of <a href="/wiki/Model-free_(reinforcement_learning)" title="Model-free (reinforcement learning)">model-free</a> <a href="/wiki/Reinforcement_learning" title="Reinforcement learning">reinforcement learning</a> methods which learn by <a href="/wiki/Bootstrapping_(statistics)" title="Bootstrapping (statistics)">bootstrapping</a> from the current estimate of the value function. These methods sample from the environment, like <a href="/wiki/Monte_Carlo_method" title="Monte Carlo method">Monte Carlo methods</a>, and perform updates based on current estimates, like <a href="/wiki/Dynamic_programming" title="Dynamic programming">dynamic programming</a> methods.<sup id="cite_ref-RSutton-1998_1-0" class="reference"><a href="#cite_note-RSutton-1998-1">&#91;1&#93;</a></sup>
+</p><p>While Monte Carlo methods only adjust their estimates once the final outcome is known, TD methods adjust predictions to match later, more accurate, predictions about the future before the final outcome is known.<sup id="cite_ref-RSutton-1988_2-0" class="reference"><a href="#cite_note-RSutton-1988-2">&#91;2&#93;</a></sup> This is a form of <a href="/wiki/Bootstrapping" title="Bootstrapping">bootstrapping</a>, as illustrated with the following example:
+</p>
+<dl><dd><blockquote><p>"Suppose you wish to predict the weather for Saturday, and you have some model that predicts Saturday's weather, given the weather of each day in the week. In the standard case, you would wait until Saturday and then adjust all your models. However, when it is, for example, Friday, you should have a pretty good idea of what the weather would be on Saturday – and thus be able to change, say, Saturday's model before Saturday arrives."<sup id="cite_ref-RSutton-1988_2-1" class="reference"><a href="#cite_note-RSutton-1988-2">&#91;2&#93;</a></sup></p></blockquote></dd></dl>
+<p>Temporal difference methods are related to the temporal difference model of animal learning.<sup id="cite_ref-WSchultz-1997_3-0" class="reference"><a href="#cite_note-WSchultz-1997-3">&#91;3&#93;</a></sup><sup id="cite_ref-:0_4-0" class="reference"><a href="#cite_note-:0-4">&#91;4&#93;</a></sup><sup id="cite_ref-:1_5-0" class="reference"><a href="#cite_note-:1-5">&#91;5&#93;</a></sup><sup id="cite_ref-:2_6-0" class="reference"><a href="#cite_note-:2-6">&#91;6&#93;</a></sup><sup id="cite_ref-:3_7-0" class="reference"><a href="#cite_note-:3-7">&#91;7&#93;</a></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Mathematical_formulation"><span class="tocnumber">1</span> <span class="toctext">Mathematical formulation</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#TD-Lambda"><span class="tocnumber">2</span> <span class="toctext">TD-Lambda</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#TD_algorithm_in_neuroscience"><span class="tocnumber">3</span> <span class="toctext">TD algorithm in neuroscience</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Notes"><span class="tocnumber">5</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Bibliography"><span class="tocnumber">6</span> <span class="toctext">Bibliography</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Mathematical_formulation">Mathematical formulation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Temporal_difference_learning&amp;action=edit&amp;section=1" title="Edit section: Mathematical formulation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The tabular TD(0) method is one of the simplest TD methods. It is a special case of more general stochastic approximation methods. It estimates the state value function of a finite-state <a href="/wiki/Markov_decision_process" title="Markov decision process">Markov decision process</a> (MDP) under a policy <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \pi }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03C0;<!-- π --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \pi }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9be4ba0bb8df3af72e90a0535fabcc17431e540a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.332ex; height:1.676ex;" alt="\pi "/></span>. Let <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V^{\pi }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03C0;<!-- π --></mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V^{\pi }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7b25a4a6afcbaaab4c767671011f99e41410f3f0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:3.091ex; height:2.343ex;" alt="{\displaystyle V^{\pi }}"/></span> denote the state value function of the MDP with states <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (s_{t})_{t\in \mathbb {N} }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="double-struck">N</mi>
+            </mrow>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (s_{t})_{t\in \mathbb {N} }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a2cd4377a0149da9ed36af88b5f1ed909ffb7496" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.834ex; height:2.843ex;" alt="{\displaystyle (s_{t})_{t\in \mathbb {N} }}"/></span>, rewards <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (r_{t})_{t\in \mathbb {N} }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="double-struck">N</mi>
+            </mrow>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (r_{t})_{t\in \mathbb {N} }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/05c487345269a551b5d04a59af690b12fcba0b14" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.793ex; height:2.843ex;" alt="{\displaystyle (r_{t})_{t\in \mathbb {N} }}"/></span> and discount rate <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03B3;<!-- γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a223c880b0ce3da8f64ee33c4f0010beee400b1a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:1.262ex; height:2.176ex;" alt="\gamma "/></span> under the policy <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \pi }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03C0;<!-- π --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \pi }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9be4ba0bb8df3af72e90a0535fabcc17431e540a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.332ex; height:1.676ex;" alt="\pi "/></span>:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V^{\pi }(s)=E_{a\sim \pi }\left\{\sum _{t=0}^{\infty }\gamma ^{t}r_{t}(a_{t}){\Bigg |}s_{0}=s\right\}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03C0;<!-- π --></mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msub>
+          <mi>E</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>a</mi>
+            <mo>&#x223C;<!-- ∼ --></mo>
+            <mi>&#x03C0;<!-- π --></mi>
+          </mrow>
+        </msub>
+        <mrow>
+          <mo>{</mo>
+          <mrow>
+            <munderover>
+              <mo>&#x2211;<!-- ∑ --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>t</mi>
+                <mo>=</mo>
+                <mn>0</mn>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+              </mrow>
+            </munderover>
+            <msup>
+              <mi>&#x03B3;<!-- γ --></mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>t</mi>
+              </mrow>
+            </msup>
+            <msub>
+              <mi>r</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>t</mi>
+              </mrow>
+            </msub>
+            <mo stretchy="false">(</mo>
+            <msub>
+              <mi>a</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>t</mi>
+              </mrow>
+            </msub>
+            <mo stretchy="false">)</mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo maxsize="2.470em" minsize="2.470em">|</mo>
+              </mrow>
+            </mrow>
+            <msub>
+              <mi>s</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>0</mn>
+              </mrow>
+            </msub>
+            <mo>=</mo>
+            <mi>s</mi>
+          </mrow>
+          <mo>}</mo>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V^{\pi }(s)=E_{a\sim \pi }\left\{\sum _{t=0}^{\infty }\gamma ^{t}r_{t}(a_{t}){\Bigg |}s_{0}=s\right\}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b33c6ed0432847873e6e0f166dbe9e3508d55434" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.171ex; width:37.862ex; height:7.509ex;" alt="{\displaystyle V^{\pi }(s)=E_{a\sim \pi }\left\{\sum _{t=0}^{\infty }\gamma ^{t}r_{t}(a_{t}){\Bigg |}s_{0}=s\right\}.}"/></span></dd></dl>
+<p>We drop the action from the notion for convenience
+</p><p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V^{\pi }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03C0;<!-- π --></mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V^{\pi }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7b25a4a6afcbaaab4c767671011f99e41410f3f0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:3.091ex; height:2.343ex;" alt="{\displaystyle V^{\pi }}"/></span> satisfies the <a href="/wiki/Hamilton-Jacobi-Bellman_equation" class="mw-redirect" title="Hamilton-Jacobi-Bellman equation">Hamilton-Jacobi-Bellman Equation</a>: 
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V^{\pi }(s)=E_{\pi }\{r_{0}+\gamma V^{\pi }(s_{1})|s_{0}=s\},}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03C0;<!-- π --></mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msub>
+          <mi>E</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03C0;<!-- π --></mi>
+          </mrow>
+        </msub>
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <mi>&#x03B3;<!-- γ --></mi>
+        <msup>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03C0;<!-- π --></mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>s</mi>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V^{\pi }(s)=E_{\pi }\{r_{0}+\gamma V^{\pi }(s_{1})|s_{0}=s\},}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3b6164c5b76cc07d0023d33369595d8a56f84ffe" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:35.182ex; height:2.843ex;" alt="{\displaystyle V^{\pi }(s)=E_{\pi }\{r_{0}+\gamma V^{\pi }(s_{1})|s_{0}=s\},}"/></span></dd></dl>
+<p>so <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r_{0}+\gamma V^{\pi }(s_{1})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <mi>&#x03B3;<!-- γ --></mi>
+        <msup>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03C0;<!-- π --></mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r_{0}+\gamma V^{\pi }(s_{1})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/38d311f11761d68f5bc9c979a7873795746904da" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:13.251ex; height:2.843ex;" alt="{\displaystyle r_{0}+\gamma V^{\pi }(s_{1})}"/></span> is an unbiased estimate for <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V^{\pi }(s)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03C0;<!-- π --></mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V^{\pi }(s)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a42ff0c4c2e0d6e3bbfc997e81544641805798a4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.991ex; height:2.843ex;" alt="V^{\pi }(s)"/></span>. This observation motivates the following algorithm for estimating <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V^{\pi }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03C0;<!-- π --></mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V^{\pi }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7b25a4a6afcbaaab4c767671011f99e41410f3f0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:3.091ex; height:2.343ex;" alt="{\displaystyle V^{\pi }}"/></span>.
+</p><p>The algorithm starts by initializing a table <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V(s)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V(s)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9b41da2ecbfe4c93303836bb1fe5adb038d50a91" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.687ex; height:2.843ex;" alt="V(s)"/></span> arbitrarily, with one value for each state of the MDP. A positive <a href="/wiki/Learning_rate" title="Learning rate">learning rate</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \alpha }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03B1;<!-- α --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \alpha }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b79333175c8b3f0840bfb4ec41b8072c83ea88d3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.488ex; height:1.676ex;" alt="\alpha "/></span> is chosen.
+</p><p>We then repeatedly evaluate the policy <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \pi }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03C0;<!-- π --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \pi }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9be4ba0bb8df3af72e90a0535fabcc17431e540a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.332ex; height:1.676ex;" alt="\pi "/></span>, obtain a reward <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>r</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d1ecb613aa2984f0576f70f86650b7c2a132538" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.049ex; height:1.676ex;" alt="r"/></span> and update the value function for the old state using the rule:<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup> 
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V(s)\leftarrow V(s)+\alpha (\overbrace {r+\gamma V(s')} ^{\text{The TD target}}-V(s))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <mi>V</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>&#x03B1;<!-- α --></mi>
+        <mo stretchy="false">(</mo>
+        <mover>
+          <mrow class="MJX-TeXAtom-OP MJX-fixedlimits">
+            <mover>
+              <mrow>
+                <mi>r</mi>
+                <mo>+</mo>
+                <mi>&#x03B3;<!-- γ --></mi>
+                <mi>V</mi>
+                <mo stretchy="false">(</mo>
+                <msup>
+                  <mi>s</mi>
+                  <mo>&#x2032;</mo>
+                </msup>
+                <mo stretchy="false">)</mo>
+              </mrow>
+              <mo>&#x23DE;<!-- ⏞ --></mo>
+            </mover>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>The TD target</mtext>
+          </mrow>
+        </mover>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>V</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V(s)\leftarrow V(s)+\alpha (\overbrace {r+\gamma V(s')} ^{\text{The TD target}}-V(s))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9c2c752364a919d563253cdab2ab846e59d5cb8d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:37.385ex; height:6.509ex;" alt="{\displaystyle V(s)\leftarrow V(s)+\alpha (\overbrace {r+\gamma V(s&#039;)} ^{\text{The TD target}}-V(s))}"/></span></dd></dl>
+<p>where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>s</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/01d131dfd7673938b947072a13a9744fe997e632" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.09ex; height:1.676ex;" alt="s"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s'}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>s</mi>
+          <mo>&#x2032;</mo>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s'}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5136680c63706cfd17ceddb4acddbfdd0ba5ef2d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.775ex; height:2.509ex;" alt="s&#039;"/></span>are the old and new states, respectively.
+</p><p>The value <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r+\gamma V(s')}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>r</mi>
+        <mo>+</mo>
+        <mi>&#x03B3;<!-- γ --></mi>
+        <mi>V</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>s</mi>
+          <mo>&#x2032;</mo>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r+\gamma V(s')}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/449e114778557b9a207215dad461ec60af575933" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.523ex; height:3.009ex;" alt="{\displaystyle r+\gamma V(s&#039;)}"/></span> is known as the TD target.
+</p>
+<h2><span class="mw-headline" id="TD-Lambda">TD-Lambda</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Temporal_difference_learning&amp;action=edit&amp;section=2" title="Edit section: TD-Lambda">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><b>TD-Lambda</b> is a learning algorithm invented by <a href="/wiki/Richard_S._Sutton" title="Richard S. Sutton">Richard S. Sutton</a> based on earlier work on temporal difference learning by <a href="/wiki/Arthur_Samuel" title="Arthur Samuel">Arthur Samuel</a>.<sup id="cite_ref-RSutton-1998_1-1" class="reference"><a href="#cite_note-RSutton-1998-1">&#91;1&#93;</a></sup> This algorithm was famously applied by <a href="/w/index.php?title=Gerald_Tesauro&amp;action=edit&amp;redlink=1" class="new" title="Gerald Tesauro (page does not exist)">Gerald Tesauro</a> to create <a href="/wiki/TD-Gammon" title="TD-Gammon">TD-Gammon</a>, a program that learned to play the game of <a href="/wiki/Backgammon" title="Backgammon">backgammon</a> at the level of expert human players.<sup id="cite_ref-CACM_9-0" class="reference"><a href="#cite_note-CACM-9">&#91;9&#93;</a></sup>
+</p><p>The lambda (<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \lambda }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03BB;<!-- λ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \lambda }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b43d0ea3c9c025af1be9128e62a18fa74bedda2a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.355ex; height:2.176ex;" alt="\lambda "/></span>) parameter refers to the trace decay parameter, with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 0\leqslant \lambda \leqslant 1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>0</mn>
+        <mo>&#x2A7D;<!-- ⩽ --></mo>
+        <mi>&#x03BB;<!-- λ --></mi>
+        <mo>&#x2A7D;<!-- ⩽ --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 0\leqslant \lambda \leqslant 1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8459fea50658be52796faf1a952f7748bc182b30" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:9.877ex; height:2.343ex;" alt="{\displaystyle 0\leqslant \lambda \leqslant 1}"/></span>. Higher settings lead to longer lasting traces; that is, a larger proportion of credit from a reward can be given to more distant states and actions when <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \lambda }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03BB;<!-- λ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \lambda }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b43d0ea3c9c025af1be9128e62a18fa74bedda2a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.355ex; height:2.176ex;" alt="\lambda "/></span> is higher, with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \lambda =1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03BB;<!-- λ --></mi>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \lambda =1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/543b4490416437b7c80ea473bbcac0e4ab7a7f11" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.616ex; height:2.176ex;" alt="\lambda =1"/></span> producing parallel learning to Monte Carlo RL algorithms.
+</p>
+<h2><span class="mw-headline" id="TD_algorithm_in_neuroscience">TD algorithm in neuroscience</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Temporal_difference_learning&amp;action=edit&amp;section=3" title="Edit section: TD algorithm in neuroscience">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The TD <a href="/wiki/Algorithm" title="Algorithm">algorithm</a> has also received attention in the field of <a href="/wiki/Neuroscience" title="Neuroscience">neuroscience</a>. Researchers discovered that the firing rate of <a href="/wiki/Dopamine" title="Dopamine">dopamine</a> <a href="/wiki/Neurons" class="mw-redirect" title="Neurons">neurons</a> in the <a href="/wiki/Ventral_tegmental_area" title="Ventral tegmental area">ventral tegmental area</a> (VTA) and <a href="/wiki/Substantia_nigra" title="Substantia nigra">substantia nigra</a> (SNc) appear to mimic the error function in the algorithm.<sup id="cite_ref-WSchultz-1997_3-1" class="reference"><a href="#cite_note-WSchultz-1997-3">&#91;3&#93;</a></sup><sup id="cite_ref-:0_4-1" class="reference"><a href="#cite_note-:0-4">&#91;4&#93;</a></sup><sup id="cite_ref-:1_5-1" class="reference"><a href="#cite_note-:1-5">&#91;5&#93;</a></sup><sup id="cite_ref-:2_6-1" class="reference"><a href="#cite_note-:2-6">&#91;6&#93;</a></sup><sup id="cite_ref-:3_7-1" class="reference"><a href="#cite_note-:3-7">&#91;7&#93;</a></sup> The error function reports back the difference between the estimated reward at any given state or time step and the actual reward received. The larger the error function, the larger the difference between the expected and actual reward. When this is paired with a stimulus that accurately reflects a future reward, the error can be used to associate the stimulus with the future <a href="/wiki/Reward_system" title="Reward system">reward</a>.
+</p><p><a href="/wiki/Dopamine" title="Dopamine">Dopamine</a> cells appear to behave in a similar manner. In one experiment measurements of dopamine cells were made while training a monkey to associate a stimulus with the reward of juice.<sup id="cite_ref-WSchultz-1998_10-0" class="reference"><a href="#cite_note-WSchultz-1998-10">&#91;10&#93;</a></sup> Initially the dopamine cells increased firing rates when the monkey received juice, indicating a difference in expected and actual rewards. Over time this increase in firing back propagated to the earliest reliable stimulus for the reward. Once the monkey was fully trained, there was no increase in firing rate upon presentation of the predicted reward. Continually, the firing rate for the dopamine cells decreased below normal activation when the expected reward was not produced. This mimics closely how the error function in TD is used for <a href="/wiki/Reinforcement_learning" title="Reinforcement learning">reinforcement learning</a>.
+</p><p>The relationship between the model and potential neurological function has produced research attempting to use TD to explain many aspects of behavioral research.<sup id="cite_ref-PDayan-2001_11-0" class="reference"><a href="#cite_note-PDayan-2001-11">&#91;11&#93;</a></sup> It has also been used to study conditions such as <a href="/wiki/Schizophrenia" title="Schizophrenia">schizophrenia</a> or the consequences of pharmacological manipulations of dopamine on learning.<sup id="cite_ref-ASmith-2006_12-0" class="reference"><a href="#cite_note-ASmith-2006-12">&#91;12&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Temporal_difference_learning&amp;action=edit&amp;section=4" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/Q-learning" title="Q-learning">Q-learning</a></li>
+<li><a href="/wiki/State-Action-Reward-State-Action" class="mw-redirect" title="State-Action-Reward-State-Action">SARSA</a></li>
+<li><a href="/wiki/Rescorla-Wagner_model" class="mw-redirect" title="Rescorla-Wagner model">Rescorla-Wagner model</a></li>
+<li><a href="/wiki/PVLV" title="PVLV">PVLV</a></li></ul>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Temporal_difference_learning&amp;action=edit&amp;section=5" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-RSutton-1998-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-RSutton-1998_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-RSutton-1998_1-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation book">Richard Sutton &amp; Andrew Barto (1998). <a rel="nofollow" class="external text" href="https://web.archive.org/web/20170330005640/http://incompleteideas.net/sutton/book/the-book.html"><i>Reinforcement Learning</i></a>. MIT Press. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-585-02445-5" title="Special:BookSources/978-0-585-02445-5"><bdi>978-0-585-02445-5</bdi></a>. Archived from <a rel="nofollow" class="external text" href="http://incompleteideas.net/sutton/book/the-book.html">the original</a> on 2017-03-30.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Reinforcement+Learning&amp;rft.pub=MIT+Press&amp;rft.date=1998&amp;rft.isbn=978-0-585-02445-5&amp;rft.au=Richard+Sutton&amp;rft.au=Andrew+Barto&amp;rft_id=http%3A%2F%2Fincompleteideas.net%2Fsutton%2Fbook%2Fthe-book.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATemporal+difference+learning" class="Z3988"></span><style data-mw-deduplicate="TemplateStyles:r935243608">.mw-parser-output cite.citation{font-style:inherit}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/9px-Lock-green.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lock-gray-alt-2.svg/9px-Lock-gray-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lock-red-alt-2.svg/9px-Lock-red-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration{color:#555}.mw-parser-output .cs1-subscription span,.mw-parser-output .cs1-registration span{border-bottom:1px dotted;cursor:help}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/12px-Wikisource-logo.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output code.cs1-code{color:inherit;background:inherit;border:inherit;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;font-size:100%}.mw-parser-output .cs1-visible-error{font-size:100%}.mw-parser-output .cs1-maint{display:none;color:#33aa33;margin-left:0.3em}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration,.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left,.mw-parser-output .cs1-kern-wl-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right,.mw-parser-output .cs1-kern-wl-right{padding-right:0.2em}</style></span>
+</li>
+<li id="cite_note-RSutton-1988-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-RSutton-1988_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-RSutton-1988_2-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Richard Sutton (1988). "Learning to predict by the methods of temporal differences". <i>Machine Learning</i>. <b>3</b> (1): 9–44. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF00115009">10.1007/BF00115009</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Machine+Learning&amp;rft.atitle=Learning+to+predict+by+the+methods+of+temporal+differences&amp;rft.volume=3&amp;rft.issue=1&amp;rft.pages=9-44&amp;rft.date=1988&amp;rft_id=info%3Adoi%2F10.1007%2FBF00115009&amp;rft.au=Richard+Sutton&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATemporal+difference+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/> (A revised version is available on <a rel="nofollow" class="external text" href="http://incompleteideas.net/sutton/publications.html">Richard Sutton's publication page</a> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20170330002227/http://incompleteideas.net/sutton/publications.html">Archived</a> 2017-03-30 at the <a href="/wiki/Wayback_Machine" title="Wayback Machine">Wayback Machine</a>)</span>
+</li>
+<li id="cite_note-WSchultz-1997-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-WSchultz-1997_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-WSchultz-1997_3-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Schultz, W, Dayan, P &amp; Montague, PR. (1997). "A neural substrate of prediction and reward". <i>Science</i>. <b>275</b> (5306): 1593–1599. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.133.6176">10.1.1.133.6176</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1126%2Fscience.275.5306.1593">10.1126/science.275.5306.1593</a>. <a href="/wiki/PubMed_Identifier" class="mw-redirect" title="PubMed Identifier">PMID</a>&#160;<a rel="nofollow" class="external text" href="//pubmed.ncbi.nlm.nih.gov/9054347">9054347</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Science&amp;rft.atitle=A+neural+substrate+of+prediction+and+reward&amp;rft.volume=275&amp;rft.issue=5306&amp;rft.pages=1593-1599&amp;rft.date=1997&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.133.6176&amp;rft_id=info%3Apmid%2F9054347&amp;rft_id=info%3Adoi%2F10.1126%2Fscience.275.5306.1593&amp;rft.au=Schultz%2C+W%2C+Dayan%2C+P+%26+Montague%2C+PR.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATemporal+difference+learning" class="Z3988"></span><span class="cs1-maint citation-comment">CS1 maint: multiple names: authors list (<a href="/wiki/Category:CS1_maint:_multiple_names:_authors_list" title="Category:CS1 maint: multiple names: authors list">link</a>)</span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-:0-4"><span class="mw-cite-backlink">^ <a href="#cite_ref-:0_4-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-:0_4-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Montague, P. R.; Dayan, P.; Sejnowski, T. J. (1996-03-01). <a rel="nofollow" class="external text" href="http://papers.cnl.salk.edu/PDFs/A%20Framework%20for%20Mesencephalic%20Dopamine%20Systems%20Based%20on%20Predictive%20Hebbian%20Learning%201996-2938.pdf">"A framework for mesencephalic dopamine systems based on predictive Hebbian learning"</a> <span class="cs1-format">(PDF)</span>. <i>The Journal of Neuroscience</i>. <b>16</b> (5): 1936–1947. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1523%2FJNEUROSCI.16-05-01936.1996">10.1523/JNEUROSCI.16-05-01936.1996</a>. <a href="/wiki/International_Standard_Serial_Number" title="International Standard Serial Number">ISSN</a>&#160;<a rel="nofollow" class="external text" href="//www.worldcat.org/issn/0270-6474">0270-6474</a>. <a href="/wiki/PubMed_Central" title="PubMed Central">PMC</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//www.ncbi.nlm.nih.gov/pmc/articles/PMC6578666">6578666</a></span>. <a href="/wiki/PubMed_Identifier" class="mw-redirect" title="PubMed Identifier">PMID</a>&#160;<a rel="nofollow" class="external text" href="//pubmed.ncbi.nlm.nih.gov/8774460">8774460</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=The+Journal+of+Neuroscience&amp;rft.atitle=A+framework+for+mesencephalic+dopamine+systems+based+on+predictive+Hebbian+learning&amp;rft.volume=16&amp;rft.issue=5&amp;rft.pages=1936-1947&amp;rft.date=1996-03-01&amp;rft_id=%2F%2Fwww.ncbi.nlm.nih.gov%2Fpmc%2Farticles%2FPMC6578666&amp;rft.issn=0270-6474&amp;rft_id=info%3Apmid%2F8774460&amp;rft_id=info%3Adoi%2F10.1523%2FJNEUROSCI.16-05-01936.1996&amp;rft.aulast=Montague&amp;rft.aufirst=P.+R.&amp;rft.au=Dayan%2C+P.&amp;rft.au=Sejnowski%2C+T.+J.&amp;rft_id=http%3A%2F%2Fpapers.cnl.salk.edu%2FPDFs%2FA%2520Framework%2520for%2520Mesencephalic%2520Dopamine%2520Systems%2520Based%2520on%2520Predictive%2520Hebbian%2520Learning%25201996-2938.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATemporal+difference+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-:1-5"><span class="mw-cite-backlink">^ <a href="#cite_ref-:1_5-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-:1_5-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Montague, P.R.; Dayan, P.; Nowlan, S.J.; Pouget, A.; Sejnowski, T.J. (1993). <a rel="nofollow" class="external text" href="http://www.gatsby.ucl.ac.uk/~dayan/papers/mdnps93.pdf">"Using aperiodic reinforcement for directed self-organization"</a> <span class="cs1-format">(PDF)</span>. <i>Advances in Neural Information Processing Systems</i>. <b>5</b>: 969–976.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Advances+in+Neural+Information+Processing+Systems&amp;rft.atitle=Using+aperiodic+reinforcement+for+directed+self-organization&amp;rft.volume=5&amp;rft.pages=969-976&amp;rft.date=1993&amp;rft.aulast=Montague&amp;rft.aufirst=P.R.&amp;rft.au=Dayan%2C+P.&amp;rft.au=Nowlan%2C+S.J.&amp;rft.au=Pouget%2C+A.&amp;rft.au=Sejnowski%2C+T.J.&amp;rft_id=http%3A%2F%2Fwww.gatsby.ucl.ac.uk%2F~dayan%2Fpapers%2Fmdnps93.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATemporal+difference+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-:2-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-:2_6-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-:2_6-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Montague, P. R.; Sejnowski, T. J. (1994). "The predictive brain: temporal coincidence and temporal order in synaptic learning mechanisms". <i>Learning &amp; Memory</i>. <b>1</b> (1): 1–33. <a href="/wiki/International_Standard_Serial_Number" title="International Standard Serial Number">ISSN</a>&#160;<a rel="nofollow" class="external text" href="//www.worldcat.org/issn/1072-0502">1072-0502</a>. <a href="/wiki/PubMed_Identifier" class="mw-redirect" title="PubMed Identifier">PMID</a>&#160;<a rel="nofollow" class="external text" href="//pubmed.ncbi.nlm.nih.gov/10467583">10467583</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Learning+%26+Memory&amp;rft.atitle=The+predictive+brain%3A+temporal+coincidence+and+temporal+order+in+synaptic+learning+mechanisms&amp;rft.volume=1&amp;rft.issue=1&amp;rft.pages=1-33&amp;rft.date=1994&amp;rft_id=info%3Apmid%2F10467583&amp;rft.issn=1072-0502&amp;rft.aulast=Montague&amp;rft.aufirst=P.+R.&amp;rft.au=Sejnowski%2C+T.+J.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATemporal+difference+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-:3-7"><span class="mw-cite-backlink">^ <a href="#cite_ref-:3_7-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-:3_7-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Sejnowski, T.J.; Dayan, P.; Montague, P.R. (1995). <a rel="nofollow" class="external text" href="http://delivery.acm.org/10.1145/230000/225300/p15-sejnowski.pdf?ip=45.3.85.181&amp;id=225300&amp;acc=ACTIVE%20SERVICE&amp;key=B33240AC40EC9E30%2E80AE0C8B3B97B250%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;__acm__=1526580622_547fa2985566491c27b961d258081cf2">"Predictive hebbian learning"</a> <span class="cs1-format">(PDF)</span>. <i>Proceedings of Eighth ACM Conference on Computational Learning Theory</i>: 15–18. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F230000%2F225300%2Fp15-sejnowski">10.1145/230000/225300/p15-sejnowski</a> (inactive 2020-01-22).</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Proceedings+of+Eighth+ACM+Conference+on+Computational+Learning+Theory&amp;rft.atitle=Predictive+hebbian+learning&amp;rft.pages=15-18&amp;rft.date=1995&amp;rft_id=info%3Adoi%2F10.1145%2F230000%2F225300%2Fp15-sejnowski&amp;rft.aulast=Sejnowski&amp;rft.aufirst=T.J.&amp;rft.au=Dayan%2C+P.&amp;rft.au=Montague%2C+P.R.&amp;rft_id=http%3A%2F%2Fdelivery.acm.org%2F10.1145%2F230000%2F225300%2Fp15-sejnowski.pdf%3Fip%3D45.3.85.181%26id%3D225300%26acc%3DACTIVE%2520SERVICE%26key%3DB33240AC40EC9E30%252E80AE0C8B3B97B250%252E4D4702B0C3E38B35%252E4D4702B0C3E38B35%26&#95;_acm&#95;_%3D1526580622_547fa2985566491c27b961d258081cf2&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATemporal+difference+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><cite class="citation book"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20170712170739/http://people.inf.elte.hu/lorincz/Files/RL_2006/SuttonBook.pdf"><i>Reinforcement learning: An introduction</i></a> <span class="cs1-format">(PDF)</span>. p.&#160;130. Archived from <a rel="nofollow" class="external text" href="http://people.inf.elte.hu/lorincz/Files/RL_2006/SuttonBook.pdf">the original</a> <span class="cs1-format">(PDF)</span> on 2017-07-12.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Reinforcement+learning%3A+An+introduction&amp;rft.pages=130&amp;rft_id=http%3A%2F%2Fpeople.inf.elte.hu%2Florincz%2FFiles%2FRL_2006%2FSuttonBook.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATemporal+difference+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-CACM-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-CACM_9-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Tesauro, Gerald (March 1995). <a rel="nofollow" class="external text" href="http://www.research.ibm.com/massive/tdl.html">"Temporal Difference Learning and TD-Gammon"</a>. <i>Communications of the ACM</i>. <b>38</b> (3): 58–68. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F203330.203343">10.1145/203330.203343</a><span class="reference-accessdate">. Retrieved <span class="nowrap">2010-02-08</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.atitle=Temporal+Difference+Learning+and+TD-Gammon&amp;rft.volume=38&amp;rft.issue=3&amp;rft.pages=58-68&amp;rft.date=1995-03&amp;rft_id=info%3Adoi%2F10.1145%2F203330.203343&amp;rft.aulast=Tesauro&amp;rft.aufirst=Gerald&amp;rft_id=http%3A%2F%2Fwww.research.ibm.com%2Fmassive%2Ftdl.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATemporal+difference+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-WSchultz-1998-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-WSchultz-1998_10-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Schultz, W. (1998). "Predictive reward signal of dopamine neurons". <i>Journal of Neurophysiology</i>. <b>80</b> (1): 1–27. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1152%2Fjn.1998.80.1.1">10.1152/jn.1998.80.1.1</a>. <a href="/wiki/PubMed_Identifier" class="mw-redirect" title="PubMed Identifier">PMID</a>&#160;<a rel="nofollow" class="external text" href="//pubmed.ncbi.nlm.nih.gov/9658025">9658025</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Neurophysiology&amp;rft.atitle=Predictive+reward+signal+of+dopamine+neurons&amp;rft.volume=80&amp;rft.issue=1&amp;rft.pages=1-27&amp;rft.date=1998&amp;rft_id=info%3Adoi%2F10.1152%2Fjn.1998.80.1.1&amp;rft_id=info%3Apmid%2F9658025&amp;rft.au=Schultz%2C+W.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATemporal+difference+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-PDayan-2001-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-PDayan-2001_11-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Dayan, P. (2001). <a rel="nofollow" class="external text" href="http://books.nips.cc/papers/files/nips14/CS01.pdf">"Motivated reinforcement learning"</a> <span class="cs1-format">(PDF)</span>. <i>Advances in Neural Information Processing Systems</i>. MIT Press. <b>14</b>: 11–18.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Advances+in+Neural+Information+Processing+Systems&amp;rft.atitle=Motivated+reinforcement+learning&amp;rft.volume=14&amp;rft.pages=11-18&amp;rft.date=2001&amp;rft.au=Dayan%2C+P.&amp;rft_id=http%3A%2F%2Fbooks.nips.cc%2Fpapers%2Ffiles%2Fnips14%2FCS01.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATemporal+difference+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-ASmith-2006-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-ASmith-2006_12-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Smith, A., Li, M., Becker, S. and Kapur, S. (2006). "Dopamine, prediction error, and associative learning: a model-based account". <i>Network: Computation in Neural Systems</i>. <b>17</b> (1): 61–84. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1080%2F09548980500361624">10.1080/09548980500361624</a>. <a href="/wiki/PubMed_Identifier" class="mw-redirect" title="PubMed Identifier">PMID</a>&#160;<a rel="nofollow" class="external text" href="//pubmed.ncbi.nlm.nih.gov/16613795">16613795</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Network%3A+Computation+in+Neural+Systems&amp;rft.atitle=Dopamine%2C+prediction+error%2C+and+associative+learning%3A+a+model-based+account&amp;rft.volume=17&amp;rft.issue=1&amp;rft.pages=61-84&amp;rft.date=2006&amp;rft_id=info%3Adoi%2F10.1080%2F09548980500361624&amp;rft_id=info%3Apmid%2F16613795&amp;rft.au=Smith%2C+A.%2C+Li%2C+M.%2C+Becker%2C+S.+and+Kapur%2C+S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATemporal+difference+learning" class="Z3988"></span><span class="cs1-maint citation-comment">CS1 maint: multiple names: authors list (<a href="/wiki/Category:CS1_maint:_multiple_names:_authors_list" title="Category:CS1 maint: multiple names: authors list">link</a>)</span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+</ol></div>
+<h2><span class="mw-headline" id="Bibliography">Bibliography</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Temporal_difference_learning&amp;action=edit&amp;section=6" title="Edit section: Bibliography">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><cite class="citation journal">Sutton, R.S., Barto A.G. (1990). <a rel="nofollow" class="external text" href="http://incompleteideas.net/sutton/papers/sutton-barto-90.pdf">"Time Derivative Models of Pavlovian Reinforcement"</a> <span class="cs1-format">(PDF)</span>. <i>Learning and Computational Neuroscience: Foundations of Adaptive Networks</i>: 497–537.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Learning+and+Computational+Neuroscience%3A+Foundations+of+Adaptive+Networks&amp;rft.atitle=Time+Derivative+Models+of+Pavlovian+Reinforcement&amp;rft.pages=497-537&amp;rft.date=1990&amp;rft.au=Sutton%2C+R.S.%2C+Barto+A.G.&amp;rft_id=http%3A%2F%2Fincompleteideas.net%2Fsutton%2Fpapers%2Fsutton-barto-90.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATemporal+difference+learning" class="Z3988"></span><span class="cs1-maint citation-comment">CS1 maint: multiple names: authors list (<a href="/wiki/Category:CS1_maint:_multiple_names:_authors_list" title="Category:CS1 maint: multiple names: authors list">link</a>)</span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></li>
+<li><cite class="citation journal">Gerald Tesauro (March 1995). <a rel="nofollow" class="external text" href="http://www.research.ibm.com/massive/tdl.html">"Temporal Difference Learning and TD-Gammon"</a>. <i>Communications of the ACM</i>. <b>38</b> (3): 58–68. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F203330.203343">10.1145/203330.203343</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.atitle=Temporal+Difference+Learning+and+TD-Gammon&amp;rft.volume=38&amp;rft.issue=3&amp;rft.pages=58-68&amp;rft.date=1995-03&amp;rft_id=info%3Adoi%2F10.1145%2F203330.203343&amp;rft.au=Gerald+Tesauro&amp;rft_id=http%3A%2F%2Fwww.research.ibm.com%2Fmassive%2Ftdl.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATemporal+difference+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></li>
+<li>Imran Ghory. <a rel="nofollow" class="external text" href="http://www.cs.bris.ac.uk/Publications/Papers/2000100.pdf">Reinforcement Learning in Board Games</a>.</li>
+<li>S. P. Meyn, 2007.  <a rel="nofollow" class="external text" href="https://web.archive.org/web/20100619011046/https://netfiles.uiuc.edu/meyn/www/spm_files/CTCN/CTCN.html">Control Techniques for Complex Networks</a>, Cambridge University Press, 2007. See final chapter, and appendix with abridged <a rel="nofollow" class="external text" href="https://web.archive.org/web/20100619010320/https://netfiles.uiuc.edu/meyn/www/spm_files/book.html">Meyn &amp; Tweedie</a>.</li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Temporal_difference_learning&amp;action=edit&amp;section=7" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://scholarpedia.org/article/Temporal_Difference_Learning">Scholarpedia Temporal difference Learning</a></li>
+<li><a rel="nofollow" class="external text" href="http://webdocs.cs.ualberta.ca/~sutton/book/11/node2.html">TD-Gammon</a></li>
+<li><a rel="nofollow" class="external text" href="http://rlai.cs.ualberta.ca/TDNets/index.html">TD-Networks Research Group</a></li>
+<li><a rel="nofollow" class="external text" href="http://pitoko.net/tdgravity">Connect Four TDGravity Applet</a> (+ mobile phone version) – self-learned using TD-Leaf method (combination of TD-Lambda with shallow tree search)</li>
+<li><a rel="nofollow" class="external text" href="http://chet-weger.herokuapp.com/learn_meta_ttt/">Self Learning Meta-Tic-Tac-Toe</a> Example web app showing how temporal difference learning can be used to learn state evaluation constants for a minimax AI playing a simple board game.</li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20131116084228/http://www.cs.colorado.edu/~grudic/teaching/CSCI4202/RL.pdf">Reinforcement Learning Problem</a>, document explaining how temporal difference learning can be used to speed up <a href="/wiki/Q-learning" title="Q-learning">Q-learning</a></li>
+<li><a rel="nofollow" class="external text" href="https://www.cal-r.org/index.php?id=TD-sim">TD-Simulator</a> Temporal difference simulator for classical conditioning</li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1282
+Cached time: 20200311125210
+Cache expiry: 2592000
+Dynamic content: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.356 seconds
+Real time usage: 0.529 seconds
+Preprocessor visited node count: 971/1000000
+Post‐expand include size: 54758/2097152 bytes
+Template argument size: 611/2097152 bytes
+Highest expansion depth: 11/40
+Expensive parser function count: 4/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 48157/5000000 bytes
+Number of Wikibase entities loaded: 4/400
+Lua time usage: 0.180/10.000 seconds
+Lua memory usage: 4.96 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  351.022      1 -total
+ 39.60%  138.993     12 Template:Cite_journal
+ 26.63%   93.485      2 Template:Cite_book
+ 19.81%   69.531      1 Template:Machine_learning_bar
+ 18.59%   65.267      1 Template:Sidebar_with_collapsible_lists
+  6.78%   23.801      1 Template:Longitem
+  5.97%   20.940      1 Template:Nobold
+  3.88%   13.637      1 Template:Webarchive
+  1.80%    6.307      1 Template:Small
+  0.74%    2.597      1 Template:•
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:1209759-0!canonical!math=5 and timestamp 20200311125220 and revision id 945036975
+ -->
+</div><noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>
+		<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Temporal_difference_learning&amp;oldid=945036975">https://en.wikipedia.org/w/index.php?title=Temporal_difference_learning&amp;oldid=945036975</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Computational_neuroscience" title="Category:Computational neuroscience">Computational neuroscience</a></li><li><a href="/wiki/Category:Reinforcement_learning" title="Category:Reinforcement learning">Reinforcement learning</a></li><li><a href="/wiki/Category:Subtraction" title="Category:Subtraction">Subtraction</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Webarchive_template_wayback_links" title="Category:Webarchive template wayback links">Webarchive template wayback links</a></li><li><a href="/wiki/Category:CS1_maint:_multiple_names:_authors_list" title="Category:CS1 maint: multiple names: authors list">CS1 maint: multiple names: authors list</a></li><li><a href="/wiki/Category:Pages_with_DOIs_inactive_as_of_2020_January" title="Category:Pages with DOIs inactive as of 2020 January">Pages with DOIs inactive as of 2020 January</a></li></ul></div></div>
+		<div class="visualClear"></div>
+		
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+    <h2>Navigation menu</h2>
+    <div id="mw-head">
+        
+<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+	<h3 id="p-personal-label">Personal tools</h3>
+	<ul >
+		
+		<li id="pt-anonuserpage">Not logged in</li>
+		<li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Temporal+difference+learning" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Temporal+difference+learning" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>
+	</ul>
+</div>
+
+        <div id="left-navigation">
+            <div id="p-namespaces" role="navigation" class="vectorTabs " aria-labelledby="p-namespaces-label">
+	<h3 id="p-namespaces-label">Namespaces</h3>
+	<ul >
+		<li id="ca-nstab-main" class="selected"><a href="/wiki/Temporal_difference_learning" title="View the content page [c]" accesskey="c">Article</a></li><li id="ca-talk"><a href="/wiki/Talk:Temporal_difference_learning" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Talk</a></li>
+	</ul>
+</div>
+<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<ul class="menu" >
+		
+	</ul>
+</div>
+
+        </div>
+        <div id="right-navigation">
+            <div id="p-views" role="navigation" class="vectorTabs " aria-labelledby="p-views-label">
+	<h3 id="p-views-label">Views</h3>
+	<ul >
+		<li id="ca-view" class="collapsible selected"><a href="/wiki/Temporal_difference_learning">Read</a></li><li id="ca-edit" class="collapsible"><a href="/w/index.php?title=Temporal_difference_learning&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/w/index.php?title=Temporal_difference_learning&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li>
+	</ul>
+</div>
+<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<ul class="menu" >
+		
+	</ul>
+</div>
+<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="/w/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" value="Special:Search" name="title"/>
+			<input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+        </div>
+    </div>
+    
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="/wiki/Main_Page"></a>
+	</div>
+	<div class="portal" role="navigation" id="p-navigation"  aria-labelledby="p-navigation-label">
+		<h3  id="p-navigation-label">
+			Navigation
+		</h3>
+		<div class="body">
+			<ul><li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Wikipedia:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li></ul>
+			
+		</div>
+	</div>
+	
+	<div class="portal" role="navigation" id="p-interaction"  aria-labelledby="p-interaction-label">
+		<h3  id="p-interaction-label">
+			Interaction
+		</h3>
+		<div class="body">
+			<ul><li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li></ul>
+			
+		</div>
+	</div>
+	
+	<div class="portal" role="navigation" id="p-tb"  aria-labelledby="p-tb-label">
+		<h3  id="p-tb-label">
+			Tools
+		</h3>
+		<div class="body">
+			<ul><li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Temporal_difference_learning" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Temporal_difference_learning" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Temporal_difference_learning&amp;oldid=945036975" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Temporal_difference_learning&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q7698910" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Temporal_difference_learning&amp;id=945036975" title="Information on how to cite this page">Cite this page</a></li></ul>
+			
+		</div>
+	</div>
+	
+	<div class="portal" role="navigation" id="p-coll-print_export"  aria-labelledby="p-coll-print_export-label">
+		<h3  id="p-coll-print_export-label">
+			Print/export
+		</h3>
+		<div class="body">
+			<ul><li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Temporal+difference+learning">Create a book</a></li><li id="coll-download-as-rl"><a href="/w/index.php?title=Special:ElectronPdf&amp;page=Temporal+difference+learning&amp;action=show-download-screen">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Temporal_difference_learning&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li></ul>
+			
+		</div>
+	</div>
+	
+	<div class="portal" role="navigation" id="p-lang"  aria-labelledby="p-lang-label">
+		<h3  id="p-lang-label">
+			Languages
+		</h3>
+		<div class="body">
+			<ul><li class="interlanguage-link interwiki-ar"><a href="https://ar.wikipedia.org/wiki/%D8%AA%D8%B9%D9%84%D9%85_%D8%A7%D9%84%D9%81%D8%B1%D9%82_%D8%A7%D9%84%D8%B2%D9%85%D9%86%D9%8A" title="تعلم الفرق الزمني – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target">العربية</a></li><li class="interlanguage-link interwiki-de"><a href="https://de.wikipedia.org/wiki/Temporal_Difference_Learning" title="Temporal Difference Learning – German" lang="de" hreflang="de" class="interlanguage-link-target">Deutsch</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/%DB%8C%D8%A7%D8%AF%DA%AF%DB%8C%D8%B1%DB%8C_%D8%AA%D9%81%D8%A7%D9%88%D8%AA_%D8%B2%D9%85%D8%A7%D9%86%DB%8C" title="یادگیری تفاوت زمانی – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target">فارسی</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.wikipedia.org/wiki/Temporal_difference_learning" title="Temporal difference learning – French" lang="fr" hreflang="fr" class="interlanguage-link-target">Français</a></li><li class="interlanguage-link interwiki-ko"><a href="https://ko.wikipedia.org/wiki/%EC%8B%9C%EA%B0%84%EC%B0%A8_%ED%95%99%EC%8A%B5" title="시간차 학습 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target">한국어</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Temporal_difference_learning" title="Temporal difference learning – Italian" lang="it" hreflang="it" class="interlanguage-link-target">Italiano</a></li></ul>
+			<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q7698910#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+		</div>
+	</div>
+	
+</div>
+
+</div>
+
+
+<div id="footer" role="contentinfo" >
+	<ul id="footer-info" class="">
+		<li id="footer-info-lastmod"> This page was last edited on 11 March 2020, at 12:52<span class="anonymous-show">&#160;(UTC)</span>.</li>
+		<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+	</ul>
+	<ul id="footer-places" class="">
+		<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+		<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+		<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+		<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+		<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+		<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+		<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Temporal_difference_learning&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</div>
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.356","walltime":"0.529","ppvisitednodes":{"value":971,"limit":1000000},"postexpandincludesize":{"value":54758,"limit":2097152},"templateargumentsize":{"value":611,"limit":2097152},"expansiondepth":{"value":11,"limit":40},"expensivefunctioncount":{"value":4,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":48157,"limit":5000000},"entityaccesscount":{"value":4,"limit":400},"timingprofile":["100.00%  351.022      1 -total"," 39.60%  138.993     12 Template:Cite_journal"," 26.63%   93.485      2 Template:Cite_book"," 19.81%   69.531      1 Template:Machine_learning_bar"," 18.59%   65.267      1 Template:Sidebar_with_collapsible_lists","  6.78%   23.801      1 Template:Longitem","  5.97%   20.940      1 Template:Nobold","  3.88%   13.637      1 Template:Webarchive","  1.80%    6.307      1 Template:Small","  0.74%    2.597      1 Template:•"]},"scribunto":{"limitreport-timeusage":{"value":"0.180","limit":"10.000"},"limitreport-memusage":{"value":5201795,"limit":52428800}},"cachereport":{"origin":"mw1282","timestamp":"20200311125210","ttl":2592000,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Temporal difference learning","url":"https:\/\/en.wikipedia.org\/wiki\/Temporal_difference_learning","sameAs":"http:\/\/www.wikidata.org\/entity\/Q7698910","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q7698910","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-11-25T20:41:25Z","dateModified":"2020-03-11T12:52:20Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/fe\/Kernel_Machine.svg","headline":"intelligent Tutoring System"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":90,"wgHostname":"mw1250"});});</script></body></html>

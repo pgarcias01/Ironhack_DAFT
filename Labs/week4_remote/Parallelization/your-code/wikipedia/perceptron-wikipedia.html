@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Perceptron - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRequestId":"XnCl-QpAMNUAA47GXEcAAACC","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Perceptron","wgTitle":"Perceptron","wgCurRevisionId":945596217,"wgRevisionId":945596217,"wgArticleId":172777,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Wikipedia articles with NDL identifiers","Articles with example Python code","Classification algorithms","Artificial neural networks"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":
+"Perceptron","wgRelevantArticleId":172777,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0,"wgPopupsReferencePreviews":!1,"wgPopupsConflictsWithNavPopupGadget":!1,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":!0,"nearby":!0,"watchlist":!0,"tagline":!1},"wgWMESchemaEditAttemptStepOversample":!1,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q690207","wgCentralAuthMobileDomain":!1,"wgEditSubmitButtonLabelPublish":!0};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","mediawiki.legacy.shared":"ready",
+"mediawiki.legacy.commonPrint":"ready","mediawiki.toc.styles":"ready","skins.vector.styles":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.startup","skins.vector.js","mediawiki.page.ready","mediawiki.toc","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns","ext.quicksurveys.init","ext.centralNotice.geoIP","ext.centralNotice.startUp"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.tokens@tffin",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.toc.styles%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.0-wmf.22"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/1200px-Kernel_Machine.svg.png"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Perceptron&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Perceptron&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Perceptron"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Perceptron rootpage-Perceptron skin-vector action-view">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+</div>
+
+	<h1 id="firstHeading" class="firstHeading" lang="en">Perceptron</h1>
+	
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#p-search">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div role="note" class="hatnote navigation-not-searchable">"Perceptrons" redirects here. For the 1969 book, see <a href="/wiki/Perceptrons_(book)" title="Perceptrons (book)">Perceptrons (book)</a>.</div>
+<table class="vertical-navbox nowraplinks" style="float:right;clear:right;width:22.0em;margin:0 0 1.0em 1.0em;background:#f9f9f9;border:1px solid #aaa;padding:0.2em;border-spacing:0.4em 0;text-align:center;line-height:1.4em;font-size:88%"><tbody><tr><th style="padding:0.2em 0.4em 0.2em;font-size:145%;line-height:1.2em"><a href="/wiki/Machine_learning" title="Machine learning">Machine learning</a> and<br /><a href="/wiki/Data_mining" title="Data mining">data mining</a></th></tr><tr><td style="padding:0.2em 0 0.4em;padding:0.25em 0.25em 0.75em;"><a href="/wiki/File:Kernel_Machine.svg" class="image"><img alt="Kernel Machine.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/220px-Kernel_Machine.svg.png" decoding="async" width="220" height="100" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/330px-Kernel_Machine.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/440px-Kernel_Machine.svg.png 2x" data-file-width="512" data-file-height="233" /></a></td></tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Problems</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Statistical_classification" title="Statistical classification">Classification</a></li>
+<li><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></li>
+<li><a href="/wiki/Regression_analysis" title="Regression analysis">Regression</a></li>
+<li><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></li>
+<li><a href="/wiki/Automated_machine_learning" title="Automated machine learning">AutoML</a></li>
+<li><a href="/wiki/Association_rule_learning" title="Association rule learning">Association rules</a></li>
+<li><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></li>
+<li><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></li>
+<li><a href="/wiki/Feature_engineering" title="Feature engineering">Feature engineering</a></li>
+<li><a href="/wiki/Feature_learning" title="Feature learning">Feature learning</a></li>
+<li><a href="/wiki/Online_machine_learning" title="Online machine learning">Online learning</a></li>
+<li><a href="/wiki/Semi-supervised_learning" title="Semi-supervised learning">Semi-supervised learning</a></li>
+<li><a href="/wiki/Unsupervised_learning" title="Unsupervised learning">Unsupervised learning</a></li>
+<li><a href="/wiki/Learning_to_rank" title="Learning to rank">Learning to rank</a></li>
+<li><a href="/wiki/Grammar_induction" title="Grammar induction">Grammar induction</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><div style="padding:0.1em 0;line-height:1.2em;"><a href="/wiki/Supervised_learning" title="Supervised learning">Supervised learning</a><br /><style data-mw-deduplicate="TemplateStyles:r886047488">.mw-parser-output .nobold{font-weight:normal}</style><span class="nobold"><span style="font-size:85%;">(<b><a href="/wiki/Statistical_classification" title="Statistical classification">classification</a></b>&#160;&#8226;&#32;<b><a href="/wiki/Regression_analysis" title="Regression analysis">regression</a></b>)</span></span> </div></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Decision_tree_learning" title="Decision tree learning">Decision trees</a></li>
+<li><a href="/wiki/Ensemble_learning" title="Ensemble learning">Ensembles</a>
+<ul><li><a href="/wiki/Bootstrap_aggregating" title="Bootstrap aggregating">Bagging</a></li>
+<li><a href="/wiki/Boosting_(machine_learning)" title="Boosting (machine learning)">Boosting</a></li>
+<li><a href="/wiki/Random_forest" title="Random forest">Random forest</a></li></ul></li>
+<li><a href="/wiki/K-nearest_neighbors_algorithm" title="K-nearest neighbors algorithm"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Linear_regression" title="Linear regression">Linear regression</a></li>
+<li><a href="/wiki/Naive_Bayes_classifier" title="Naive Bayes classifier">Naive Bayes</a></li>
+<li><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural networks</a></li>
+<li><a href="/wiki/Logistic_regression" title="Logistic regression">Logistic regression</a></li>
+<li><a class="mw-selflink selflink">Perceptron</a></li>
+<li><a href="/wiki/Relevance_vector_machine" title="Relevance vector machine">Relevance vector machine (RVM)</a></li>
+<li><a href="/wiki/Support-vector_machine" title="Support-vector machine">Support vector machine (SVM)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/BIRCH" title="BIRCH">BIRCH</a></li>
+<li><a href="/wiki/CURE_data_clustering_algorithm" class="mw-redirect" title="CURE data clustering algorithm">CURE</a></li>
+<li><a href="/wiki/Hierarchical_clustering" title="Hierarchical clustering">Hierarchical</a></li>
+<li><a href="/wiki/K-means_clustering" title="K-means clustering"><i>k</i>-means</a></li>
+<li><a href="/wiki/Expectation%E2%80%93maximization_algorithm" title="Expectation–maximization algorithm">Expectation–maximization (EM)</a></li>
+<li><br /><a href="/wiki/DBSCAN" title="DBSCAN">DBSCAN</a></li>
+<li><a href="/wiki/OPTICS_algorithm" title="OPTICS algorithm">OPTICS</a></li>
+<li><a href="/wiki/Mean-shift" class="mw-redirect" title="Mean-shift">Mean-shift</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Dimensionality_reduction" title="Dimensionality reduction">Dimensionality reduction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Factor_analysis" title="Factor analysis">Factor analysis</a></li>
+<li><a href="/wiki/Canonical_correlation_analysis" class="mw-redirect" title="Canonical correlation analysis">CCA</a></li>
+<li><a href="/wiki/Independent_component_analysis" title="Independent component analysis">ICA</a></li>
+<li><a href="/wiki/Linear_discriminant_analysis" title="Linear discriminant analysis">LDA</a></li>
+<li><a href="/wiki/Non-negative_matrix_factorization" title="Non-negative matrix factorization">NMF</a></li>
+<li><a href="/wiki/Principal_component_analysis" title="Principal component analysis">PCA</a></li>
+<li><a href="/wiki/T-distributed_stochastic_neighbor_embedding" title="T-distributed stochastic neighbor embedding">t-SNE</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Graphical_model" title="Graphical model">Graphical models</a>
+<ul><li><a href="/wiki/Bayesian_network" title="Bayesian network">Bayes net</a></li>
+<li><a href="/wiki/Conditional_random_field" title="Conditional random field">Conditional random field</a></li>
+<li><a href="/wiki/Hidden_Markov_model" title="Hidden Markov model">Hidden Markov</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/K-nearest_neighbors_classification" class="mw-redirect" title="K-nearest neighbors classification"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Local_outlier_factor" title="Local outlier factor">Local outlier factor</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural network</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Autoencoder" title="Autoencoder">Autoencoder</a></li>
+<li><a href="/wiki/Deep_learning" title="Deep learning">Deep learning</a></li>
+<li><a href="/wiki/DeepDream" title="DeepDream">DeepDream</a></li>
+<li><a href="/wiki/Multilayer_perceptron" title="Multilayer perceptron">Multilayer perceptron</a></li>
+<li><a href="/wiki/Recurrent_neural_network" title="Recurrent neural network">RNN</a>
+<ul><li><a href="/wiki/Long_short-term_memory" title="Long short-term memory">LSTM</a></li>
+<li><a href="/wiki/Gated_recurrent_unit" title="Gated recurrent unit">GRU</a></li></ul></li>
+<li><a href="/wiki/Restricted_Boltzmann_machine" title="Restricted Boltzmann machine">Restricted Boltzmann machine</a></li>
+<li><a href="/wiki/Generative_adversarial_network" title="Generative adversarial network">GAN</a></li>
+<li><a href="/wiki/Self-organizing_map" title="Self-organizing map">SOM</a></li>
+<li><a href="/wiki/Convolutional_neural_network" title="Convolutional neural network">Convolutional neural network</a>
+<ul><li><a href="/wiki/U-Net" title="U-Net">U-Net</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Q-learning" title="Q-learning">Q-learning</a></li>
+<li><a href="/wiki/State%E2%80%93action%E2%80%93reward%E2%80%93state%E2%80%93action" title="State–action–reward–state–action">SARSA</a></li>
+<li><a href="/wiki/Temporal_difference_learning" title="Temporal difference learning">Temporal difference (TD)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Theory</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Bias%E2%80%93variance_dilemma" class="mw-redirect" title="Bias–variance dilemma">Bias–variance dilemma</a></li>
+<li><a href="/wiki/Computational_learning_theory" title="Computational learning theory">Computational learning theory</a></li>
+<li><a href="/wiki/Empirical_risk_minimization" title="Empirical risk minimization">Empirical risk minimization</a></li>
+<li><a href="/wiki/Occam_learning" title="Occam learning">Occam learning</a></li>
+<li><a href="/wiki/Probably_approximately_correct_learning" title="Probably approximately correct learning">PAC learning</a></li>
+<li><a href="/wiki/Statistical_learning_theory" title="Statistical learning theory">Statistical learning</a></li>
+<li><a href="/wiki/Vapnik%E2%80%93Chervonenkis_theory" title="Vapnik–Chervonenkis theory">VC theory</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Machine-learning venues</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Conference_on_Neural_Information_Processing_Systems" title="Conference on Neural Information Processing Systems">NeurIPS</a></li>
+<li><a href="/wiki/International_Conference_on_Machine_Learning" title="International Conference on Machine Learning">ICML</a></li>
+<li><a href="/wiki/Machine_Learning_(journal)" title="Machine Learning (journal)">ML</a></li>
+<li><a href="/wiki/Journal_of_Machine_Learning_Research" title="Journal of Machine Learning Research">JMLR</a></li>
+<li><a rel="nofollow" class="external text" href="https://arxiv.org/list/cs.LG/recent">ArXiv:cs.LG</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Related articles</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/List_of_datasets_for_machine-learning_research" title="List of datasets for machine-learning research">List of datasets for machine-learning research</a></li>
+<li><a href="/wiki/Outline_of_machine_learning" title="Outline of machine learning">Outline of machine learning</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="text-align:right;font-size:115%;padding-top: 0.6em;"><div class="plainlinks hlist navbar mini"><ul><li class="nv-view"><a href="/wiki/Template:Machine_learning_bar" title="Template:Machine learning bar"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="/wiki/Template_talk:Machine_learning_bar" title="Template talk:Machine learning bar"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Machine_learning_bar&amp;action=edit"><abbr title="Edit this template">e</abbr></a></li></ul></div></td></tr></tbody></table>
+<p>In <a href="/wiki/Machine_learning" title="Machine learning">machine learning</a>, the <b>perceptron</b> is an algorithm for <a href="/wiki/Supervised_classification" class="mw-redirect" title="Supervised classification">supervised learning</a> of <a href="/wiki/Binary_classification" title="Binary classification">binary classifiers</a>.  A binary classifier is a function which can decide whether or not an input, represented by a vector of numbers, belongs to some specific class.<sup id="cite_ref-largemargin_1-0" class="reference"><a href="#cite_note-largemargin-1">&#91;1&#93;</a></sup>  It is a type of <a href="/wiki/Linear_classifier" title="Linear classifier">linear classifier</a>, i.e. a classification algorithm that makes its predictions based on a <a href="/wiki/Linear_predictor_function" title="Linear predictor function">linear predictor function</a> combining a set of weights with the <a href="/wiki/Feature_vector" class="mw-redirect" title="Feature vector">feature vector</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Definition"><span class="tocnumber">2</span> <span class="toctext">Definition</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Learning_algorithm"><span class="tocnumber">3</span> <span class="toctext">Learning algorithm</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Definitions"><span class="tocnumber">3.1</span> <span class="toctext">Definitions</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Steps"><span class="tocnumber">3.2</span> <span class="toctext">Steps</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Convergence"><span class="tocnumber">3.3</span> <span class="toctext">Convergence</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Variants"><span class="tocnumber">4</span> <span class="toctext">Variants</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Multiclass_perceptron"><span class="tocnumber">5</span> <span class="toctext">Multiclass perceptron</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Further_reading"><span class="tocnumber">7</span> <span class="toctext">Further reading</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Perceptron&amp;action=edit&amp;section=1" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tleft"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:Mark_I_perceptron.jpeg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/5/52/Mark_I_perceptron.jpeg/220px-Mark_I_perceptron.jpeg" decoding="async" width="220" height="270" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/en/5/52/Mark_I_perceptron.jpeg 1.5x" data-file-width="285" data-file-height="350" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Mark_I_perceptron.jpeg" class="internal" title="Enlarge"></a></div>Mark I Perceptron machine, the first implementation of the perceptron algorithm. It was connected to a camera with 20×20 <a href="/wiki/Cadmium_sulfide" title="Cadmium sulfide">cadmium sulfide</a> <a href="/wiki/Photocell" class="mw-redirect" title="Photocell">photocells</a> to make a 400-pixel image. The main visible feature is a patch panel that set different combinations of input features. To the right, arrays of <a href="/wiki/Potentiometer" title="Potentiometer">potentiometers</a> that implemented the adaptive weights.<sup id="cite_ref-bishop_2-0" class="reference"><a href="#cite_note-bishop-2">&#91;2&#93;</a></sup><sup class="reference" style="white-space:nowrap;">:<span>213</span></sup></div></div></div>
+<div role="note" class="hatnote navigation-not-searchable">See also: <a href="/wiki/History_of_artificial_intelligence#Perceptrons_and_the_dark_age_of_connectionism" title="History of artificial intelligence">History of artificial intelligence §&#160;Perceptrons and the dark age of connectionism</a>, and <a href="/wiki/AI_winter#The_abandonment_of_connectionism_in_1969" title="AI winter">AI winter §&#160;The abandonment of connectionism in 1969</a></div>
+<p>The perceptron algorithm was invented in 1958 at the <a href="/wiki/Cornell_Aeronautical_Laboratory" class="mw-redirect" title="Cornell Aeronautical Laboratory">Cornell Aeronautical Laboratory</a> by <a href="/wiki/Frank_Rosenblatt" title="Frank Rosenblatt">Frank Rosenblatt</a>,<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup> funded by the United States <a href="/wiki/Office_of_Naval_Research" title="Office of Naval Research">Office of Naval Research</a>.<sup id="cite_ref-Olazaran_4-0" class="reference"><a href="#cite_note-Olazaran-4">&#91;4&#93;</a></sup>
+</p><p>The perceptron was intended to be a machine, rather than a program, and while its first implementation was in software for the <a href="/wiki/IBM_704" title="IBM 704">IBM 704</a>, it was subsequently implemented in custom-built hardware as the "Mark 1 perceptron". This machine was designed for <a href="/wiki/Image_recognition" class="mw-redirect" title="Image recognition">image recognition</a>: it had an array of 400 <a href="/wiki/Photocell" class="mw-redirect" title="Photocell">photocells</a>, randomly connected to the "neurons". Weights were encoded in <a href="/wiki/Potentiometer" title="Potentiometer">potentiometers</a>, and weight updates during learning were performed by electric motors.<sup id="cite_ref-bishop_2-1" class="reference"><a href="#cite_note-bishop-2">&#91;2&#93;</a></sup><sup class="reference" style="white-space:nowrap;">:<span>193</span></sup>
+</p><p>In a 1958 press conference organized by the US Navy, Rosenblatt made statements about the perceptron that caused a heated controversy among the fledgling <a href="/wiki/Artificial_intelligence" title="Artificial intelligence">AI</a> community; based on Rosenblatt's statements, <i><a href="/wiki/The_New_York_Times" title="The New York Times">The New York Times</a></i> reported the perceptron to be "the embryo of an electronic computer that [the Navy] expects will be able to walk, talk, see, write, reproduce itself and be conscious of its existence."<sup id="cite_ref-Olazaran_4-1" class="reference"><a href="#cite_note-Olazaran-4">&#91;4&#93;</a></sup>
+</p><p>Although the perceptron initially seemed promising, it was quickly proved that perceptrons could not be trained to recognise many classes of patterns. This caused the field of neural network research to stagnate for many years, before it was recognised that a <a href="/wiki/Feedforward_neural_network" title="Feedforward neural network">feedforward neural network</a> with two or more layers (also called a <a href="/wiki/Multilayer_perceptron" title="Multilayer perceptron">multilayer perceptron</a>) had greater processing power than perceptrons with one layer (also called a <a href="/wiki/Feedforward_neural_network#Single-layer_perceptron" title="Feedforward neural network">single layer perceptron</a>).
+</p><p>Single layer perceptrons are only capable of learning <a href="/wiki/Linearly_separable" class="mw-redirect" title="Linearly separable">linearly separable</a> patterns. For a classification task with some step activation function a single node will have a single line dividing the data points forming the patterns. More nodes can create more dividing lines, but those lines must somehow be combined to form more complex classifications. A second layer of perceptrons, or even linear nodes, are sufficient to solve a lot of otherwise non-separable problems.
+</p><p>In 1969 a famous book entitled <i><a href="/wiki/Perceptrons_(book)" title="Perceptrons (book)">Perceptrons</a></i> by <a href="/wiki/Marvin_Minsky" title="Marvin Minsky">Marvin Minsky</a> and <a href="/wiki/Seymour_Papert" title="Seymour Papert">Seymour Papert</a> showed that it was impossible for these classes of network to learn an <a href="/wiki/XOR" class="mw-redirect" title="XOR">XOR</a> function. It is often believed (incorrectly) that they also conjectured that a similar result would hold for a multi-layer perceptron network. However, this is not true, as both Minsky and Papert already knew that multi-layer perceptrons were capable of producing an XOR function. (See the page on <i><a href="/wiki/Perceptrons_(book)" title="Perceptrons (book)">Perceptrons (book)</a></i> for more information.)  Nevertheless, the often-miscited Minsky/Papert text caused a significant decline in interest and funding of neural network research. It took ten more years until <a href="/wiki/Neural_network" title="Neural network">neural network</a> research experienced a resurgence in the 1980s.  This text was reprinted in 1987 as "Perceptrons - Expanded Edition" where some errors in the original text are shown and corrected.
+</p><p>The <a href="/wiki/Kernel_perceptron" title="Kernel perceptron">kernel perceptron</a> algorithm was already introduced in 1964 by Aizerman et al.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup> Margin bounds guarantees were given for the Perceptron algorithm in the general non-separable case first by <a href="/wiki/Yoav_Freund" title="Yoav Freund">Freund</a> and <a href="/wiki/Robert_Schapire" title="Robert Schapire">Schapire</a> (1998),<sup id="cite_ref-largemargin_1-1" class="reference"><a href="#cite_note-largemargin-1">&#91;1&#93;</a></sup> and more recently by <a href="/wiki/Mehryar_Mohri" title="Mehryar Mohri">Mohri</a> and Rostamizadeh (2013) who extend previous results and give new L1 bounds.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup>
+</p><p>The perceptron is a simplified model of a biological <a href="/wiki/Neuron" title="Neuron">neuron</a>. While the complexity of <a href="/wiki/Biological_neuron_model" title="Biological neuron model">biological neuron models</a> is often required to fully understand neural behavior, research suggests a perceptron-like linear model can produce some behavior seen in real neurons.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Definition">Definition</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Perceptron&amp;action=edit&amp;section=2" title="Edit section: Definition">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In the modern sense, the perceptron is an algorithm for learning a binary classifier called a <a href="/wiki/Linear_classifier#Definition" title="Linear classifier">threshold function</a>: a function that maps its input <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbf {x} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">x</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbf {x} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/32adf004df5eb0a8c7fd8c0b6b7405183c5a5ef2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.411ex; height:1.676ex;" alt="\mathbf {x} "/></span> (a real-valued <a href="/wiki/Vector_space" title="Vector space">vector</a>) to an output value <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(\mathbf {x} )}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">x</mi>
+        </mrow>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(\mathbf {x} )}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e41ea95e6949bf4cef6426116364ba87e0fdcd60" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.499ex; height:2.843ex;" alt="f(\mathbf {x} )"/></span> (a single <a href="/wiki/Binary_function" title="Binary function">binary</a> value):
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(\mathbf {x} )={\begin{cases}1&amp;{\text{if }}\ \mathbf {w} \cdot \mathbf {x} +b&gt;0,\\0&amp;{\text{otherwise}}\end{cases}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">x</mi>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>{</mo>
+            <mtable columnalign="left left" rowspacing=".2em" columnspacing="1em" displaystyle="false">
+              <mtr>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>if&#xA0;</mtext>
+                  </mrow>
+                  <mtext>&#xA0;</mtext>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="bold">w</mi>
+                  </mrow>
+                  <mo>&#x22C5;<!-- ⋅ --></mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="bold">x</mi>
+                  </mrow>
+                  <mo>+</mo>
+                  <mi>b</mi>
+                  <mo>&gt;</mo>
+                  <mn>0</mn>
+                  <mo>,</mo>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>otherwise</mtext>
+                  </mrow>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo fence="true" stretchy="true" symmetric="true"></mo>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(\mathbf {x} )={\begin{cases}1&amp;{\text{if }}\ \mathbf {w} \cdot \mathbf {x} +b&gt;0,\\0&amp;{\text{otherwise}}\end{cases}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c27b30e07934b4fc8f346ec6fafd5b077d0d4efc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:29.864ex; height:6.176ex;" alt="{\displaystyle f(\mathbf {x} )={\begin{cases}1&amp;{\text{if }}\ \mathbf {w} \cdot \mathbf {x} +b&gt;0,\\0&amp;{\text{otherwise}}\end{cases}}}"/></span></dd></dl>
+<p>where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbf {w} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">w</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbf {w} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/20795664b5b048744a2fd88977851104cc5816f8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.931ex; height:1.676ex;" alt="\mathbf {w} "/></span> is a vector of real-valued weights, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbf {w} \cdot \mathbf {x} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">w</mi>
+        </mrow>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">x</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbf {w} \cdot \mathbf {x} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c208362eb2cb54b1837a8c80a2c097e14f34d7ff" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.021ex; height:1.676ex;" alt="{\displaystyle \mathbf {w} \cdot \mathbf {x} }"/></span> is the <a href="/wiki/Dot_product" title="Dot product">dot product</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sum _{i=1}^{m}w_{i}x_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>=</mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+        </munderover>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sum _{i=1}^{m}w_{i}x_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bf43c01ee8403ea39c2f6d2829576c1769a100d7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.005ex; width:8.335ex; height:6.843ex;" alt="{\displaystyle \sum _{i=1}^{m}w_{i}x_{i}}"/></span>, where <span class="texhtml mvar" style="font-style:italic;">m</span> is the number of inputs to the perceptron, and <span class="texhtml mvar" style="font-style:italic;">b</span> is the <i>bias</i>. The bias shifts the decision boundary away from the origin and does not depend on any input value.
+</p><p>The value of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(\mathbf {x} )}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">x</mi>
+        </mrow>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(\mathbf {x} )}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e41ea95e6949bf4cef6426116364ba87e0fdcd60" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.499ex; height:2.843ex;" alt="f(\mathbf {x} )"/></span> (0 or 1) is used to classify <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbf {x} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">x</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbf {x} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/32adf004df5eb0a8c7fd8c0b6b7405183c5a5ef2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.411ex; height:1.676ex;" alt="\mathbf {x} "/></span> as either a positive or a negative instance, in the case of a binary classification problem. If <span class="texhtml mvar" style="font-style:italic;">b</span> is negative, then the weighted combination of inputs must produce a positive value greater than <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle |b|}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>b</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle |b|}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/881f49e94388a46a05d329251551ce20baf4f05d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:2.291ex; height:2.843ex;" alt="|b|"/></span> in order to push the classifier neuron over the 0 threshold. Spatially, the bias alters the position (though not the orientation) of the <a href="/wiki/Decision_boundary" title="Decision boundary">decision boundary</a>. The perceptron learning algorithm does not terminate if the learning set is not <a href="/wiki/Linearly_separable" class="mw-redirect" title="Linearly separable">linearly separable</a>. If the vectors are not linearly separable learning will never reach a point where all vectors are classified properly. The most famous example of the perceptron's inability to solve problems with linearly nonseparable vectors is the Boolean <a href="/wiki/Exclusive-or" class="mw-redirect" title="Exclusive-or">exclusive-or</a> problem. The solution spaces of decision boundaries for all binary functions and learning behaviors are studied in the reference.<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup>
+</p><p>In the context of neural networks, a perceptron is an <a href="/wiki/Artificial_neuron" title="Artificial neuron">artificial neuron</a> using the <a href="/wiki/Heaviside_step_function" title="Heaviside step function">Heaviside step function</a> as the activation function. The perceptron algorithm is also termed the <b>single-layer perceptron</b>, to distinguish it from a <a href="/wiki/Multilayer_perceptron" title="Multilayer perceptron">multilayer perceptron</a>, which is a misnomer for a more complicated neural network.  As a linear classifier, the single-layer perceptron is the simplest <a href="/wiki/Feedforward_neural_network" title="Feedforward neural network">feedforward neural network</a>.
+</p>
+<h2><span class="mw-headline" id="Learning_algorithm">Learning algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Perceptron&amp;action=edit&amp;section=3" title="Edit section: Learning algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Below is an example of a learning algorithm for a single-layer perceptron. For <a href="/wiki/Multilayer_perceptron" title="Multilayer perceptron">multilayer perceptrons</a>, where a hidden layer exists, more sophisticated algorithms such as <a href="/wiki/Backpropagation" title="Backpropagation">backpropagation</a> must be used. If the activation function or the underlying process being modeled by the perceptron is <a href="/wiki/Nonlinear_system" title="Nonlinear system">nonlinear</a>, alternative learning algorithms such as the <a href="/wiki/Delta_rule" title="Delta rule">delta rule</a> can be used as long as the activation function is <a href="/wiki/Differentiable_function" title="Differentiable function">differentiable</a>. Nonetheless, the learning algorithm described in the steps below will often work, even for multilayer perceptrons with nonlinear activation functions.
+</p><p>When multiple perceptrons are combined in an artificial neural network, each output neuron operates independently of all the others; thus, learning each output can be considered in isolation.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:502px;"><a href="/wiki/File:Perceptron_example.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Perceptron_example.svg/500px-Perceptron_example.svg.png" decoding="async" width="500" height="500" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Perceptron_example.svg/750px-Perceptron_example.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Perceptron_example.svg/1000px-Perceptron_example.svg.png 2x" data-file-width="1224" data-file-height="1224" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Perceptron_example.svg" class="internal" title="Enlarge"></a></div>A diagram showing a perceptron updating its linear boundary as more training examples are added.</div></div></div>
+<h3><span class="mw-headline" id="Definitions">Definitions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Perceptron&amp;action=edit&amp;section=4" title="Edit section: Definitions">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>We first define some variables:
+</p>
+<ul><li>r is the learning rate of the perceptron. Learning rate is between 0 and 1, larger values make the weight changes more volatile.</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y=f(\mathbf {z} )}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+        <mo>=</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">z</mi>
+        </mrow>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y=f(\mathbf {z} )}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/50743880bc5e43723c312d141edcb652ddeaa759" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.53ex; height:2.843ex;" alt="{\displaystyle y=f(\mathbf {z} )}"/></span> denotes the <i>output</i> from the perceptron for an input vector <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbf {z} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">z</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbf {z} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/82eca5d0928078d5a61b9e7e98cc73db31070909" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.188ex; height:1.676ex;" alt="\mathbf {z} "/></span>.</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle D=\{(\mathbf {x} _{1},d_{1}),\dots ,(\mathbf {x} _{s},d_{s})\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>D</mi>
+        <mo>=</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="bold">x</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="bold">x</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle D=\{(\mathbf {x} _{1},d_{1}),\dots ,(\mathbf {x} _{s},d_{s})\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0cc14983f3260966730b1bdbe8c68f197706f4b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:27.567ex; height:2.843ex;" alt="{\displaystyle D=\{(\mathbf {x} _{1},d_{1}),\dots ,(\mathbf {x} _{s},d_{s})\}}"/></span> is the <i>training set</i> of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>s</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/01d131dfd7673938b947072a13a9744fe997e632" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.09ex; height:1.676ex;" alt="s"/></span> samples, where:
+<ul><li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbf {x} _{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="bold">x</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbf {x} _{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/da7e57d3f8c537992b45488f9586aec0c35a85f0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.321ex; height:2.343ex;" alt="\mathbf {x} _{j}"/></span> is the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span>-dimensional input vector.</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle d_{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d_{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3fa3426b07cfa37c76382ddbecfb4c880889657f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.119ex; height:2.843ex;" alt="{\displaystyle d_{j}}"/></span> is the desired output value of the perceptron for that input.</li></ul></li></ul>
+<p>We show the values of the features as follows:
+</p>
+<ul><li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{j,i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+            <mo>,</mo>
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{j,i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f552a62dddcb50f846dcd67d522d59d28f5e56d2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:3.264ex; height:2.343ex;" alt="{\displaystyle x_{j,i}}"/></span> is the value of the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle i}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/add78d8608ad86e54951b8c8bd6c8d8416533d20" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.802ex; height:2.176ex;" alt="i"/></span>th feature of the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle j}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>j</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle j}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2f461e54f5c093e92a55547b9764291390f0b5d0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.027ex; width:0.985ex; height:2.509ex;" alt="j"/></span>th training <i>input vector</i>.</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{j,0}=1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+            <mo>,</mo>
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{j,0}=1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cda1bc48502a2676e9a67b6b5fad8c59e08ce571" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:7.78ex; height:2.843ex;" alt="{\displaystyle x_{j,0}=1}"/></span>.</li></ul>
+<p>To represent the weights: 
+</p>
+<ul><li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fe22f0329d3ecb2e1880d44d191aba0e5475db68" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.464ex; height:2.009ex;" alt="{\displaystyle w_{i}}"/></span> is the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle i}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/add78d8608ad86e54951b8c8bd6c8d8416533d20" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.802ex; height:2.176ex;" alt="i"/></span>th value in the <i>weight vector</i>, to be multiplied by the value of the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle i}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/add78d8608ad86e54951b8c8bd6c8d8416533d20" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.802ex; height:2.176ex;" alt="i"/></span>th input feature.</li>
+<li>Because <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{j,0}=1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+            <mo>,</mo>
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{j,0}=1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cda1bc48502a2676e9a67b6b5fad8c59e08ce571" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:7.78ex; height:2.843ex;" alt="{\displaystyle x_{j,0}=1}"/></span>, the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{0}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{0}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7aa052386ec49846179aa8bbe2b279b57a675e00" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.718ex; height:2.009ex;" alt="{\displaystyle w_{0}}"/></span> is effectively a bias that we use instead of the bias constant <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle b}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>b</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle b}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f11423fbb2e967f986e36804a8ae4271734917c3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.998ex; height:2.176ex;" alt="b"/></span>.</li></ul>
+<p>To show the time-dependence of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbf {w} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">w</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbf {w} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/20795664b5b048744a2fd88977851104cc5816f8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.931ex; height:1.676ex;" alt="\mathbf {w} "/></span>, we use:
+</p>
+<ul><li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{i}(t)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{i}(t)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a41e8d0d6f38f875bc34ae9b05e200c0d53ef0c3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.113ex; height:2.843ex;" alt="{\displaystyle w_{i}(t)}"/></span> is the weight <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle i}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/add78d8608ad86e54951b8c8bd6c8d8416533d20" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.802ex; height:2.176ex;" alt="i"/></span> at time <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle t}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>t</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle t}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65658b7b223af9e1acc877d848888ecdb4466560" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.84ex; height:2.009ex;" alt="t"/></span>.</li></ul>
+<p>Unlike other linear classification algorithms such as <a href="/wiki/Logistic_regression" title="Logistic regression">logistic regression</a>, there is no need for a <i>learning rate</i> in the perceptron algorithm. This is because multiplying the update by any constant simply rescales the weights but never changes the sign of the prediction.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup>
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:502px;"><a href="/wiki/File:Perceptron.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/31/Perceptron.svg/500px-Perceptron.svg.png" decoding="async" width="500" height="354" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/31/Perceptron.svg/750px-Perceptron.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/31/Perceptron.svg/1000px-Perceptron.svg.png 2x" data-file-width="1052" data-file-height="744" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Perceptron.svg" class="internal" title="Enlarge"></a></div>The appropriate weights are applied to the inputs, and the resulting weighted sum passed to a function that produces the output o.</div></div></div>
+<h3><span class="mw-headline" id="Steps">Steps</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Perceptron&amp;action=edit&amp;section=5" title="Edit section: Steps">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div><ol><li>Initialize the weights and the threshold. Weights may be initialized to 0 or to a small random value. In the example below, we use 0.</li><li>For each example <span class="texhtml mvar" style="font-style:italic;">j</span> in our training set <span class="texhtml mvar" style="font-style:italic;">D</span>, perform the following steps over the input <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbf {x} _{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="bold">x</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbf {x} _{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/da7e57d3f8c537992b45488f9586aec0c35a85f0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.321ex; height:2.343ex;" alt="{\mathbf  {x}}_{j}"/></span> and desired output <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle d_{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d_{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3fa3426b07cfa37c76382ddbecfb4c880889657f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.119ex; height:2.843ex;" alt="{\displaystyle d_{j}}"/></span>:
+<div><ol style="list-style-type:lower-alpha"><li>Calculate the actual output:
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\begin{aligned}y_{j}(t)&amp;=f[\mathbf {w} (t)\cdot \mathbf {x} _{j}]\\&amp;=f[w_{0}(t)x_{j,0}+w_{1}(t)x_{j,1}+w_{2}(t)x_{j,2}+\dotsb +w_{n}(t)x_{j,n}]\end{aligned}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true">
+            <mtr>
+              <mtd>
+                <msub>
+                  <mi>y</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>j</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>t</mi>
+                <mo stretchy="false">)</mo>
+              </mtd>
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <mi>f</mi>
+                <mo stretchy="false">[</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="bold">w</mi>
+                </mrow>
+                <mo stretchy="false">(</mo>
+                <mi>t</mi>
+                <mo stretchy="false">)</mo>
+                <mo>&#x22C5;<!-- ⋅ --></mo>
+                <msub>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="bold">x</mi>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>j</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">]</mo>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd />
+              <mtd>
+                <mi></mi>
+                <mo>=</mo>
+                <mi>f</mi>
+                <mo stretchy="false">[</mo>
+                <msub>
+                  <mi>w</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>0</mn>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>t</mi>
+                <mo stretchy="false">)</mo>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>j</mi>
+                    <mo>,</mo>
+                    <mn>0</mn>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <msub>
+                  <mi>w</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>t</mi>
+                <mo stretchy="false">)</mo>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>j</mi>
+                    <mo>,</mo>
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <msub>
+                  <mi>w</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>t</mi>
+                <mo stretchy="false">)</mo>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>j</mi>
+                    <mo>,</mo>
+                    <mn>2</mn>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <mo>&#x22EF;<!-- ⋯ --></mo>
+                <mo>+</mo>
+                <msub>
+                  <mi>w</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>n</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>t</mi>
+                <mo stretchy="false">)</mo>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>j</mi>
+                    <mo>,</mo>
+                    <mi>n</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">]</mo>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{aligned}y_{j}(t)&amp;=f[\mathbf {w} (t)\cdot \mathbf {x} _{j}]\\&amp;=f[w_{0}(t)x_{j,0}+w_{1}(t)x_{j,1}+w_{2}(t)x_{j,2}+\dotsb +w_{n}(t)x_{j,n}]\end{aligned}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8e2650d5fbcec4f1b38ada11b50a95014aefbd6b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.311ex; margin-bottom: -0.194ex; width:61.078ex; height:6.176ex;" alt="{\displaystyle {\begin{aligned}y_{j}(t)&amp;=f[\mathbf {w} (t)\cdot \mathbf {x} _{j}]\\&amp;=f[w_{0}(t)x_{j,0}+w_{1}(t)x_{j,1}+w_{2}(t)x_{j,2}+\dotsb +w_{n}(t)x_{j,n}]\end{aligned}}}"/></span></dd></dl></li><li>Update the weights:
+<dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{i}(t+1)=w_{i}(t)+r\cdot (d_{j}-y_{j}(t))x_{j,i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>r</mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+            <mo>,</mo>
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{i}(t+1)=w_{i}(t)+r\cdot (d_{j}-y_{j}(t))x_{j,i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/57cd4d46c1a546c97ed106d62df828a0cdb91242" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:37.625ex; height:3.009ex;" alt="{\displaystyle w_{i}(t+1)=w_{i}(t)+r\cdot (d_{j}-y_{j}(t))x_{j,i}}"/></span>, for all features <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 0\leq i\leq n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>0</mn>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>i</mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 0\leq i\leq n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/db879b8b15adbedaf379f6f5c5bceab41e47052b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:9.557ex; height:2.343ex;" alt="0\leq i\leq n"/></span>, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>r</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d1ecb613aa2984f0576f70f86650b7c2a132538" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.049ex; height:1.676ex;" alt="r"/></span> is the <a href="/wiki/Learning_rate" title="Learning rate">learning rate</a>.</dd></li></ol></div></li><li>For <a href="/wiki/Offline_learning" title="Offline learning">offline learning</a>, the second step may be repeated until the iteration error <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {1}{s}}\sum _{j=1}^{s}|d_{j}-y_{j}(t)|}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mi>s</mi>
+          </mfrac>
+        </mrow>
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+            <mo>=</mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </munderover>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>t</mi>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {1}{s}}\sum _{j=1}^{s}|d_{j}-y_{j}(t)|}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/52d6809b0682721f6f29485e14003f97dccf0e46" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.338ex; width:17.078ex; height:7.176ex;" alt="{\displaystyle {\frac {1}{s}}\sum _{j=1}^{s}|d_{j}-y_{j}(t)|}"/></span> is less than a user-specified error threshold <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03B3;<!-- γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a223c880b0ce3da8f64ee33c4f0010beee400b1a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:1.262ex; height:2.176ex;" alt="\gamma "/></span>, or a predetermined number of iterations have been completed, where <i>s</i> is again the size of the sample set.</li></ol></div>
+<p>The algorithm updates the weights after steps 2a and 2b. These weights are immediately applied to a pair in the training set, and subsequently updated, rather than waiting until all pairs in the training set have undergone these steps.
+</p>
+<h3><span class="mw-headline" id="Convergence">Convergence</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Perceptron&amp;action=edit&amp;section=6" title="Edit section: Convergence">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The perceptron is a <a href="/wiki/Linear_classifier" title="Linear classifier">linear classifier</a>, therefore it will never get to the state with all the input vectors classified correctly if the training set <span class="texhtml mvar" style="font-style:italic;">D</span> is not <a href="/wiki/Linearly_separable" class="mw-redirect" title="Linearly separable">linearly separable</a>, i.e. if the positive examples cannot be separated from the negative examples by a hyperplane. In this case, no "approximate" solution will be gradually approached under the standard learning algorithm, but instead learning will fail completely. Hence, if linear separability of the training set is not known a priori, one of the training variants below should be used.
+</p><p>If the training set <i>is</i> linearly separable, then the perceptron is guaranteed to converge. Furthermore, there is an upper bound on the number of times the perceptron will adjust its weights during the training.
+</p><p>Suppose that the input vectors from the two classes can be separated by a hyperplane with a margin <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03B3;<!-- γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a223c880b0ce3da8f64ee33c4f0010beee400b1a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:1.262ex; height:2.176ex;" alt="\gamma "/></span>, i.e. there exists a weight vector <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbf {w} ,||\mathbf {w} ||=1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">w</mi>
+        </mrow>
+        <mo>,</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">w</mi>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbf {w} ,||\mathbf {w} ||=1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e4a781bdb14ed8cb1f8602ffaed0e435e8c4972b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.745ex; height:2.843ex;" alt="\mathbf {w} ,||\mathbf {w} ||=1"/></span>, and a bias term <span class="texhtml mvar" style="font-style:italic;">b</span> such that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbf {w} \cdot \mathbf {x} _{j}&gt;\gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">w</mi>
+        </mrow>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="bold">x</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mo>&gt;</mo>
+        <mi>&#x03B3;<!-- γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbf {w} \cdot \mathbf {x} _{j}&gt;\gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4ac2c20ebc8cb445c80afb46b93539f72f0d5ec1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:10.292ex; height:2.509ex;" alt="{\displaystyle \mathbf {w} \cdot \mathbf {x} _{j}&gt;\gamma }"/></span> for all <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle j}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>j</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle j}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2f461e54f5c093e92a55547b9764291390f0b5d0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.027ex; width:0.985ex; height:2.509ex;" alt="j"/></span> with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle d_{j}=1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d_{j}=1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/76ad7eb7e947b7f18b4792c50e41f7a1510c905f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:6.38ex; height:2.843ex;" alt="{\displaystyle d_{j}=1}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbf {w} \cdot \mathbf {x} _{j}&lt;-\gamma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">w</mi>
+        </mrow>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="bold">x</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mo>&lt;</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>&#x03B3;<!-- γ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbf {w} \cdot \mathbf {x} _{j}&lt;-\gamma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c60aefd969d8b541f30c7c6f33a7b55c929a80b8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:12.1ex; height:2.676ex;" alt="{\displaystyle \mathbf {w} \cdot \mathbf {x} _{j}&lt;-\gamma }"/></span> for all <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle j}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>j</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle j}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2f461e54f5c093e92a55547b9764291390f0b5d0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.027ex; width:0.985ex; height:2.509ex;" alt="j"/></span> with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle d_{j}=0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d_{j}=0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/afa9299c9262e5da1af4b67d501a7089fc0bcdca" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:6.38ex; height:2.843ex;" alt="{\displaystyle d_{j}=0}"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle d_{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>d</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d_{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3fa3426b07cfa37c76382ddbecfb4c880889657f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.119ex; height:2.843ex;" alt="d_{j}"/></span> is the desired output value of the perceptron for input <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle j}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>j</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle j}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2f461e54f5c093e92a55547b9764291390f0b5d0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.027ex; width:0.985ex; height:2.509ex;" alt="j"/></span>. Also, let <span class="texhtml mvar" style="font-style:italic;">R</span> denote the maximum norm of an input vector. Novikoff (1962) proved that in this case the perceptron algorithm converges after making <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(R^{2}/\gamma ^{2})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <msup>
+          <mi>&#x03B3;<!-- γ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(R^{2}/\gamma ^{2})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d174cb837dc3b404e96ac5fbf3051cfa10e4e377" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.897ex; height:3.176ex;" alt="O(R^{2}/\gamma ^{2})"/></span> updates. The idea of the proof is that the weight vector is always adjusted by a bounded amount in a direction with which it has a negative <a href="/wiki/Dot_product" title="Dot product">dot product</a>, and thus can be bounded above by <span class="texhtml"><i>O</i>(<span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;"><i>t</i></span></span>)</span>, where <span class="texhtml mvar" style="font-style:italic;">t</span> is the number of changes to the weight vector. However, it can also be bounded below by <span class="texhtml"><i>O</i>(<i>t</i>)</span> because if there exists an (unknown) satisfactory weight vector, then every change makes progress in this (unknown) direction by a positive amount that depends only on the input vector.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/wiki/File:Perceptron_cant_choose.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Perceptron_cant_choose.svg/300px-Perceptron_cant_choose.svg.png" decoding="async" width="300" height="225" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Perceptron_cant_choose.svg/450px-Perceptron_cant_choose.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Perceptron_cant_choose.svg/600px-Perceptron_cant_choose.svg.png 2x" data-file-width="720" data-file-height="540" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Perceptron_cant_choose.svg" class="internal" title="Enlarge"></a></div>Two classes of points, and two of the infinitely many linear boundaries that separate them. Even though the boundaries are at nearly right angles to one another, the perceptron algorithm has no way of choosing between them.</div></div></div>
+<p>While the perceptron algorithm is guaranteed to converge on <i>some</i> solution in the case of a linearly separable training set, it may still pick <i>any</i> solution and problems may admit many solutions of varying quality.<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;10&#93;</a></sup> The <i>perceptron of optimal stability</i>, nowadays better known as the linear <a href="/wiki/Support_vector_machine" class="mw-redirect" title="Support vector machine">support vector machine</a>, was designed to solve this problem (Krauth and Mezard, 1987).<sup id="cite_ref-KrauthMezard87_11-0" class="reference"><a href="#cite_note-KrauthMezard87-11">&#91;11&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Variants">Variants</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Perceptron&amp;action=edit&amp;section=7" title="Edit section: Variants">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The pocket algorithm with ratchet (Gallant, 1990) solves the stability problem of perceptron learning by keeping the best solution seen so far "in its pocket". The pocket algorithm then returns the solution in the pocket, rather than the last solution. It can be used also for non-separable data sets, where the aim is to find a perceptron with a small number of misclassifications. However, these solutions appear purely stochastically and hence the pocket algorithm neither approaches them gradually in the course of learning, nor are they guaranteed to show up within a given number of learning steps.
+</p><p>The Maxover algorithm (Wendemuth, 1995) is <a href="/wiki/Robustness_(computer_science)" title="Robustness (computer science)">"robust"</a> in the sense that it will converge regardless of (prior) knowledge of linear separability of the data set.<sup id="cite_ref-12" class="reference"><a href="#cite_note-12">&#91;12&#93;</a></sup> In the linearly separable case, it will solve the training problem – if desired, even with optimal stability (<a href="/wiki/Hyperplane_separation_theorem" title="Hyperplane separation theorem">maximum margin</a> between the classes). For non-separable data sets, it will return a solution with a small number of misclassifications. In all cases, the algorithm gradually approaches the solution in the course of learning, without memorizing previous states and without stochastic jumps. Convergence is to global optimality for separable data sets and to local optimality for non-separable data sets.
+</p><p>The Voted Perceptron (Freund and Schapire, 1999), is a variant using multiple weighted perceptrons. The algorithm starts a new perceptron every time an example is wrongly classified, initializing the weights vector with the final weights of the last perceptron. Each perceptron will also be given another weight corresponding to how many examples do they correctly classify before wrongly classifying one, and at the end the output will be a weighted vote on all perceptrons.
+</p><p>In separable problems, perceptron training can also aim at finding the largest separating margin between the classes. The so-called perceptron of optimal stability can be determined by means of iterative training and optimization schemes, such as the Min-Over algorithm (Krauth and Mezard, 1987)<sup id="cite_ref-KrauthMezard87_11-1" class="reference"><a href="#cite_note-KrauthMezard87-11">&#91;11&#93;</a></sup>  or the AdaTron (Anlauf and Biehl, 1989)).<sup id="cite_ref-13" class="reference"><a href="#cite_note-13">&#91;13&#93;</a></sup> AdaTron uses the fact that the corresponding quadratic optimization problem is convex. The perceptron of optimal stability, together with the <a href="/wiki/Kernel_trick" class="mw-redirect" title="Kernel trick">kernel trick</a>, are the conceptual foundations of the <a href="/wiki/Support_vector_machine" class="mw-redirect" title="Support vector machine">support vector machine</a>.
+</p><p>The <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \alpha }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03B1;<!-- α --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \alpha }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b79333175c8b3f0840bfb4ec41b8072c83ea88d3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.488ex; height:1.676ex;" alt="\alpha "/></span>-perceptron further used a pre-processing layer of fixed random weights, with thresholded output units. This enabled the perceptron to classify <a href="https://en.wiktionary.org/wiki/analogue" class="extiw" title="wiktionary:analogue">analogue</a> patterns, by projecting them into a <a href="/wiki/Binary_Space_Partition" class="mw-redirect" title="Binary Space Partition">binary space</a>. In fact, for a projection space of sufficiently high dimension, patterns can become linearly separable.
+</p><p>Another way to solve nonlinear problems without using multiple layers is to use higher order networks (sigma-pi unit). In this type of network, each element in the input vector is extended with each pairwise combination of multiplied inputs (second order). This can be extended to an <i>n</i>-order network.
+</p><p>It should be kept in mind, however, that the best classifier is not necessarily that which classifies all the training data perfectly. Indeed, if we had the prior constraint that the data come from equi-variant Gaussian distributions, the linear separation in the input space is optimal, and the nonlinear solution is <a href="/wiki/Overfitting" title="Overfitting">overfitted</a>.
+</p><p>Other linear classification algorithms include <a href="/wiki/Winnow_(algorithm)" title="Winnow (algorithm)">Winnow</a>, <a href="/wiki/Support_vector_machine" class="mw-redirect" title="Support vector machine">support vector machine</a> and <a href="/wiki/Logistic_regression" title="Logistic regression">logistic regression</a>.
+</p>
+<h2><span class="mw-headline" id="Multiclass_perceptron">Multiclass perceptron</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Perceptron&amp;action=edit&amp;section=8" title="Edit section: Multiclass perceptron">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Like most other techniques for training linear classifiers, the perceptron generalizes naturally to <a href="/wiki/Multiclass_classification" title="Multiclass classification">multiclass classification</a>.  Here, the input <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f9e315fd7e2ba406057a97300593c4802b53e4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="x"/></span> and the output <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b8a6208ec717213d4317e666f1ae872e00620a0d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.155ex; height:2.009ex;" alt="y"/></span> are drawn from arbitrary sets. A feature representation function <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(x,y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(x,y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/29473ed0c4e838ac9dbe074535e507166c0e9101" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.607ex; height:2.843ex;" alt="f(x,y)"/></span> maps each possible input/output pair to a finite-dimensional real-valued feature vector.  As before, the feature vector is multiplied by a weight vector <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>w</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/88b1e0c8e1be5ebe69d18a8010676fa42d7961e6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.664ex; height:1.676ex;" alt="w"/></span>, but now the resulting score is used to choose among many possible outputs:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\hat {y}}=\operatorname {argmax} _{y}f(x,y)\cdot w.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>y</mi>
+              <mo stretchy="false">&#x005E;<!-- ^ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <msub>
+          <mi>argmax</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>y</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>w</mi>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\hat {y}}=\operatorname {argmax} _{y}f(x,y)\cdot w.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/dc5b83e57ad0de11c737317732783fcf03b8cf1b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.171ex; width:23.997ex; height:3.176ex;" alt="{\hat {y}}=\operatorname {argmax} _{y}f(x,y)\cdot w."/></span></dd></dl>
+<p>Learning again iterates over the examples, predicting an output for each, leaving the weights unchanged when the predicted output matches the target, and changing them when it does not.  The update becomes:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{t+1}=w_{t}+f(x,y)-f(x,{\hat {y}}).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>y</mi>
+              <mo stretchy="false">&#x005E;<!-- ^ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{t+1}=w_{t}+f(x,y)-f(x,{\hat {y}}).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c3654bee4f0c3850e6eaad046bc25f513273c4a5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:29.868ex; height:2.843ex;" alt="w_{t+1}=w_{t}+f(x,y)-f(x,{\hat {y}})."/></span></dd></dl>
+<p>This multiclass feedback formulation reduces to the original perceptron when <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f9e315fd7e2ba406057a97300593c4802b53e4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="x"/></span> is a real-valued vector, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b8a6208ec717213d4317e666f1ae872e00620a0d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.155ex; height:2.009ex;" alt="y"/></span> is chosen from <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{0,1\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mn>1</mn>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{0,1\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/28de5781698336d21c9c560fb1cbb3fb406923eb" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.684ex; height:2.843ex;" alt="\{0,1\}"/></span>, and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(x,y)=yx}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>y</mi>
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(x,y)=yx}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0f765f7d01d77ad20fbda78e82878af2fd6c99cb" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.191ex; height:2.843ex;" alt="f(x,y)=yx"/></span>.
+</p><p>For certain problems, input/output representations and features can be chosen so that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {argmax} _{y}f(x,y)\cdot w}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">a</mi>
+            <mi mathvariant="normal">r</mi>
+            <mi mathvariant="normal">g</mi>
+            <mi mathvariant="normal">m</mi>
+            <mi mathvariant="normal">a</mi>
+            <mi mathvariant="normal">x</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>y</mi>
+          </mrow>
+        </msub>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>,</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>w</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {argmax} _{y}f(x,y)\cdot w}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/493974bd293b9465408430aba5596b4171a5dde4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.171ex; width:18.562ex; height:3.176ex;" alt="\mathrm {argmax} _{y}f(x,y)\cdot w"/></span> can be found efficiently even though <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b8a6208ec717213d4317e666f1ae872e00620a0d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.155ex; height:2.009ex;" alt="y"/></span> is chosen from a very large or even infinite set.
+</p><p>Since 2002, perceptron training has become popular in the field of <a href="/wiki/Natural_language_processing" title="Natural language processing">natural language processing</a> for such tasks as <a href="/wiki/Part-of-speech_tagging" title="Part-of-speech tagging">part-of-speech tagging</a> and <a href="/wiki/Syntactic_parsing" class="mw-redirect" title="Syntactic parsing">syntactic parsing</a> (Collins, 2002). It has also been applied to large-scale machine learning problems in a <a href="/wiki/Distributed_computing" title="Distributed computing">distributed computing</a> setting.<sup id="cite_ref-14" class="reference"><a href="#cite_note-14">&#91;14&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Perceptron&amp;action=edit&amp;section=9" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="list-style-type: decimal;">
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-largemargin-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-largemargin_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-largemargin_1-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal"><a href="/wiki/Yoav_Freund" title="Yoav Freund">Freund, Y.</a>; <a href="/wiki/Robert_Schapire" title="Robert Schapire">Schapire, R. E.</a> (1999). <a rel="nofollow" class="external text" href="http://cseweb.ucsd.edu/~yfreund/papers/LargeMarginsUsingPerceptron.pdf">"Large margin classification using the perceptron algorithm"</a> <span class="cs1-format">(PDF)</span>. <i><a href="/wiki/Machine_Learning_(journal)" title="Machine Learning (journal)">Machine Learning</a></i>. <b>37</b> (3): 277–296. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1023%2FA%3A1007662407062">10.1023/A:1007662407062</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Machine+Learning&amp;rft.atitle=Large+margin+classification+using+the+perceptron+algorithm&amp;rft.volume=37&amp;rft.issue=3&amp;rft.pages=277-296&amp;rft.date=1999&amp;rft_id=info%3Adoi%2F10.1023%2FA%3A1007662407062&amp;rft.aulast=Freund&amp;rft.aufirst=Y.&amp;rft.au=Schapire%2C+R.+E.&amp;rft_id=http%3A%2F%2Fcseweb.ucsd.edu%2F~yfreund%2Fpapers%2FLargeMarginsUsingPerceptron.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APerceptron" class="Z3988"></span><style data-mw-deduplicate="TemplateStyles:r935243608">.mw-parser-output cite.citation{font-style:inherit}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/9px-Lock-green.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lock-gray-alt-2.svg/9px-Lock-gray-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lock-red-alt-2.svg/9px-Lock-red-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration{color:#555}.mw-parser-output .cs1-subscription span,.mw-parser-output .cs1-registration span{border-bottom:1px dotted;cursor:help}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/12px-Wikisource-logo.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output code.cs1-code{color:inherit;background:inherit;border:inherit;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;font-size:100%}.mw-parser-output .cs1-visible-error{font-size:100%}.mw-parser-output .cs1-maint{display:none;color:#33aa33;margin-left:0.3em}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration,.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left,.mw-parser-output .cs1-kern-wl-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right,.mw-parser-output .cs1-kern-wl-right{padding-right:0.2em}</style></span>
+</li>
+<li id="cite_note-bishop-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-bishop_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-bishop_2-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation book">Bishop, Christopher M. (2006). <i>Pattern Recognition and Machine Learning</i>. Springer. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/0-387-31073-8" title="Special:BookSources/0-387-31073-8"><bdi>0-387-31073-8</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Pattern+Recognition+and+Machine+Learning&amp;rft.pub=Springer&amp;rft.date=2006&amp;rft.isbn=0-387-31073-8&amp;rft.aulast=Bishop&amp;rft.aufirst=Christopher+M.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APerceptron" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><cite class="citation journal">Rosenblatt, Frank (1957). "The Perceptron—a perceiving and recognizing automaton". <i>Report 85-460-1</i>. Cornell Aeronautical Laboratory.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Report+85-460-1&amp;rft.atitle=The+Perceptron%E2%80%94a+perceiving+and+recognizing+automaton&amp;rft.date=1957&amp;rft.aulast=Rosenblatt&amp;rft.aufirst=Frank&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APerceptron" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-Olazaran-4"><span class="mw-cite-backlink">^ <a href="#cite_ref-Olazaran_4-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Olazaran_4-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Olazaran, Mikel (1996). "A Sociological Study of the Official History of the Perceptrons Controversy". <i>Social Studies of Science</i>. <b>26</b> (3): 611–659. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1177%2F030631296026003005">10.1177/030631296026003005</a>. <a href="/wiki/JSTOR" title="JSTOR">JSTOR</a>&#160;<a rel="nofollow" class="external text" href="//www.jstor.org/stable/285702">285702</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Social+Studies+of+Science&amp;rft.atitle=A+Sociological+Study+of+the+Official+History+of+the+Perceptrons+Controversy&amp;rft.volume=26&amp;rft.issue=3&amp;rft.pages=611-659&amp;rft.date=1996&amp;rft_id=info%3Adoi%2F10.1177%2F030631296026003005&amp;rft_id=%2F%2Fwww.jstor.org%2Fstable%2F285702&amp;rft.aulast=Olazaran&amp;rft.aufirst=Mikel&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APerceptron" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><cite class="citation journal">Aizerman, M. A.; Braverman, E. M.; Rozonoer, L. I. (1964). "Theoretical foundations of the potential function method in pattern recognition learning". <i>Automation and Remote Control</i>. <b>25</b>: 821–837.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Automation+and+Remote+Control&amp;rft.atitle=Theoretical+foundations+of+the+potential+function+method+in+pattern+recognition+learning&amp;rft.volume=25&amp;rft.pages=821-837&amp;rft.date=1964&amp;rft.aulast=Aizerman&amp;rft.aufirst=M.+A.&amp;rft.au=Braverman%2C+E.+M.&amp;rft.au=Rozonoer%2C+L.+I.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APerceptron" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><cite class="citation arxiv">Mohri, Mehryar; Rostamizadeh, Afshin (2013). "Perceptron Mistake Bounds". <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/1305.0208">1305.0208</a></span> [<a rel="nofollow" class="external text" href="//arxiv.org/archive/cs.LG">cs.LG</a>].</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=preprint&amp;rft.jtitle=arXiv&amp;rft.atitle=Perceptron+Mistake+Bounds&amp;rft.date=2013&amp;rft_id=info%3Aarxiv%2F1305.0208&amp;rft.aulast=Mohri&amp;rft.aufirst=Mehryar&amp;rft.au=Rostamizadeh%2C+Afshin&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APerceptron" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><cite class="citation journal">Cash, Sydney; Yuste, Rafael (1999). "Linear Summation of Excitatory Inputs by CA1 Pyramidal Neurons". <i><a href="/wiki/Neuron_(journal)" title="Neuron (journal)">Neuron</a></i>. <b>22</b> (2): 383–394. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0896-6273%2800%2981098-3">10.1016/S0896-6273(00)81098-3</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Neuron&amp;rft.atitle=Linear+Summation+of+Excitatory+Inputs+by+CA1+Pyramidal+Neurons&amp;rft.volume=22&amp;rft.issue=2&amp;rft.pages=383-394&amp;rft.date=1999&amp;rft_id=info%3Adoi%2F10.1016%2FS0896-6273%2800%2981098-3&amp;rft.aulast=Cash&amp;rft.aufirst=Sydney&amp;rft.au=Yuste%2C+Rafael&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APerceptron" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><cite class="citation book">Liou, D.-R.; Liou, J.-W.; Liou, C.-Y. (2013). <i>Learning Behaviors of Perceptron</i>. iConcept Press. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-1-477554-73-9" title="Special:BookSources/978-1-477554-73-9"><bdi>978-1-477554-73-9</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Learning+Behaviors+of+Perceptron&amp;rft.pub=iConcept+Press&amp;rft.date=2013&amp;rft.isbn=978-1-477554-73-9&amp;rft.aulast=Liou&amp;rft.aufirst=D.-R.&amp;rft.au=Liou%2C+J.-W.&amp;rft.au=Liou%2C+C.-Y.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APerceptron" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><cite class="citation web">Genevieve B. Orr. <a rel="nofollow" class="external text" href="https://www.willamette.edu/~gorr/classes/cs449/Classification/perceptron.html">"The Perceptron"</a>. Willamette University<span class="reference-accessdate">. Retrieved <span class="nowrap">3 March</span> 2017</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=The+Perceptron&amp;rft.pub=Willamette+University&amp;rft.au=Genevieve+B.+Orr&amp;rft_id=https%3A%2F%2Fwww.willamette.edu%2F~gorr%2Fclasses%2Fcs449%2FClassification%2Fperceptron.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APerceptron" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text"><cite class="citation book">Bishop, Christopher M (2006-08-17). "Chapter 4. Linear Models for Classification". <i>Pattern Recognition and Machine Learning</i>. Springer Science+Business Media, LLC. p.&#160;194. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0387-31073-2" title="Special:BookSources/978-0387-31073-2"><bdi>978-0387-31073-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Chapter+4.+Linear+Models+for+Classification&amp;rft.btitle=Pattern+Recognition+and+Machine+Learning&amp;rft.pages=194&amp;rft.pub=Springer+Science%2BBusiness+Media%2C+LLC&amp;rft.date=2006-08-17&amp;rft.isbn=978-0387-31073-2&amp;rft.aulast=Bishop&amp;rft.aufirst=Christopher+M&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APerceptron" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-KrauthMezard87-11"><span class="mw-cite-backlink">^ <a href="#cite_ref-KrauthMezard87_11-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-KrauthMezard87_11-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Krauth, W.; Mezard, M. (1987). "Learning algorithms with optimal stability in neural networks". <i>J. Of Physics A: Math. Gen</i>. <b>20</b> (11): L745–L752. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1088%2F0305-4470%2F20%2F11%2F013">10.1088/0305-4470/20/11/013</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=J.+Of+Physics+A%3A+Math.+Gen.&amp;rft.atitle=Learning+algorithms+with+optimal+stability+in+neural+networks&amp;rft.volume=20&amp;rft.issue=11&amp;rft.pages=L745-L752&amp;rft.date=1987&amp;rft_id=info%3Adoi%2F10.1088%2F0305-4470%2F20%2F11%2F013&amp;rft.aulast=Krauth&amp;rft.aufirst=W.&amp;rft.au=Mezard%2C+M.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APerceptron" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text"><cite class="citation journal">Wendemuth, A. (1995). "Learning the Unlearnable". <i>J. Of Physics A: Math. Gen</i>. <b>28</b> (18): 5423–5436. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1088%2F0305-4470%2F28%2F18%2F030">10.1088/0305-4470/28/18/030</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=J.+Of+Physics+A%3A+Math.+Gen.&amp;rft.atitle=Learning+the+Unlearnable&amp;rft.volume=28&amp;rft.issue=18&amp;rft.pages=5423-5436&amp;rft.date=1995&amp;rft_id=info%3Adoi%2F10.1088%2F0305-4470%2F28%2F18%2F030&amp;rft.aulast=Wendemuth&amp;rft.aufirst=A.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APerceptron" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-13">^</a></b></span> <span class="reference-text"><cite class="citation journal">Anlauf, J. K.; Biehl, M. (1989). "The AdaTron: an Adaptive Perceptron algorithm". <i>Europhysics Letters</i>. <b>10</b> (7): 687–692. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1209%2F0295-5075%2F10%2F7%2F014">10.1209/0295-5075/10/7/014</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Europhysics+Letters&amp;rft.atitle=The+AdaTron%3A+an+Adaptive+Perceptron+algorithm&amp;rft.volume=10&amp;rft.issue=7&amp;rft.pages=687-692&amp;rft.date=1989&amp;rft_id=info%3Adoi%2F10.1209%2F0295-5075%2F10%2F7%2F014&amp;rft.aulast=Anlauf&amp;rft.aufirst=J.+K.&amp;rft.au=Biehl%2C+M.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APerceptron" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text"><cite class="citation book">McDonald, R.; Hall, K.; Mann, G. (2010). <a rel="nofollow" class="external text" href="https://www.aclweb.org/anthology/N10-1069.pdf">"Distributed Training Strategies for the Structured Perceptron"</a> <span class="cs1-format">(PDF)</span>. <i>Human Language Technologies: The 2010 Annual Conference of the North American Chapter of the ACL</i>. Association for Computational Linguistics. pp.&#160;456–464.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Distributed+Training+Strategies+for+the+Structured+Perceptron&amp;rft.btitle=Human+Language+Technologies%3A+The+2010+Annual+Conference+of+the+North+American+Chapter+of+the+ACL&amp;rft.pages=456-464&amp;rft.pub=Association+for+Computational+Linguistics&amp;rft.date=2010&amp;rft.aulast=McDonald&amp;rft.aufirst=R.&amp;rft.au=Hall%2C+K.&amp;rft.au=Mann%2C+G.&amp;rft_id=https%3A%2F%2Fwww.aclweb.org%2Fanthology%2FN10-1069.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APerceptron" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Perceptron&amp;action=edit&amp;section=10" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>Aizerman, M. A. and Braverman, E. M. and Lev I. Rozonoer. Theoretical foundations of the potential function method in pattern recognition learning. Automation and Remote Control, 25:821–837, 1964.</li>
+<li>Rosenblatt, Frank (1958), The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain, Cornell Aeronautical Laboratory, Psychological Review, v65, No. 6, pp.&#160;386–408. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1037%2Fh0042519">10.1037/h0042519</a>.</li>
+<li>Rosenblatt, Frank (1962), Principles of Neurodynamics. Washington, DC:Spartan Books.</li>
+<li>Minsky M. L. and Papert S. A. 1969. <i>Perceptrons</i>. Cambridge, MA: MIT Press.</li>
+<li>Gallant, S. I. (1990). <a rel="nofollow" class="external text" href="http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=80230">Perceptron-based learning algorithms.</a> IEEE Transactions on Neural Networks, vol. 1, no. 2, pp.&#160;179–191.</li>
+<li>Mohri, Mehryar and Rostamizadeh, Afshin (2013). <a rel="nofollow" class="external text" href="https://arxiv.org/pdf/1305.0208.pdf">Perceptron Mistake Bounds</a> arXiv:1305.0208, 2013.</li>
+<li>Novikoff, A. B. (1962). On convergence proofs on perceptrons. Symposium on the Mathematical Theory of Automata, 12, 615–622. Polytechnic Institute of Brooklyn.</li>
+<li><a href="/wiki/Bernard_Widrow" title="Bernard Widrow">Widrow, B.</a>, Lehr, M.A., "<a rel="nofollow" class="external text" href="http://www.inf.ufrgs.br/~engel/data/media/file/cmp121/widrow.pdf">30 years of Adaptive Neural Networks: Perceptron, Madaline, and Backpropagation</a>," <i>Proc. IEEE</i>, vol 78, no 9, pp.&#160;1415–1442, (1990).</li>
+<li><a href="/wiki/Michael_Collins_(computational_linguist)" title="Michael Collins (computational linguist)">Collins, M.</a> 2002. <a rel="nofollow" class="external text" href="https://www.aclweb.org/anthology/W02-1001">Discriminative training methods for hidden Markov models: Theory and experiments with the perceptron algorithm</a> in Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP '02).</li>
+<li>Yin, Hongfeng (1996), Perceptron-Based Algorithms and Analysis, Spectrum Library, Concordia University, Canada</li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Perceptron&amp;action=edit&amp;section=11" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://www.mathworks.com/matlabcentral/fileexchange/32949-a-perceptron-learns-to-perform-a-binary-nand-function/content/PerceptronImpl.m">A Perceptron implemented in MATLAB to learn binary NAND function</a></li>
+<li>Chapter 3 <a rel="nofollow" class="external text" href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K3.pdf">Weighted networks - the perceptron</a> and chapter 4 <a rel="nofollow" class="external text" href="http://page.mi.fu-berlin.de/rojas/neural/chapter/K4.pdf">Perceptron learning</a> of <a rel="nofollow" class="external text" href="http://page.mi.fu-berlin.de/rojas/neural/index.html.html"><i>Neural Networks - A Systematic Introduction</i></a> by <a href="/wiki/Ra%C3%BAl_Rojas" title="Raúl Rojas">Raúl Rojas</a> (<link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/><a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-3-540-60505-8" title="Special:BookSources/978-3-540-60505-8">978-3-540-60505-8</a>)</li>
+<li><a rel="nofollow" class="external text" href="http://www.csulb.edu/~cwallis/artificialn/History.htm">History of perceptrons</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.cis.hut.fi/ahonkela/dippa/node41.html">Mathematics of perceptrons</a></li></ul>
+<div role="navigation" class="navbox authority-control" aria-labelledby="Authority_control_frameless_&amp;#124;text-top_&amp;#124;10px_&amp;#124;alt=Edit_this_at_Wikidata_&amp;#124;link=https&amp;#58;//www.wikidata.org/wiki/Q690207&amp;#124;Edit_this_at_Wikidata" style="padding:3px"><table class="nowraplinks hlist navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th id="Authority_control_frameless_&amp;#124;text-top_&amp;#124;10px_&amp;#124;alt=Edit_this_at_Wikidata_&amp;#124;link=https&amp;#58;//www.wikidata.org/wiki/Q690207&amp;#124;Edit_this_at_Wikidata" scope="row" class="navbox-group" style="width:1%"><a href="/wiki/Help:Authority_control" title="Help:Authority control">Authority control</a> <a href="https://www.wikidata.org/wiki/Q690207" title="Edit this at Wikidata"><img alt="Edit this at Wikidata" src="//upload.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/10px-OOjs_UI_icon_edit-ltr-progressive.svg.png" decoding="async" width="10" height="10" style="vertical-align: text-top" srcset="//upload.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/15px-OOjs_UI_icon_edit-ltr-progressive.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png 2x" data-file-width="20" data-file-height="20" /></a></th><td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><span class="nowrap"><a href="/wiki/National_Diet_Library" title="National Diet Library">NDL</a>: <span class="uid"><a rel="nofollow" class="external text" href="https://id.ndl.go.jp/auth/ndlna/00569067">00569067</a></span></span></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1297
+Cached time: 20200314235106
+Cache expiry: 2592000
+Dynamic content: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.476 seconds
+Real time usage: 0.798 seconds
+Preprocessor visited node count: 1775/1000000
+Post‐expand include size: 57845/2097152 bytes
+Template argument size: 1597/2097152 bytes
+Highest expansion depth: 13/40
+Expensive parser function count: 5/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 48821/5000000 bytes
+Number of Wikibase entities loaded: 4/400
+Lua time usage: 0.192/10.000 seconds
+Lua memory usage: 4.91 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  481.601      1 -total
+ 52.24%  251.596      1 Template:Reflist
+ 33.38%  160.748      7 Template:Cite_journal
+  9.12%   43.946      1 Template:Authority_control
+  8.74%   42.094      1 Template:Machine_learning_bar
+  7.83%   37.730      1 Template:Sidebar_with_collapsible_lists
+  7.50%   36.112      1 Template:ISBN
+  7.35%   35.403      1 Template:Redirect
+  5.22%   25.150      1 Template:Cite_arxiv
+  4.77%   22.950      4 Template:Cite_book
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:172777-0!canonical!math=5 and timestamp 20200314235111 and revision id 945596217
+ -->
+</div><noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>
+		<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Perceptron&amp;oldid=945596217">https://en.wikipedia.org/w/index.php?title=Perceptron&amp;oldid=945596217</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Classification_algorithms" title="Category:Classification algorithms">Classification algorithms</a></li><li><a href="/wiki/Category:Artificial_neural_networks" title="Category:Artificial neural networks">Artificial neural networks</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Wikipedia_articles_with_NDL_identifiers" title="Category:Wikipedia articles with NDL identifiers">Wikipedia articles with NDL identifiers</a></li><li><a href="/wiki/Category:Articles_with_example_Python_code" title="Category:Articles with example Python code">Articles with example Python code</a></li></ul></div></div>
+		<div class="visualClear"></div>
+		
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+    <h2>Navigation menu</h2>
+    <div id="mw-head">
+        
+<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+	<h3 id="p-personal-label">Personal tools</h3>
+	<ul >
+		
+		<li id="pt-anonuserpage">Not logged in</li>
+		<li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Perceptron" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Perceptron" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>
+	</ul>
+</div>
+
+        <div id="left-navigation">
+            <div id="p-namespaces" role="navigation" class="vectorTabs " aria-labelledby="p-namespaces-label">
+	<h3 id="p-namespaces-label">Namespaces</h3>
+	<ul >
+		<li id="ca-nstab-main" class="selected"><a href="/wiki/Perceptron" title="View the content page [c]" accesskey="c">Article</a></li><li id="ca-talk"><a href="/wiki/Talk:Perceptron" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Talk</a></li>
+	</ul>
+</div>
+<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<ul class="menu" >
+		
+	</ul>
+</div>
+
+        </div>
+        <div id="right-navigation">
+            <div id="p-views" role="navigation" class="vectorTabs " aria-labelledby="p-views-label">
+	<h3 id="p-views-label">Views</h3>
+	<ul >
+		<li id="ca-view" class="collapsible selected"><a href="/wiki/Perceptron">Read</a></li><li id="ca-edit" class="collapsible"><a href="/w/index.php?title=Perceptron&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/w/index.php?title=Perceptron&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li>
+	</ul>
+</div>
+<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<ul class="menu" >
+		
+	</ul>
+</div>
+<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="/w/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" value="Special:Search" name="title"/>
+			<input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+        </div>
+    </div>
+    
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="/wiki/Main_Page"></a>
+	</div>
+	<div class="portal" role="navigation" id="p-navigation"  aria-labelledby="p-navigation-label">
+		<h3  id="p-navigation-label">
+			Navigation
+		</h3>
+		<div class="body">
+			<ul><li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Wikipedia:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li></ul>
+			
+		</div>
+	</div>
+	
+	<div class="portal" role="navigation" id="p-interaction"  aria-labelledby="p-interaction-label">
+		<h3  id="p-interaction-label">
+			Interaction
+		</h3>
+		<div class="body">
+			<ul><li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li></ul>
+			
+		</div>
+	</div>
+	
+	<div class="portal" role="navigation" id="p-tb"  aria-labelledby="p-tb-label">
+		<h3  id="p-tb-label">
+			Tools
+		</h3>
+		<div class="body">
+			<ul><li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Perceptron" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Perceptron" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Perceptron&amp;oldid=945596217" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Perceptron&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q690207" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Perceptron&amp;id=945596217" title="Information on how to cite this page">Cite this page</a></li></ul>
+			
+		</div>
+	</div>
+	
+	<div class="portal" role="navigation" id="p-coll-print_export"  aria-labelledby="p-coll-print_export-label">
+		<h3  id="p-coll-print_export-label">
+			Print/export
+		</h3>
+		<div class="body">
+			<ul><li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Perceptron">Create a book</a></li><li id="coll-download-as-rl"><a href="/w/index.php?title=Special:ElectronPdf&amp;page=Perceptron&amp;action=show-download-screen">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Perceptron&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li></ul>
+			
+		</div>
+	</div>
+	
+	<div class="portal" role="navigation" id="p-lang"  aria-labelledby="p-lang-label">
+		<h3  id="p-lang-label">
+			Languages
+		</h3>
+		<div class="body">
+			<ul><li class="interlanguage-link interwiki-ar"><a href="https://ar.wikipedia.org/wiki/%D8%A8%D9%8A%D8%B1%D8%B3%D9%8A%D8%A8%D8%AA%D8%B1%D9%88%D9%86" title="بيرسيبترون – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target">العربية</a></li><li class="interlanguage-link interwiki-az"><a href="https://az.wikipedia.org/wiki/Perseptron" title="Perseptron – Azerbaijani" lang="az" hreflang="az" class="interlanguage-link-target">Azərbaycanca</a></li><li class="interlanguage-link interwiki-ca"><a href="https://ca.wikipedia.org/wiki/Perceptr%C3%B3" title="Perceptró – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target">Català</a></li><li class="interlanguage-link interwiki-cs"><a href="https://cs.wikipedia.org/wiki/Perceptron" title="Perceptron – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target">Čeština</a></li><li class="interlanguage-link interwiki-de"><a href="https://de.wikipedia.org/wiki/Perzeptron" title="Perzeptron – German" lang="de" hreflang="de" class="interlanguage-link-target">Deutsch</a></li><li class="interlanguage-link interwiki-el"><a href="https://el.wikipedia.org/wiki/Perceptron" title="Perceptron – Greek" lang="el" hreflang="el" class="interlanguage-link-target">Ελληνικά</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/Perceptr%C3%B3n" title="Perceptrón – Spanish" lang="es" hreflang="es" class="interlanguage-link-target">Español</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D8%B3%D9%BE%D8%AA%D8%B1%D9%88%D9%86" title="پرسپترون – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target">فارسی</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.wikipedia.org/wiki/Perceptron" title="Perceptron – French" lang="fr" hreflang="fr" class="interlanguage-link-target">Français</a></li><li class="interlanguage-link interwiki-ko"><a href="https://ko.wikipedia.org/wiki/%ED%8D%BC%EC%85%89%ED%8A%B8%EB%A1%A0" title="퍼셉트론 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target">한국어</a></li><li class="interlanguage-link interwiki-id"><a href="https://id.wikipedia.org/wiki/Perceptron" title="Perceptron – Indonesian" lang="id" hreflang="id" class="interlanguage-link-target">Bahasa Indonesia</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Percettrone" title="Percettrone – Italian" lang="it" hreflang="it" class="interlanguage-link-target">Italiano</a></li><li class="interlanguage-link interwiki-he"><a href="https://he.wikipedia.org/wiki/%D7%A4%D7%A8%D7%A1%D7%A4%D7%98%D7%A8%D7%95%D7%9F" title="פרספטרון – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target">עברית</a></li><li class="interlanguage-link interwiki-mk"><a href="https://mk.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D1%86%D0%B5%D0%BF%D1%82%D1%80%D0%BE%D0%BD" title="Перцептрон – Macedonian" lang="mk" hreflang="mk" class="interlanguage-link-target">Македонски</a></li><li class="interlanguage-link interwiki-nl"><a href="https://nl.wikipedia.org/wiki/Perceptron" title="Perceptron – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target">Nederlands</a></li><li class="interlanguage-link interwiki-ne"><a href="https://ne.wikipedia.org/wiki/%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%B8%E0%A5%87%E0%A4%AA%E0%A5%8D%E0%A4%9F%E0%A5%8D%E0%A4%B0%E0%A5%8B%E0%A4%A8" title="प्रसेप्ट्रोन – Nepali" lang="ne" hreflang="ne" class="interlanguage-link-target">नेपाली</a></li><li class="interlanguage-link interwiki-ja"><a href="https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%BC%E3%82%BB%E3%83%97%E3%83%88%E3%83%AD%E3%83%B3" title="パーセプトロン – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target">日本語</a></li><li class="interlanguage-link interwiki-pl"><a href="https://pl.wikipedia.org/wiki/Perceptron" title="Perceptron – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target">Polski</a></li><li class="interlanguage-link interwiki-pt"><a href="https://pt.wikipedia.org/wiki/Perceptron" title="Perceptron – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target">Português</a></li><li class="interlanguage-link interwiki-ru badge-Q17437796 badge-featuredarticle" title="featured article"><a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D1%86%D0%B5%D0%BF%D1%82%D1%80%D0%BE%D0%BD" title="Перцептрон – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target">Русский</a></li><li class="interlanguage-link interwiki-sk"><a href="https://sk.wikipedia.org/wiki/Perceptr%C3%B3n" title="Perceptrón – Slovak" lang="sk" hreflang="sk" class="interlanguage-link-target">Slovenčina</a></li><li class="interlanguage-link interwiki-sl"><a href="https://sl.wikipedia.org/wiki/Perceptron" title="Perceptron – Slovenian" lang="sl" hreflang="sl" class="interlanguage-link-target">Slovenščina</a></li><li class="interlanguage-link interwiki-sr"><a href="https://sr.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D1%86%D0%B5%D0%BF%D1%82%D1%80%D0%BE%D0%BD" title="Перцептрон – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target">Српски / srpski</a></li><li class="interlanguage-link interwiki-sv"><a href="https://sv.wikipedia.org/wiki/Perceptron" title="Perceptron – Swedish" lang="sv" hreflang="sv" class="interlanguage-link-target">Svenska</a></li><li class="interlanguage-link interwiki-th"><a href="https://th.wikipedia.org/wiki/%E0%B9%80%E0%B8%9E%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%80%E0%B8%8B%E0%B8%9B%E0%B8%95%E0%B8%A3%E0%B8%AD%E0%B8%99" title="เพอร์เซปตรอน – Thai" lang="th" hreflang="th" class="interlanguage-link-target">ไทย</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D1%86%D0%B5%D0%BF%D1%82%D1%80%D0%BE%D0%BD" title="Перцептрон – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target">Українська</a></li><li class="interlanguage-link interwiki-zh-yue"><a href="https://zh-yue.wikipedia.org/wiki/%E6%84%9F%E7%9F%A5%E5%99%A8" title="感知器 – Cantonese" lang="yue" hreflang="yue" class="interlanguage-link-target">粵語</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.wikipedia.org/wiki/%E6%84%9F%E7%9F%A5%E5%99%A8" title="感知器 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target">中文</a></li></ul>
+			<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q690207#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+		</div>
+	</div>
+	
+</div>
+
+</div>
+
+
+<div id="footer" role="contentinfo" >
+	<ul id="footer-info" class="">
+		<li id="footer-info-lastmod"> This page was last edited on 14 March 2020, at 23:51<span class="anonymous-show">&#160;(UTC)</span>.</li>
+		<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+	</ul>
+	<ul id="footer-places" class="">
+		<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+		<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+		<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+		<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+		<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+		<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+		<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Perceptron&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</div>
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.476","walltime":"0.798","ppvisitednodes":{"value":1775,"limit":1000000},"postexpandincludesize":{"value":57845,"limit":2097152},"templateargumentsize":{"value":1597,"limit":2097152},"expansiondepth":{"value":13,"limit":40},"expensivefunctioncount":{"value":5,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":48821,"limit":5000000},"entityaccesscount":{"value":4,"limit":400},"timingprofile":["100.00%  481.601      1 -total"," 52.24%  251.596      1 Template:Reflist"," 33.38%  160.748      7 Template:Cite_journal","  9.12%   43.946      1 Template:Authority_control","  8.74%   42.094      1 Template:Machine_learning_bar","  7.83%   37.730      1 Template:Sidebar_with_collapsible_lists","  7.50%   36.112      1 Template:ISBN","  7.35%   35.403      1 Template:Redirect","  5.22%   25.150      1 Template:Cite_arxiv","  4.77%   22.950      4 Template:Cite_book"]},"scribunto":{"limitreport-timeusage":{"value":"0.192","limit":"10.000"},"limitreport-memusage":{"value":5148243,"limit":52428800}},"cachereport":{"origin":"mw1297","timestamp":"20200314235106","ttl":2592000,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Perceptron","url":"https:\/\/en.wikipedia.org\/wiki\/Perceptron","sameAs":"http:\/\/www.wikidata.org\/entity\/Q690207","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q690207","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2003-01-22T18:20:27Z","dateModified":"2020-03-14T23:51:11Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/fe\/Kernel_Machine.svg","headline":"algorithm for supervised learning of binary classifiers"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":117,"wgHostname":"mw1371"});});</script></body></html>

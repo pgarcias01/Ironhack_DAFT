@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+<head>
+
+
+
+<!-- 2.0.12 -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="Japan's largest platform for academic e-journals: J-STAGE is a full text database for reviewed academic papers published by Japanese societies">
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<title>Data Science Journal</title>
+<link rel="stylesheet" href="/web/css/bootstrap3-wysiwyg5-color.css" />
+<link rel="stylesheet" href="/web/css/bootstrap3-wysiwyg5.css" />
+<link rel="stylesheet" href="/web/css/ranking.css?rn=2.0.12" />
+
+<link rel="stylesheet" href="/web/css/bootstrap.min.css" />
+
+<link rel="stylesheet" href="/web/css/style.css?rn=2.0.12"/>
+<link rel="stylesheet" href="/web/css/common-elements-style.css?rn=2.0.12" />
+<link rel="stylesheet" href="/web/css/jquery.treefilter.css" />
+<link rel="stylesheet" href="/web/css/jplayer.blue.monday.css" />
+<link rel="stylesheet" href="/web/css/main.css?rn=2.0.12" />
+
+<link rel="stylesheet" media="print" href="/web/css/print.css" />
+
+<!--[if lt IE 9]>
+
+<script src="/web/js/html5shiv.min.js"></script>
+<script src="/web/js/respond.min.js"></script>
+<![endif]-->
+<style type="text/css">
+<!--
+b {
+	font-weight: bold;
+}
+i {
+	font-style: italic;
+}
+// -->
+</style>
+</head>
+	<body class="body-offcanvas addition-pages">
+
+		
+
+<!-- HEADER :: START -->
+<span class="noprint">
+<header class="clearfix">
+	<!-- NAVIGATION :: START -->
+	<nav class="navbar navbar-default navbar-fixed-top ep-nav-shadow" >
+		<div class="container">
+			<button type="button" class="navbar-toggle offcanvas-toggle" data-toggle="offcanvas" data-target="#js-bootstrap-offcanvas" style="float:left;"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar">&nbsp;</span> <span class="icon-bar">&nbsp;</span> <span class="icon-bar">&nbsp;</span> </button>
+			<!-- RIGHT NAV SEARCH :: BEGIN -->
+			<div class="search-nav-block dropdown">
+				<a href="javascript:;" class=""  data-toggle="collapse" data-target="#Search_nav"><i class="search-nav-icon"></i></a>
+			</div>
+			<!-- RIGHT NAV SEARCH :: END -->
+			<!-- LOGO :: START -->
+			<a class="navbar-brand ms-logowrap hm-logo-padding" href="https://www.jstage.jst.go.jp/browse/-char/en"><img src="/web/images/jstage-logo-20.png" alt="" style="margin-top:6px;"/></a>
+			<!-- LOGO :: END -->
+			<!-- HAMBURGER LEFT TO RIGHT SLIDE :: START -->
+			<div class="offcanvas-left-wrap register-offcanvas-left-wrap">
+								<div class="navbar-offcanvas navbar-offcanvas-touch navbar-offcanvas-fade" role="navigation" id="js-bootstrap-offcanvas">
+					<div class="offcanvas-left-wrap">
+						<div class="navbar-header">
+							<a class="navbar-brand jst-homelink" href="https://www.jstage.jst.go.jp/browse/-char/en">J-STAGE home</a>
+							<button type="button" class="navbar-toggle offcanvas-toggle pull-right" data-toggle="offcanvas" data-target="#js-bootstrap-offcanvas" style="float:left;"> <img src="/web/images/edit-profile/icon-close-menu.png" alt=""></button>
+						</div>
+						<div class="offcanvas-nav-wrap">
+							<ul class="nav navbar-nav">
+																<li class="dropdown reponsive-menu"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse<b class="caret"></b></a>
+									<ul class="dropdown-menu ep-dropdown-menu">
+										<li style="background:none !important;"><span class="topnav-dropdown-icon"><img src="/web/images/top-nav-dropdown-arrow.png" width="18" height="10" alt=""/></span></li>
+										<li><a href="/journal/list/-char/en">All titles</a></li>
+										<li><a href="/journal/fields/-char/en">All subject areas</a></li>
+										<li><a href="/journal/publisher/-char/en">All publishers</a></li>
+										<li><a href="/search/global/_search/-char/en">Search articles</a></li>
+									</ul>
+								</li>
+																<li class="dropdown reponsive-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">About J-STAGE <b class="caret"></b></a>
+									<ul class="dropdown-menu ep-dropdown-menu">
+										<li style="background:none !important;"><span class="topnav-dropdown-icon"><img src="/web/images/top-nav-dropdown-arrow.png" width="18" height="10" alt=""/></span></li>
+										<li><a href="https://www.jstage.jst.go.jp/static/pages/JstageOverview/-char/en">Overview</a></li>
+										<li><a href="https://www.jstage.jst.go.jp/static/pages/JstageServices/TAB1/-char/en">Services and features</a></li>
+										<li><a href="https://www.jstage.jst.go.jp/static/pages/PublicDataAboutJstage/-char/en">Public data</a></li>
+										<li><a href="https://www.jstage.jst.go.jp/static/pages/TermsAndPolicies/ForIndividuals/-char/en">Terms and Policy</a></li>
+																			</ul>
+								</li>
+
+																<li class="dropdown reponsive-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">News and PR  <b class="caret"></b></a>
+									<ul class="dropdown-menu ep-dropdown-menu">
+										<li style="background:none !important;"><span class="topnav-dropdown-icon"><img src="/web/images/top-nav-dropdown-arrow.png" width="18" height="10" alt=""/></span></li>
+										<li><a href="https://www.jstage.jst.go.jp/static/pages/News/TAB1/Current/Page1/-char/en">News</a></li>
+																				<li><a href="https://www.jstage.jst.go.jp/static/pages/News/TAB2/Page1/-char/en">Maintenance information</a></li>
+																														<li><a href="https://www.jstage.jst.go.jp/static/pages/News/TAB6/Page1/-char/en">Special contents </a></li>
+										<li><a href="https://www.jstage.jst.go.jp/static/pages/News/TAB7/Page1/-char/en">PR media </a></li>
+									</ul>
+								</li>
+																<li class="dropdown reponsive-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Support  <b class="caret"></b></a>
+									<ul class="dropdown-menu ep-dropdown-menu">
+										<li style="background:none !important;"><span class="topnav-dropdown-icon"><img src="/web/images/top-nav-dropdown-arrow.png" width="18" height="10" alt=""/></span></li>
+																														<li><a href="https://www.jstage.jst.go.jp/static/pages/ForReaders/-char/en">User's manual</a></li>
+										<li><a href="https://www.jstage.jst.go.jp/static/pages/RecommendedEnvironment/-char/en">Current confirmed browsers</a></li>
+																				 <li><a href="https://www.jstage.jst.go.jp/static/pages/FAQs/TAB3/-char/en">FAQ</a></li> 										<li><a href="https://www.jstage.jst.go.jp/static/pages/Contact/-char/en">Contact </a></li>
+										<li><a href="https://www.jstage.jst.go.jp/static/pages/Sitemap/-char/en">Sitemap </a></li>
+									</ul>
+								</li>
+																																														<li class="reponsive-menu"><a href="/mylogin/-char/en?sourceurl=https%3A%2F%2Fwww.jstage.jst.go.jp%2Fbrowse%2Fdsj%2F1%2F0%2F_contents%2F-char%2Fen">Sign in</a></li>
+																											<li class="reponsive-menu"><a href="/cart/list/-char/en?backurl=https%3A%2F%2Fwww.jstage.jst.go.jp%2Fbrowse%2Fdsj%2F1%2F0%2F_contents%2F-char%2Fen" class="" >Cart <img src="/web/images/edit-profile/icon-cart.png" alt=""></a>
+									</li>
+																<li class="dropdown reponsive-menu">
+																		<a href="#" class="dropdown-toggle" data-toggle="dropdown"> EN  <img src="/web/images/edit-profile/icon-lang.png" alt=""> <b class="caret"></b></a>
+									<ul class="dropdown-menu ep-dropdown-menu">
+									<li style="background:none !important;"><span class="topnav-dropdown-icon"><img src="/web/images/top-nav-dropdown-arrow.png" width="18" height="10" alt=""/></span></li>
+																				<li><a href="javascript:;" onclick="doChangeLang('en')">English</a></li>
+										<li><a href="javascript:;" onclick="doChangeLang('ja')">日本語</a></li>
+																			</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+								<ul class="nav navbar-nav offcanvas-left-display-none">
+										<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse<b class="caret"></b></a>
+						<ul class="dropdown-menu ep-dropdown-menu">
+							<li style="background:none !important;"><span class="topnav-dropdown-icon"><img src="/web/images/top-nav-dropdown-arrow.png" width="18" height="10" alt=""/></span></li>
+							<li><a href="/journal/list/-char/en">All titles</a></li>
+							<li><a href="/journal/fields/-char/en">All subject areas</a></li>
+							<li><a href="/journal/publisher/-char/en">All publishers</a></li>
+							<li><a href="/search/global/_search/-char/en">Search articles</a></li>
+						</ul>
+					</li>
+										<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">About J-STAGE <b class="caret"></b></a>
+						<ul class="dropdown-menu ep-dropdown-menu">
+							<li style="background:none !important;"><span class="topnav-dropdown-icon"><img src="/web/images/top-nav-dropdown-arrow.png" width="18" height="10" alt=""/></span></li>
+							<li><a href="https://www.jstage.jst.go.jp/static/pages/JstageOverview/-char/en">Overview</a></li>
+							<li><a href="https://www.jstage.jst.go.jp/static/pages/JstageServices/TAB1/-char/en">Services and features</a></li>
+							<li><a href="https://www.jstage.jst.go.jp/static/pages/PublicDataAboutJstage/-char/en">Public data</a></li>
+							<li><a href="https://www.jstage.jst.go.jp/static/pages/TermsAndPolicies/ForIndividuals/-char/en">Terms and Policy</a></li>
+													</ul>
+					</li>
+										<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">News and PR  <b class="caret"></b></a>
+						<ul class="dropdown-menu ep-dropdown-menu">
+							<li style="background:none !important;"><span class="topnav-dropdown-icon"><img src="/web/images/top-nav-dropdown-arrow.png" width="18" height="10" alt=""/></span></li>
+							<li><a href="https://www.jstage.jst.go.jp/static/pages/News/TAB1/Current/Page1/-char/en">News</a></li>
+														<li><a href="https://www.jstage.jst.go.jp/static/pages/News/TAB2/Page1/-char/en">Maintenance information</a></li>
+																					<li><a href="https://www.jstage.jst.go.jp/static/pages/News/TAB6/Page1/-char/en">Special contents </a></li>
+							<li><a href="https://www.jstage.jst.go.jp/static/pages/News/TAB7/Page1/-char/en">PR media </a></li>
+						</ul>
+					</li>
+										<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Support  <b class="caret"></b></a>
+						<ul class="dropdown-menu ep-dropdown-menu">
+							<li style="background:none !important;"><span class="topnav-dropdown-icon"><img src="/web/images/top-nav-dropdown-arrow.png" width="18" height="10" alt=""/></span></li>
+																					<li><a href="https://www.jstage.jst.go.jp/static/pages/ForReaders/-char/en">User's manual</a></li>
+							<li><a href="https://www.jstage.jst.go.jp/static/pages/RecommendedEnvironment/-char/en">Current confirmed browsers</a></li>
+														 <li><a href="https://www.jstage.jst.go.jp/static/pages/FAQs/TAB3/-char/en">FAQ</a></li> 							<li><a href="https://www.jstage.jst.go.jp/static/pages/Contact/-char/en">Contact </a></li>
+							<li><a href="https://www.jstage.jst.go.jp/static/pages/Sitemap/-char/en">Sitemap </a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<!-- HAMBURGER LEFT TO RIGHT SLIDE :: END -->
+			<div class="offcanvas-right-wrap register-offcanvas-right-wrap">
+				<ul class="nav navbar-nav">
+																					<li class=""> <a href="/mylogin/-char/en?sourceurl=https%3A%2F%2Fwww.jstage.jst.go.jp%2Fbrowse%2Fdsj%2F1%2F0%2F_contents%2F-char%2Fen" class="" >Sign in  </a></li>
+															<li class=""><a href="/cart/list/-char/en?backurl=https%3A%2F%2Fwww.jstage.jst.go.jp%2Fbrowse%2Fdsj%2F1%2F0%2F_contents%2F-char%2Fen" class="" >Cart </a>
+					</li>
+												<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					 EN 					<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu ep-dropdown-menu" style="min-width: 80px;">
+						<li style="background:none !important;"><span class="topnav-dropdown-icon"><img src="/web/images/top-nav-dropdown-arrow.png" width="18" height="10" alt=""></span></li>
+						<li><a href="javascript:;" onclick="doChangeLang('en')">English</a></li>
+						<li><a href="javascript:;" onclick="doChangeLang('ja')">日本語</a></li>
+					</ul>
+				</li>
+								</ul>
+			</div>
+			<!-- RIGHT NAV SEARCH DROPDOWN :: BEGIN -->
+			<ul class="dropdown-menu collapse ep-dropdown-menu search-dropdown-menu" id="Search_nav" style="max-width: 300px;">
+				<li style="background:none !important;"><span class="topnav-dropdown-icon"></span></li>
+				<li>
+					<div class="col-md-24 edit-profile-form-control">
+						<form action="/result/journal/-char/en" method="get">
+						<div class="input-group">
+							<input name="globalSearchKey" type="text" class="form-control search-nav-input" placeholder="Search within all titles on J-STAGE">
+							<span class="input-group-btn search-btn">
+							<button class="btn btn-default" type="submit"><i class="search-nav-icon"></i></button>
+							</span>
+						</div><!-- /input-group -->
+						<a href="https://www.jstage.jst.go.jp/search/global/_search/-char/en" class="advanced-search-link">Advanced search </a>
+						</form>
+					</div>
+				</li>
+			</ul>
+			<!-- RIGHT NAV SEARCH DROPDOWN :: END -->
+
+			<div class="clearfix"></div>
+		</div>
+	</nav>
+	<!-- NAVIGATION :: END -->
+</header>
+</span>
+<!-- HEADER :: END -->
+		
+
+<!-- JOURNAL INTRODUCTION :: START -->
+<div id="page-content">
+	<div id="journal-header-compact" class="secondlevel-tabnavigation-detail colorscheme09-normal">
+		<div class="container">
+			<div class="flt-left" style="width:100%; position:relative;">
+				<div class="journal-name">Data Science Journal</div>
+
+														<div id="journal-right-infosection" class="col-sm-6" style="padding-top:15px;">
+						<div class="fs-12">
+															Online ISSN : 1683-1470<br>
+																											</div>
+					</div>
+								<div class="journal-tags-clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- JOURNAL INTRODUCTION :: END -->
+
+<!-- SECOND LEVEL TAB NAVIGATION :: START -->
+<div class="colorscheme09-normal">
+	<div class="container">
+		<div id="second-level-nav-tabs">
+			<ul class="nav nav-tabs">
+				<li ><a href="https://www.jstage.jst.go.jp/browse/dsj/-char/en">Journal home</a></li>
+								<li class='active'><a href="javascript:void(0)">Journal issue</a></li>
+												<li ><a href="https://www.jstage.jst.go.jp/browse/dsj/_pubinfo/-char/en">About the journal</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- SECOND LEVEL TAB NAVIGATION :: END --><!-- SEARCH INTRODUCTION :: START -->
+<div id="searchbrowse-topbox-wrap" class="colorscheme09-lighter">
+	<div class="container print-non-disp">
+		<div class="row">
+			<!-- INTRODUCTION :: START -->
+				<div class="col-md-24">
+						<!-- BREDCRUMBS :: START -->
+		<ul class="global-breadcrumbs">
+			<li><a href="https://www.jstage.jst.go.jp/browse/-char/en">J-STAGE home</a></li>
+			<li>/</li>
+						<li><a href="https://www.jstage.jst.go.jp/browse/dsj/-char/en">Data Science Journal</a></li>
+						<li> / </li>
+			<li>Journal issue</li>
+		</ul>
+		<div class="clearfix"></div>	<!-- BREDCRUMBS :: END -->				<!-- INTRODUCTION :: END -->
+				<div id="search-browser-boxwrap">
+					<!-- SEARCH BOX :: DESKTOP :: START -->
+<div class="search-form-wrap showindesktop">
+	<div class="searchbrowse-title">Search</div>
+	<form class="search-form" method="get" action="/result/journal/-char/en" style="width:35%">
+		<input type="hidden" name="cdjournal" value="dsj" />
+		<input type="search" placeholder="Search within this journal" value="" class="search-input " name="globalSearchKey">
+		<input type="submit" title="Search" value="Search" class="search-button">
+		<div id="pageMessage01" style="display: none ;color:red">Please specify a volume, issue and page OR a volume and page.</div>
+		<div id="pageMessage02" style="display: none ;color:red">No article has been found that matches the search query.</div>
+		<div id="pageMessage03" style="display:none;color:red">There are more than one record in the search results.Please specify issue.</div>
+		<div class="form-advance-search"><a href="https://www.jstage.jst.go.jp/search/advance/dsj/-char/en">Advanced search</a></div>
+	</form>
+	<span class="txt-or-wrap" style="width:60px">OR </span>
+	<div class="searchbrowse-title" style="width:80px">Browse</div>
+	<div class="journal-issue-dd-wrap" style="width:42%">
+		<form class="pastvol-issuse-form searchbrowse-journal-issue" id="pastvolIssuseForm" method="get" action="">
+<ul class="pastvol-issuse-list">
+<li class="pastvol-issuse-listbox-width" style="width:30%">
+<select class="journal-volume-dd" name="journal-volume" id="selectVol">
+<option value="">Volume</option>
+																																																					<option value="13" >Vol 13</option>
+																																																																			<option value="12" >Vol 12</option>
+																																																																			<option value="11" >Vol 11</option>
+																																																																			<option value="10" >Vol 10</option>
+																																																																			<option value="9" >Vol 9</option>
+																																																																			<option value="8" >Vol 8</option>
+																																																																			<option value="7" >Vol 7</option>
+																																																																			<option value="6" >Vol 6</option>
+																																																																			<option value="5" >Vol 5</option>
+																																																																			<option value="4" >Vol 4</option>
+																																																																			<option value="3" >Vol 3</option>
+																																																																			<option value="2" >Vol 2</option>
+																																																																			<option value="1" selected>Vol 1</option>
+															</select>
+</li>
+<li class="pastvol-issuse-listbox-width" style="width:30%">
+<select class="journal-issue-dd" name="journal-issue" id="selectIssue" >
+<option value="">Issue</option>
+																					<option value="0" selected>Issue 0</option>
+						</select>
+</li>
+<li><input type="text" name="dummy" style="display:none;" /><input type="text" placeholder="page" name="pageInput" id="pageInput" style="width:60px" onkeydown="pressEnter4GoBtn();" /></li>
+<li class="pastvol-issuse-go-btn-width">
+<input type="button" value="Go"  onclick="return false;" class="pastvol-issuse-go-btn" id="goBtn" />
+</li>
+</ul>
+</form>	</div>
+</div>
+<!-- SEARCH BOX :: DESKTOP :: END -->
+<!-- SEARCH BOX :: MOBILE :: START -->
+<div id="tabs-container" class="hidedesktop">
+	<div class="searchbrowse-title">Search</div>
+	<ul class="search-browse-volissue-tabs">
+		<li ><a href="#tab-2">Search</a></li>
+		<li  class="current" ><a href="#tab-1">Browse</a></li>
+	</ul>
+	<div class="searchbrowse-tab">
+		<div id="tab-2" class="searchbrowse-volissue-tab-content"  style="display:none;" >
+			<form class="search-form" method="get" action="/result/journal/-char/en">
+				<input type="hidden" name="cdjournal" value="dsj" />
+				<input type="search" placeholder="Search within this journal" value="" class="search-input " name="globalSearchKey">
+				<input type="submit" title="Search" value="Search" class="search-button">
+				<div id="pageMessage01" style="display: none ;color:red">Please specify a volume, issue and page OR a volume and page.</div>
+				<div id="pageMessage02" style="display: none ;color:red">No article has been found that matches the search query.</div>
+				<div id="pageMessage03" style="display:none;color:red">There are more than one record in the search results.Please specify issue.</div>
+				<div class="form-advance-search"><a href="https://www.jstage.jst.go.jp/search/advance/dsj/-char/en">Advanced search</a></div>
+			</form>
+		</div>
+		<div id="tab-1" class="searchbrowse-volissue-tab-content"  style="display:block;" >
+			<form class="pastvol-issuse-form searchbrowse-journal-issue" id="mobilePastvolIssuseForm" method="get" action="">
+	<ul class="pastvol-issuse-list">
+				<li class="pastvol-issuse-listbox-width">
+					<select class="journal-volume-dd" name="journal-volume" id="mobileSelectVol">
+				<option value="">Volume</option>
+																																								<option value="13" >Vol 13</option>
+																																																	<option value="12" >Vol 12</option>
+																																																	<option value="11" >Vol 11</option>
+																																																	<option value="10" >Vol 10</option>
+																																																	<option value="9" >Vol 9</option>
+																																																	<option value="8" >Vol 8</option>
+																																																	<option value="7" >Vol 7</option>
+																																																	<option value="6" >Vol 6</option>
+																																																	<option value="5" >Vol 5</option>
+																																																	<option value="4" >Vol 4</option>
+																																																	<option value="3" >Vol 3</option>
+																																																	<option value="2" >Vol 2</option>
+																																																	<option value="1" selected>Vol 1</option>
+													</select>
+		</li>
+				<li class="pastvol-issuse-listbox-width">
+					<select class="journal-issue-dd" name="journal-issue" id="mobileSelectIssue" >
+				<option value="">Issue</option>
+																					<option value="0" selected>Issue 0</option>
+									</select>
+		</li>
+		<li><input type="text" name="dummy" style="display:none;" /><input type="text" placeholder="page" name="mobilePageInput" id="mobilePageInput" style="width:60px"  onkeydown="pressEnter4MobileGoBtn();" /></li>
+		<li class="pastvol-issuse-go-btn-width" style="width:90%;margin:30px 0px 0px 10px">
+			<input type="button" value="Go" onclick="return false;" class="pastvol-issuse-go-btn" id="mobileGoBtn">
+		</li>
+	</ul>
+</form>
+<div class="clearfix"></div>
+<div id="mobilePageMessage01" style="display:none;color:red">Please specify a volume, issue and page OR a volume and page.</div>
+<div id="mobilePageMessage02" style="display:none;color:red">No article has been found that matches the search query.</div>
+<div id="mobilePageMessage03" style="display:none;color:red">There are more than one record in the search results.Please specify issue.</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- SEARCH BOX :: MOBILE :: END -->					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- SEARCH INTRODUCTION :: END -->
+<!-- Journal ISSUE :: START -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-24 pagett hidden-xs hidden-sm"><div class="feature-page-title">Journal issue</div></div>
+		<!-- LEFT SECTION :: START -->
+		<div class="col-md-6 hidden-xs hidden-sm print-non-disp">
+						<div class="" style="text-align:center;">
+								<img src="/pub/dsj/thumbnail/dsj_1_0.jpg" id="journal-thumbnail" alt="" style="margin-top:0;margin-left:-10px;" height="183" width="130">
+							</div>
+						<div id="searchbrowse-leftsection">
+				<div id="faceted-search-wrap" class="showindesktop">
+					<div class="showindesktop bottom-margin-2x">
+						<div class="facetsearch-content-wrap faceted-search-scrollwrap">
+							
+																															<div class="facetsearch-subheader-noissue" >
+																											
+																		<span class="facetsearch-subheader-link colorscheme09-search-filter-bg  customTooltip " title="Volume 13 (2014)" >
+							<a href="https://www.jstage.jst.go.jp/browse/dsj/13/0/_contents/-char/en" class="bluelink-style" style="display:block; width: 100%;">
+								Volume 13 (2014)
+							</a>
+						</span>
+									</div>
+																																	<div class="facetsearch-subheader-noissue" >
+																											
+																		<span class="facetsearch-subheader-link colorscheme09-search-filter-bg  customTooltip " title="Volume 12 (2013)" >
+							<a href="https://www.jstage.jst.go.jp/browse/dsj/12/0/_contents/-char/en" class="bluelink-style" style="display:block; width: 100%;">
+								Volume 12 (2013)
+							</a>
+						</span>
+									</div>
+																																	<div class="facetsearch-subheader-noissue" >
+																											
+																		<span class="facetsearch-subheader-link colorscheme09-search-filter-bg  customTooltip " title="Volume 11 (2012)" >
+							<a href="https://www.jstage.jst.go.jp/browse/dsj/11/0/_contents/-char/en" class="bluelink-style" style="display:block; width: 100%;">
+								Volume 11 (2012)
+							</a>
+						</span>
+									</div>
+																																	<div class="facetsearch-subheader-noissue" >
+																											
+																		<span class="facetsearch-subheader-link colorscheme09-search-filter-bg  customTooltip " title="Volume 10 (2011)" >
+							<a href="https://www.jstage.jst.go.jp/browse/dsj/10/0/_contents/-char/en" class="bluelink-style" style="display:block; width: 100%;">
+								Volume 10 (2011)
+							</a>
+						</span>
+									</div>
+																																	<div class="facetsearch-subheader-noissue" >
+																											
+																		<span class="facetsearch-subheader-link colorscheme09-search-filter-bg  customTooltip " title="Volume 9 (2010)" >
+							<a href="https://www.jstage.jst.go.jp/browse/dsj/9/0/_contents/-char/en" class="bluelink-style" style="display:block; width: 100%;">
+								Volume 9 (2010)
+							</a>
+						</span>
+									</div>
+																																	<div class="facetsearch-subheader-noissue" >
+																											
+																		<span class="facetsearch-subheader-link colorscheme09-search-filter-bg  customTooltip " title="Volume 8 (2009)" >
+							<a href="https://www.jstage.jst.go.jp/browse/dsj/8/0/_contents/-char/en" class="bluelink-style" style="display:block; width: 100%;">
+								Volume 8 (2009)
+							</a>
+						</span>
+									</div>
+																																	<div class="facetsearch-subheader-noissue" >
+																											
+																		<span class="facetsearch-subheader-link colorscheme09-search-filter-bg  customTooltip " title="Volume 7 (2008)" >
+							<a href="https://www.jstage.jst.go.jp/browse/dsj/7/0/_contents/-char/en" class="bluelink-style" style="display:block; width: 100%;">
+								Volume 7 (2008)
+							</a>
+						</span>
+									</div>
+																																	<div class="facetsearch-subheader-noissue" >
+																											
+																		<span class="facetsearch-subheader-link colorscheme09-search-filter-bg  customTooltip " title="Volume 6 (2007)" >
+							<a href="https://www.jstage.jst.go.jp/browse/dsj/6/0/_contents/-char/en" class="bluelink-style" style="display:block; width: 100%;">
+								Volume 6 (2007)
+							</a>
+						</span>
+									</div>
+																																	<div class="facetsearch-subheader-noissue" >
+																											
+																		<span class="facetsearch-subheader-link colorscheme09-search-filter-bg  customTooltip " title="Volume 5 (2006)" >
+							<a href="https://www.jstage.jst.go.jp/browse/dsj/5/0/_contents/-char/en" class="bluelink-style" style="display:block; width: 100%;">
+								Volume 5 (2006)
+							</a>
+						</span>
+									</div>
+																																	<div class="facetsearch-subheader-noissue" >
+																											
+																		<span class="facetsearch-subheader-link colorscheme09-search-filter-bg  customTooltip " title="Volume 4 (2005)" >
+							<a href="https://www.jstage.jst.go.jp/browse/dsj/4/0/_contents/-char/en" class="bluelink-style" style="display:block; width: 100%;">
+								Volume 4 (2005)
+							</a>
+						</span>
+									</div>
+																																	<div class="facetsearch-subheader-noissue" >
+																											
+																		<span class="facetsearch-subheader-link colorscheme09-search-filter-bg  customTooltip " title="Volume 3 (2004)" >
+							<a href="https://www.jstage.jst.go.jp/browse/dsj/3/0/_contents/-char/en" class="bluelink-style" style="display:block; width: 100%;">
+								Volume 3 (2004)
+							</a>
+						</span>
+									</div>
+																																	<div class="facetsearch-subheader-noissue" >
+																											
+																		<span class="facetsearch-subheader-link colorscheme09-search-filter-bg  customTooltip " title="Volume 2 (2003)" >
+							<a href="https://www.jstage.jst.go.jp/browse/dsj/2/0/_contents/-char/en" class="bluelink-style" style="display:block; width: 100%;">
+								Volume 2 (2003)
+							</a>
+						</span>
+									</div>
+																																				<div class="facetsearch-subheader-noissue" id="selectedVol">
+																											
+																		<span class="facetsearch-subheader-link colorscheme09-search-filter-bg-active  customTooltip " title="Volume 1 (2002)" >
+							<a href="https://www.jstage.jst.go.jp/browse/dsj/1/0/_contents/-char/en" class="bluelink-style" style="display:block; width: 100%;">
+								Volume 1 (2002)
+							</a>
+						</span>
+									</div>
+																	
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- LEFT SECTION :: END -->
+		<!-- RIGHT SECTION :: START -->
+		<div class="col-md-18">
+			<div id="searchbrowse-rightsection">
+										
+															 <div class="feature-page-title">
+							 Volume 1
+														</div>
+				<div id="search-results-infobar">
+		<div class="search-resultsinfo-leftsection">Showing 1-19 articles out of 19 articles from the selected issue</div>
+		<div class="search-resultsinfo-rightsection print-non-disp">
+							<div class="search-download-btnwrap">
+					<a href="javascript:;" class="downloadall collapsed" data-toggle="collapse" data-target="#dl-opt">Download Meta</a>
+					<div class="collapse radiolist-dropdown" id="dl-opt">
+						<div class="radiolist-arrow"></div>
+						<div class="radiolist-inner">
+																																																																																																					<div class="ep-radio">
+											<input type="radio" name="dlmtradio" id="dlmtradio_1" checked value="1"><label for="dlmtradio_1">RIS (compatible with EndNote, Reference Manager, ProCite, RefWorks)</label>
+										</div>
+																																																					<div class="ep-radio">
+											<input type="radio" name="dlmtradio" id="dlmtradio_2" value="2"><label for="dlmtradio_2">Bib TeX (compatible with BibDesk, LaTeX)</label>
+										</div>
+																																																<div class="ep-radio">
+								<input type="radio" name="dlmtradio" id="dlmtradio_3" value="3"><label for="dlmtradio_3">Text</label>
+							</div>
+							<input type="button" value="Download all" onclick="downloadAll()">
+						</div>
+					</div>
+				</div>
+				<div class="search-abtract-btnwrap">
+					<a href="javascript:void(0);" class="collapseall-icon arrow" style="display:none;" title="Hide all abstracts">Hide all abstracts</a>
+					<a href="javascript:void(0);" class="expandall-icon arrow" title="Show all abstracts">Show all abstracts</a>
+				</div>
+				<div class="clearfix"></div>
+					</div>
+	</div>
+	<div class="clearfix"></div>
+	<!-- SEARCH :: PAGINATION MOBILE :: START -->
+	<div id="search-pagination-wrap-top" style="padding-left: 0px; padding-right: 0px;">
+		<div class="inner colorscheme09-lighter print-non-disp">
+			<div class="search-pagination-left">
+				<ul class="search-pagination-list">
+					<div class="search-pagination-left">
+<ul class="search-pagination-list">
+<li class="inactive-page">|<</li><li class="inactive-page"><</li><li class="active-page">1</li><li class="inactive-page">></li><li class="inactive-page">>|</li></ul>
+</div>
+
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- SEARCH :: PAGINATION MOBILE :: END -->
+	<div class="clearfix"></div>
+	<!-- SEARCH RESULTS :: START -->
+	<div id="search-resultslist-wrap">
+				
+						
+									
+									
+														<!-- INNER SECTION :: START -->
+				<div class="searchbrowse-first-subheading  section-level1">Contents of Volume 1, Issue 1, April 2002</div>
+				<ul class="search-resultslisting">
+																<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_1/_article/-char/en" class="bluelink-style customTooltip" title="Development of the web-based NIST X-ray Photoelectron Spectroscopy (XPS) Database" >Development of the web-based NIST X-ray Photoelectron Spectroscopy (XPS) Database</a></div>
+																<div class="searchlist-authortags customTooltip" title="Angela Y. Lee, Dorothy M. Blakeslee, Cedric J. Powell, John R. Rumble, Jr.">Angela Y. Lee, Dorothy M. Blakeslee, Cedric J. Powell, John R. Rumble, ...</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		1-12<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.1" class="bluelink-style">https://doi.org/10.2481/dsj.1.1</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									The first Web-based version of the NIST X-ray Photoelectron Spectroscopy Database (XPSDB) is described.  The current database, built from a relational database management system (RDBMS), contains critically evaluated data with over 19,000 line positions, chemical shifts, doublet splittings, and energy separations of photoelectron and Auger-electron lines.  It is available free of charge to the public through the Internet at http://srdata.nist.gov/xps/.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_1/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (250K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_13/_article/-char/en" class="bluelink-style customTooltip" title="Organisation and standardisation of information in SWISS-PROT and TrEMBL" >Organisation and standardisation of information in SWISS-PROT and TrEMBL</a></div>
+																<div class="searchlist-authortags customTooltip" title="Michele Magrane, Rolf Apweiler">Michele Magrane, Rolf Apweiler</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		13-18<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.13" class="bluelink-style">https://doi.org/10.2481/dsj.1.13</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									SWISS-PROT is a curated, non-redundant protein sequence database which provides a high level of annotation and is integrated with a large number of other biological databases. It is supplemented by TrEMBL, a computer-annotated database which contains translations of all coding sequences in the EMBL Nucleotide Sequence Database which are not yet in SWISS-PROT. Each fully curated SWISS-PROT entry contains as much up-to-date information as possible from a variety of sources and the high quality of the annotation in SWISS-PROT provides the basis for the procedure which is used to automatically annotate the TrEMBL database. The large amounts of different data types found in both databases are stored in a highly structured and uniform manner and this structured organisation means that SWISS-PROT and TrEMBL together provide a comprehensive resource with data that are readily accessible for users and easily retrievable by computer programs.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_13/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (35K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_19/_article/-char/en" class="bluelink-style customTooltip" title="The application of Principal Component Analysis to materials science data" >The application of Principal Component Analysis to materials science data</a></div>
+																<div class="searchlist-authortags customTooltip" title="Changwon Suh, Arun Rajagopalan, Xiang Li, Krishna Rajan">Changwon Suh, Arun Rajagopalan, Xiang Li, Krishna Rajan</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		19-26<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.19" class="bluelink-style">https://doi.org/10.2481/dsj.1.19</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									The relationship between apparently disparate sets of data is a critical component of interpreting materials' behavior, especially in terms of assessing the impact of the microscopic characteristics of materials on their macroscopic or engineering behavior. In this paper we demonstrate the value of principal component analysis of property data associated with high temperature superconductivity to examine the statistical impact of the materials' intrinsic characteristics on high temperature superconducting behavior.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_19/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (455K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_27/_article/-char/en" class="bluelink-style customTooltip" title="Multivariate estimation and simulation for environmental data modelling: processing of heavy metals concentration data in soil" >Multivariate estimation and simulation for environmental data modelling: processing of heavy metals concentration data in soil</a></div>
+																<div class="searchlist-authortags customTooltip" title="Babara Namyslowska-Wilczynska, Artur Wilczynski">Babara Namyslowska-Wilczynska, Artur Wilczynski</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		27-44<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.27" class="bluelink-style">https://doi.org/10.2481/dsj.1.27</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									Results applying ordinary kriging and cokriging techniques as well as the turning bands simulation method to the survey of heavy metal pollution of the superficial layer (at the depth of 0-20 cm) of soil in a selected mining region of Upper Silesia (S Poland) are presented. The multivariate structural analysis, estimation and conditional simulation was performed on data coming from the regional monitoring of soils. Based on estimated and the simulated cadmium and zinc heavy metal soil concentrations, the most polluted zones and places in the Dabrowa G&oacute;rnicza region, where environmental monitoring should be instituted again, were determined.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_27/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (1158K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_45/_article/-char/en" class="bluelink-style customTooltip" title="A Mexican case study on a centralised database from world natural history museums" >A Mexican case study on a centralised database from world natural history museums</a></div>
+																<div class="searchlist-authortags customTooltip" title="Adolfo G. Navarro S., A. Townsend Peterson, Alejandro Gordillo-Mart&iacute;nez">Adolfo G. Navarro S., A. Townsend Peterson, Alejandro Gordillo-Mart&ia ...</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		45-53<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.45" class="bluelink-style">https://doi.org/10.2481/dsj.1.45</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									The present contribution is a case study of the possibilities of using data from world scientific collections to understand the distribution and conservation of Mexican birds. Information was gathered on specimens from Mexico housed in 40 scientific collections in Mexico, the United States, Canada, and Europe. This information was compiled in a centralized database and various analyses were developed to address historical patterns of ornithological investigations in Mexico: current and potential distribution areas of the species; patterns of species richness, endemism and seasonality; and conservation applications.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_45/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (474K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_54/_article/-char/en" class="bluelink-style customTooltip" title="An integrated web resource for crystallography" >An integrated web resource for crystallography</a></div>
+																<div class="searchlist-authortags customTooltip" title="Brian McMahon">Brian McMahon</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		54-67<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.54" class="bluelink-style">https://doi.org/10.2481/dsj.1.54</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									A recurring theme during the CODATA 2000 conference (Lake Maggiore, Italy, 15 - 19 October 2000) was the increasing convergence in data-rich branches of science between the storage and retrieval of data and the publication of conclusions drawn from the data. Web publishing technologies facilitate access to publications and data through the same interfaces and tools. For crystallography, the ability to deliver the experimental data alongside the research commentary offers tremendous advantages. A structured file format has been developed that allows not only submission of a research article accompanied by a complete supporting data set, but also automated validation of the description of the crystal structure reported in the article against the accompanying data. Such validation is an important component of the review process, and encourages better-quality publications. The adopted format is different from XML, but shares some of the properties of that markup language; and suggests the improvements in quality that might result in other subject areas from the adoption of similar methodology. The International Union of Crystallographyfully exploits the convergence of publishing and data-handling technologies in its online journals and associated Web site.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_54/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (113K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_68/_article/-char/en" class="bluelink-style customTooltip" title="XML representation and management of temporal information for web-based cultural heritage applications" >XML representation and management of temporal information for web-based cultural heritage applications</a></div>
+																<div class="searchlist-authortags customTooltip" title="Fabio Grandi">Fabio Grandi</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		68-83<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.68" class="bluelink-style">https://doi.org/10.2481/dsj.1.68</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									In this paper we survey the recent activities and achievements of our research group in the deployment of XMLrelated technologies in Cultural Heritage applications concerning the encoding of temporal semantics in Web documents. In particular we will review "The Valid Web", which is an XML/XSL infrastructure we defined and implemented for the definition and management of historical information within multimedia documents available on the Web, and its further extension to the effective encoding of advanced temporal features like indeterminacy, multiple granularities and calendars, enabling an efficient processing in a user-friendly Web-based environment. Potential uses of the developed infrastructures include a broad range of applications in the cultural heritage domain, where the historical perspective is relevant, with potentially positive impacts on E-Education and E-Science.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_68/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (1116K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_84/_article/-char/en" class="bluelink-style customTooltip" title="Scientific publications in XML - towards a global knowledge base" >Scientific publications in XML - towards a global knowledge base</a></div>
+																<div class="searchlist-authortags customTooltip" title="Peter Murray-Rust, Henry S. Rzepa">Peter Murray-Rust, Henry S. Rzepa</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		84-98<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.84" class="bluelink-style">https://doi.org/10.2481/dsj.1.84</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									Recent developments on the World-Wide Web provide an unparalleled opportunity to revolutionise scientific, technical and medical publication. The technology exists for the scientific world to use primary publication to create a knowledge base, or Semantic Web, with a potential greatly beyond the paper archives and electronic databases of today.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_84/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (166K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_99/_article/-char/en" class="bluelink-style customTooltip" title="Adaptive fuzzy partition in database mining: application to olfaction" >Adaptive fuzzy partition in database mining: application to olfaction</a></div>
+																<div class="searchlist-authortags customTooltip" title="M Pintore, K Audouze, F Ros, JR Chr&eacute;tien">M Pintore, K Audouze, F Ros, JR Chr&eacute;tien</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		99-110<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.99" class="bluelink-style">https://doi.org/10.2481/dsj.1.99</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									A data set of 412 olfactory compounds, divided into animal, camphoraceous, ethereal and fatty olfaction classes, was submitted to an analysis by a Fuzzy Logic procedure called Adaptive Fuzzy Partition (AFP).This method aims to establish molecular descriptor/chemical activity relationships by dynamically dividing the descriptor space into a set of fuzzily partitioned subspaces. The ability of these AFP models to classify the four olfactory notes was validated after dividing the data set compounds into training and test sets, including 310 and 102 molecules, respectively. The main olfactory note was correctly predicted for 83 % of the test set compounds.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_99/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (92K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_111/_article/-char/en" class="bluelink-style customTooltip" title="Compression of grayscale scientific and medical image data" >Compression of grayscale scientific and medical image data</a></div>
+																<div class="searchlist-authortags customTooltip" title="F Murtagh, M Louys, J.L. Starck, F Bonnarel">F Murtagh, M Louys, J.L. Starck, F Bonnarel</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		111-127<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.111" class="bluelink-style">https://doi.org/10.2481/dsj.1.111</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									A review of issues in image compression is presented, with a strong focus on the wavelet transform and other closely related multiresolution transforms. The roles of information content, resolution scale, and image capture noise, are discussed. Experimental and practical results are reviewed.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_111/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (481K)</span>																																										</div>
+						</div>
+					</li>
+														</ul>
+					
+						
+									
+									
+														<!-- INNER SECTION :: START -->
+				<div class="searchbrowse-first-subheading  section-level1">Contents of Volume 1, Issue 2, August 30, 2002</div>
+				<ul class="search-resultslisting">
+																<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_128/_article/-char/en" class="bluelink-style customTooltip" title="STMML. A markup language for scientific, technical and medical publishing" >STMML. A markup language for scientific, technical and medical publishing</a></div>
+																<div class="searchlist-authortags customTooltip" title="Peter Murray-Rust, Henry S. Rzepa">Peter Murray-Rust, Henry S. Rzepa</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		128-192<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.128" class="bluelink-style">https://doi.org/10.2481/dsj.1.128</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									STMML is an XML-based markup language covering many generic aspects of scientific information. It has been developed as a re-usable core for more specific markup languages. It supports data structures, data types, metadata, scientific units and some basic components of scientific narrative. The central means of adding semantic information is through dictionaries. The specification is through an XML Schema which can be used to validate STMML documents or fragments. Many examples of the language are given.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_128/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (242K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_193/_article/-char/en" class="bluelink-style customTooltip" title="Overview of the IMSA project, a patient-oriented information system" >Overview of the IMSA project, a patient-oriented information system</a></div>
+																<div class="searchlist-authortags customTooltip" title="Oliver Cur&eacute;">Oliver Cur&eacute;</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		193-202<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.193" class="bluelink-style">https://doi.org/10.2481/dsj.1.193</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									This paper proposes an overview of the IMSA application, a patient-oriented medical information system. IMSA stands for Interactive Multimedia System for Auto-medication and aims to provide a health-care Internet tool for the end-user. This system proposes an environment that integrates on-line health information, medical and pharmaceutical databases and a knowledge-based system for medical diagnosis. The implementation process focuses on cognitive science, knowledge representation and human-computer interaction.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_193/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (66K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_203/_article/-char/en" class="bluelink-style customTooltip" title="Limits with modeling data and modeling data with limits" >Limits with modeling data and modeling data with limits</a></div>
+																<div class="searchlist-authortags customTooltip" title="Lionello Pogliani">Lionello Pogliani</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		203-215<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.203" class="bluelink-style">https://doi.org/10.2481/dsj.1.203</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									Modeling of the solubility of amino acids and purine and pyrimidine bases with a set of sixteen molecular descriptors has been thoroughly analyzed to detect and understand the reasons for anomalies in the description of this property for these two classes of compounds. Unsatisfactory modeling can be ascribed to incomplete collateral data, i.e, to the fact that there is insufficient data known about the behavior of these compounds in solution. This is usually because intermolecular forces cannot be modeled. The anomalous modeling can be detected from the rather large values of the standard deviation of the estimates of the whole set of compounds, and from the unsatisfactory modeling of some of the subsets of these compounds. Thus the detected abnormalities can be used (i) to get an idea about weak intermolecular interactions such as hydration, self-association, the hydrogen-bond phenomena in solution, and (ii) to reshape the molecular descriptors with the introduction of parameters that allow better modeling. This last procedure should be used with care, bearing in mind that the solubility phenomena is rather complex.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_203/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (360K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_216/_article/-char/en" class="bluelink-style customTooltip" title="Functional role of bacteriophage transfer RNAs: codon usage analysis of genomic sequences stored in the GENBANK/EMBL/DDBJ databases" >Functional role of bacteriophage transfer RNAs: codon usage analysis of genomic sequences stored in the GENBANK/EMBL/DDBJ databases</a></div>
+																<div class="searchlist-authortags customTooltip" title="T Kunisawa">T Kunisawa</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		216-228<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.216" class="bluelink-style">https://doi.org/10.2481/dsj.1.216</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									Complete genomic sequence data are stored in the public GenBank/EMBL/DDBJ databases so that any investigator can make use of the data. This report describes a comparative analysis of codon usage that is impossible without such a public and open data system. A limited number of bacteriophages harbor their own transfer RNAs. Based on a comparison between T4 phage-encoded tRNA species and the relative cellular amounts of host Escherichia coli tRNAs, it is hypothesized that T4 tRNAs could serve to supplement host isoacceptor tRNA species that are present in minor amounts and thus enhance the translational efficiency of phage proteins. When compared to their respective host bacteria, the codon usage data of bacteriophages D3, &phi;C31, HP1, D29 and 933W all show an increased frequency of synonymous codons or amino acids that correspond to phage tRNA species, suggesting their supplemental role in the efficient production of phage proteins. The data-analysis presents an example in which the availability of an open and fully accessible database system would allow one to obtain comprehensive insights into a fundamental problem in molecular biology.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_216/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (370K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_229/_article/-char/en" class="bluelink-style customTooltip" title="Networking of Biological Resource Centers: WDCM experiences" >Networking of Biological Resource Centers: WDCM experiences</a></div>
+																<div class="searchlist-authortags customTooltip" title="Satoru Miyazaki, Hideaki Sugawara">Satoru Miyazaki, Hideaki Sugawara</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		229-237<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.229" class="bluelink-style">https://doi.org/10.2481/dsj.1.229</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									The WFCC-MIRCEN World Data Centre for Microorganisms (WDCM) was set up more than 30 years ago as a data center of the World Federation for Culture Collections (WFCC). It published the World Directory of Collections of Cultures of Microorganisms when it was established and now provides a portal site for microbial resource centers and their customers by fully utilizing Internet technology. This paper introduces international initiatives on biological resources centers together with the activities of WDCM.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_229/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (136K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_238/_article/-char/en" class="bluelink-style customTooltip" title="China's Natural Resources Database (CNRD)" >China's Natural Resources Database (CNRD)</a></div>
+																<div class="searchlist-authortags customTooltip" title="Li Zehui">Li Zehui</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		238-247<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.238" class="bluelink-style">https://doi.org/10.2481/dsj.1.238</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									China's Natural Resources Database (CNRD) is a comprehensive database, developed to support the research on natural resources, social sustainable development and environmental security in China. This paper intends to introduce the background, contents, characteristics and application of the CNRD.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_238/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (62K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_248/_article/-char/en" class="bluelink-style customTooltip" title="Virtual laboratory strategies for data sharing, communications and development" >Virtual laboratory strategies for data sharing, communications and development</a></div>
+																<div class="searchlist-authortags customTooltip" title="Enrique Canessa, Carlo Fonda, Sandro M. Radicella">Enrique Canessa, Carlo Fonda, Sandro M. Radicella</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		248-256<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.248" class="bluelink-style">https://doi.org/10.2481/dsj.1.248</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									We present an overview of the VL approach to promote research and education in developing countries and to help reduce the technology gap of the digital divide. We discuss software tools for instrument control, data sharing and e-collaboration and communications with special attention to low-bandwidth networks. We analyse the tentative costs involved in VL and the skills needed for VL administration. We conclude by identifying some VL strategies for development.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_248/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (47K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_257/_article/-char/en" class="bluelink-style customTooltip" title="An information system for the building industries: A communication approach based on industrial components" >An information system for the building industries: A communication approach based on industrial components</a></div>
+																<div class="searchlist-authortags customTooltip" title="A.F. Cutting-Decelle, A.M. Dubois, J.E. Dubois">A.F. Cutting-Decelle, A.M. Dubois, J.E. Dubois</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		257-270<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.257" class="bluelink-style">https://doi.org/10.2481/dsj.1.257</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									This paper presents the SYDOX/MATCOMP/Xi project, funded by the French Ministry of Industry. The goal of the project was to provide the construction professionals with an on-line aid for component specification and selection at different levels of the construction life cycle. This two years project started in 1997 and involved several partners. This paper describes the main features of the information system: databases, query and communication systems. SYDOX(SYst&egrave;me de DOnn&eacute;es compleXes) is aimed at defining and demonstrating a prototype to access information about MATerials and COMPonents used in construction, implemented on a WWW server. Though the objective is general, the work was focused on a restricted sub-section of the construction domain. We describe the domain and the scope of the project, the starting point and the lessons learnt from the development of the prototype. We also propose some important ideas on which this research is based.
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_257/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (555K)</span>																																										</div>
+						</div>
+					</li>
+												
+						
+									
+									
+																			<li class="">
+																	<div class="searchlist-title"><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_271/_article/-char/en" class="bluelink-style customTooltip" title="An Integrated Receptor Database (IRDB)" >An Integrated Receptor Database (IRDB)</a></div>
+																<div class="searchlist-authortags customTooltip" title="K Nakata, T Takai-Igarashi, T Nakano, T Kaminuma">K Nakata, T Takai-Igarashi, T Nakano, T Kaminuma</div>
+						<div class="searchlist-additional-info">
+																																													2002									Volume 1																																		 Pages
+																		271-276<br>
+																 Published: 2002<br>								 Released: January 05, 2006 <br> 														</div>
+								 <div class="searchlist-doi"><span class="doi-lb">DOI</span><a href="https://doi.org/10.2481/dsj.1.271" class="bluelink-style">https://doi.org/10.2481/dsj.1.271</a></div> 													<div class="global-tags">
+															<span class="tags-wrap original-tag-style" title="JOURNALS">JOURNALS</span>
+																																													<span class="tags-wrap freeaccess-tag-style" title="FREE ACCESS">FREE ACCESS</span>
+																																																								</div>
+						<div class="showabstractbox content">
+							<div class="showabstractbox-header">
+																	<div class="expand collapse1">
+										<a href="javascript:void(0);">
+										<span class="show_abstract">Show abstract</span><span class="hide_abstract">Hide abstract</span>
+										</a>
+									</div>
+															</div>
+															<div class="inner-content abstract" style="overflow: hidden; max-height: 10em;">
+									Various receptor data were collected, edited and integrated into an Integrated Receptor Database (IRDB). The data stored includes structural data (amino acid sequences, their secondary-structure and three-dimensional structure), functional data, binding affinity, cell signaling data etc. The purpose of this database is to allow structural biologists, drug designers and toxicologists to analyse and elucidate receptor-ligand dockings and the resultant post-binding signal transduction pathways. IRDB is available on line (http://impact.nihs.go.jp/RDB.html)
+									<div style="text-align:center;">
+</div>
+								 <a href="javascript:void(0);" class="bluelink-style fontsize12 full-abstract"><div class="print-non-disp">View full abstract</div></a>								</div>
+																					<div class="lft">
+																	<span><a href="https://www.jstage.jst.go.jp/article/dsj/1/0/1_0_271/_pdf/-char/en"  class="bluelink-style">Download PDF</a> (43K)</span>																																										</div>
+						</div>
+					</li>
+														</ul>
+							<div class="clearfix"></div>
+	</div>
+	<!-- SEARCH RESULTS :: : END -->
+	<!-- SEARCH PAGINATION :: START -->
+	<div id="search-pagination-wrap-bottom">
+		<div class="inner colorscheme09-lighter print-non-disp">
+			<div class="search-pagination-left">
+				<ul class="search-pagination-list">
+					<div class="search-pagination-left">
+<ul class="search-pagination-list">
+<li class="inactive-page">|<</li><li class="inactive-page"><</li><li class="active-page">1</li><li class="inactive-page">></li><li class="inactive-page">>|</li></ul>
+</div>
+
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- SEARCH PAGINATION :: END -->
+<script>
+function downloadAll(){
+	if($("[name=dlmtradio]:checked").val() == 1) {
+		window.location.href = "https://www.jstage.jst.go.jp/AF05S010ShoshJkuDld?sryCd=dsj&noVol=1&noIssue=0&kijicd=1_0_1%2F1_0_13%2F1_0_19%2F1_0_27%2F1_0_45%2F1_0_54%2F1_0_68%2F1_0_84%2F1_0_99%2F1_0_111%2F1_0_128%2F1_0_193%2F1_0_203%2F1_0_216%2F1_0_229%2F1_0_238%2F1_0_248%2F1_0_257%2F1_0_271&cdjournals=dsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj&btnaction=JT0052&request_locale=EN";
+	} else if ($("[name=dlmtradio]:checked").val() == 2) {
+		window.location.href = "https://www.jstage.jst.go.jp/AF05S010ShoshJkuDld?sryCd=dsj&noVol=1&noIssue=0&kijicd=1_0_1%2F1_0_13%2F1_0_19%2F1_0_27%2F1_0_45%2F1_0_54%2F1_0_68%2F1_0_84%2F1_0_99%2F1_0_111%2F1_0_128%2F1_0_193%2F1_0_203%2F1_0_216%2F1_0_229%2F1_0_238%2F1_0_248%2F1_0_257%2F1_0_271&cdjournals=dsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj%2Fdsj&btnaction=JT0053&request_locale=EN";
+	} else if ($("[name=dlmtradio]:checked").val() == 3) {
+		var downloadTextURL = "https://www.jstage.jst.go.jp/browse/dsj/1/0/_contents/-char/en"
+		var index = downloadTextURL.indexOf('/-char');
+		downloadTextURL = downloadTextURL.slice(0, index) + '/download' + downloadTextURL.slice(index, downloadTextURL.length);
+		window.open(downloadTextURL);
+	}
+}
+
+function fullsizeImage(url){
+	window.open(url);
+}
+function pagingDyna(from) {
+var url = 'https://www.jstage.jst.go.jp/browse/dsj/1/0/_contents/-char/en';
+var index = 0;
+if(from != null){
+	index = from;
+}
+url += '?from=' + index;
+location.href = url;
+}
+</script>
+			</div>
+		</div>
+		<!-- RIGHT SECTION :: END -->
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!-- Journal ISSUE :: END -->
+<div class="clearfix"></div>
+<!-- FOOTER :: START -->
+<span class="noprint">
+<footer class="footer-style2">
+<div id="footer-strip" class="colorscheme09-lighter">
+	<div class="container">
+				Edited and published by : CODATA
+		<br>
+				Produced and listed by : CODATA
+		</div>
+</div>
+<div class="footer-wrap print-non-disp">
+	<a href="#0" class="take-on-top1">Top</a>
+	<div class="container">
+		<div class="footer-link-section">
+						<div class="footer-link-heading">Browse</div>
+			<ul class="footer-link-list">
+				<li><a href="/journal/list/-char/en">All titles</a></li>
+				<li><a href="/journal/fields/-char/en">All subject areas</a></li>
+				<li><a href="/journal/publisher/-char/en">All publishers</a></li>
+				<li><a href="/search/global/_search/-char/en">Search articles</a></li>
+			</ul>
+		</div>
+
+		<div class="footer-link-section">
+						<div class="footer-link-heading">About J-STAGE</div>
+			<ul class="footer-link-list">
+				<li><a href="https://www.jstage.jst.go.jp/static/pages/JstageOverview/-char/en">Overview</a></li>
+				<li><a href="https://www.jstage.jst.go.jp/static/pages/JstageServices/TAB1/-char/en">Services and features</a></li>
+				<li><a href="https://www.jstage.jst.go.jp/static/pages/PublicDataAboutJstage/-char/en">Public data</a></li>
+				<li><a href="https://www.jstage.jst.go.jp/static/pages/TermsAndPolicies/ForIndividuals/-char/en">Terms and Policy</a></li>
+							</ul>
+		</div>
+		<div class="footer-link-section">
+						<div class="footer-link-heading">News and PR</div>
+			<ul class="footer-link-list">
+				<li><a href="https://www.jstage.jst.go.jp/static/pages/News/TAB1/Current/Page1/-char/en">News</a></li>
+								<li><a href="https://www.jstage.jst.go.jp/static/pages/News/TAB2/Page1/-char/en">Maintenance information</a></li>
+												<li><a href="https://www.jstage.jst.go.jp/static/pages/News/TAB6/Page1/-char/en">Special contents </a></li>
+				<li><a href="https://www.jstage.jst.go.jp/static/pages/News/TAB7/Page1/-char/en">PR media </a></li>
+			</ul>
+		</div>
+		<div class="footer-link-section">
+						<div class="footer-link-heading">Support</div>
+			<ul class="footer-link-list">
+												<li><a href="https://www.jstage.jst.go.jp/static/pages/ForReaders/-char/en">User's manual</a></li>
+				<li><a href="https://www.jstage.jst.go.jp/static/pages/RecommendedEnvironment/-char/en">Current confirmed browsers</a></li>
+								 <li><a href="https://www.jstage.jst.go.jp/static/pages/FAQs/TAB3/-char/en">FAQ</a></li> 				<li><a href="https://www.jstage.jst.go.jp/static/pages/Contact/-char/en">Contact </a></li>
+				<li><a href="https://www.jstage.jst.go.jp/static/pages/Sitemap/-char/en">Sitemap </a></li>
+			</ul>
+		</div>
+		
+		<div class="clearfix"></div>
+				<div class="clearfix"></div>
+	</div>
+	</div>
+</footer>
+</span>
+<!-- FOOTER :: END -->
+<!-- FEEDBACK BUTTON :: START -->
+<span class="noprint print-non-disp">
+<div id="right-feedback-btn"><a href="https://form.jst.go.jp/enquetes/jstage-feedback" target="_blank" rel="noopener noreferrer">feedback</a></div>
+</span>
+<!-- FEEDBACK BUTTON :: END -->
+<!-- TAKE ME TO TOP :: START -->
+<a href="#0" class="take-on-top" style="z-index:inherit">Top</a>
+<!-- TAKE ME TO TOP :: END -->
+
+<!-- STICKY REGISTER TO J-STAGE HERE :: START -->
+<div id="sticky-register-to-j-stage" class="sticky-register-to-j-stage print-non-disp" style="display:none;">
+<span class="noprint">
+<a href="javascript:;" class="sticky-register-to-j-stage-close" onclick="registerStickyClose();"><i class="fa fa-times-circle-o"></i></a>
+</span>
+<h3 class="register-for-free"><nobr>Register with J-STAGE for free!</nobr></h3>
+<a href="/myregister/-char/en" class="sticky-register-btn">Register</a>
+<p class="register-for-already">Already have an account? Login in <a href="/mylogin/-char/en?sourceurl=https%3A%2F%2Fwww.jstage.jst.go.jp%2Fbrowse%2Fdsj%2F1%2F0%2F_contents%2F-char%2Fen">here</a></p>
+</div>
+<!-- STICKY REGISTER TO J-STAGE HERE :: END -->
+<script src="/web/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below) -->
+<script src="/web/js/bootstrap.js"></script>
+
+<script src="/web/js/bootstrap.offcanvas.min.js"></script>
+
+<script src="/web/js/bootstrap-tabdrop.min.js"></script>
+
+<script src="/web/js/modernizr.js"></script>
+
+	<script src="/web/js/jquery.hc-sticky.min.js"></script>
+
+<script src="/web/js/jquery.touchSwipe.min.js"></script>
+
+<script src="/web/js/jquery.advancedSlider.min.js"></script>
+
+<script src="/web/js/jquery-navtoselect.min.js?rn=2.0.12"></script>
+
+<script src="/web/js/jquery.treefilter.min.js"></script>
+
+<script src="/web/js/jquery.jplayer.min.js"></script>
+
+<script src="/web/js/jquery.coolfieldset.min.js"></script>
+
+<script src="/web/js/select2.full.min.js"></script>
+
+<script src="/web/js/prettify.min.js"></script>
+
+<script src="/web/js/common.js?rn=2.0.12"></script>
+
+<script src="/web/js/tableHeadFixe.min.js"></script>
+
+<script src="/web/js/validation.js?rn=2.0.12"></script>
+
+<script>
+$(document).ready(function () {
+if(('localStorage' in window) && (window.localStorage !== null)) {
+	if(localStorage.getItem('C.regsticky') != 'off'){
+	$('#sticky-register-to-j-stage').show();
+	}
+}
+$('.dropdown-toggle').on('click', function(E) {
+	$(this).find('.glyphicon').toggleClass("glyphicon-chevron-up");
+	$(this).find('.glyphicon').toggleClass("glyphicon-chevron-down");
+});
+$('[data-toggle="tooltip"]').tooltip({});
+$('.warningtooltip').tooltip();
+
+
+$('div.abstract > a').on('click', function() {
+	var parent = $(this).parent();
+	parent.css('max-height', '100%');
+	parent.find('a').css('display', 'none');
+	parent.find('a.fullsize-image').css('display', 'inline');
+	return false;
+});
+
+});
+$(".journal-volume-dd").select2( {width: 'resolve'});
+$(".journal-issue-dd").select2();
+$('#facetsearch-header').facetsearch();
+$('.facetsearch-subheader').facetsearch();
+$(window).load(function(){
+	$('.collapseall-icon').hide();
+	$('.vol-link').click(function(e){
+		e.stopPropagation();
+	});
+	$('.expandall-icon').click(function(){
+		$(this).addClass('expand-inactive');
+		$('.collapseall-icon').removeClass('collapse-inactive')
+		$('.inner-content').slideDown();
+		$('.content').each(function(index, element) {
+			$(this).find('.expand').removeClass('collapse1');
+		});
+		$('.collapseall-icon').show();
+		$('.expandall-icon').hide();
+		$('.show_abstract').hide();
+		$('.hide_abstract').show();
+	});
+	$('.collapseall-icon').addClass('collapse-inactive');
+	$('.collapseall-icon').click(function(){
+		$(this).addClass('collapse-inactive');
+		$('.expandall-icon').removeClass('expand-inactive');
+		$('.inner-content').slideUp();
+		$('.content').each(function(index, element) {
+			$(this).find('.expand').addClass('collapse1');
+		});
+		$('.expandall-icon').show();
+		$('.collapseall-icon').hide();
+		$('.show_abstract').show();
+		$('.hide_abstract').hide();
+	});
+	$('.inner-content').hide();
+	$(".expand a").click(function (e) {
+		e.preventDefault();
+		$(this).parent().toggleClass('collapse1');
+		$(this).closest('.content').find('.inner-content').slideToggle().toggleClass('datapanel_opend');
+		if(!$(this).closest('.content').find('.inner-content').hasClass("datapanel_opend")){
+			$('div.collapseall-icon').removeClass('collapse-inactive');
+		} else {
+			$('div.collapseall-icon').addClass('collapse-inactive');
+		}
+
+		$(this).find('.show_abstract').toggle();
+		$(this).find('.hide_abstract').toggle();
+
+	});
+});
+$(".journal-volume-dd").select2();
+$(".journal-issue-dd").select2();
+$(".searchresults-noofpages-dropdown").select2({
+	minimumResultsForSearch: Infinity
+});
+$(".search-browse-volissue-tabs a").click(function(event) {
+	event.preventDefault();
+	$(this).parent().addClass("current");
+	$(this).parent().siblings().removeClass("current");
+	var tab = $(this).attr("href");
+	$(".searchbrowse-volissue-tab-content").not(tab).css("display", "none");
+	$(tab).fadeIn();
+});
+$('.inner-content .abstract').each(function(){
+	if ($(this).height() < 120) {
+		$(this).find('.full-abstract').hide();
+	}
+});
+
+if ( document.getElementById("selectedVol") != null ) {
+	var pos = $("#selectedVol").position();
+	$(".faceted-search-scrollwrap").scrollTop((pos.top - 50));
+}
+var ddd = [
+{ noVol:"13", noIssue:[] }
+,{ noVol:"12", noIssue:[] }
+,{ noVol:"11", noIssue:[] }
+,{ noVol:"10", noIssue:[] }
+,{ noVol:"9", noIssue:[] }
+,{ noVol:"8", noIssue:[] }
+,{ noVol:"7", noIssue:[] }
+,{ noVol:"6", noIssue:[] }
+,{ noVol:"5", noIssue:[] }
+,{ noVol:"4", noIssue:[] }
+,{ noVol:"3", noIssue:[] }
+,{ noVol:"2", noIssue:[] }
+,{ noVol:"1", noIssue:[] }
+];
+$("#selectVol").bind("change", function() {
+	var selectVol = $(":selected").val();
+	if (selectVol == "") {
+		$("#selectIssue").attr("disabled", "disabled");
+	} else {
+		var disabledAttr = $("#selectIssue").attr("disabled");
+		if (typeof disabledAttr !== "undefined") {
+			$("#selectIssue").removeAttr("disabled");
+		}
+	}
+	$("#selectIssue").children().remove();
+	$('#selectIssue').append($('<option>').html("Issue").val(""));
+	if (selectVol != "") {
+		for (var idx in ddd) {
+			var noVol = ddd[idx].noVol;
+			if (noVol == selectVol) {
+				var noIssueArry = ddd[idx].noIssue;
+				for (i = 0; i < noIssueArry.length; i++) {
+											$('#selectIssue').append($('<option>').html("Issue" + noIssueArry[i]).val(noIssueArry[i]));
+									}
+				break;
+			}
+		}
+	}
+	$("#selectIssue").select2();
+});
+$("#mobileSelectVol").bind("change", function() {
+	var selectVol = $("#mobileSelectVol option:selected").val();
+	if (selectVol == "") {
+		$("#mobileSelectIssue").attr("disabled", "disabled");
+	} else {
+		var disabledAttr = $("#mobileSelectIssue").attr("disabled");
+		if (typeof disabledAttr !== "undefined") {
+			$("#mobileSelectIssue").removeAttr("disabled");
+		}
+	}
+	$("#mobileSelectIssue").children().remove();
+	$('#mobileSelectIssue').append($('<option>').html("Issue").val(""));
+	if (selectVol != "") {
+		for (var idx in ddd) {
+			var noVol = ddd[idx].noVol;
+			if (noVol == selectVol) {
+				var noIssueArry = ddd[idx].noIssue;
+				for (i = 0; i < noIssueArry.length; i++) {
+											$('#mobileSelectIssue').append($('<option>').html("Issue" + noIssueArry[i]).val(noIssueArry[i]));
+									}
+				break;
+			}
+		}
+	}
+	$("#mobileSelectIssue").select2();
+});
+$("#goBtn").bind("click", function() {
+	var noVol = $("#selectVol").val();
+	var noIssue = $("#selectIssue").val();
+	var pageInput = $('#pageInput').val();
+	if (pageInput === undefined) {
+		pageInput = null;
+	}
+	return clickGoBtn("1", noVol, noIssue, pageInput);
+});
+$("#mobileGoBtn").bind("click", function() {
+	var noVol = $("#mobileSelectVol").val();
+	var noIssue = $("#mobileSelectIssue").val();
+	var pageInput = $('#mobilePageInput').val();
+	if (pageInput === undefined) {
+		pageInput = null;
+	}
+	return clickGoBtn("2", noVol, noIssue, pageInput);
+});
+$(window).load(function(){
+	try {
+		var issueList1 = '';
+		var issueOptions = jQuery('#selectIssue').children();
+		if (issueOptions.length > 1) {
+			for ( var i=1; i<issueOptions.length; i++ ){
+				issueList1 = issueList1 + issueOptions.eq(i).val();
+			}
+		}
+		var selectVol = $("#selectVol").val();
+		var selectIssue = $("#selectIssue").val();
+		if (selectVol != "") {
+			for (var idx in ddd) {
+				var noVol = ddd[idx].noVol;
+				if (noVol == selectVol) {
+					var issueList2 = '';
+					var noIssueArry = ddd[idx].noIssue;
+					for (i = 0; i < noIssueArry.length; i++) {
+						issueList2 = issueList2 + noIssueArry[i];
+					}
+					if (issueList1 != issueList2) {
+						$("#selectVol").trigger("change");
+						$("#mobileSelectVol").trigger("change");
+					}
+				}
+			}
+		}
+	} catch (e) {console.log("Exception : " + e);}
+});
+$(window).unload(function(){});
+function pressEnter4GoBtn() {
+	if (window.event.keyCode == 13) {
+		$('#goBtn').trigger("click");
+	}
+}
+function pressEnter4MobileGoBtn() {
+	if (window.event.keyCode == 13) {
+		$('#mobileGoBtn').trigger("click");
+	}
+}
+function clickGoBtn(mode, noVol, noIssue, pageInput) {
+	if (mode == "1") {
+		$("#pageMessage01").css("display", "none");
+		$("#pageMessage02").css("display", "none");
+		$("#pageMessage03").css("display", "none");
+	} else if (mode == "2") {
+		$("#mobilePageMessage01").css("display", "none");
+		$("#mobilePageMessage02").css("display", "none");
+		$("#mobilePageMessage03").css("display", "none");
+	}
+	try {
+
+		if ((noVol == null || noVol == "") && (noIssue == null || noIssue == "")){
+							noVol = "13";
+				noIssue = "0"
+					}
+
+		if (noIssue == null || noIssue == ""){
+			noIssue = "0"
+		}
+
+		if (pageInput == null || pageInput == "") {
+			var url = getUrl(noVol, noIssue);
+			url = url.replace('repXXX', noVol);
+			url = url.replace('repYYY', noIssue);
+			document.location.href = url;
+			return;
+		}
+		if (noVol == null) {
+			if (mode == "1") {
+				$("#pageMessage01").css("display", "block");
+			} else if (mode == "2") {
+				$("#mobilePageMessage01").css("display", "block");
+			}
+			return;
+		}
+		var jsonUrl = 'https://www.jstage.jst.go.jp/pageSearch/dsj/repXXX/repYYY/repZZZ';
+		jsonUrl = jsonUrl.replace('repXXX', noVol);
+		jsonUrl = jsonUrl.replace('repYYY', noIssue);
+		jsonUrl = jsonUrl.replace('repZZZ', pageInput);
+		$.ajax({
+			cache: false,
+			type: 'GET',
+			url: jsonUrl,
+			dataType: 'json',
+			contentType:'application/json',
+			success: function(json) {
+				var errorCd = json.errorCd;
+				var redirectSryCd = json.redirectSryCd;
+				var redirectNoVol = json.redirectNoVol;
+				var redirectNoIssue = json.redirectNoIssue;
+				var redirectCdArticle = json.redirectCdArticle;
+				if (
+						"0" == errorCd
+						&& redirectSryCd != null && redirectSryCd != ''
+						&& redirectNoVol != null && redirectNoVol != ''
+						&& redirectNoIssue != null && redirectNoIssue != ''
+						&& redirectCdArticle != null && redirectCdArticle != ''
+				) {
+					var shosiUrl = 'https://www.jstage.jst.go.jp/article/dsj/repXXX/repYYY/repZZZ/_article/-char/en';
+					var urls = shosiUrl.match('(http.+/article/)([0-9a-z]+)(/repXXX.+)');
+					if(urls.length == 4){
+						shosiUrl = urls[1];
+						shosiUrl += redirectSryCd;
+						shosiUrl += urls[3];
+					}
+					shosiUrl = shosiUrl.replace('repXXX', redirectNoVol);
+					shosiUrl = shosiUrl.replace('repYYY', redirectNoIssue);
+					shosiUrl = shosiUrl.replace('repZZZ', redirectCdArticle);
+					document.location.href = shosiUrl;
+					return true;
+				} else if ("1" == errorCd) {
+					if (mode == "1") {
+						$("#pageMessage02").css("display", "block");
+					} else if (mode == "2") {
+						$("#mobilePageMessage02").css("display", "block");
+					}
+				} else if ("2" == errorCd) {
+					if (mode == "1") {
+						$("#pageMessage03").css("display", "block");
+					} else if (mode == "2") {
+						$("#mobilePageMessage03").css("display", "block");
+					}
+				}
+			}
+		});
+	} catch (e) {
+	}
+	return false;
+}
+function getUrl(noVol, noIssue) {
+	return 'https://www.jstage.jst.go.jp/browse/dsj/repXXX/repYYY/_contents/-char/en';
+}
+function registerStickyClose(){
+	$("#sticky-register-to-j-stage").hide();
+	if(('localStorage' in window) && (window.localStorage !== null)) {
+		localStorage.setItem('C.regsticky', 'off');
+	}
+}
+function doChangeLang(langKind){
+
+	if (typeof changeLang == "function")  {
+				changeLang(langKind);
+		return;
+
+	} else {
+						var encStr = "";
+		if(langKind == "ja") {
+			encStr = "https%3A%2F%2Fwww.jstage.jst.go.jp%2Fbrowse%2Fdsj%2F1%2F0%2F_contents%2F-char%2Fja";
+		} else {
+			encStr = "https%3A%2F%2Fwww.jstage.jst.go.jp%2Fbrowse%2Fdsj%2F1%2F0%2F_contents%2F-char%2Fen";
+		}
+		location.href = decodeURIComponent(encStr);
+				return;
+	}
+}
+function hBack(){
+		var ans;
+		var ref = document.referrer;
+		re = new RegExp(location.hostname,"i");
+		if(ref.match(re)){
+				ans = false;
+		}else{
+				ans = true
+		}
+		if(!ans){
+			history.back();
+		} else {
+			location.href = "https://www.jstage.jst.go.jp/browse/-char/en";
+		}
+}
+</script>
+</body>
+</html>

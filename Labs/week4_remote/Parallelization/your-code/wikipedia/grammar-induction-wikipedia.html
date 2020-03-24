@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Grammar induction - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"XnnzSApAADoAAJOJ7agAAAAK","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Grammar_induction","wgTitle":"Grammar induction","wgCurRevisionId":944744331,"wgRevisionId":944744331,"wgArticleId":4375576,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["All articles with dead external links","Articles with dead external links from September 2018","Articles with permanently dead external links","Articles with dead external links from February 2018","Articles with dead external links from March 2018","All articles with unsourced statements",
+"Articles with unsourced statements from August 2007","Articles with unsourced statements from February 2018","Articles with unsourced statements from August 2017","Genetic programming","Natural language processing","Computational linguistics","Grammar","Inference","Machine learning"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Grammar_induction","wgRelevantArticleId":4375576,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0,"wgPopupsReferencePreviews":!1,"wgPopupsConflictsWithNavPopupGadget":!1,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":!0,"nearby":!0,"watchlist":!0,"tagline":!1},"wgWMESchemaEditAttemptStepOversample":!1,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgWikibaseItemId":
+"Q5593673","wgCentralAuthMobileDomain":!1,"wgEditSubmitButtonLabelPublish":!0};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.cite.styles":"ready","mediawiki.toc.styles":"ready","skins.vector.styles.legacy":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.scribunto.logs","site","mediawiki.page.startup","skins.vector.js","mediawiki.page.ready","mediawiki.toc","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging"
+,"ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns","ext.quicksurveys.init","ext.centralNotice.geoIP","ext.centralNotice.startUp"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.tokens@tffin",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.0-wmf.24"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/1200px-Kernel_Machine.svg.png"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Grammar_induction&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Grammar_induction&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Grammar_induction"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Grammar_induction rootpage-Grammar_induction skin-vector action-view">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+</div>
+
+	<h1 id="firstHeading" class="firstHeading" lang="en">Grammar induction</h1>
+	
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#p-search">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table class="vertical-navbox nowraplinks" style="float:right;clear:right;width:22.0em;margin:0 0 1.0em 1.0em;background:#f9f9f9;border:1px solid #aaa;padding:0.2em;border-spacing:0.4em 0;text-align:center;line-height:1.4em;font-size:88%"><tbody><tr><th style="padding:0.2em 0.4em 0.2em;font-size:145%;line-height:1.2em"><a href="/wiki/Machine_learning" title="Machine learning">Machine learning</a> and<br /><a href="/wiki/Data_mining" title="Data mining">data mining</a></th></tr><tr><td style="padding:0.2em 0 0.4em;padding:0.25em 0.25em 0.75em;"><a href="/wiki/File:Kernel_Machine.svg" class="image"><img alt="Kernel Machine.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/220px-Kernel_Machine.svg.png" decoding="async" width="220" height="100" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/330px-Kernel_Machine.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/440px-Kernel_Machine.svg.png 2x" data-file-width="512" data-file-height="233" /></a></td></tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Problems</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Statistical_classification" title="Statistical classification">Classification</a></li>
+<li><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></li>
+<li><a href="/wiki/Regression_analysis" title="Regression analysis">Regression</a></li>
+<li><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></li>
+<li><a href="/wiki/Automated_machine_learning" title="Automated machine learning">AutoML</a></li>
+<li><a href="/wiki/Association_rule_learning" title="Association rule learning">Association rules</a></li>
+<li><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></li>
+<li><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></li>
+<li><a href="/wiki/Feature_engineering" title="Feature engineering">Feature engineering</a></li>
+<li><a href="/wiki/Feature_learning" title="Feature learning">Feature learning</a></li>
+<li><a href="/wiki/Online_machine_learning" title="Online machine learning">Online learning</a></li>
+<li><a href="/wiki/Semi-supervised_learning" title="Semi-supervised learning">Semi-supervised learning</a></li>
+<li><a href="/wiki/Unsupervised_learning" title="Unsupervised learning">Unsupervised learning</a></li>
+<li><a href="/wiki/Learning_to_rank" title="Learning to rank">Learning to rank</a></li>
+<li><a class="mw-selflink selflink">Grammar induction</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><div style="padding:0.1em 0;line-height:1.2em;"><a href="/wiki/Supervised_learning" title="Supervised learning">Supervised learning</a><br /><style data-mw-deduplicate="TemplateStyles:r886047488">.mw-parser-output .nobold{font-weight:normal}</style><span class="nobold"><span style="font-size:85%;">(<b><a href="/wiki/Statistical_classification" title="Statistical classification">classification</a></b>&#160;&#8226;&#32;<b><a href="/wiki/Regression_analysis" title="Regression analysis">regression</a></b>)</span></span> </div></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Decision_tree_learning" title="Decision tree learning">Decision trees</a></li>
+<li><a href="/wiki/Ensemble_learning" title="Ensemble learning">Ensembles</a>
+<ul><li><a href="/wiki/Bootstrap_aggregating" title="Bootstrap aggregating">Bagging</a></li>
+<li><a href="/wiki/Boosting_(machine_learning)" title="Boosting (machine learning)">Boosting</a></li>
+<li><a href="/wiki/Random_forest" title="Random forest">Random forest</a></li></ul></li>
+<li><a href="/wiki/K-nearest_neighbors_algorithm" title="K-nearest neighbors algorithm"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Linear_regression" title="Linear regression">Linear regression</a></li>
+<li><a href="/wiki/Naive_Bayes_classifier" title="Naive Bayes classifier">Naive Bayes</a></li>
+<li><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural networks</a></li>
+<li><a href="/wiki/Logistic_regression" title="Logistic regression">Logistic regression</a></li>
+<li><a href="/wiki/Perceptron" title="Perceptron">Perceptron</a></li>
+<li><a href="/wiki/Relevance_vector_machine" title="Relevance vector machine">Relevance vector machine (RVM)</a></li>
+<li><a href="/wiki/Support-vector_machine" title="Support-vector machine">Support vector machine (SVM)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/BIRCH" title="BIRCH">BIRCH</a></li>
+<li><a href="/wiki/CURE_data_clustering_algorithm" class="mw-redirect" title="CURE data clustering algorithm">CURE</a></li>
+<li><a href="/wiki/Hierarchical_clustering" title="Hierarchical clustering">Hierarchical</a></li>
+<li><a href="/wiki/K-means_clustering" title="K-means clustering"><i>k</i>-means</a></li>
+<li><a href="/wiki/Expectation%E2%80%93maximization_algorithm" title="Expectation–maximization algorithm">Expectation–maximization (EM)</a></li>
+<li><br /><a href="/wiki/DBSCAN" title="DBSCAN">DBSCAN</a></li>
+<li><a href="/wiki/OPTICS_algorithm" title="OPTICS algorithm">OPTICS</a></li>
+<li><a href="/wiki/Mean-shift" class="mw-redirect" title="Mean-shift">Mean-shift</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Dimensionality_reduction" title="Dimensionality reduction">Dimensionality reduction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Factor_analysis" title="Factor analysis">Factor analysis</a></li>
+<li><a href="/wiki/Canonical_correlation_analysis" class="mw-redirect" title="Canonical correlation analysis">CCA</a></li>
+<li><a href="/wiki/Independent_component_analysis" title="Independent component analysis">ICA</a></li>
+<li><a href="/wiki/Linear_discriminant_analysis" title="Linear discriminant analysis">LDA</a></li>
+<li><a href="/wiki/Non-negative_matrix_factorization" title="Non-negative matrix factorization">NMF</a></li>
+<li><a href="/wiki/Principal_component_analysis" title="Principal component analysis">PCA</a></li>
+<li><a href="/wiki/T-distributed_stochastic_neighbor_embedding" title="T-distributed stochastic neighbor embedding">t-SNE</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Graphical_model" title="Graphical model">Graphical models</a>
+<ul><li><a href="/wiki/Bayesian_network" title="Bayesian network">Bayes net</a></li>
+<li><a href="/wiki/Conditional_random_field" title="Conditional random field">Conditional random field</a></li>
+<li><a href="/wiki/Hidden_Markov_model" title="Hidden Markov model">Hidden Markov</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/K-nearest_neighbors_classification" class="mw-redirect" title="K-nearest neighbors classification"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Local_outlier_factor" title="Local outlier factor">Local outlier factor</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural network</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Autoencoder" title="Autoencoder">Autoencoder</a></li>
+<li><a href="/wiki/Deep_learning" title="Deep learning">Deep learning</a></li>
+<li><a href="/wiki/DeepDream" title="DeepDream">DeepDream</a></li>
+<li><a href="/wiki/Multilayer_perceptron" title="Multilayer perceptron">Multilayer perceptron</a></li>
+<li><a href="/wiki/Recurrent_neural_network" title="Recurrent neural network">RNN</a>
+<ul><li><a href="/wiki/Long_short-term_memory" title="Long short-term memory">LSTM</a></li>
+<li><a href="/wiki/Gated_recurrent_unit" title="Gated recurrent unit">GRU</a></li></ul></li>
+<li><a href="/wiki/Restricted_Boltzmann_machine" title="Restricted Boltzmann machine">Restricted Boltzmann machine</a></li>
+<li><a href="/wiki/Generative_adversarial_network" title="Generative adversarial network">GAN</a></li>
+<li><a href="/wiki/Self-organizing_map" title="Self-organizing map">SOM</a></li>
+<li><a href="/wiki/Convolutional_neural_network" title="Convolutional neural network">Convolutional neural network</a>
+<ul><li><a href="/wiki/U-Net" title="U-Net">U-Net</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Q-learning" title="Q-learning">Q-learning</a></li>
+<li><a href="/wiki/State%E2%80%93action%E2%80%93reward%E2%80%93state%E2%80%93action" title="State–action–reward–state–action">SARSA</a></li>
+<li><a href="/wiki/Temporal_difference_learning" title="Temporal difference learning">Temporal difference (TD)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Theory</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Bias%E2%80%93variance_dilemma" class="mw-redirect" title="Bias–variance dilemma">Bias–variance dilemma</a></li>
+<li><a href="/wiki/Computational_learning_theory" title="Computational learning theory">Computational learning theory</a></li>
+<li><a href="/wiki/Empirical_risk_minimization" title="Empirical risk minimization">Empirical risk minimization</a></li>
+<li><a href="/wiki/Occam_learning" title="Occam learning">Occam learning</a></li>
+<li><a href="/wiki/Probably_approximately_correct_learning" title="Probably approximately correct learning">PAC learning</a></li>
+<li><a href="/wiki/Statistical_learning_theory" title="Statistical learning theory">Statistical learning</a></li>
+<li><a href="/wiki/Vapnik%E2%80%93Chervonenkis_theory" title="Vapnik–Chervonenkis theory">VC theory</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Machine-learning venues</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Conference_on_Neural_Information_Processing_Systems" title="Conference on Neural Information Processing Systems">NeurIPS</a></li>
+<li><a href="/wiki/International_Conference_on_Machine_Learning" title="International Conference on Machine Learning">ICML</a></li>
+<li><a href="/wiki/Machine_Learning_(journal)" title="Machine Learning (journal)">ML</a></li>
+<li><a href="/wiki/Journal_of_Machine_Learning_Research" title="Journal of Machine Learning Research">JMLR</a></li>
+<li><a rel="nofollow" class="external text" href="https://arxiv.org/list/cs.LG/recent">ArXiv:cs.LG</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Related articles</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/List_of_datasets_for_machine-learning_research" title="List of datasets for machine-learning research">List of datasets for machine-learning research</a></li>
+<li><a href="/wiki/Outline_of_machine_learning" title="Outline of machine learning">Outline of machine learning</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="text-align:right;font-size:115%;padding-top: 0.6em;"><div class="plainlinks hlist navbar mini"><ul><li class="nv-view"><a href="/wiki/Template:Machine_learning_bar" title="Template:Machine learning bar"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="/wiki/Template_talk:Machine_learning_bar" title="Template talk:Machine learning bar"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Machine_learning_bar&amp;action=edit"><abbr title="Edit this template">e</abbr></a></li></ul></div></td></tr></tbody></table>
+<p><b>Grammar induction</b> (or <b>grammatical inference</b><sup id="cite_ref-Grammatical_Inference_1-0" class="reference"><a href="#cite_note-Grammatical_Inference-1">&#91;1&#93;</a></sup>) is the process in <a href="/wiki/Machine_learning" title="Machine learning">machine learning</a> of learning a <a href="/wiki/Formal_grammar" title="Formal grammar">formal grammar</a> (usually as a collection of <i>re-write rules</i> or <i><a href="/wiki/Productions_(computer_science)" class="mw-redirect" title="Productions (computer science)">productions</a></i> or alternatively as a <a href="/wiki/Finite_state_machine" class="mw-redirect" title="Finite state machine">finite state machine</a> or automaton of some kind) from a set of observations, thus constructing a model which accounts for the characteristics of the observed objects. More generally, grammatical inference is that branch of machine learning where the instance space consists of discrete combinatorial objects such as strings, trees and graphs.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Grammar_classes"><span class="tocnumber">1</span> <span class="toctext">Grammar classes</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Learning_models"><span class="tocnumber">2</span> <span class="toctext">Learning models</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Methodologies"><span class="tocnumber">3</span> <span class="toctext">Methodologies</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Grammatical_inference_by_trial-and-error"><span class="tocnumber">3.1</span> <span class="toctext">Grammatical inference by trial-and-error</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Grammatical_inference_by_genetic_algorithms"><span class="tocnumber">3.2</span> <span class="toctext">Grammatical inference by genetic algorithms</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Grammatical_inference_by_greedy_algorithms"><span class="tocnumber">3.3</span> <span class="toctext">Grammatical inference by greedy algorithms</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Distributional_learning"><span class="tocnumber">3.4</span> <span class="toctext">Distributional learning</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Learning_of_pattern_languages"><span class="tocnumber">3.5</span> <span class="toctext">Learning of pattern languages</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Pattern_theory"><span class="tocnumber">3.6</span> <span class="toctext">Pattern theory</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Applications"><span class="tocnumber">4</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#Sources"><span class="tocnumber">8</span> <span class="toctext">Sources</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Grammar_classes">Grammar classes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Grammar_induction&amp;action=edit&amp;section=1" title="Edit section: Grammar classes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Grammatical inference has often been very focused on the problem of learning finite state machines of various types (see the article <a href="/wiki/Induction_of_regular_languages" title="Induction of regular languages">Induction of regular languages</a> for details on these approaches), since there have been efficient algorithms for this problem since the 1980s.
+</p><p>Since the beginning of the century, these approaches have been extended to the problem of inference of <a href="/wiki/Context-free_grammars" class="mw-redirect" title="Context-free grammars">context-free grammars</a> and richer formalisms, such as multiple context-free grammars and parallel multiple context-free grammars.
+Other classes of grammars for which grammatical inference has been studied are <a href="/wiki/Combinatory_categorial_grammar" title="Combinatory categorial grammar">combinatory categorial grammars</a>,<sup id="cite_ref-Kwiatkowski_2-0" class="reference"><a href="#cite_note-Kwiatkowski-2">&#91;2&#93;</a></sup> <a href="/wiki/Stochastic_context-free_grammar" class="mw-redirect" title="Stochastic context-free grammar">stochastic context-free grammars</a>,<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup> contextual grammars and pattern languages.
+</p>
+<h2><span class="mw-headline" id="Learning_models">Learning models</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Grammar_induction&amp;action=edit&amp;section=2" title="Edit section: Learning models">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The simplest form of learning is where the learning algorithm merely receives a set of examples drawn from the language in question: the aim is to learn the language from examples of it (and, rarely, from counter-examples, that is, example that do not belong to the language).
+However, other learning models have been studied. One frequently studied alternative is the case where the learner can ask membership queries as in the exact query learning model or minimally adequate teacher model introduced by Angluin<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup>.
+</p>
+<h2><span class="mw-headline" id="Methodologies">Methodologies</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Grammar_induction&amp;action=edit&amp;section=3" title="Edit section: Methodologies">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There is a wide variety of methods for grammatical inference.  Two of the classic sources are <a href="#CITEREFFu1977">Fu (1977)</a> and <a href="#CITEREFFu1982">Fu (1982)</a>. <a href="#CITEREFDudaHartStork2001">Duda, Hart &amp; Stork (2001)</a> also devote a brief section to the problem, and cite a number of references.  The basic trial-and-error method they present is discussed below. For approaches to infer subclasses of <a href="/wiki/Regular_languages" class="mw-redirect" title="Regular languages">regular languages</a> in particular, see <i><a href="/wiki/Induction_of_regular_languages" title="Induction of regular languages">Induction of regular languages</a></i>. A more recent textbook is de la Higuera (2010),<sup id="cite_ref-Grammatical_Inference_1-1" class="reference"><a href="#cite_note-Grammatical_Inference-1">&#91;1&#93;</a></sup> which covers the theory of grammatical inference of regular languages and finite state automata. D'Ulizia, Ferri and Grifoni<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup> provide a survey that explores grammatical inference methods for natural languages.
+</p>
+<h3><span class="mw-headline" id="Grammatical_inference_by_trial-and-error">Grammatical inference by trial-and-error</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Grammar_induction&amp;action=edit&amp;section=4" title="Edit section: Grammatical inference by trial-and-error">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The method proposed in Section 8.7 of <a href="#CITEREFDudaHartStork2001">Duda, Hart &amp; Stork (2001)</a> suggests successively guessing grammar rules (productions) and testing them against positive and negative observations.  The rule set is expanded so as to be able to generate each positive example, but if a given rule set also generates a negative example, it must be discarded.  This particular approach can be characterized as "hypothesis testing" and bears some similarity to Mitchel's <a href="/wiki/Version_space" class="mw-redirect" title="Version space">version space</a> algorithm. The <a href="#CITEREFDudaHartStork2001">Duda, Hart &amp; Stork (2001)</a> text provide a simple example which nicely illustrates the process, but the feasibility of such an unguided trial-and-error approach for more substantial problems is dubious.
+</p>
+<h3><span class="mw-headline" id="Grammatical_inference_by_genetic_algorithms">Grammatical inference by genetic algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Grammar_induction&amp;action=edit&amp;section=5" title="Edit section: Grammatical inference by genetic algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Grammatical induction using <a href="/wiki/Evolutionary_algorithm" title="Evolutionary algorithm">evolutionary algorithms</a> is the process of evolving a representation of the grammar of a target language through some evolutionary process. <a href="/wiki/Formal_grammar" title="Formal grammar">Formal grammars</a> can easily be represented as <a href="/wiki/Tree_(data_structure)" title="Tree (data structure)">tree structures</a> of production rules that can be subjected to evolutionary operators. <a href="/wiki/Algorithm" title="Algorithm">Algorithms</a> of this sort stem from the <a href="/wiki/Genetic_programming" title="Genetic programming">genetic programming</a> paradigm pioneered by <a href="/wiki/John_Koza" title="John Koza">John Koza</a>.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (August 2007)">citation needed</span></a></i>&#93;</sup> Other early work on simple formal languages used the binary string representation of genetic algorithms, but the inherently hierarchical structure of grammars couched in the <a href="/wiki/Extended_Backus%E2%80%93Naur_form" title="Extended Backus–Naur form">EBNF</a> language made trees a more flexible approach.
+</p><p>Koza represented <a href="/wiki/Lisp_(programming_language)" title="Lisp (programming language)">Lisp</a> programs as trees. He was able to find analogues to the genetic operators within the standard set of tree operators. For example, swapping sub-trees is equivalent to the corresponding process of genetic crossover, where sub-strings of a genetic code are transplanted into an individual of the next generation. Fitness is measured by scoring the output from the <a href="/wiki/Grammatical_function" class="mw-redirect" title="Grammatical function">functions</a> of the Lisp code. Similar analogues between the tree structured lisp representation and the representation of grammars as trees, made the application of genetic programming techniques possible for grammar induction.
+</p><p>In the case of grammar induction, the transplantation of sub-trees corresponds to the swapping of production rules that enable the parsing of phrases from some language. The fitness operator for the grammar is based upon some measure of how well it performed in parsing some group of sentences from the target language. In a tree representation of a grammar, a <a href="/wiki/Terminal_symbol" class="mw-redirect" title="Terminal symbol">terminal symbol</a> of a production rule corresponds to a leaf node of the tree. Its parent nodes corresponds to a non-terminal symbol (e.g. a <a href="/wiki/Noun_phrase" title="Noun phrase">noun phrase</a> or a <a href="/wiki/Verb_phrase" title="Verb phrase">verb phrase</a>) in the rule set. Ultimately, the root node might correspond to a sentence non-terminal.
+</p>
+<h3><span class="mw-headline" id="Grammatical_inference_by_greedy_algorithms">Grammatical inference by greedy algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Grammar_induction&amp;action=edit&amp;section=6" title="Edit section: Grammatical inference by greedy algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Like all <a href="/wiki/Greedy_algorithm" title="Greedy algorithm">greedy algorithms</a>, greedy grammar inference algorithms make, in iterative manner, decisions that seem to be the best at that stage.
+The decisions made usually deal with things like the creation of new rules, the removal of existing rules, the choice of a rule to be applied or the merging of some existing rules.
+Because there are several ways to define 'the stage' and 'the best', there are also several greedy grammar inference algorithms.
+</p><p>These <a href="/wiki/Context-free_grammar" title="Context-free grammar">context-free grammar</a> generating algorithms make the decision after every read symbol:
+</p>
+<ul><li><a href="/wiki/LZW" class="mw-redirect" title="LZW">Lempel-Ziv-Welch algorithm</a> creates a context-free grammar in a deterministic way such that it is necessary to store only the start rule of the generated grammar.</li>
+<li><a href="/wiki/Sequitur_algorithm" title="Sequitur algorithm">Sequitur</a> and its modifications.</li></ul>
+<p>These context-free grammar generating algorithms first read the whole given symbol-sequence and then start to make decisions:
+</p>
+<ul><li><a href="/wiki/Byte_pair_encoding" title="Byte pair encoding">Byte pair encoding</a> and its optimizations.</li></ul>
+<h3><span class="mw-headline" id="Distributional_learning">Distributional learning</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Grammar_induction&amp;action=edit&amp;section=7" title="Edit section: Distributional learning">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>A more recent approach is based on distributional learning. Algorithms using these approaches have been applied to learning <a href="/wiki/Context-free_grammars" class="mw-redirect" title="Context-free grammars">context-free grammars</a> and <a href="/wiki/Mildly_context-sensitive_language" class="mw-redirect" title="Mildly context-sensitive language">mildly context-sensitive languages</a> and have been proven to be correct and efficient for large subclasses of these grammars.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Learning_of_pattern_languages">Learning of <a href="/wiki/Pattern_language_(formal_languages)" title="Pattern language (formal languages)">pattern languages</a></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Grammar_induction&amp;action=edit&amp;section=8" title="Edit section: Learning of pattern languages">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Angluin defines a <i>pattern</i> to be "a string of constant symbols from Σ and <b>variable symbols</b> from a disjoint set".
+The language of such a pattern is the set of all its nonempty ground instances  i.e. all strings resulting from consistent replacement of its variable symbols by nonempty strings of constant symbols.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;note 1&#93;</a></sup>
+A pattern is called <b>descriptive</b> for a finite input set of strings if its language is minimal (with respect to set inclusion) among all pattern languages subsuming the input set.
+</p><p>Angluin gives a polynomial algorithm to compute, for a given input string set, all descriptive patterns in one variable <i>x</i>.<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;note 2&#93;</a></sup>
+To this end, she builds an automaton representing all possibly relevant patterns; using sophisticated arguments about word lengths, which rely on <i>x</i> being the only variable, the state count can be drastically reduced.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;7&#93;</a></sup>
+</p><p>Erlebach et al. give a more efficient version of Angluin's pattern learning algorithm, as well as a parallelized version.<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;8&#93;</a></sup>
+</p><p>Arimura et al. show that a language class  obtained from limited unions of patterns can be learned in polynomial time.<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">&#91;9&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Pattern_theory">Pattern theory</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Grammar_induction&amp;action=edit&amp;section=9" title="Edit section: Pattern theory">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><a href="/wiki/Pattern_theory" title="Pattern theory">Pattern theory</a>, formulated by <a href="/wiki/Ulf_Grenander" title="Ulf Grenander">Ulf Grenander</a>,<sup id="cite_ref-12" class="reference"><a href="#cite_note-12">&#91;10&#93;</a></sup> is a mathematical <a href="/wiki/Formalism_(mathematics)" class="mw-redirect" title="Formalism (mathematics)">formalism</a> to describe knowledge of the world as patterns. It differs from other approaches to <a href="/wiki/Artificial_intelligence" title="Artificial intelligence">artificial intelligence</a> in that it does not begin by prescribing algorithms and machinery to recognize and classify patterns; rather, it prescribes a vocabulary to articulate and recast the pattern concepts in precise language.
+</p><p>In addition to the new algebraic vocabulary, its statistical approach was novel in its aim to:
+</p>
+<ul><li>Identify the <a href="/wiki/Latent_variable" title="Latent variable">hidden variables</a> of a data set using real world data rather than artificial stimuli, which was commonplace at the time.</li>
+<li>Formulate prior distributions for hidden variables and models for the observed variables that form the vertices of a Gibbs-like graph.</li>
+<li>Study the randomness and variability of these graphs.</li>
+<li>Create the basic classes of stochastic models applied by listing the deformations of the patterns.</li>
+<li>Synthesize (sample) from the models, not just analyze signals with it.</li></ul>
+<p>Broad in its mathematical coverage, pattern theory spans algebra and statistics, as well as local topological and global entropic properties.
+</p>
+<h2><span class="mw-headline" id="Applications">Applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Grammar_induction&amp;action=edit&amp;section=10" title="Edit section: Applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The principle of grammar induction has been applied to other aspects of <a href="/wiki/Natural_language_processing" title="Natural language processing">natural language processing</a>, and has been applied (among many other problems) to <a href="/wiki/Semantic_parsing" title="Semantic parsing">semantic parsing</a>,<sup id="cite_ref-Kwiatkowski_2-1" class="reference"><a href="#cite_note-Kwiatkowski-2">&#91;2&#93;</a></sup> <a href="/wiki/Natural_language_understanding" class="mw-redirect" title="Natural language understanding">natural language understanding</a>,<sup id="cite_ref-13" class="reference"><a href="#cite_note-13">&#91;11&#93;</a></sup> <a href="/wiki/Example-based_translation" class="mw-redirect" title="Example-based translation">example-based translation</a>,<sup id="cite_ref-14" class="reference"><a href="#cite_note-14">&#91;12&#93;</a></sup> <a href="/wiki/Morpheme" title="Morpheme">morpheme</a> analysis, and place name derivations.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (February 2018)">citation needed</span></a></i>&#93;</sup> Grammar induction has also been used for <a href="/wiki/Lossless_data_compression" class="mw-redirect" title="Lossless data compression">lossless data compression</a><sup id="cite_ref-15" class="reference"><a href="#cite_note-15">&#91;13&#93;</a></sup> and <a href="/wiki/Statistical_inference" title="Statistical inference">statistical inference</a> via <a href="/wiki/Minimum_message_length" title="Minimum message length">minimum message length</a> (MML) and <a href="/wiki/Minimum_description_length" title="Minimum description length">minimum description length</a> (MDL) principles.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (August 2017)">citation needed</span></a></i>&#93;</sup> Grammar induction has also been used in some <a href="/wiki/Probabilistic_models_of_language_acquisition" class="mw-redirect" title="Probabilistic models of language acquisition">probabilistic models of language acquisition</a>.<sup id="cite_ref-16" class="reference"><a href="#cite_note-16">&#91;14&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Grammar_induction&amp;action=edit&amp;section=11" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/Artificial_grammar_learning#Artificial_intelligence" title="Artificial grammar learning">Artificial grammar learning#Artificial intelligence</a></li>
+<li><a href="/wiki/Example-based_machine_translation" title="Example-based machine translation">Example-based machine translation</a></li>
+<li><a href="/wiki/Inductive_programming" title="Inductive programming">Inductive programming</a></li>
+<li><a href="/wiki/Kolmogorov_complexity" title="Kolmogorov complexity">Kolmogorov complexity</a></li>
+<li><a href="/wiki/Language_identification_in_the_limit" title="Language identification in the limit">Language identification in the limit</a></li>
+<li><a href="/wiki/Straight-line_grammar" title="Straight-line grammar">Straight-line grammar</a></li>
+<li><a href="/wiki/Syntactic_pattern_recognition" title="Syntactic pattern recognition">Syntactic pattern recognition</a></li></ul>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Grammar_induction&amp;action=edit&amp;section=12" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="list-style-type: decimal;">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text">The language of a pattern with at least two occurrences of the same variable is not regular due to the <a href="/wiki/Pumping_lemma_for_regular_languages" title="Pumping lemma for regular languages">pumping lemma</a>.</span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><i>x</i> may occur several times, but no other variable <i>y</i> may occur</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Grammar_induction&amp;action=edit&amp;section=13" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="list-style-type: decimal;">
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-Grammatical_Inference-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-Grammatical_Inference_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Grammatical_Inference_1-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation book">de la Higuera, Colin (2010). <a rel="nofollow" class="external text" href="http://bootcamp.lif.univ-mrs.fr/de-la-higuera.pdf"><i>Grammatical Inference: Learning Automata and Grammars</i></a> <span class="cs1-format">(PDF)</span>. Cambridge: Cambridge University Press.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Grammatical+Inference%3A+Learning+Automata+and+Grammars&amp;rft.place=Cambridge&amp;rft.pub=Cambridge+University+Press&amp;rft.date=2010&amp;rft.aulast=de+la+Higuera&amp;rft.aufirst=Colin&amp;rft_id=http%3A%2F%2Fbootcamp.lif.univ-mrs.fr%2Fde-la-higuera.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGrammar+induction" class="Z3988"></span><style data-mw-deduplicate="TemplateStyles:r935243608">.mw-parser-output cite.citation{font-style:inherit}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/9px-Lock-green.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lock-gray-alt-2.svg/9px-Lock-gray-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lock-red-alt-2.svg/9px-Lock-red-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration{color:#555}.mw-parser-output .cs1-subscription span,.mw-parser-output .cs1-registration span{border-bottom:1px dotted;cursor:help}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/12px-Wikisource-logo.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output code.cs1-code{color:inherit;background:inherit;border:inherit;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;font-size:100%}.mw-parser-output .cs1-visible-error{font-size:100%}.mw-parser-output .cs1-maint{display:none;color:#33aa33;margin-left:0.3em}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration,.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left,.mw-parser-output .cs1-kern-wl-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right,.mw-parser-output .cs1-kern-wl-right{padding-right:0.2em}</style></span>
+</li>
+<li id="cite_note-Kwiatkowski-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-Kwiatkowski_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Kwiatkowski_2-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">Kwiatkowski, Tom, et al. "<a rel="nofollow" class="external text" href="http://homes.cs.washington.edu/~lsz/papers/kzgs-emnlp2011.pdf">Lexical generalization in CCG grammar induction for semantic parsing</a>." Proceedings of the conference on empirical methods in natural language processing. <a href="/wiki/Association_for_Computational_Linguistics" title="Association for Computational Linguistics">Association for Computational Linguistics</a>, 2011.</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text">Clark, Alexander. "<a rel="nofollow" class="external text" href="https://www.aclweb.org/anthology/W01-0713">Unsupervised induction of stochastic context-free grammars using distributional clustering</a>." Proceedings of the 2001 workshop on Computational Natural Language Learning-Volume 7. Association for Computational Linguistics, 2001.</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><cite class="citation journal">Dana Angluin (1987). <a rel="nofollow" class="external text" href="https://web.archive.org/web/20131202232143/http://www.cse.iitk.ac.in/users/chitti/thesis/references/learningRegSetsFromQueriesAndCounterExamples.pdf">"Learning Regular Sets from Queries and Counter-Examples"</a> <span class="cs1-format">(PDF)</span>. <i><a href="/wiki/Information_and_Control" class="mw-redirect" title="Information and Control">Information and Control</a></i>. <b>75</b> (2): 87–106. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.187.9414">10.1.1.187.9414</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0890-5401%2887%2990052-6">10.1016/0890-5401(87)90052-6</a>. Archived from <a rel="nofollow" class="external text" href="http://www.cse.iitk.ac.in/users/chitti/thesis/references/learningRegSetsFromQueriesAndCounterExamples.pdf">the original</a> <span class="cs1-format">(PDF)</span> on 2013-12-02.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+and+Control&amp;rft.atitle=Learning+Regular+Sets+from+Queries+and+Counter-Examples&amp;rft.volume=75&amp;rft.issue=2&amp;rft.pages=87-106&amp;rft.date=1987&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.187.9414&amp;rft_id=info%3Adoi%2F10.1016%2F0890-5401%2887%2990052-6&amp;rft.au=Dana+Angluin&amp;rft_id=http%3A%2F%2Fwww.cse.iitk.ac.in%2Fusers%2Fchitti%2Fthesis%2Freferences%2FlearningRegSetsFromQueriesAndCounterExamples.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGrammar+induction" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text">D’Ulizia, A., Ferri, F., Grifoni, P. (2011) "<a rel="nofollow" class="external text" href="https://www.academia.edu/download/41900378/A_survey_of_grammatical_inference_method20160202-5760-79hwcu.pdf">A Survey of Grammatical Inference Methods for Natural Language Learning</a><sup class="noprint Inline-Template"><span style="white-space: nowrap;">&#91;<i><a href="/wiki/Wikipedia:Link_rot" title="Wikipedia:Link rot"><span title="&#160;Dead link since September 2018">permanent dead link</span></a></i>&#93;</span></sup>", <i>Artificial Intelligence Review</i>, Vol. 36, No. 1, pp. 1–27.</span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text">Clark and Eyraud (2007) <i>Journal of Machine Learning Research</i>; Ryo Yoshinaka (2011) <i>Theoretical Computer Science</i></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><cite class="citation journal">Dana Angluin (1980). "Finding Patterns Common to a Set of Strings". <i>Journal of Computer and System Sciences</i>. <b>21</b>: 46–62. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0022-0000%2880%2990041-0">10.1016/0022-0000(80)90041-0</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Computer+and+System+Sciences&amp;rft.atitle=Finding+Patterns+Common+to+a+Set+of+Strings&amp;rft.volume=21&amp;rft.pages=46-62&amp;rft.date=1980&amp;rft_id=info%3Adoi%2F10.1016%2F0022-0000%2880%2990041-0&amp;rft.au=Dana+Angluin&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGrammar+induction" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text"><cite class="citation book">T. Erlebach; P. Rossmanith; H. Stadtherr; <a href="/wiki/Angelika_Steger" title="Angelika Steger">A. Steger</a>; T. Zeugmann (1997). "Learning One-Variable Pattern Languages Very Efficiently on Average, in Parallel, and by Asking Queries".  In M. Li; A. Maruoka (eds.). <i>Proc. 8th International Workshop on Algorithmic Learning Theory — ALT'97</i>. LNAI. <b>1316</b>. Springer. pp.&#160;260–276.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Learning+One-Variable+Pattern+Languages+Very+Efficiently+on+Average%2C+in+Parallel%2C+and+by+Asking+Queries&amp;rft.btitle=Proc.+8th+International+Workshop+on+Algorithmic+Learning+Theory+%E2%80%94+ALT%2797&amp;rft.series=LNAI&amp;rft.pages=260-276&amp;rft.pub=Springer&amp;rft.date=1997&amp;rft.au=T.+Erlebach&amp;rft.au=P.+Rossmanith&amp;rft.au=H.+Stadtherr&amp;rft.au=A.+Steger&amp;rft.au=T.+Zeugmann&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGrammar+induction" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text"><cite class="citation book">Hiroki Arimura; Takeshi Shinohara; Setsuko Otsuki (1994). <a rel="nofollow" class="external text" href="http://ai2-s2-pdfs.s3.amazonaws.com/6a4c/0482e0030b0e5791cf75b0edd9f55fdfc10e.pdf">"Finding Minimal Generalizations for Unions of Pattern Languages and Its Application to Inductive Inference from Positive Data"</a> <span class="cs1-format">(PDF)</span>. <i>Proc. STACS 11</i>. LNCS. <b>775</b>. Springer. pp.&#160;649–660.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Finding+Minimal+Generalizations+for+Unions+of+Pattern+Languages+and+Its+Application+to+Inductive+Inference+from+Positive+Data&amp;rft.btitle=Proc.+STACS+11&amp;rft.series=LNCS&amp;rft.pages=649-660&amp;rft.pub=Springer&amp;rft.date=1994&amp;rft.au=Hiroki+Arimura&amp;rft.au=Takeshi+Shinohara&amp;rft.au=Setsuko+Otsuki&amp;rft_id=http%3A%2F%2Fai2-s2-pdfs.s3.amazonaws.com%2F6a4c%2F0482e0030b0e5791cf75b0edd9f55fdfc10e.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGrammar+induction" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/><sup class="noprint Inline-Template"><span style="white-space: nowrap;">&#91;<i><a href="/wiki/Wikipedia:Link_rot" title="Wikipedia:Link rot"><span title="&#160;Dead link since February 2018">dead link</span></a></i>&#93;</span></sup></span>
+</li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text">Grenander, Ulf, and Michael I. Miller. <i><a rel="nofollow" class="external text" href="http://www.ulb.tu-darmstadt.de/tocs/185410162.pdf">Pattern theory: from representation to inference</a></i>.<sup class="noprint Inline-Template"><span style="white-space: nowrap;">&#91;<i><a href="/wiki/Wikipedia:Link_rot" title="Wikipedia:Link rot"><span title="&#160;Dead link since March 2018">dead link</span></a></i>&#93;</span></sup> Vol. 1. Oxford: Oxford university press, 2007.</span>
+</li>
+<li id="cite_note-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-13">^</a></b></span> <span class="reference-text">Miller, Scott, et al. "<a rel="nofollow" class="external text" href="http://www.aclweb.org/anthology/P94-1004">Hidden understanding models of natural language</a>." Proceedings of the 32nd annual meeting on Association for Computational Linguistics. Association for Computational Linguistics, 1994.</span>
+</li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text">Brown, Ralf D. "<a rel="nofollow" class="external text" href="https://pdfs.semanticscholar.org/c537/ac8bac9d83651e0ce6b37333034a5f572e39.pdf#page=5">Transfer-rule induction for example-based translation</a>." Proceedings of the MT Summit VIII Workshop on Example-Based Machine Translation. 2001.</span>
+</li>
+<li id="cite_note-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-15">^</a></b></span> <span class="reference-text">Cherniavsky, Neva, and Richard Ladner. "<a rel="nofollow" class="external text" href="https://pdfs.semanticscholar.org/1be9/0a2f40d10acd17d5910eb21fb3b4a117d08b.pdf">Grammar-based compression of DNA sequences</a>." DIMACS Working Group on The Burrows-Wheeler Transform 21 (2004).</span>
+</li>
+<li id="cite_note-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-16">^</a></b></span> <span class="reference-text">Chater, Nick, and Christopher D. Manning. "<a rel="nofollow" class="external text" href="https://www.stanford.edu/class/linguist1/Rdgs/chater.pdf">Probabilistic models of language processing and acquisition</a>." Trends in cognitive sciences 10.7 (2006): 335-344.</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="Sources">Sources</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Grammar_induction&amp;action=edit&amp;section=14" title="Edit section: Sources">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><cite id="CITEREFDudaHartStork2001" class="citation">Duda, Richard O.; Hart, Peter E.; Stork, David G. (2001), <a rel="nofollow" class="external text" href="http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471056693.html"><i>Pattern Classification</i></a> (2 ed.), <a href="/wiki/New_York_City" title="New York City">New York</a>: John Wiley &amp; Sons</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Pattern+Classification&amp;rft.place=New+York&amp;rft.edition=2&amp;rft.pub=John+Wiley+%26+Sons&amp;rft.date=2001&amp;rft.aulast=Duda&amp;rft.aufirst=Richard+O.&amp;rft.au=Hart%2C+Peter+E.&amp;rft.au=Stork%2C+David+G.&amp;rft_id=http%3A%2F%2Fwww.wiley.com%2FWileyCDA%2FWileyTitle%2FproductCd-0471056693.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGrammar+induction" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></li>
+<li><cite id="CITEREFFu1982" class="citation">Fu, King Sun (1982), <i>Syntactic Pattern Recognition and Applications</i>, <a href="/wiki/Englewood_Cliffs,_NJ" class="mw-redirect" title="Englewood Cliffs, NJ">Englewood Cliffs, NJ</a>: Prentice-Hall</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Syntactic+Pattern+Recognition+and+Applications&amp;rft.place=Englewood+Cliffs%2C+NJ&amp;rft.pub=Prentice-Hall&amp;rft.date=1982&amp;rft.aulast=Fu&amp;rft.aufirst=King+Sun&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGrammar+induction" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></li>
+<li><cite id="CITEREFFu1977" class="citation">Fu, King Sun (1977), <i>Syntactic Pattern Recognition, Applications</i>, <a href="/wiki/Berlin" title="Berlin">Berlin</a>: Springer-Verlag</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Syntactic+Pattern+Recognition%2C+Applications&amp;rft.place=Berlin&amp;rft.pub=Springer-Verlag&amp;rft.date=1977&amp;rft.aulast=Fu&amp;rft.aufirst=King+Sun&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGrammar+induction" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></li>
+<li><cite id="CITEREFHorning1969" class="citation">Horning, James Jay (1969), <i>A Study of Grammatical Inference</i> (Ph.D. Thesis ed.), <a href="/wiki/Stanford" class="mw-redirect" title="Stanford">Stanford</a>: Stanford University Computer Science Department, <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/><a href="/wiki/ProQuest" title="ProQuest">ProQuest</a>&#160;<a rel="nofollow" class="external text" href="https://search.proquest.com/docview/302483145">302483145</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=A+Study+of+Grammatical+Inference&amp;rft.place=Stanford&amp;rft.edition=Ph.D.+Thesis&amp;rft.pub=Stanford+University+Computer+Science+Department&amp;rft.date=1969&amp;rft.aulast=Horning&amp;rft.aufirst=James+Jay&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGrammar+induction" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></li>
+<li><cite id="CITEREFGold1967" class="citation">Gold, E. Mark (1967), <a rel="nofollow" class="external text" href="https://web.archive.org/web/20160828171937/http://groups.lis.illinois.edu/amag/langev/paper/gold67limit.html"><i>Language Identification in the Limit</i></a>, <b>10</b>, <a href="/wiki/Information_and_Control" class="mw-redirect" title="Information and Control">Information and Control</a>, pp.&#160;447–474, archived from <a rel="nofollow" class="external text" href="http://groups.lis.illinois.edu/amag/langev/paper/gold67limit.html">the original</a> on 2016-08-28<span class="reference-accessdate">, retrieved <span class="nowrap">2016-09-04</span></span></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Language+Identification+in+the+Limit&amp;rft.pages=447-474&amp;rft.pub=Information+and+Control&amp;rft.date=1967&amp;rft.aulast=Gold&amp;rft.aufirst=E.+Mark&amp;rft_id=http%3A%2F%2Fgroups.lis.illinois.edu%2Famag%2Flangev%2Fpaper%2Fgold67limit.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGrammar+induction" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></li>
+<li><cite id="CITEREFGold1967" class="citation">Gold, E. Mark (1967), <a rel="nofollow" class="external text" href="http://web.mit.edu/~6.863/www/spring2009/readings/gold67limit.pdf"><i>Language Identification in the Limit</i></a> <span class="cs1-format">(PDF)</span>, <b>10</b>, <a href="/wiki/Information_and_Control" class="mw-redirect" title="Information and Control">Information and Control</a>, pp.&#160;447–474</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Language+Identification+in+the+Limit&amp;rft.pages=447-474&amp;rft.pub=Information+and+Control&amp;rft.date=1967&amp;rft.aulast=Gold&amp;rft.aufirst=E.+Mark&amp;rft_id=http%3A%2F%2Fweb.mit.edu%2F~6.863%2Fwww%2Fspring2009%2Freadings%2Fgold67limit.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGrammar+induction" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1349
+Cached time: 20200324002504
+Cache expiry: 2592000
+Dynamic content: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.352 seconds
+Real time usage: 0.470 seconds
+Preprocessor visited node count: 1868/1000000
+Post‐expand include size: 57046/2097152 bytes
+Template argument size: 4309/2097152 bytes
+Highest expansion depth: 17/40
+Expensive parser function count: 8/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 37320/5000000 bytes
+Number of Wikibase entities loaded: 2/400
+Lua time usage: 0.175/10.000 seconds
+Lua memory usage: 5.55 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  404.444      1 -total
+ 45.08%  182.342      2 Template:Reflist
+ 20.63%   83.423      3 Template:Cite_book
+ 19.49%   78.846      6 Template:Fix
+ 17.77%   71.882      3 Template:Citation_needed
+ 15.76%   63.725      1 Template:Machine_learning_bar
+ 14.70%   59.437      1 Template:Sidebar_with_collapsible_lists
+ 13.94%   56.393     12 Template:Category_handler
+ 12.07%   48.819      2 Template:Cite_journal
+ 10.13%   40.977      6 Template:Citation
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:4375576-0!canonical and timestamp 20200324002503 and revision id 944744331
+ -->
+</div><noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>
+		<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Grammar_induction&amp;oldid=944744331">https://en.wikipedia.org/w/index.php?title=Grammar_induction&amp;oldid=944744331</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Genetic_programming" title="Category:Genetic programming">Genetic programming</a></li><li><a href="/wiki/Category:Natural_language_processing" title="Category:Natural language processing">Natural language processing</a></li><li><a href="/wiki/Category:Computational_linguistics" title="Category:Computational linguistics">Computational linguistics</a></li><li><a href="/wiki/Category:Grammar" title="Category:Grammar">Grammar</a></li><li><a href="/wiki/Category:Inference" title="Category:Inference">Inference</a></li><li><a href="/wiki/Category:Machine_learning" title="Category:Machine learning">Machine learning</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:All_articles_with_dead_external_links" title="Category:All articles with dead external links">All articles with dead external links</a></li><li><a href="/wiki/Category:Articles_with_dead_external_links_from_September_2018" title="Category:Articles with dead external links from September 2018">Articles with dead external links from September 2018</a></li><li><a href="/wiki/Category:Articles_with_permanently_dead_external_links" title="Category:Articles with permanently dead external links">Articles with permanently dead external links</a></li><li><a href="/wiki/Category:Articles_with_dead_external_links_from_February_2018" title="Category:Articles with dead external links from February 2018">Articles with dead external links from February 2018</a></li><li><a href="/wiki/Category:Articles_with_dead_external_links_from_March_2018" title="Category:Articles with dead external links from March 2018">Articles with dead external links from March 2018</a></li><li><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_August_2007" title="Category:Articles with unsourced statements from August 2007">Articles with unsourced statements from August 2007</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_February_2018" title="Category:Articles with unsourced statements from February 2018">Articles with unsourced statements from February 2018</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_August_2017" title="Category:Articles with unsourced statements from August 2017">Articles with unsourced statements from August 2017</a></li></ul></div></div>
+		<div class="visualClear"></div>
+		
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+    <h2>Navigation menu</h2>
+    <div id="mw-head">
+        
+        <div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+        	<h3 id="p-personal-label">Personal tools</h3>
+        	<ul >
+        		
+        		<li id="pt-anonuserpage">Not logged in</li>
+        		<li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Grammar+induction" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Grammar+induction" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>
+        	</ul>
+        </div>
+        <div id="left-navigation">
+            <div id="p-namespaces" role="navigation" class="vectorTabs " aria-labelledby="p-namespaces-label">
+            	<h3 id="p-namespaces-label">Namespaces</h3>
+            	<ul >
+            		<li id="ca-nstab-main" class="selected"><a href="/wiki/Grammar_induction" title="View the content page [c]" accesskey="c">Article</a></li><li id="ca-talk"><a href="/wiki/Talk:Grammar_induction" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Talk</a></li>
+            	</ul>
+            </div>
+            <div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+            	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+            	<h3 id="p-variants-label">
+            		<span>Variants</span>
+            	</h3>
+            	<ul class="menu" >
+            		
+            	</ul>
+            </div>
+        </div>
+        <div id="right-navigation">
+            <div id="p-views" role="navigation" class="vectorTabs " aria-labelledby="p-views-label">
+            	<h3 id="p-views-label">Views</h3>
+            	<ul >
+            		<li id="ca-view" class="collapsible selected"><a href="/wiki/Grammar_induction">Read</a></li><li id="ca-edit" class="collapsible"><a href="/w/index.php?title=Grammar_induction&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/w/index.php?title=Grammar_induction&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li>
+            	</ul>
+            </div>
+            <div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+            	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+            	<h3 id="p-cactions-label">
+            		<span>More</span>
+            	</h3>
+            	<ul class="menu" >
+            		
+            	</ul>
+            </div>
+            <div id="p-search" role="search">
+            	<h3 >
+            		<label for="searchInput">Search</label>
+            	</h3>
+            	<form action="/w/index.php" id="searchform">
+            		<div id="simpleSearch">
+            			<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/>
+            			<input type="hidden" value="Special:Search" name="title"/>
+            			<input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+            			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+            		</div>
+            	</form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="mw-panel">
+    	<div id="p-logo" role="banner">
+    		<a  title="Visit the main page" class="mw-wiki-logo" href="/wiki/Main_Page"></a>
+    	</div>
+    	<div class="portal" role="navigation" id="p-navigation"  aria-labelledby="p-navigation-label">
+    		<h3  id="p-navigation-label">
+    			Navigation
+    		</h3>
+    		<div class="body">
+    			<ul><li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Wikipedia:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-interaction"  aria-labelledby="p-interaction-label">
+    		<h3  id="p-interaction-label">
+    			Interaction
+    		</h3>
+    		<div class="body">
+    			<ul><li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-tb"  aria-labelledby="p-tb-label">
+    		<h3  id="p-tb-label">
+    			Tools
+    		</h3>
+    		<div class="body">
+    			<ul><li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Grammar_induction" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Grammar_induction" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Grammar_induction&amp;oldid=944744331" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Grammar_induction&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q5593673" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Grammar_induction&amp;id=944744331&amp;wpFormIdentifier=titleform" title="Information on how to cite this page">Cite this page</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-coll-print_export"  aria-labelledby="p-coll-print_export-label">
+    		<h3  id="p-coll-print_export-label">
+    			Print/export
+    		</h3>
+    		<div class="body">
+    			<ul><li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Grammar+induction">Create a book</a></li><li id="coll-download-as-rl"><a href="/w/index.php?title=Special:ElectronPdf&amp;page=Grammar+induction&amp;action=show-download-screen">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Grammar_induction&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-lang"  aria-labelledby="p-lang-label">
+    		<h3  id="p-lang-label">
+    			Languages
+    		</h3>
+    		<div class="body">
+    			<ul><li class="interlanguage-link interwiki-pl"><a href="https://pl.wikipedia.org/wiki/Inferencja_gramatyki" title="Inferencja gramatyki – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target">Polski</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4" title="Грамматический вывод – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target">Русский</a></li></ul>
+    			<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q5593673#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+    		</div>
+    	</div>
+    	
+    </div>
+</div>
+
+<div id="footer" role="contentinfo" >
+	<ul id="footer-info" class="">
+		<li id="footer-info-lastmod"> This page was last edited on 9 March 2020, at 17:34<span class="anonymous-show">&#160;(UTC)</span>.</li>
+		<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+	</ul>
+	<ul id="footer-places" class="">
+		<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+		<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+		<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+		<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+		<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+		<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+		<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Grammar_induction&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</div>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.352","walltime":"0.470","ppvisitednodes":{"value":1868,"limit":1000000},"postexpandincludesize":{"value":57046,"limit":2097152},"templateargumentsize":{"value":4309,"limit":2097152},"expansiondepth":{"value":17,"limit":40},"expensivefunctioncount":{"value":8,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":37320,"limit":5000000},"entityaccesscount":{"value":2,"limit":400},"timingprofile":["100.00%  404.444      1 -total"," 45.08%  182.342      2 Template:Reflist"," 20.63%   83.423      3 Template:Cite_book"," 19.49%   78.846      6 Template:Fix"," 17.77%   71.882      3 Template:Citation_needed"," 15.76%   63.725      1 Template:Machine_learning_bar"," 14.70%   59.437      1 Template:Sidebar_with_collapsible_lists"," 13.94%   56.393     12 Template:Category_handler"," 12.07%   48.819      2 Template:Cite_journal"," 10.13%   40.977      6 Template:Citation"]},"scribunto":{"limitreport-timeusage":{"value":"0.175","limit":"10.000"},"limitreport-memusage":{"value":5820426,"limit":52428800},"limitreport-logs":"citerefs = table#1 {\n  [\"CITEREFDudaHartStork2001\"] = 1,\n  [\"CITEREFFu1977\"] = 1,\n  [\"CITEREFFu1982\"] = 1,\n  [\"CITEREFGold1967\"] = 2,\n  [\"CITEREFHorning1969\"] = 1,\n}\n"},"cachereport":{"origin":"mw1349","timestamp":"20200324002504","ttl":2592000,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Grammar induction","url":"https:\/\/en.wikipedia.org\/wiki\/Grammar_induction","sameAs":"http:\/\/www.wikidata.org\/entity\/Q5593673","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q5593673","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2006-03-13T05:13:24Z","dateModified":"2020-03-09T17:34:19Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/fe\/Kernel_Machine.svg"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":100,"wgHostname":"mw1263"});});</script></body></html>

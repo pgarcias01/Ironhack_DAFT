@@ -1,0 +1,1777 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Association rule learning - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"XnppQApAMNIAAO0qRL8AAAEC","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Association_rule_learning","wgTitle":"Association rule learning","wgCurRevisionId":931361299,"wgRevisionId":931361299,"wgArticleId":577053,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Webarchive template wayback links","CS1 errors: missing periodical","CS1: long volume value","Wikipedia articles needing page number citations from January 2019","All articles with unsourced statements","Articles with unsourced statements from February 2015",
+"Wikipedia articles needing clarification from October 2019","Articles prone to spam from February 2016","Data management","Data mining"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Association_rule_learning","wgRelevantArticleId":577053,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0,"wgPopupsReferencePreviews":!1,"wgPopupsConflictsWithNavPopupGadget":!1,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":!0,"nearby":!0,"watchlist":!0,"tagline":!1},"wgWMESchemaEditAttemptStepOversample":!1,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q386780","wgCentralAuthMobileDomain":!1,"wgEditSubmitButtonLabelPublish":!0};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":
+"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","mediawiki.toc.styles":"ready","skins.vector.styles.legacy":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.startup","skins.vector.js","mediawiki.page.ready","mediawiki.toc","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns",
+"ext.quicksurveys.init","ext.centralNotice.geoIP","ext.centralNotice.startUp"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.tokens@tffin",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.0-wmf.24"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/1200px-Kernel_Machine.svg.png"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Association_rule_learning&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Association_rule_learning&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Association_rule_learning"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Association_rule_learning rootpage-Association_rule_learning skin-vector action-view">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+</div>
+
+	<h1 id="firstHeading" class="firstHeading" lang="en">Association rule learning</h1>
+	
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#p-search">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table class="vertical-navbox nowraplinks" style="float:right;clear:right;width:22.0em;margin:0 0 1.0em 1.0em;background:#f9f9f9;border:1px solid #aaa;padding:0.2em;border-spacing:0.4em 0;text-align:center;line-height:1.4em;font-size:88%"><tbody><tr><th style="padding:0.2em 0.4em 0.2em;font-size:145%;line-height:1.2em"><a href="/wiki/Machine_learning" title="Machine learning">Machine learning</a> and<br /><a href="/wiki/Data_mining" title="Data mining">data mining</a></th></tr><tr><td style="padding:0.2em 0 0.4em;padding:0.25em 0.25em 0.75em;"><a href="/wiki/File:Kernel_Machine.svg" class="image"><img alt="Kernel Machine.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/220px-Kernel_Machine.svg.png" decoding="async" width="220" height="100" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/330px-Kernel_Machine.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/440px-Kernel_Machine.svg.png 2x" data-file-width="512" data-file-height="233" /></a></td></tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Problems</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Statistical_classification" title="Statistical classification">Classification</a></li>
+<li><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></li>
+<li><a href="/wiki/Regression_analysis" title="Regression analysis">Regression</a></li>
+<li><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></li>
+<li><a href="/wiki/Automated_machine_learning" title="Automated machine learning">AutoML</a></li>
+<li><a class="mw-selflink selflink">Association rules</a></li>
+<li><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></li>
+<li><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></li>
+<li><a href="/wiki/Feature_engineering" title="Feature engineering">Feature engineering</a></li>
+<li><a href="/wiki/Feature_learning" title="Feature learning">Feature learning</a></li>
+<li><a href="/wiki/Online_machine_learning" title="Online machine learning">Online learning</a></li>
+<li><a href="/wiki/Semi-supervised_learning" title="Semi-supervised learning">Semi-supervised learning</a></li>
+<li><a href="/wiki/Unsupervised_learning" title="Unsupervised learning">Unsupervised learning</a></li>
+<li><a href="/wiki/Learning_to_rank" title="Learning to rank">Learning to rank</a></li>
+<li><a href="/wiki/Grammar_induction" title="Grammar induction">Grammar induction</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><div style="padding:0.1em 0;line-height:1.2em;"><a href="/wiki/Supervised_learning" title="Supervised learning">Supervised learning</a><br /><style data-mw-deduplicate="TemplateStyles:r886047488">.mw-parser-output .nobold{font-weight:normal}</style><span class="nobold"><span style="font-size:85%;">(<b><a href="/wiki/Statistical_classification" title="Statistical classification">classification</a></b>&#160;&#8226;&#32;<b><a href="/wiki/Regression_analysis" title="Regression analysis">regression</a></b>)</span></span> </div></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Decision_tree_learning" title="Decision tree learning">Decision trees</a></li>
+<li><a href="/wiki/Ensemble_learning" title="Ensemble learning">Ensembles</a>
+<ul><li><a href="/wiki/Bootstrap_aggregating" title="Bootstrap aggregating">Bagging</a></li>
+<li><a href="/wiki/Boosting_(machine_learning)" title="Boosting (machine learning)">Boosting</a></li>
+<li><a href="/wiki/Random_forest" title="Random forest">Random forest</a></li></ul></li>
+<li><a href="/wiki/K-nearest_neighbors_algorithm" title="K-nearest neighbors algorithm"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Linear_regression" title="Linear regression">Linear regression</a></li>
+<li><a href="/wiki/Naive_Bayes_classifier" title="Naive Bayes classifier">Naive Bayes</a></li>
+<li><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural networks</a></li>
+<li><a href="/wiki/Logistic_regression" title="Logistic regression">Logistic regression</a></li>
+<li><a href="/wiki/Perceptron" title="Perceptron">Perceptron</a></li>
+<li><a href="/wiki/Relevance_vector_machine" title="Relevance vector machine">Relevance vector machine (RVM)</a></li>
+<li><a href="/wiki/Support-vector_machine" title="Support-vector machine">Support vector machine (SVM)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/BIRCH" title="BIRCH">BIRCH</a></li>
+<li><a href="/wiki/CURE_data_clustering_algorithm" class="mw-redirect" title="CURE data clustering algorithm">CURE</a></li>
+<li><a href="/wiki/Hierarchical_clustering" title="Hierarchical clustering">Hierarchical</a></li>
+<li><a href="/wiki/K-means_clustering" title="K-means clustering"><i>k</i>-means</a></li>
+<li><a href="/wiki/Expectation%E2%80%93maximization_algorithm" title="Expectation–maximization algorithm">Expectation–maximization (EM)</a></li>
+<li><br /><a href="/wiki/DBSCAN" title="DBSCAN">DBSCAN</a></li>
+<li><a href="/wiki/OPTICS_algorithm" title="OPTICS algorithm">OPTICS</a></li>
+<li><a href="/wiki/Mean-shift" class="mw-redirect" title="Mean-shift">Mean-shift</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Dimensionality_reduction" title="Dimensionality reduction">Dimensionality reduction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Factor_analysis" title="Factor analysis">Factor analysis</a></li>
+<li><a href="/wiki/Canonical_correlation_analysis" class="mw-redirect" title="Canonical correlation analysis">CCA</a></li>
+<li><a href="/wiki/Independent_component_analysis" title="Independent component analysis">ICA</a></li>
+<li><a href="/wiki/Linear_discriminant_analysis" title="Linear discriminant analysis">LDA</a></li>
+<li><a href="/wiki/Non-negative_matrix_factorization" title="Non-negative matrix factorization">NMF</a></li>
+<li><a href="/wiki/Principal_component_analysis" title="Principal component analysis">PCA</a></li>
+<li><a href="/wiki/T-distributed_stochastic_neighbor_embedding" title="T-distributed stochastic neighbor embedding">t-SNE</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Graphical_model" title="Graphical model">Graphical models</a>
+<ul><li><a href="/wiki/Bayesian_network" title="Bayesian network">Bayes net</a></li>
+<li><a href="/wiki/Conditional_random_field" title="Conditional random field">Conditional random field</a></li>
+<li><a href="/wiki/Hidden_Markov_model" title="Hidden Markov model">Hidden Markov</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/K-nearest_neighbors_classification" class="mw-redirect" title="K-nearest neighbors classification"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Local_outlier_factor" title="Local outlier factor">Local outlier factor</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural network</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Autoencoder" title="Autoencoder">Autoencoder</a></li>
+<li><a href="/wiki/Deep_learning" title="Deep learning">Deep learning</a></li>
+<li><a href="/wiki/DeepDream" title="DeepDream">DeepDream</a></li>
+<li><a href="/wiki/Multilayer_perceptron" title="Multilayer perceptron">Multilayer perceptron</a></li>
+<li><a href="/wiki/Recurrent_neural_network" title="Recurrent neural network">RNN</a>
+<ul><li><a href="/wiki/Long_short-term_memory" title="Long short-term memory">LSTM</a></li>
+<li><a href="/wiki/Gated_recurrent_unit" title="Gated recurrent unit">GRU</a></li></ul></li>
+<li><a href="/wiki/Restricted_Boltzmann_machine" title="Restricted Boltzmann machine">Restricted Boltzmann machine</a></li>
+<li><a href="/wiki/Generative_adversarial_network" title="Generative adversarial network">GAN</a></li>
+<li><a href="/wiki/Self-organizing_map" title="Self-organizing map">SOM</a></li>
+<li><a href="/wiki/Convolutional_neural_network" title="Convolutional neural network">Convolutional neural network</a>
+<ul><li><a href="/wiki/U-Net" title="U-Net">U-Net</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Q-learning" title="Q-learning">Q-learning</a></li>
+<li><a href="/wiki/State%E2%80%93action%E2%80%93reward%E2%80%93state%E2%80%93action" title="State–action–reward–state–action">SARSA</a></li>
+<li><a href="/wiki/Temporal_difference_learning" title="Temporal difference learning">Temporal difference (TD)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Theory</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Bias%E2%80%93variance_dilemma" class="mw-redirect" title="Bias–variance dilemma">Bias–variance dilemma</a></li>
+<li><a href="/wiki/Computational_learning_theory" title="Computational learning theory">Computational learning theory</a></li>
+<li><a href="/wiki/Empirical_risk_minimization" title="Empirical risk minimization">Empirical risk minimization</a></li>
+<li><a href="/wiki/Occam_learning" title="Occam learning">Occam learning</a></li>
+<li><a href="/wiki/Probably_approximately_correct_learning" title="Probably approximately correct learning">PAC learning</a></li>
+<li><a href="/wiki/Statistical_learning_theory" title="Statistical learning theory">Statistical learning</a></li>
+<li><a href="/wiki/Vapnik%E2%80%93Chervonenkis_theory" title="Vapnik–Chervonenkis theory">VC theory</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Machine-learning venues</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Conference_on_Neural_Information_Processing_Systems" title="Conference on Neural Information Processing Systems">NeurIPS</a></li>
+<li><a href="/wiki/International_Conference_on_Machine_Learning" title="International Conference on Machine Learning">ICML</a></li>
+<li><a href="/wiki/Machine_Learning_(journal)" title="Machine Learning (journal)">ML</a></li>
+<li><a href="/wiki/Journal_of_Machine_Learning_Research" title="Journal of Machine Learning Research">JMLR</a></li>
+<li><a rel="nofollow" class="external text" href="https://arxiv.org/list/cs.LG/recent">ArXiv:cs.LG</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Related articles</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/List_of_datasets_for_machine-learning_research" title="List of datasets for machine-learning research">List of datasets for machine-learning research</a></li>
+<li><a href="/wiki/Outline_of_machine_learning" title="Outline of machine learning">Outline of machine learning</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="text-align:right;font-size:115%;padding-top: 0.6em;"><div class="plainlinks hlist navbar mini"><ul><li class="nv-view"><a href="/wiki/Template:Machine_learning_bar" title="Template:Machine learning bar"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="/wiki/Template_talk:Machine_learning_bar" title="Template talk:Machine learning bar"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Machine_learning_bar&amp;action=edit"><abbr title="Edit this template">e</abbr></a></li></ul></div></td></tr></tbody></table>
+<p><b>Association rule learning</b> is a <a href="/wiki/Rule-based_machine_learning" title="Rule-based machine learning">rule-based machine learning</a> method for discovering interesting relations between variables in large databases. It is intended to identify strong rules discovered in databases using some measures of interestingness.<sup id="cite_ref-piatetsky_1-0" class="reference"><a href="#cite_note-piatetsky-1">&#91;1&#93;</a></sup>
+</p><p>Based on the concept of strong rules, <a href="/wiki/Rakesh_Agrawal_(computer_scientist)" title="Rakesh Agrawal (computer scientist)">Rakesh Agrawal</a>, <a href="/wiki/Tomasz_Imieli%C5%84ski" title="Tomasz Imieliński">Tomasz Imieliński</a> and Arun Swami<sup id="cite_ref-mining_2-0" class="reference"><a href="#cite_note-mining-2">&#91;2&#93;</a></sup> introduced association rules for discovering regularities between products in large-scale transaction data recorded by <a href="/wiki/Point-of-sale" class="mw-redirect" title="Point-of-sale">point-of-sale</a> (POS) systems in supermarkets. For example, the rule <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{\mathrm {onions,potatoes} \}\Rightarrow \{\mathrm {burger} \}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">n</mi>
+          <mi mathvariant="normal">i</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">n</mi>
+          <mi mathvariant="normal">s</mi>
+          <mo>,</mo>
+          <mi mathvariant="normal">p</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">a</mi>
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">s</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">r</mi>
+          <mi mathvariant="normal">g</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">r</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{\mathrm {onions,potatoes} \}\Rightarrow \{\mathrm {burger} \}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2e6daa2c8e553e87e411d6e0ec66ae596c3c9381" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:30.912ex; height:2.843ex;" alt="\{{\mathrm  {onions,potatoes}}\}\Rightarrow \{{\mathrm  {burger}}\}"/></span> found in the sales data of a supermarket would indicate that if a customer buys onions and potatoes together, they are likely to also buy hamburger meat. Such information can be used as the basis for decisions about marketing activities such as, e.g., promotional <a href="/wiki/Pricing" title="Pricing">pricing</a> or <a href="/wiki/Product_placement" title="Product placement">product placements</a>.
+</p><p>In addition to the above example from <a href="/wiki/Market_basket_analysis" class="mw-redirect" title="Market basket analysis">market basket analysis</a> association rules are employed today in many application areas including <a href="/wiki/Web_usage_mining" class="mw-redirect" title="Web usage mining">Web usage mining</a>, <a href="/wiki/Intrusion_detection" class="mw-redirect" title="Intrusion detection">intrusion detection</a>, <a href="/wiki/Continuous_production" title="Continuous production">continuous production</a>, and <a href="/wiki/Bioinformatics" title="Bioinformatics">bioinformatics</a>. In contrast with <a href="/wiki/Sequence_mining" class="mw-redirect" title="Sequence mining">sequence mining</a>, association rule learning typically does not consider the order of items either within a transaction or across transactions.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Definition"><span class="tocnumber">1</span> <span class="toctext">Definition</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Useful_Concepts"><span class="tocnumber">2</span> <span class="toctext">Useful Concepts</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Support"><span class="tocnumber">2.1</span> <span class="toctext">Support</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Confidence"><span class="tocnumber">2.2</span> <span class="toctext">Confidence</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Lift"><span class="tocnumber">2.3</span> <span class="toctext">Lift</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Conviction"><span class="tocnumber">2.4</span> <span class="toctext">Conviction</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Alternative_measures_of_interestingness"><span class="tocnumber">2.5</span> <span class="toctext">Alternative measures of interestingness</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Process"><span class="tocnumber">3</span> <span class="toctext">Process</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#History"><span class="tocnumber">4</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Statistically_sound_associations"><span class="tocnumber">5</span> <span class="toctext">Statistically sound associations</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Algorithms"><span class="tocnumber">6</span> <span class="toctext">Algorithms</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Apriori_algorithm"><span class="tocnumber">6.1</span> <span class="toctext">Apriori algorithm</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Eclat_algorithm"><span class="tocnumber">6.2</span> <span class="toctext">Eclat algorithm</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#FP-growth_algorithm"><span class="tocnumber">6.3</span> <span class="toctext">FP-growth algorithm</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Others"><span class="tocnumber">6.4</span> <span class="toctext">Others</span></a>
+<ul>
+<li class="toclevel-3 tocsection-16"><a href="#ASSOC"><span class="tocnumber">6.4.1</span> <span class="toctext">ASSOC</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="#OPUS_search"><span class="tocnumber">6.4.2</span> <span class="toctext">OPUS search</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="#Lore"><span class="tocnumber">7</span> <span class="toctext">Lore</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="#Other_types_of_association_rule_mining"><span class="tocnumber">8</span> <span class="toctext">Other types of association rule mining</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="#References"><span class="tocnumber">10</span> <span class="toctext">References</span></a>
+<ul>
+<li class="toclevel-2 tocsection-22"><a href="#Bibliographies"><span class="tocnumber">10.1</span> <span class="toctext">Bibliographies</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Definition">Definition</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=1" title="Edit section: Definition">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="wikitable" style="float: right; margin-left: 1em;">
+<caption>Example database with 5 transactions and 5 items
+</caption>
+<tbody><tr>
+<th>transaction ID</th>
+<th>milk</th>
+<th>bread</th>
+<th>butter</th>
+<th>beer</th>
+<th>diapers
+</th></tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0
+</td></tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0
+</td></tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1
+</td></tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0
+</td></tr>
+<tr>
+<td>5</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0
+</td></tr>
+</tbody></table>
+<p>Following the original definition by Agrawal, Imieliński, Swami<sup id="cite_ref-mining_2-1" class="reference"><a href="#cite_note-mining-2">&#91;2&#93;</a></sup> the problem of association rule mining is defined as:
+</p><p>Let <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle I=\{i_{1},i_{2},\ldots ,i_{n}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>I</mi>
+        <mo>=</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>i</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>i</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>i</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I=\{i_{1},i_{2},\ldots ,i_{n}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/51ad977aef7386762e773f5aeca5070fe893691a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:18.542ex; height:2.843ex;" alt="I=\{i_{1},i_{2},\ldots ,i_{n}\}"/></span> be a set of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> binary attributes called <i>items</i>.
+</p><p>Let <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle D=\{t_{1},t_{2},\ldots ,t_{m}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>D</mi>
+        <mo>=</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>t</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>t</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>t</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+        </msub>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle D=\{t_{1},t_{2},\ldots ,t_{m}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c881fabb045e365e3e40ce730eff87660431074f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:19.862ex; height:2.843ex;" alt="D=\{t_{1},t_{2},\ldots ,t_{m}\}"/></span> be a set of transactions called the <i>database</i>.
+</p><p>Each <i>transaction</i> in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle D}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>D</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle D}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f34a0c600395e5d4345287e21fb26efd386990e6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.924ex; height:2.176ex;" alt="D"/></span> has a unique transaction ID and contains a subset of the items in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle I}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>I</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/535ea7fc4134a31cbe2251d9d3511374bc41be9f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.172ex; height:2.176ex;" alt="I"/></span>.
+</p><p>A <i>rule</i> is defined as an implication of the form:
+</p><p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X\Rightarrow Y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+        <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+        <mi>Y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X\Rightarrow Y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/59d16d722c8c8fe129384ebc3687884c0b348eef" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:7.367ex; height:2.176ex;" alt="X\Rightarrow Y"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X,Y\subseteq I}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+        <mo>,</mo>
+        <mi>Y</mi>
+        <mo>&#x2286;<!-- ⊆ --></mo>
+        <mi>I</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X,Y\subseteq I}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0f5aabe40ab2b554c2f23eda221556db5868959f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:9.057ex; height:2.509ex;" alt="X,Y\subseteq I"/></span>.
+</p><p>In Agrawal, Imieliński, Swami<sup id="cite_ref-mining_2-2" class="reference"><a href="#cite_note-mining-2">&#91;2&#93;</a></sup> a <i>rule</i> is defined only between a set and a single item, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X\Rightarrow i_{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+        <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+        <msub>
+          <mi>i</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X\Rightarrow i_{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/10f03f06761df5fb43a17b2dac73ceb9c1ef1039" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:7.306ex; height:2.843ex;" alt="{\displaystyle X\Rightarrow i_{j}}"/></span> for <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle i_{j}\in I}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>i</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>I</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i_{j}\in I}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/313bb7442e84075026469b21609039a11449d35f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:5.725ex; height:2.843ex;" alt="{\displaystyle i_{j}\in I}"/></span>.
+</p><p>Every rule is composed by two different sets of items, also known as <i>itemsets</i>, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="X"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/961d67d6b454b4df2301ac571808a3538b3a6d3f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.171ex; width:1.773ex; height:2.009ex;" alt="Y"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="X"/></span> is called <i>antecedent</i> or left-hand-side (LHS) and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/961d67d6b454b4df2301ac571808a3538b3a6d3f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.171ex; width:1.773ex; height:2.009ex;" alt="Y"/></span> <i>consequent</i> or right-hand-side (RHS).
+</p><p>To illustrate the concepts, we use a small example from the supermarket domain. The set of items is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle I=\{\mathrm {milk,bread,butter,beer,diapers} \}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>I</mi>
+        <mo>=</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">m</mi>
+          <mi mathvariant="normal">i</mi>
+          <mi mathvariant="normal">l</mi>
+          <mi mathvariant="normal">k</mi>
+          <mo>,</mo>
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">r</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">a</mi>
+          <mi mathvariant="normal">d</mi>
+          <mo>,</mo>
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">r</mi>
+          <mo>,</mo>
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">r</mi>
+          <mo>,</mo>
+          <mi mathvariant="normal">d</mi>
+          <mi mathvariant="normal">i</mi>
+          <mi mathvariant="normal">a</mi>
+          <mi mathvariant="normal">p</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">r</mi>
+          <mi mathvariant="normal">s</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I=\{\mathrm {milk,bread,butter,beer,diapers} \}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/debe2b7bb5feb6413f25afaf2816e4dad7763c96" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:38.741ex; height:2.843ex;" alt="I=\{{\mathrm  {milk,bread,butter,beer,diapers}}\}"/></span> and in the table is shown a small database containing the items, where, in each entry, the value 1 means the presence of the item in the corresponding transaction, and the value 0 represents the absence of an item in that transaction.
+</p><p>An example rule for the supermarket could be <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{\mathrm {butter,bread} \}\Rightarrow \{\mathrm {milk} \}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">r</mi>
+          <mo>,</mo>
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">r</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">a</mi>
+          <mi mathvariant="normal">d</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">m</mi>
+          <mi mathvariant="normal">i</mi>
+          <mi mathvariant="normal">l</mi>
+          <mi mathvariant="normal">k</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{\mathrm {butter,bread} \}\Rightarrow \{\mathrm {milk} \}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3141048979b977982202dbf7a80596f8a6b1177e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:25.785ex; height:2.843ex;" alt="\{{\mathrm  {butter,bread}}\}\Rightarrow \{{\mathrm  {milk}}\}"/></span> meaning that if butter and bread are bought, customers also buy milk.
+</p><p>Note: this example is extremely small. In practical applications, a rule needs a support of several hundred transactions before it can be considered statistically significant<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (February 2015)">citation needed</span></a></i>&#93;</sup>, and datasets often contain thousands or millions of transactions.
+</p>
+<h2><span class="mw-headline" id="Useful_Concepts">Useful Concepts</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=2" title="Edit section: Useful Concepts">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In order to select interesting rules from the set of all possible rules, constraints on various measures of significance and interest are used. The best-known constraints are minimum thresholds on support and confidence.
+</p><p>Let <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X,Y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+        <mo>,</mo>
+        <mi>Y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X,Y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b8705438171d938b7f59cd1bfa5b7d99b6afa5cd" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.787ex; height:2.509ex;" alt="X,Y"/></span> be itemsets, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X\Rightarrow Y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+        <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+        <mi>Y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X\Rightarrow Y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/59d16d722c8c8fe129384ebc3687884c0b348eef" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:7.367ex; height:2.176ex;" alt="X\Rightarrow Y"/></span> an association rule and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle T}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>T</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ec7200acd984a1d3a3d7dc455e262fbe54f7f6e0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.636ex; height:2.176ex;" alt="T"/></span> a set of transactions of a given database.
+</p>
+<h3><span class="mw-headline" id="Support">Support</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=3" title="Edit section: Support">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Support is an indication of how frequently the itemset appears in the dataset.
+</p><p>The support of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="X"/></span> with respect to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle T}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>T</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ec7200acd984a1d3a3d7dc455e262fbe54f7f6e0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.636ex; height:2.176ex;" alt="T"/></span> is defined as the proportion of transactions <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle t}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>t</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle t}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65658b7b223af9e1acc877d848888ecdb4466560" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.84ex; height:2.009ex;" alt="t"/></span> in the dataset which contains the itemset <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="X"/></span>.
+</p><p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {supp} (X)={\frac {|\{t\in T;X\subseteq t\}|}{|T|}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">s</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">p</mi>
+          <mi mathvariant="normal">p</mi>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <mo fence="false" stretchy="false">{</mo>
+              <mi>t</mi>
+              <mo>&#x2208;<!-- ∈ --></mo>
+              <mi>T</mi>
+              <mo>;</mo>
+              <mi>X</mi>
+              <mo>&#x2286;<!-- ⊆ --></mo>
+              <mi>t</mi>
+              <mo fence="false" stretchy="false">}</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+            </mrow>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <mi>T</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {supp} (X)={\frac {|\{t\in T;X\subseteq t\}|}{|T|}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1c6acacd3b17051205704b5d323c83fc737e5db1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.671ex; width:28.405ex; height:6.509ex;" alt="{\displaystyle \mathrm {supp} (X)={\frac {|\{t\in T;X\subseteq t\}|}{|T|}}}"/></span>
+</p><p>In the example dataset, the itemset <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X=\{\mathrm {beer,diapers} \}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+        <mo>=</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">r</mi>
+          <mo>,</mo>
+          <mi mathvariant="normal">d</mi>
+          <mi mathvariant="normal">i</mi>
+          <mi mathvariant="normal">a</mi>
+          <mi mathvariant="normal">p</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">r</mi>
+          <mi mathvariant="normal">s</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X=\{\mathrm {beer,diapers} \}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f4c941b0d077814c5dbfa51c38700d741bebb959" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:19.961ex; height:2.843ex;" alt="{\displaystyle X=\{\mathrm {beer,diapers} \}}"/></span> has a support of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 1/5=0.2}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>1</mn>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mn>5</mn>
+        <mo>=</mo>
+        <mn>0.2</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 1/5=0.2}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0fee425897cc5292ea3b319aeb3b63b2115634c7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.558ex; height:2.843ex;" alt="1/5=0.2"/></span> since it occurs in 20% of all transactions (1 out of 5 transactions). The argument of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {supp} ()}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">s</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">p</mi>
+          <mi mathvariant="normal">p</mi>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {supp} ()}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9147d24c9d6cf8ee4f1cf23eb7af2237bd3bb4fe" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.603ex; height:2.843ex;" alt="{\mathrm  {supp}}()"/></span> is a set of preconditions, and thus becomes more restrictive as it grows (instead of more inclusive).<sup id="cite_ref-:0_3-0" class="reference"><a href="#cite_note-:0-3">&#91;3&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Confidence">Confidence</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=4" title="Edit section: Confidence">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Confidence is an indication of how often the rule has been found to be true.
+</p><p>The <i>confidence</i> value of a rule, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X\Rightarrow Y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+        <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+        <mi>Y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X\Rightarrow Y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/59d16d722c8c8fe129384ebc3687884c0b348eef" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:7.367ex; height:2.176ex;" alt="X\Rightarrow Y"/></span> , with respect to a set of transactions <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle T}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>T</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ec7200acd984a1d3a3d7dc455e262fbe54f7f6e0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.636ex; height:2.176ex;" alt="T"/></span>, is the proportion of the transactions that contains <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="X"/></span> which also contains <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/961d67d6b454b4df2301ac571808a3538b3a6d3f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.171ex; width:1.773ex; height:2.009ex;" alt="Y"/></span>.
+</p><p>Confidence is defined as:
+</p><p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {conf} (X\Rightarrow Y)=\mathrm {supp} (X\cup Y)/\mathrm {supp} (X)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">c</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">n</mi>
+          <mi mathvariant="normal">f</mi>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+        <mi>Y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">s</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">p</mi>
+          <mi mathvariant="normal">p</mi>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo>&#x222A;<!-- ∪ --></mo>
+        <mi>Y</mi>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">s</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">p</mi>
+          <mi mathvariant="normal">p</mi>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {conf} (X\Rightarrow Y)=\mathrm {supp} (X\cup Y)/\mathrm {supp} (X)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/90324dedc399441696116eed3658fd17c5da4329" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:39.312ex; height:2.843ex;" alt="{\mathrm  {conf}}(X\Rightarrow Y)={\mathrm  {supp}}(X\cup Y)/{\mathrm  {supp}}(X)"/></span>
+</p><p>For example, the rule <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{\mathrm {butter,bread} \}\Rightarrow \{\mathrm {milk} \}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">r</mi>
+          <mo>,</mo>
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">r</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">a</mi>
+          <mi mathvariant="normal">d</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">m</mi>
+          <mi mathvariant="normal">i</mi>
+          <mi mathvariant="normal">l</mi>
+          <mi mathvariant="normal">k</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{\mathrm {butter,bread} \}\Rightarrow \{\mathrm {milk} \}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3141048979b977982202dbf7a80596f8a6b1177e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:25.785ex; height:2.843ex;" alt="\{{\mathrm  {butter,bread}}\}\Rightarrow \{{\mathrm  {milk}}\}"/></span> has a confidence of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 0.2/0.2=1.0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>0.2</mn>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mn>0.2</mn>
+        <mo>=</mo>
+        <mn>1.0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 0.2/0.2=1.0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d176ea6bb6bc037b9b55fa5ac46b0c0240cebd94" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:13.176ex; height:2.843ex;" alt="0.2/0.2=1.0"/></span> in the database, which means that for 100% of the transactions containing butter and bread the rule is correct (100% of the times a customer buys butter and bread, milk is bought as well).
+</p><p>Note that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {supp} (X\cup Y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">s</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">p</mi>
+          <mi mathvariant="normal">p</mi>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo>&#x222A;<!-- ∪ --></mo>
+        <mi>Y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {supp} (X\cup Y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/43b22370df4bcc1c2514f712bbf11de7ed5fc5da" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.939ex; height:2.843ex;" alt="{\displaystyle \mathrm {supp} (X\cup Y)}"/></span> means the support of the union of the items in X and Y. This is somewhat confusing since we normally think in terms of probabilities of <a href="/wiki/Event_(probability_theory)" title="Event (probability theory)">events</a> and not sets of items. We can rewrite <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {supp} (X\cup Y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">s</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">p</mi>
+          <mi mathvariant="normal">p</mi>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo>&#x222A;<!-- ∪ --></mo>
+        <mi>Y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {supp} (X\cup Y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/43b22370df4bcc1c2514f712bbf11de7ed5fc5da" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.939ex; height:2.843ex;" alt="{\displaystyle \mathrm {supp} (X\cup Y)}"/></span> as the probability <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle P(E_{X}\cap E_{Y})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>E</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>X</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2229;<!-- ∩ --></mo>
+        <msub>
+          <mi>E</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>Y</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P(E_{X}\cap E_{Y})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4befac89fb56ce378b423348af9e12d467be749f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.686ex; height:2.843ex;" alt="P(E_{X}\cap E_{Y})"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle E_{X}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>E</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>X</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle E_{X}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f42ad80a2d12c81cb49b77c2e2accaaa99de839e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:3.348ex; height:2.509ex;" alt="E_{X}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle E_{Y}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>E</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>Y</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle E_{Y}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b206a9fe1375f31cc2413ad1ccf7cc514b434f6e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:3.201ex; height:2.509ex;" alt="E_{Y}"/></span> are the events that a transaction contains itemset <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="X"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/961d67d6b454b4df2301ac571808a3538b3a6d3f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.171ex; width:1.773ex; height:2.009ex;" alt="Y"/></span>, respectively.<sup id="cite_ref-michael.hahsler.net_4-0" class="reference"><a href="#cite_note-michael.hahsler.net-4">&#91;4&#93;</a></sup>
+</p><p>Thus confidence can be interpreted as an estimate of the <a href="/wiki/Conditional_probability" title="Conditional probability">conditional probability</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle P(E_{Y}|E_{X})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>E</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>Y</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msub>
+          <mi>E</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>X</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P(E_{Y}|E_{X})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3aae051d1da108c5db58a297bae8cd96d3de675c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.751ex; height:2.843ex;" alt="P(E_{Y}|E_{X})"/></span>, the probability of finding the RHS of the rule in transactions under the condition that these transactions also contain the LHS.<sup id="cite_ref-:0_3-1" class="reference"><a href="#cite_note-:0-3">&#91;3&#93;</a></sup><sup id="cite_ref-hipp_5-0" class="reference"><a href="#cite_note-hipp-5">&#91;5&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Lift">Lift</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=5" title="Edit section: Lift">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <i><a href="/wiki/Lift_(data_mining)" title="Lift (data mining)">lift</a></i> of a rule is defined as:
+</p><p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {lift} (X\Rightarrow Y)={\frac {\mathrm {supp} (X\cup Y)}{\mathrm {supp} (X)\times \mathrm {supp} (Y)}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">l</mi>
+          <mi mathvariant="normal">i</mi>
+          <mi mathvariant="normal">f</mi>
+          <mi mathvariant="normal">t</mi>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+        <mi>Y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">s</mi>
+                <mi mathvariant="normal">u</mi>
+                <mi mathvariant="normal">p</mi>
+                <mi mathvariant="normal">p</mi>
+              </mrow>
+              <mo stretchy="false">(</mo>
+              <mi>X</mi>
+              <mo>&#x222A;<!-- ∪ --></mo>
+              <mi>Y</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">s</mi>
+                <mi mathvariant="normal">u</mi>
+                <mi mathvariant="normal">p</mi>
+                <mi mathvariant="normal">p</mi>
+              </mrow>
+              <mo stretchy="false">(</mo>
+              <mi>X</mi>
+              <mo stretchy="false">)</mo>
+              <mo>&#x00D7;<!-- × --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">s</mi>
+                <mi mathvariant="normal">u</mi>
+                <mi mathvariant="normal">p</mi>
+                <mi mathvariant="normal">p</mi>
+              </mrow>
+              <mo stretchy="false">(</mo>
+              <mi>Y</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {lift} (X\Rightarrow Y)={\frac {\mathrm {supp} (X\cup Y)}{\mathrm {supp} (X)\times \mathrm {supp} (Y)}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b6bfa25f817a13d911d1705766a5490d60d4f598" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.671ex; width:35.975ex; height:6.509ex;" alt="{\mathrm  {lift}}(X\Rightarrow Y)={\frac  {{\mathrm  {supp}}(X\cup Y)}{{\mathrm  {supp}}(X)\times {\mathrm  {supp}}(Y)}}"/></span>
+</p><p>or the ratio of the observed support to that expected if X and Y were <a href="/wiki/Independence_(probability_theory)" title="Independence (probability theory)">independent</a>.
+</p><p>For example, the rule <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{\mathrm {milk,bread} \}\Rightarrow \{\mathrm {butter} \}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">m</mi>
+          <mi mathvariant="normal">i</mi>
+          <mi mathvariant="normal">l</mi>
+          <mi mathvariant="normal">k</mi>
+          <mo>,</mo>
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">r</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">a</mi>
+          <mi mathvariant="normal">d</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">r</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{\mathrm {milk,bread} \}\Rightarrow \{\mathrm {butter} \}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/31ebb0498a18c22794582ddd8c23e2e6394d6e45" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:25.785ex; height:2.843ex;" alt="\{{\mathrm  {milk,bread}}\}\Rightarrow \{{\mathrm  {butter}}\}"/></span> has a lift of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {0.2}{0.4\times 0.4}}=1.25}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>0.2</mn>
+            <mrow>
+              <mn>0.4</mn>
+              <mo>&#x00D7;<!-- × --></mo>
+              <mn>0.4</mn>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mn>1.25</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {0.2}{0.4\times 0.4}}=1.25}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cc9a265b53d6b8b5328d1a2b9e7cd7742348d14a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.005ex; width:16.853ex; height:5.343ex;" alt="{\frac  {0.2}{0.4\times 0.4}}=1.25"/></span>.
+</p><p>If the rule had a lift of 1, it would imply that the probability of occurrence of the antecedent and that of the consequent are independent of each other. When two events are independent of each other, no rule can be drawn involving those two events.
+</p><p>If the lift is &gt; 1, that lets us know the degree to which those two occurrences are dependent on one another, and makes those rules potentially useful for predicting the consequent in future data sets.
+</p><p>If the lift is &lt; 1, that lets us know the items are substitute to each other. This means that presence of one item has negative effect on presence of other item and vice versa.
+</p><p>The value of lift is that it considers both the support of the rule and the overall data set.<sup id="cite_ref-:0_3-2" class="reference"><a href="#cite_note-:0-3">&#91;3&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Conviction">Conviction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=6" title="Edit section: Conviction">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <i>conviction</i> of a rule is defined as <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {conv} (X\Rightarrow Y)={\frac {1-\mathrm {supp} (Y)}{1-\mathrm {conf} (X\Rightarrow Y)}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">c</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">n</mi>
+          <mi mathvariant="normal">v</mi>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+        <mi>Y</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mn>1</mn>
+              <mo>&#x2212;<!-- − --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">s</mi>
+                <mi mathvariant="normal">u</mi>
+                <mi mathvariant="normal">p</mi>
+                <mi mathvariant="normal">p</mi>
+              </mrow>
+              <mo stretchy="false">(</mo>
+              <mi>Y</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <mrow>
+              <mn>1</mn>
+              <mo>&#x2212;<!-- − --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">c</mi>
+                <mi mathvariant="normal">o</mi>
+                <mi mathvariant="normal">n</mi>
+                <mi mathvariant="normal">f</mi>
+              </mrow>
+              <mo stretchy="false">(</mo>
+              <mi>X</mi>
+              <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+              <mi>Y</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {conv} (X\Rightarrow Y)={\frac {1-\mathrm {supp} (Y)}{1-\mathrm {conf} (X\Rightarrow Y)}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4c2228820d6a8cb5a84bd059d53764a6b9280386" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.671ex; width:35.358ex; height:6.509ex;" alt="{\mathrm  {conv}}(X\Rightarrow Y)={\frac  {1-{\mathrm  {supp}}(Y)}{1-{\mathrm  {conf}}(X\Rightarrow Y)}}"/></span>.<sup id="cite_ref-brin-dynamic-itemset1_6-0" class="reference"><a href="#cite_note-brin-dynamic-itemset1-6">&#91;6&#93;</a></sup>
+</p><p>For example, the rule <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{\mathrm {milk,bread} \}\Rightarrow \{\mathrm {butter} \}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">m</mi>
+          <mi mathvariant="normal">i</mi>
+          <mi mathvariant="normal">l</mi>
+          <mi mathvariant="normal">k</mi>
+          <mo>,</mo>
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">r</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">a</mi>
+          <mi mathvariant="normal">d</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">r</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{\mathrm {milk,bread} \}\Rightarrow \{\mathrm {butter} \}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/31ebb0498a18c22794582ddd8c23e2e6394d6e45" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:25.785ex; height:2.843ex;" alt="\{{\mathrm  {milk,bread}}\}\Rightarrow \{{\mathrm  {butter}}\}"/></span> has a conviction of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {1-0.4}{1-0.5}}=1.2}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mn>1</mn>
+              <mo>&#x2212;<!-- − --></mo>
+              <mn>0.4</mn>
+            </mrow>
+            <mrow>
+              <mn>1</mn>
+              <mo>&#x2212;<!-- − --></mo>
+              <mn>0.5</mn>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mn>1.2</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {1-0.4}{1-0.5}}=1.2}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bff27f4903bd267d0f956a631980450f49cd4d73" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.005ex; width:13.881ex; height:5.343ex;" alt="\frac{1 - 0.4}{1 - 0.5} = 1.2 "/></span>, and can be interpreted as the ratio of the expected frequency that X occurs without Y (that is to say, the frequency that the rule makes an incorrect prediction) if X and Y were independent divided by the observed frequency of incorrect predictions. In this example, the conviction value of 1.2 shows that the rule <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{\mathrm {milk,bread} \}\Rightarrow \{\mathrm {butter} \}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">m</mi>
+          <mi mathvariant="normal">i</mi>
+          <mi mathvariant="normal">l</mi>
+          <mi mathvariant="normal">k</mi>
+          <mo>,</mo>
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">r</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">a</mi>
+          <mi mathvariant="normal">d</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">e</mi>
+          <mi mathvariant="normal">r</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{\mathrm {milk,bread} \}\Rightarrow \{\mathrm {butter} \}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/31ebb0498a18c22794582ddd8c23e2e6394d6e45" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:25.785ex; height:2.843ex;" alt="\{{\mathrm  {milk,bread}}\}\Rightarrow \{{\mathrm  {butter}}\}"/></span> would be incorrect 20% more often (1.25 times as often) if the association between X and Y was purely random chance.
+</p>
+<h3><span class="mw-headline" id="Alternative_measures_of_interestingness">Alternative measures of interestingness</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=7" title="Edit section: Alternative measures of interestingness">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In addition to confidence, other measures of <i>interestingness</i> for rules have been proposed. Some popular measures are:
+</p>
+<ul><li>All-confidence<sup id="cite_ref-allconfidence_7-0" class="reference"><a href="#cite_note-allconfidence-7">&#91;7&#93;</a></sup></li>
+<li>Collective strength<sup id="cite_ref-collectivestrength_8-0" class="reference"><a href="#cite_note-collectivestrength-8">&#91;8&#93;</a></sup></li>
+<li>Leverage<sup id="cite_ref-leverage_9-0" class="reference"><a href="#cite_note-leverage-9">&#91;9&#93;</a></sup></li></ul>
+<p>Several more measures are presented and compared by Tan et al.<sup id="cite_ref-measurescomp_10-0" class="reference"><a href="#cite_note-measurescomp-10">&#91;10&#93;</a></sup> and by Hahsler.<sup id="cite_ref-michael.hahsler.net_4-1" class="reference"><a href="#cite_note-michael.hahsler.net-4">&#91;4&#93;</a></sup> Looking for techniques that can model what the user has known (and using these models as interestingness measures) is currently an active research trend under the name of "Subjective Interestingness."
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Process">Process</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=8" title="Edit section: Process">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:FrequentItems.png" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/0c/FrequentItems.png/220px-FrequentItems.png" decoding="async" width="220" height="159" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/0/0c/FrequentItems.png/330px-FrequentItems.png 1.5x, //upload.wikimedia.org/wikipedia/commons/0/0c/FrequentItems.png 2x" data-file-width="434" data-file-height="314" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:FrequentItems.png" class="internal" title="Enlarge"></a></div>Frequent itemset lattice, where the color of the box indicates how many transactions contain the combination of items. Note that lower levels of the lattice can contain at most the minimum number of their parents' items; e.g. {ac} can have only at most <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle min(a,c)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>m</mi>
+        <mi>i</mi>
+        <mi>n</mi>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>c</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle min(a,c)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/30565af691091147b695bf6ca594a93eacb986c3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.317ex; height:2.843ex;" alt="min(a,c)"/></span> items. This is called the <i>downward-closure property</i>.<sup id="cite_ref-mining_2-3" class="reference"><a href="#cite_note-mining-2">&#91;2&#93;</a></sup></div></div></div><p> Association rules are usually required to satisfy a user-specified minimum support and a user-specified minimum confidence at the same time. Association rule generation is usually split up into two separate steps:
+</p><ol><li>A minimum support threshold is applied to find all <i>frequent itemsets</i> in a database.</li>
+<li>A minimum confidence constraint is applied to these frequent itemsets in order to form rules.</li></ol>
+<p>While the second step is straightforward, the first step needs more attention.
+</p><p>Finding all frequent itemsets in a database is difficult since it involves searching all possible itemsets (item combinations). The set of possible itemsets is the <a href="/wiki/Power_set" title="Power set">power set</a> over <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle I}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>I</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/535ea7fc4134a31cbe2251d9d3511374bc41be9f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.172ex; height:2.176ex;" alt="I"/></span> and has size <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 2^{n}-1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2^{n}-1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/51e4bd4ef2f9549d026cbf643a91c0d12a8c6794" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:6.384ex; height:2.509ex;" alt="2^{n}-1"/></span> (excluding the empty set which is not a valid itemset). Although the size of the power-set grows exponentially in the number of items <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle I}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>I</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/535ea7fc4134a31cbe2251d9d3511374bc41be9f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.172ex; height:2.176ex;" alt="I"/></span>, efficient search is possible using the <i><b>downward-closure property</b></i> of support<sup id="cite_ref-mining_2-4" class="reference"><a href="#cite_note-mining-2">&#91;2&#93;</a></sup><sup id="cite_ref-11" class="reference"><a href="#cite_note-11">&#91;11&#93;</a></sup> (also called <i>anti-monotonicity</i><sup id="cite_ref-pei_12-0" class="reference"><a href="#cite_note-pei-12">&#91;12&#93;</a></sup>) which guarantees that for a frequent itemset, all its subsets are also frequent and thus no infrequent itemset can be a subset of a frequent itemset. Exploiting this property, efficient algorithms (e.g., Apriori<sup id="cite_ref-apriori_13-0" class="reference"><a href="#cite_note-apriori-13">&#91;13&#93;</a></sup> and Eclat<sup id="cite_ref-eclat_14-0" class="reference"><a href="#cite_note-eclat-14">&#91;14&#93;</a></sup>) can find all frequent itemsets.
+</p>
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=9" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The concept of association rules was popularised particularly due to the 1993 article of Agrawal et al.,<sup id="cite_ref-mining_2-5" class="reference"><a href="#cite_note-mining-2">&#91;2&#93;</a></sup> which has acquired more than 18,000 citations according to Google Scholar, as of August 2015, and is thus one of the most cited papers in the Data Mining field. However, what is now called "association rules" is introduced already in the 1966 paper<sup id="cite_ref-guha_oldest_15-0" class="reference"><a href="#cite_note-guha_oldest-15">&#91;15&#93;</a></sup> on GUHA, a general data mining method developed by <a href="/wiki/Petr_H%C3%A1jek" title="Petr Hájek">Petr Hájek</a> et al.<sup id="cite_ref-pospaper_16-0" class="reference"><a href="#cite_note-pospaper-16">&#91;16&#93;</a></sup>
+</p><p>An early (circa 1989) use of minimum support and confidence to find all association rules is the Feature Based Modeling framework, which found all rules with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {supp} (X)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">s</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">p</mi>
+          <mi mathvariant="normal">p</mi>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {supp} (X)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b3b1133f175bb06c7127880f84cc9ad18cc792ec" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.583ex; height:2.843ex;" alt="{\mathrm  {supp}}(X)"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {conf} (X\Rightarrow Y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">c</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">n</mi>
+          <mi mathvariant="normal">f</mi>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">&#x21D2;<!-- ⇒ --></mo>
+        <mi>Y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {conf} (X\Rightarrow Y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ff2f260a1e5ef99b1d74dbae9195df49467cc51b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:13.529ex; height:2.843ex;" alt="{\displaystyle \mathrm {conf} (X\Rightarrow Y)}"/></span> greater than user defined constraints.<sup id="cite_ref-17" class="reference"><a href="#cite_note-17">&#91;17&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Statistically_sound_associations">Statistically sound associations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=10" title="Edit section: Statistically sound associations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>One limitation of the standard approach to discovering associations is that by searching massive numbers of possible associations to look for collections of items that appear to be associated, there is a large risk of finding many spurious associations. These are collections of items that co-occur with unexpected frequency in the data, but only do so by chance. For example, suppose we are considering a collection of 10,000 items and looking for rules containing two items in the left-hand-side and 1 item in the right-hand-side. There are approximately 1,000,000,000,000 such rules. If we apply a statistical test for independence with a significance level of 0.05 it means there is only a 5% chance of accepting a rule if there is no association. If we assume there are no associations, we should nonetheless expect to find 50,000,000,000 rules. Statistically sound association discovery<sup id="cite_ref-18" class="reference"><a href="#cite_note-18">&#91;18&#93;</a></sup><sup id="cite_ref-19" class="reference"><a href="#cite_note-19">&#91;19&#93;</a></sup> controls this risk, in most cases reducing the risk of finding <i>any</i> spurious associations to a user-specified significance level.
+</p>
+<h2><span class="mw-headline" id="Algorithms">Algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=11" title="Edit section: Algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Many algorithms for generating association rules have been proposed.
+</p><p>Some well-known algorithms are <a href="/wiki/Apriori_algorithm" title="Apriori algorithm">Apriori</a>, Eclat and FP-Growth, but they only do half the job, since they are algorithms for mining frequent itemsets. Another step needs to be done after to generate rules from frequent itemsets found in a database.
+</p>
+<h3><span class="mw-headline" id="Apriori_algorithm">Apriori algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=12" title="Edit section: Apriori algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div role="note" class="hatnote navigation-not-searchable">Main article: <a href="/wiki/Apriori_algorithm" title="Apriori algorithm">Apriori algorithm</a></div>
+<p>Apriori<sup id="cite_ref-apriori_13-1" class="reference"><a href="#cite_note-apriori-13">&#91;13&#93;</a></sup> uses a breadth-first search strategy to count the support of itemsets and uses a candidate generation function which exploits the downward closure property of support.
+</p>
+<h3><span class="mw-headline" id="Eclat_algorithm">Eclat algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=13" title="Edit section: Eclat algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Eclat<sup id="cite_ref-eclat_14-1" class="reference"><a href="#cite_note-eclat-14">&#91;14&#93;</a></sup> (alt. ECLAT, stands for Equivalence Class Transformation) is a <a href="/wiki/Depth-first_search" title="Depth-first search">depth-first search</a> algorithm based on set intersection. It is suitable for both sequential as well as parallel execution with locality-enhancing properties.<sup id="cite_ref-20" class="reference"><a href="#cite_note-20">&#91;20&#93;</a></sup><sup id="cite_ref-21" class="reference"><a href="#cite_note-21">&#91;21&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="FP-growth_algorithm">FP-growth algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=14" title="Edit section: FP-growth algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>FP stands for frequent pattern.<sup id="cite_ref-22" class="reference"><a href="#cite_note-22">&#91;22&#93;</a></sup>
+</p><p>In the first pass, the algorithm counts the occurrences of items (attribute-value pairs) in the dataset of transactions, and stores these counts in a 'header table'. In the second pass, it builds the FP-tree structure by inserting transactions into a <a href="/wiki/Trie" title="Trie">trie</a>.
+</p><p>Items in each transaction have to be sorted by descending order of their frequency in the dataset before being inserted so that the tree can be processed quickly.
+Items in each transaction that do not meet the minimum support requirement are discarded.
+If many transactions share most frequent items, the FP-tree provides high compression close to tree root.
+</p><p>Recursive processing of this compressed version of the main dataset grows frequent item sets directly, instead of generating candidate items and testing them against the entire database (as in the apriori algorithm).
+</p><p>Growth begins from the bottom of the header table i.e. the item with the smallest support by finding all sorted transactions that end in that item. Call this item <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle I}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>I</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/535ea7fc4134a31cbe2251d9d3511374bc41be9f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.172ex; height:2.176ex;" alt="I"/></span>.
+</p><p>A new conditional tree is created which is the original FP-tree projected onto <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle I}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>I</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/535ea7fc4134a31cbe2251d9d3511374bc41be9f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.172ex; height:2.176ex;" alt="I"/></span>. The supports of all nodes in the projected tree are re-counted with each node getting the sum of its children counts. Nodes (and hence subtrees) that do not meet the minimum support are pruned. Recursive growth ends when no individual items conditional on <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle I}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>I</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/535ea7fc4134a31cbe2251d9d3511374bc41be9f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.172ex; height:2.176ex;" alt="I"/></span> meet the minimum support threshold. The resulting paths from root to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle I}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>I</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/535ea7fc4134a31cbe2251d9d3511374bc41be9f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.172ex; height:2.176ex;" alt="I"/></span> will be frequent itemsets. After this step, processing continues with the next least-supported header item of the original FP-tree.
+</p><p>Once the recursive process has completed, all frequent item sets will have been found, and association rule creation begins.<sup id="cite_ref-23" class="reference"><a href="#cite_note-23">&#91;23&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Others">Others</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=15" title="Edit section: Others">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="ASSOC">ASSOC</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=16" title="Edit section: ASSOC">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>The ASSOC procedure<sup id="cite_ref-24" class="reference"><a href="#cite_note-24">&#91;24&#93;</a></sup> is a GUHA method which mines for generalized association rules using fast <a href="/wiki/Bitstring" class="mw-redirect" title="Bitstring">bitstrings</a> operations. The association rules mined by this method are more general than those output by apriori, for example "items" can be connected both with conjunction and disjunctions and the relation between antecedent and consequent of the rule is not restricted to setting minimum support and confidence as in apriori: an arbitrary combination of supported interest measures can be used.
+</p>
+<h4><span class="mw-headline" id="OPUS_search">OPUS search</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=17" title="Edit section: OPUS search">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>OPUS is an efficient algorithm for rule discovery that, in contrast to most alternatives, does not require either monotone or anti-monotone constraints such as minimum support.<sup id="cite_ref-OPUS_25-0" class="reference"><a href="#cite_note-OPUS-25">&#91;25&#93;</a></sup> Initially used to find rules for a fixed consequent<sup id="cite_ref-OPUS_25-1" class="reference"><a href="#cite_note-OPUS-25">&#91;25&#93;</a></sup><sup id="cite_ref-Bayardo_26-0" class="reference"><a href="#cite_note-Bayardo-26">&#91;26&#93;</a></sup> it has subsequently been extended to find rules with any item as a consequent.<sup id="cite_ref-webb_27-0" class="reference"><a href="#cite_note-webb-27">&#91;27&#93;</a></sup> OPUS search is the core technology in the popular Magnum Opus association discovery system.
+</p>
+<h2><span class="mw-headline" id="Lore">Lore</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=18" title="Edit section: Lore">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A famous story about association rule mining is the "beer and diaper" story. A purported survey of behavior of supermarket shoppers discovered that customers (presumably young men) who buy diapers tend also to buy beer. This anecdote became popular as an example of how unexpected association rules might be found from everyday data. There are varying opinions as to how much of the story is true.<sup id="cite_ref-dss_28-0" class="reference"><a href="#cite_note-dss-28">&#91;28&#93;</a></sup> Daniel Powers says:<sup id="cite_ref-dss_28-1" class="reference"><a href="#cite_note-dss-28">&#91;28&#93;</a></sup>
+</p>
+<blockquote><p>In 1992, Thomas Blischok, manager of a retail consulting group at <a href="/wiki/Teradata" title="Teradata">Teradata</a>, and his staff prepared an analysis of 1.2 million market baskets from about 25 Osco Drug stores. Database queries were developed to identify affinities. The analysis "did discover that between 5:00 and 7:00 p.m. that consumers bought beer and diapers". Osco managers did NOT exploit the beer and diapers relationship by moving the products closer together on the shelves.</p></blockquote>
+<h2><span class="mw-headline" id="Other_types_of_association_rule_mining">Other types of association rule mining</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=19" title="Edit section: Other types of association rule mining">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><b>Multi-Relation Association Rules</b>: Multi-Relation Association Rules (MRAR) are association rules where each item may have several relations. These relations indicate indirect relationship between the entities. Consider the following MRAR where the first item consists of three relations <i>live in</i>, <i>nearby</i> and <i>humid</i>: “Those who <i>live in</i> a place which is <i>nearby</i> a city with <i>humid</i> climate type and also are <i>younger</i> than 20 -&gt; their <i>health condition</i> is good”. Such association rules are extractable from RDBMS data or semantic web data.<sup id="cite_ref-MRAR:_Mining_Multi-Relation_Association_Rules_29-0" class="reference"><a href="#cite_note-MRAR:_Mining_Multi-Relation_Association_Rules-29">&#91;29&#93;</a></sup>
+</p><p><b><a href="/wiki/Contrast_set_learning" title="Contrast set learning">Contrast set learning</a></b> is a form of associative learning. <b>Contrast set learners</b> use rules that differ meaningfully in their distribution across subsets.<sup id="cite_ref-webb03_30-0" class="reference"><a href="#cite_note-webb03-30">&#91;30&#93;</a></sup><sup id="cite_ref-busy_31-0" class="reference"><a href="#cite_note-busy-31">&#91;31&#93;</a></sup>
+</p><p><b>Weighted class learning</b> is another form of associative learning in which weight may be assigned to classes to give focus to a particular issue of concern for the consumer of the data mining results.
+</p><p><b>High-order pattern discovery</b> facilitate the capture of high-order (polythetic) patterns or event associations that are intrinsic to complex real-world data.
+<sup id="cite_ref-discovere_32-0" class="reference"><a href="#cite_note-discovere-32">&#91;32&#93;</a></sup>
+</p><p><b><a href="/wiki/K-optimal_pattern_discovery" title="K-optimal pattern discovery">K-optimal pattern discovery</a></b> provides an alternative to the standard approach to association rule learning that requires that each pattern appear frequently in the data.
+</p><p><b>Approximate Frequent Itemset</b> mining is a relaxed version of Frequent Itemset mining that allows some of the items in some of the rows to be 0.<sup id="cite_ref-33" class="reference"><a href="#cite_note-33">&#91;33&#93;</a></sup>
+</p><p><b>Generalized Association Rules</b> hierarchical taxonomy (concept hierarchy)
+</p><p><b>Quantitative Association Rules</b> categorical and quantitative data
+</p><p><b>Interval Data Association Rules</b> e.g. partition the age into 5-year-increment ranged
+</p><p><b><a href="/wiki/Sequential_pattern_mining" title="Sequential pattern mining">Sequential pattern mining</a> </b> discovers subsequences that are common to more than minsup<sup class="noprint Inline-Template" style="margin-left:0.1em; white-space:nowrap;">&#91;<i><a href="/wiki/Wikipedia:Please_clarify" title="Wikipedia:Please clarify"><span title="The text near this tag may need clarification or removal of jargon. (October 2019)">clarification needed</span></a></i>&#93;</sup> sequences in a sequence database, where minsup is set by the user. A sequence is an ordered list of transactions.<sup id="cite_ref-sequence_34-0" class="reference"><a href="#cite_note-sequence-34">&#91;34&#93;</a></sup>
+</p><p><b>Subspace Clustering</b>, a specific type of <a href="/wiki/Clustering_high-dimensional_data" title="Clustering high-dimensional data">Clustering high-dimensional data</a>, is in many variants also based on the downward-closure property for specific clustering models.<sup id="cite_ref-ZimekAssent2014_35-0" class="reference"><a href="#cite_note-ZimekAssent2014-35">&#91;35&#93;</a></sup>
+</p><p><b>Warmr </b>is shipped as part of the ACE data mining suite. It allows association rule learning for first order relational rules.<sup id="cite_ref-36" class="reference"><a href="#cite_note-36">&#91;36&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=20" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/Sequence_mining" class="mw-redirect" title="Sequence mining">Sequence mining</a></li>
+<li><a href="/wiki/Production_system_(computer_science)" title="Production system (computer science)">Production system (computer science)</a></li>
+<li><a href="/wiki/Learning_classifier_system" title="Learning classifier system">Learning classifier system</a></li>
+<li><a href="/wiki/Rule-based_machine_learning" title="Rule-based machine learning">Rule-based machine learning</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=21" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist columns references-column-width" style="-moz-column-width: 30em; -webkit-column-width: 30em; column-width: 30em; list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-piatetsky-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-piatetsky_1-0">^</a></b></span> <span class="reference-text">Piatetsky-Shapiro, Gregory (1991), <i>Discovery, analysis, and presentation of strong rules</i>, in Piatetsky-Shapiro, Gregory; and Frawley, William J.; eds., <i>Knowledge Discovery in Databases</i>, AAAI/MIT Press, Cambridge, MA.</span>
+</li>
+<li id="cite_note-mining-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-mining_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-mining_2-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-mining_2-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-mining_2-3"><sup><i><b>d</b></i></sup></a> <a href="#cite_ref-mining_2-4"><sup><i><b>e</b></i></sup></a> <a href="#cite_ref-mining_2-5"><sup><i><b>f</b></i></sup></a></span> <span class="reference-text"><cite class="citation book">Agrawal, R.; Imieliński, T.; Swami, A. (1993). "Mining association rules between sets of items in large databases". <i>Proceedings of the 1993 ACM SIGMOD international conference on Management of data - SIGMOD '93</i>. p.&#160;207. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.40.6984">10.1.1.40.6984</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F170035.170072">10.1145/170035.170072</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0897915922" title="Special:BookSources/978-0897915922"><bdi>978-0897915922</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Mining+association+rules+between+sets+of+items+in+large+databases&amp;rft.btitle=Proceedings+of+the+1993+ACM+SIGMOD+international+conference+on+Management+of+data+-+SIGMOD+%2793&amp;rft.pages=207&amp;rft.date=1993&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.40.6984&amp;rft_id=info%3Adoi%2F10.1145%2F170035.170072&amp;rft.isbn=978-0897915922&amp;rft.aulast=Agrawal&amp;rft.aufirst=R.&amp;rft.au=Imieli%C5%84ski%2C+T.&amp;rft.au=Swami%2C+A.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><style data-mw-deduplicate="TemplateStyles:r935243608">.mw-parser-output cite.citation{font-style:inherit}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/9px-Lock-green.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lock-gray-alt-2.svg/9px-Lock-gray-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lock-red-alt-2.svg/9px-Lock-red-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration{color:#555}.mw-parser-output .cs1-subscription span,.mw-parser-output .cs1-registration span{border-bottom:1px dotted;cursor:help}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/12px-Wikisource-logo.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output code.cs1-code{color:inherit;background:inherit;border:inherit;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;font-size:100%}.mw-parser-output .cs1-visible-error{font-size:100%}.mw-parser-output .cs1-maint{display:none;color:#33aa33;margin-left:0.3em}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration,.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left,.mw-parser-output .cs1-kern-wl-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right,.mw-parser-output .cs1-kern-wl-right{padding-right:0.2em}</style></span>
+</li>
+<li id="cite_note-:0-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-:0_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-:0_3-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-:0_3-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Hahsler, Michael (2005). <a rel="nofollow" class="external text" href="https://mran.revolutionanalytics.com/web/packages/arules/vignettes/arules.pdf">"Introduction to arules – A computational environment for mining association rules and frequent item sets"</a> <span class="cs1-format">(PDF)</span>. <i>Journal of Statistical Software</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Statistical+Software&amp;rft.atitle=Introduction+to+arules+%E2%80%93+A+computational+environment+for+mining+association+rules+and+frequent+item+sets&amp;rft.date=2005&amp;rft.aulast=Hahsler&amp;rft.aufirst=Michael&amp;rft_id=https%3A%2F%2Fmran.revolutionanalytics.com%2Fweb%2Fpackages%2Farules%2Fvignettes%2Farules.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-michael.hahsler.net-4"><span class="mw-cite-backlink">^ <a href="#cite_ref-michael.hahsler.net_4-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-michael.hahsler.net_4-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">Michael Hahsler (2015). A Probabilistic Comparison of Commonly Used Interest Measures for Association Rules. <a rel="nofollow" class="external free" href="http://michael.hahsler.net/research/association_rules/measures.html">http://michael.hahsler.net/research/association_rules/measures.html</a></span>
+</li>
+<li id="cite_note-hipp-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-hipp_5-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Hipp, J.; Güntzer, U.; Nakhaeizadeh, G. (2000). "Algorithms for association rule mining --- a general survey and comparison". <i>ACM SIGKDD Explorations Newsletter</i>. <b>2</b>: 58–64. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.38.5305">10.1.1.38.5305</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F360402.360421">10.1145/360402.360421</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=ACM+SIGKDD+Explorations+Newsletter&amp;rft.atitle=Algorithms+for+association+rule+mining+---+a+general+survey+and+comparison&amp;rft.volume=2&amp;rft.pages=58-64&amp;rft.date=2000&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.38.5305&amp;rft_id=info%3Adoi%2F10.1145%2F360402.360421&amp;rft.aulast=Hipp&amp;rft.aufirst=J.&amp;rft.au=G%C3%BCntzer%2C+U.&amp;rft.au=Nakhaeizadeh%2C+G.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-brin-dynamic-itemset1-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-brin-dynamic-itemset1_6-0">^</a></b></span> <span class="reference-text"><cite class="citation book">Brin, Sergey; Motwani, Rajeev; Ullman, Jeffrey D.; Tsur, Shalom (1997). "Dynamic itemset counting and implication rules for market basket data". <i>Proceedings of the 1997 ACM SIGMOD international conference on Management of data - SIGMOD '97</i>. pp.&#160;255–264. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.41.6476">10.1.1.41.6476</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F253260.253325">10.1145/253260.253325</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0897919111" title="Special:BookSources/978-0897919111"><bdi>978-0897919111</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Dynamic+itemset+counting+and+implication+rules+for+market+basket+data&amp;rft.btitle=Proceedings+of+the+1997+ACM+SIGMOD+international+conference+on+Management+of+data+-+SIGMOD+%2797&amp;rft.pages=255-264&amp;rft.date=1997&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.41.6476&amp;rft_id=info%3Adoi%2F10.1145%2F253260.253325&amp;rft.isbn=978-0897919111&amp;rft.aulast=Brin&amp;rft.aufirst=Sergey&amp;rft.au=Motwani%2C+Rajeev&amp;rft.au=Ullman%2C+Jeffrey+D.&amp;rft.au=Tsur%2C+Shalom&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-allconfidence-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-allconfidence_7-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Omiecinski, E.R. (2003). "Alternative interest measures for mining associations in databases". <i>IEEE Transactions on Knowledge and Data Engineering</i>. <b>15</b>: 57–69. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.329.5344">10.1.1.329.5344</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FTKDE.2003.1161582">10.1109/TKDE.2003.1161582</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Knowledge+and+Data+Engineering&amp;rft.atitle=Alternative+interest+measures+for+mining+associations+in+databases&amp;rft.volume=15&amp;rft.pages=57-69&amp;rft.date=2003&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.329.5344&amp;rft_id=info%3Adoi%2F10.1109%2FTKDE.2003.1161582&amp;rft.aulast=Omiecinski&amp;rft.aufirst=E.R.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-collectivestrength-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-collectivestrength_8-0">^</a></b></span> <span class="reference-text"><cite class="citation book">Aggarwal, Charu C.; Yu, Philip S. (1998). "A new framework for itemset generation". <i>Proceedings of the seventeenth ACM SIGACT-SIGMOD-SIGART symposium on Principles of database systems - PODS '98</i>. pp.&#160;18–24. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.24.714">10.1.1.24.714</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F275487.275490">10.1145/275487.275490</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0897919968" title="Special:BookSources/978-0897919968"><bdi>978-0897919968</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=A+new+framework+for+itemset+generation&amp;rft.btitle=Proceedings+of+the+seventeenth+ACM+SIGACT-SIGMOD-SIGART+symposium+on+Principles+of+database+systems+-+PODS+%2798&amp;rft.pages=18-24&amp;rft.date=1998&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.24.714&amp;rft_id=info%3Adoi%2F10.1145%2F275487.275490&amp;rft.isbn=978-0897919968&amp;rft.aulast=Aggarwal&amp;rft.aufirst=Charu+C.&amp;rft.au=Yu%2C+Philip+S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-leverage-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-leverage_9-0">^</a></b></span> <span class="reference-text">Piatetsky-Shapiro, Gregory; <i>Discovery, analysis, and presentation of strong rules</i>, Knowledge Discovery in Databases, 1991, pp. 229-248</span>
+</li>
+<li id="cite_note-measurescomp-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-measurescomp_10-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Tan, Pang-Ning; Kumar, Vipin; Srivastava, Jaideep (2004). "Selecting the right objective measure for association analysis". <i>Information Systems</i>. <b>29</b> (4): 293–313. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.331.4740">10.1.1.331.4740</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0306-4379%2803%2900072-3">10.1016/S0306-4379(03)00072-3</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+Systems&amp;rft.atitle=Selecting+the+right+objective+measure+for+association+analysis&amp;rft.volume=29&amp;rft.issue=4&amp;rft.pages=293-313&amp;rft.date=2004&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.331.4740&amp;rft_id=info%3Adoi%2F10.1016%2FS0306-4379%2803%2900072-3&amp;rft.aulast=Tan&amp;rft.aufirst=Pang-Ning&amp;rft.au=Kumar%2C+Vipin&amp;rft.au=Srivastava%2C+Jaideep&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text"><cite class="citation book">Tan, Pang-Ning; Michael, Steinbach; Kumar, Vipin (2005). <a rel="nofollow" class="external text" href="http://www-users.cs.umn.edu/~kumar/dmbook/ch6.pdf">"Chapter 6. Association Analysis: Basic Concepts and Algorithms"</a> <span class="cs1-format">(PDF)</span>. <i>Introduction to Data Mining</i>. <a href="/wiki/Addison-Wesley" title="Addison-Wesley">Addison-Wesley</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-321-32136-7" title="Special:BookSources/978-0-321-32136-7"><bdi>978-0-321-32136-7</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Chapter+6.+Association+Analysis%3A+Basic+Concepts+and+Algorithms&amp;rft.btitle=Introduction+to+Data+Mining&amp;rft.pub=Addison-Wesley&amp;rft.date=2005&amp;rft.isbn=978-0-321-32136-7&amp;rft.aulast=Tan&amp;rft.aufirst=Pang-Ning&amp;rft.au=Michael%2C+Steinbach&amp;rft.au=Kumar%2C+Vipin&amp;rft_id=http%3A%2F%2Fwww-users.cs.umn.edu%2F~kumar%2Fdmbook%2Fch6.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-pei-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-pei_12-0">^</a></b></span> <span class="reference-text"><cite class="citation book">Jian Pei; Jiawei Han; Lakshmanan, L.V.S. (2001). "Mining frequent itemsets with convertible constraints". <i>Proceedings 17th International Conference on Data Engineering</i>. pp.&#160;433–442. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.205.2150">10.1.1.205.2150</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FICDE.2001.914856">10.1109/ICDE.2001.914856</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-7695-1001-9" title="Special:BookSources/978-0-7695-1001-9"><bdi>978-0-7695-1001-9</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Mining+frequent+itemsets+with+convertible+constraints&amp;rft.btitle=Proceedings+17th+International+Conference+on+Data+Engineering&amp;rft.pages=433-442&amp;rft.date=2001&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.205.2150&amp;rft_id=info%3Adoi%2F10.1109%2FICDE.2001.914856&amp;rft.isbn=978-0-7695-1001-9&amp;rft.au=Jian+Pei&amp;rft.au=Jiawei+Han&amp;rft.au=Lakshmanan%2C+L.V.S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-apriori-13"><span class="mw-cite-backlink">^ <a href="#cite_ref-apriori_13-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-apriori_13-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">Agrawal, Rakesh; and Srikant, Ramakrishnan; <a rel="nofollow" class="external text" href="http://rakesh.agrawal-family.com/papers/vldb94apriori.pdf"><i>Fast algorithms for mining association rules in large databases</i></a> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20150225213708/http://rakesh.agrawal-family.com/papers/vldb94apriori.pdf">Archived</a> 2015-02-25 at the <a href="/wiki/Wayback_Machine" title="Wayback Machine">Wayback Machine</a>, in Bocca, Jorge B.; Jarke, Matthias; and Zaniolo, Carlo; editors, <i>Proceedings of the 20th International Conference on Very Large Data Bases (VLDB), Santiago, Chile, September 1994</i>, pages 487-499</span>
+</li>
+<li id="cite_note-eclat-14"><span class="mw-cite-backlink">^ <a href="#cite_ref-eclat_14-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-eclat_14-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Zaki, M. J. (2000). "Scalable algorithms for association mining". <i>IEEE Transactions on Knowledge and Data Engineering</i>. <b>12</b> (3): 372–390. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.79.9448">10.1.1.79.9448</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2F69.846291">10.1109/69.846291</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Knowledge+and+Data+Engineering&amp;rft.atitle=Scalable+algorithms+for+association+mining&amp;rft.volume=12&amp;rft.issue=3&amp;rft.pages=372-390&amp;rft.date=2000&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.79.9448&amp;rft_id=info%3Adoi%2F10.1109%2F69.846291&amp;rft.aulast=Zaki&amp;rft.aufirst=M.+J.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-guha_oldest-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-guha_oldest_15-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Hájek, P.; Havel, I.; Chytil, M. (1966). "The GUHA method of automatic hypotheses determination". <i>Computing</i>. <b>1</b> (4): 293–308. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF02345483">10.1007/BF02345483</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Computing&amp;rft.atitle=The+GUHA+method+of+automatic+hypotheses+determination&amp;rft.volume=1&amp;rft.issue=4&amp;rft.pages=293-308&amp;rft.date=1966&amp;rft_id=info%3Adoi%2F10.1007%2FBF02345483&amp;rft.aulast=H%C3%A1jek&amp;rft.aufirst=P.&amp;rft.au=Havel%2C+I.&amp;rft.au=Chytil%2C+M.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-pospaper-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-pospaper_16-0">^</a></b></span> <span class="reference-text"><cite class="citation book">Hájek, Petr; Rauch, Jan; Coufal, David; Feglar, Tomáš (2004). "The GUHA Method, Data Preprocessing and Mining". <i>Database Support for Data Mining Applications</i>. Lecture Notes in Computer Science. <b>2682</b>. pp.&#160;135–153. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-540-44497-8_7">10.1007/978-3-540-44497-8_7</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-3-540-22479-2" title="Special:BookSources/978-3-540-22479-2"><bdi>978-3-540-22479-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=The+GUHA+Method%2C+Data+Preprocessing+and+Mining&amp;rft.btitle=Database+Support+for+Data+Mining+Applications&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=135-153&amp;rft.date=2004&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-540-44497-8_7&amp;rft.isbn=978-3-540-22479-2&amp;rft.aulast=H%C3%A1jek&amp;rft.aufirst=Petr&amp;rft.au=Rauch%2C+Jan&amp;rft.au=Coufal%2C+David&amp;rft.au=Feglar%2C+Tom%C3%A1%C5%A1&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-17"><span class="mw-cite-backlink"><b><a href="#cite_ref-17">^</a></b></span> <span class="reference-text"><cite class="citation journal">Webb, Geoffrey (1989). "A Machine Learning Approach to Student Modelling". <i>Proceedings of the Third Australian Joint Conference on Artificial Intelligence (AI 89)</i>: 195–205.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Proceedings+of+the+Third+Australian+Joint+Conference+on+Artificial+Intelligence+%28AI+89%29&amp;rft.atitle=A+Machine+Learning+Approach+to+Student+Modelling&amp;rft.pages=195-205&amp;rft.date=1989&amp;rft.aulast=Webb&amp;rft.aufirst=Geoffrey&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-18"><span class="mw-cite-backlink"><b><a href="#cite_ref-18">^</a></b></span> <span class="reference-text"><cite class="citation journal">Webb, Geoffrey I. (2007). "Discovering Significant Patterns". <i>Machine Learning</i>. <b>68</b>: 1–33. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fs10994-007-5006-x">10.1007/s10994-007-5006-x</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Machine+Learning&amp;rft.atitle=Discovering+Significant+Patterns&amp;rft.volume=68&amp;rft.pages=1-33&amp;rft.date=2007&amp;rft_id=info%3Adoi%2F10.1007%2Fs10994-007-5006-x&amp;rft.aulast=Webb&amp;rft.aufirst=Geoffrey+I.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-19"><span class="mw-cite-backlink"><b><a href="#cite_ref-19">^</a></b></span> <span class="reference-text"><cite class="citation journal">Gionis, Aristides; Mannila, Heikki; Mielikäinen, Taneli; Tsaparas, Panayiotis (2007). "Assessing data mining results via swap randomization". <i>ACM Transactions on Knowledge Discovery from Data</i>. <b>1</b> (3): 14–es. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.141.2607">10.1.1.141.2607</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F1297332.1297338">10.1145/1297332.1297338</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=ACM+Transactions+on+Knowledge+Discovery+from+Data&amp;rft.atitle=Assessing+data+mining+results+via+swap+randomization&amp;rft.volume=1&amp;rft.issue=3&amp;rft.pages=14-es&amp;rft.date=2007&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.141.2607&amp;rft_id=info%3Adoi%2F10.1145%2F1297332.1297338&amp;rft.aulast=Gionis&amp;rft.aufirst=Aristides&amp;rft.au=Mannila%2C+Heikki&amp;rft.au=Mielik%C3%A4inen%2C+Taneli&amp;rft.au=Tsaparas%2C+Panayiotis&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-20"><span class="mw-cite-backlink"><b><a href="#cite_ref-20">^</a></b></span> <span class="reference-text"><cite class="citation journal">Zaki, Mohammed Javeed; Parthasarathy, Srinivasan; Ogihara, Mitsunori; Li, Wei (1997). "New Algorithms for Fast Discovery of Association Rules": 283–286. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.42.3283">10.1.1.42.3283</a></span>. <a href="/wiki/Handle_System" title="Handle System">hdl</a>:<a rel="nofollow" class="external text" href="//hdl.handle.net/1802%2F501">1802/501</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=New+Algorithms+for+Fast+Discovery+of+Association+Rules&amp;rft.pages=283-286&amp;rft.date=1997&amp;rft_id=info%3Ahdl%2F1802%2F501&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.42.3283&amp;rft.aulast=Zaki&amp;rft.aufirst=Mohammed+Javeed&amp;rft.au=Parthasarathy%2C+Srinivasan&amp;rft.au=Ogihara%2C+Mitsunori&amp;rft.au=Li%2C+Wei&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span> <span class="cs1-hidden-error error citation-comment">Cite journal requires <code class="cs1-code">&#124;journal=</code> (<a href="/wiki/Help:CS1_errors#missing_periodical" title="Help:CS1 errors">help</a>)</span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-21"><span class="mw-cite-backlink"><b><a href="#cite_ref-21">^</a></b></span> <span class="reference-text"><cite class="citation journal">Zaki, Mohammed J.; Parthasarathy, Srinivasan; Ogihara, Mitsunori; Li, Wei (1997). "Parallel Algorithms for Discovery of Association Rules". <i>Data Mining and Knowledge Discovery</i>. <b>1</b> (4): 343–373. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1023%2FA%3A1009773317876">10.1023/A:1009773317876</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Data+Mining+and+Knowledge+Discovery&amp;rft.atitle=Parallel+Algorithms+for+Discovery+of+Association+Rules&amp;rft.volume=1&amp;rft.issue=4&amp;rft.pages=343-373&amp;rft.date=1997&amp;rft_id=info%3Adoi%2F10.1023%2FA%3A1009773317876&amp;rft.aulast=Zaki&amp;rft.aufirst=Mohammed+J.&amp;rft.au=Parthasarathy%2C+Srinivasan&amp;rft.au=Ogihara%2C+Mitsunori&amp;rft.au=Li%2C+Wei&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-22"><span class="mw-cite-backlink"><b><a href="#cite_ref-22">^</a></b></span> <span class="reference-text"><cite class="citation book">Han (2000). <i>Mining Frequent Patterns Without Candidate Generation</i>. <i>Proceedings of the 2000 ACM SIGMOD International Conference on Management of Data</i>. SIGMOD '00. pp.&#160;1–12. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.40.4436">10.1.1.40.4436</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F342009.335372">10.1145/342009.335372</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-1581132175" title="Special:BookSources/978-1581132175"><bdi>978-1581132175</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Mining+Frequent+Patterns+Without+Candidate+Generation&amp;rft.pages=1-12&amp;rft.date=2000&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.40.4436&amp;rft_id=info%3Adoi%2F10.1145%2F342009.335372&amp;rft.isbn=978-1581132175&amp;rft.au=Han&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-23"><span class="mw-cite-backlink"><b><a href="#cite_ref-23">^</a></b></span> <span class="reference-text">Witten, Frank, Hall: Data mining practical machine learning tools and techniques, 3rd edition<sup class="noprint Inline-Template" style="white-space:nowrap;">&#91;<i><a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources"><span title="This citation requires a reference to the specific page or range of pages in which the material appears. (January 2019)">page&#160;needed</span></a></i>&#93;</sup></span>
+</li>
+<li id="cite_note-24"><span class="mw-cite-backlink"><b><a href="#cite_ref-24">^</a></b></span> <span class="reference-text"><cite class="citation book">Hájek, Petr; Havránek, Tomáš (1978). <a rel="nofollow" class="external text" href="http://www.cs.cas.cz/hajek/guhabook/"><i>Mechanizing Hypothesis Formation: Mathematical Foundations for a General Theory</i></a>. Springer-Verlag. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-3-540-08738-0" title="Special:BookSources/978-3-540-08738-0"><bdi>978-3-540-08738-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Mechanizing+Hypothesis+Formation%3A+Mathematical+Foundations+for+a+General+Theory&amp;rft.pub=Springer-Verlag&amp;rft.date=1978&amp;rft.isbn=978-3-540-08738-0&amp;rft.aulast=H%C3%A1jek&amp;rft.aufirst=Petr&amp;rft.au=Havr%C3%A1nek%2C+Tom%C3%A1%C5%A1&amp;rft_id=http%3A%2F%2Fwww.cs.cas.cz%2Fhajek%2Fguhabook%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-OPUS-25"><span class="mw-cite-backlink">^ <a href="#cite_ref-OPUS_25-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-OPUS_25-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">Webb, Geoffrey I. (1995); <i>OPUS: An Efficient Admissible Algorithm for Unordered Search</i>, Journal of Artificial Intelligence Research 3, Menlo Park, CA: AAAI Press, pp. 431-465 <a rel="nofollow" class="external text" href="http://webarchive.loc.gov/all/20011118141304/http://www.cs.washington.edu/research/jair/abstracts/webb95a.html">online access</a></span>
+</li>
+<li id="cite_note-Bayardo-26"><span class="mw-cite-backlink"><b><a href="#cite_ref-Bayardo_26-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Bayardo, Roberto J., Jr.; Agrawal, Rakesh; Gunopulos, Dimitrios (2000). "Constraint-based rule mining in large, dense databases". <i>Data Mining and Knowledge Discovery</i>. <b>4</b> (2): 217–240. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1023%2FA%3A1009895914772">10.1023/A:1009895914772</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Data+Mining+and+Knowledge+Discovery&amp;rft.atitle=Constraint-based+rule+mining+in+large%2C+dense+databases&amp;rft.volume=4&amp;rft.issue=2&amp;rft.pages=217-240&amp;rft.date=2000&amp;rft_id=info%3Adoi%2F10.1023%2FA%3A1009895914772&amp;rft.aulast=Bayardo&amp;rft.aufirst=Roberto+J.%2C+Jr.&amp;rft.au=Agrawal%2C+Rakesh&amp;rft.au=Gunopulos%2C+Dimitrios&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-webb-27"><span class="mw-cite-backlink"><b><a href="#cite_ref-webb_27-0">^</a></b></span> <span class="reference-text"><cite class="citation book">Webb, Geoffrey I. (2000). "Efficient search for association rules". <i>Proceedings of the sixth ACM SIGKDD international conference on Knowledge discovery and data mining - KDD '00</i>. pp.&#160;99–107. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.33.1309">10.1.1.33.1309</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F347090.347112">10.1145/347090.347112</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-1581132335" title="Special:BookSources/978-1581132335"><bdi>978-1581132335</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Efficient+search+for+association+rules&amp;rft.btitle=Proceedings+of+the+sixth+ACM+SIGKDD+international+conference+on+Knowledge+discovery+and+data+mining+-+KDD+%2700&amp;rft.pages=99-107&amp;rft.date=2000&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.33.1309&amp;rft_id=info%3Adoi%2F10.1145%2F347090.347112&amp;rft.isbn=978-1581132335&amp;rft.aulast=Webb&amp;rft.aufirst=Geoffrey+I.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-dss-28"><span class="mw-cite-backlink">^ <a href="#cite_ref-dss_28-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-dss_28-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="http://www.dssresources.com/newsletters/66.php">"DSS News: Vol. 3, No. 23"</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=DSS+News%3A+Vol.+3%2C+No.+23&amp;rft_id=http%3A%2F%2Fwww.dssresources.com%2Fnewsletters%2F66.php&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-MRAR:_Mining_Multi-Relation_Association_Rules-29"><span class="mw-cite-backlink"><b><a href="#cite_ref-MRAR:_Mining_Multi-Relation_Association_Rules_29-0">^</a></b></span> <span class="reference-text">Ramezani, Reza, Mohamad Sunni
+ee, and Mohammad Ali Nematbakhsh; <i>MRAR: Mining Multi-Relation Association Rules</i>, Journal of Computing and Security, 1, no. 2 (2014)</span>
+</li>
+<li id="cite_note-webb03-30"><span class="mw-cite-backlink"><b><a href="#cite_ref-webb03_30-0">^</a></b></span> <span class="reference-text"><cite class="citation conference">GI Webb and S. Butler and D. Newlands (2003). <a rel="nofollow" class="external text" href="http://portal.acm.org/citation.cfm?id=956781"><i>On Detecting Differences Between Groups</i></a>. KDD'03 Proceedings of the Ninth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=On+Detecting+Differences+Between+Groups&amp;rft.date=2003&amp;rft.au=GI+Webb+and+S.+Butler+and+D.+Newlands&amp;rft_id=http%3A%2F%2Fportal.acm.org%2Fcitation.cfm%3Fid%3D956781&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-busy-31"><span class="mw-cite-backlink"><b><a href="#cite_ref-busy_31-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Menzies, T.; Ying Hu (2003). "Computing practices - Data mining for very busy people". <i>Computer</i>. <b>36</b> (11): 22–29. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FMC.2003.1244531">10.1109/MC.2003.1244531</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Computer&amp;rft.atitle=Computing+practices+-+Data+mining+for+very+busy+people&amp;rft.volume=36&amp;rft.issue=11&amp;rft.pages=22-29&amp;rft.date=2003&amp;rft_id=info%3Adoi%2F10.1109%2FMC.2003.1244531&amp;rft.aulast=Menzies&amp;rft.aufirst=T.&amp;rft.au=Ying+Hu&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-discovere-32"><span class="mw-cite-backlink"><b><a href="#cite_ref-discovere_32-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Wong, A.K.C.; Yang Wang (1997). "High-order pattern discovery from discrete-valued data". <i>IEEE Transactions on Knowledge and Data Engineering</i>. <b>9</b> (6): 877–893. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.189.1704">10.1.1.189.1704</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2F69.649314">10.1109/69.649314</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Knowledge+and+Data+Engineering&amp;rft.atitle=High-order+pattern+discovery+from+discrete-valued+data&amp;rft.volume=9&amp;rft.issue=6&amp;rft.pages=877-893&amp;rft.date=1997&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.189.1704&amp;rft_id=info%3Adoi%2F10.1109%2F69.649314&amp;rft.aulast=Wong&amp;rft.aufirst=A.K.C.&amp;rft.au=Yang+Wang&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-33"><span class="mw-cite-backlink"><b><a href="#cite_ref-33">^</a></b></span> <span class="reference-text"><cite class="citation book">Liu, Jinze; Paulsen, Susan; Sun, Xing; Wang, Wei; Nobel, Andrew; Prins, Jan (2006). "Mining Approximate Frequent Itemsets in the Presence of Noise: Algorithm and Analysis". <i>Proceedings of the 2006 SIAM International Conference on Data Mining</i>. pp.&#160;407–418. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.215.3599">10.1.1.215.3599</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F1.9781611972764.36">10.1137/1.9781611972764.36</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-89871-611-5" title="Special:BookSources/978-0-89871-611-5"><bdi>978-0-89871-611-5</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Mining+Approximate+Frequent+Itemsets+in+the+Presence+of+Noise%3A+Algorithm+and+Analysis&amp;rft.btitle=Proceedings+of+the+2006+SIAM+International+Conference+on+Data+Mining&amp;rft.pages=407-418&amp;rft.date=2006&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.215.3599&amp;rft_id=info%3Adoi%2F10.1137%2F1.9781611972764.36&amp;rft.isbn=978-0-89871-611-5&amp;rft.aulast=Liu&amp;rft.aufirst=Jinze&amp;rft.au=Paulsen%2C+Susan&amp;rft.au=Sun%2C+Xing&amp;rft.au=Wang%2C+Wei&amp;rft.au=Nobel%2C+Andrew&amp;rft.au=Prins%2C+Jan&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-sequence-34"><span class="mw-cite-backlink"><b><a href="#cite_ref-sequence_34-0">^</a></b></span> <span class="reference-text">Zaki, Mohammed J. (2001); <i>SPADE: An Efficient Algorithm for Mining Frequent Sequences</i>, Machine Learning Journal, 42, pp. 31–60</span>
+</li>
+<li id="cite_note-ZimekAssent2014-35"><span class="mw-cite-backlink"><b><a href="#cite_ref-ZimekAssent2014_35-0">^</a></b></span> <span class="reference-text"><cite class="citation book">Zimek, Arthur; Assent, Ira; Vreeken, Jilles (2014). <i>Frequent Pattern Mining</i>. pp.&#160;403–423. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-319-07821-2_16">10.1007/978-3-319-07821-2_16</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-3-319-07820-5" title="Special:BookSources/978-3-319-07820-5"><bdi>978-3-319-07820-5</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Frequent+Pattern+Mining&amp;rft.pages=403-423&amp;rft.date=2014&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-319-07821-2_16&amp;rft.isbn=978-3-319-07820-5&amp;rft.aulast=Zimek&amp;rft.aufirst=Arthur&amp;rft.au=Assent%2C+Ira&amp;rft.au=Vreeken%2C+Jilles&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-36"><span class="mw-cite-backlink"><b><a href="#cite_ref-36">^</a></b></span> <span class="reference-text"><cite class="citation journal">King, R. D.; Srinivasan, A.; Dehaspe, L. (Feb 2001). "Warmr: a data mining tool for chemical data". <i>J Comput Aided Mol Des</i>. <b>15</b> (2): 173–81. <a href="/wiki/Bibcode" title="Bibcode">Bibcode</a>:<a rel="nofollow" class="external text" href="https://ui.adsabs.harvard.edu/abs/2001JCAMD..15..173K">2001JCAMD..15..173K</a>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1023%2FA%3A1008171016861">10.1023/A:1008171016861</a>. <a href="/wiki/PubMed_Identifier" class="mw-redirect" title="PubMed Identifier">PMID</a>&#160;<a rel="nofollow" class="external text" href="//pubmed.ncbi.nlm.nih.gov/11272703">11272703</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=J+Comput+Aided+Mol+Des&amp;rft.atitle=Warmr%3A+a+data+mining+tool+for+chemical+data.&amp;rft.volume=15&amp;rft.issue=2&amp;rft.pages=173-81&amp;rft.date=2001-02&amp;rft_id=info%3Apmid%2F11272703&amp;rft_id=info%3Adoi%2F10.1023%2FA%3A1008171016861&amp;rft_id=info%3Abibcode%2F2001JCAMD..15..173K&amp;rft.aulast=King&amp;rft.aufirst=R.+D.&amp;rft.au=Srinivasan%2C+A.&amp;rft.au=Dehaspe%2C+L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAssociation+rule+learning" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+</ol></div>
+<h3><span class="mw-headline" id="Bibliographies">Bibliographies</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Association_rule_learning&amp;action=edit&amp;section=22" title="Edit section: Bibliographies">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li><a rel="nofollow" class="external text" href="http://michael.hahsler.net/research/bib/association_rules/">Annotated Bibliography on Association Rules</a> by M. Hahsler</li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1407
+Cached time: 20200306194415
+Cache expiry: 2592000
+Dynamic content: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.560 seconds
+Real time usage: 1.017 seconds
+Preprocessor visited node count: 2533/1000000
+Post‐expand include size: 89769/2097152 bytes
+Template argument size: 2313/2097152 bytes
+Highest expansion depth: 15/40
+Expensive parser function count: 8/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 104320/5000000 bytes
+Number of Wikibase entities loaded: 4/400
+Lua time usage: 0.261/10.000 seconds
+Lua memory usage: 5.88 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  661.849      1 -total
+ 70.55%  466.958      1 Template:Reflist
+ 33.34%  220.661     15 Template:Cite_journal
+ 25.99%  172.000     11 Template:Cite_book
+  8.35%   55.240      2 Template:Fix
+  8.25%   54.617      1 Template:Machine_learning_bar
+  8.17%   54.068      1 Template:Citation_needed
+  7.78%   51.510      1 Template:Sidebar_with_collapsible_lists
+  5.99%   39.622      6 Template:Category_handler
+  3.35%   22.156      1 Template:Clarify
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:577053-0!canonical!math=5 and timestamp 20200306194414 and revision id 931361299
+ -->
+</div><noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>
+		<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Association_rule_learning&amp;oldid=931361299">https://en.wikipedia.org/w/index.php?title=Association_rule_learning&amp;oldid=931361299</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Data_management" title="Category:Data management">Data management</a></li><li><a href="/wiki/Category:Data_mining" title="Category:Data mining">Data mining</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Webarchive_template_wayback_links" title="Category:Webarchive template wayback links">Webarchive template wayback links</a></li><li><a href="/wiki/Category:CS1_errors:_missing_periodical" title="Category:CS1 errors: missing periodical">CS1 errors: missing periodical</a></li><li><a href="/wiki/Category:CS1:_long_volume_value" title="Category:CS1: long volume value">CS1: long volume value</a></li><li><a href="/wiki/Category:Wikipedia_articles_needing_page_number_citations_from_January_2019" title="Category:Wikipedia articles needing page number citations from January 2019">Wikipedia articles needing page number citations from January 2019</a></li><li><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_February_2015" title="Category:Articles with unsourced statements from February 2015">Articles with unsourced statements from February 2015</a></li><li><a href="/wiki/Category:Wikipedia_articles_needing_clarification_from_October_2019" title="Category:Wikipedia articles needing clarification from October 2019">Wikipedia articles needing clarification from October 2019</a></li><li><a href="/wiki/Category:Articles_prone_to_spam_from_February_2016" title="Category:Articles prone to spam from February 2016">Articles prone to spam from February 2016</a></li></ul></div></div>
+		<div class="visualClear"></div>
+		
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+    <h2>Navigation menu</h2>
+    <div id="mw-head">
+        
+        <div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+        	<h3 id="p-personal-label">Personal tools</h3>
+        	<ul >
+        		
+        		<li id="pt-anonuserpage">Not logged in</li>
+        		<li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Association+rule+learning" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Association+rule+learning" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>
+        	</ul>
+        </div>
+        <div id="left-navigation">
+            <div id="p-namespaces" role="navigation" class="vectorTabs " aria-labelledby="p-namespaces-label">
+            	<h3 id="p-namespaces-label">Namespaces</h3>
+            	<ul >
+            		<li id="ca-nstab-main" class="selected"><a href="/wiki/Association_rule_learning" title="View the content page [c]" accesskey="c">Article</a></li><li id="ca-talk"><a href="/wiki/Talk:Association_rule_learning" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Talk</a></li>
+            	</ul>
+            </div>
+            <div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+            	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+            	<h3 id="p-variants-label">
+            		<span>Variants</span>
+            	</h3>
+            	<ul class="menu" >
+            		
+            	</ul>
+            </div>
+        </div>
+        <div id="right-navigation">
+            <div id="p-views" role="navigation" class="vectorTabs " aria-labelledby="p-views-label">
+            	<h3 id="p-views-label">Views</h3>
+            	<ul >
+            		<li id="ca-view" class="collapsible selected"><a href="/wiki/Association_rule_learning">Read</a></li><li id="ca-edit" class="collapsible"><a href="/w/index.php?title=Association_rule_learning&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/w/index.php?title=Association_rule_learning&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li>
+            	</ul>
+            </div>
+            <div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+            	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+            	<h3 id="p-cactions-label">
+            		<span>More</span>
+            	</h3>
+            	<ul class="menu" >
+            		
+            	</ul>
+            </div>
+            <div id="p-search" role="search">
+            	<h3 >
+            		<label for="searchInput">Search</label>
+            	</h3>
+            	<form action="/w/index.php" id="searchform">
+            		<div id="simpleSearch">
+            			<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/>
+            			<input type="hidden" value="Special:Search" name="title"/>
+            			<input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+            			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+            		</div>
+            	</form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="mw-panel">
+    	<div id="p-logo" role="banner">
+    		<a  title="Visit the main page" class="mw-wiki-logo" href="/wiki/Main_Page"></a>
+    	</div>
+    	<div class="portal" role="navigation" id="p-navigation"  aria-labelledby="p-navigation-label">
+    		<h3  id="p-navigation-label">
+    			Navigation
+    		</h3>
+    		<div class="body">
+    			<ul><li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Wikipedia:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-interaction"  aria-labelledby="p-interaction-label">
+    		<h3  id="p-interaction-label">
+    			Interaction
+    		</h3>
+    		<div class="body">
+    			<ul><li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-tb"  aria-labelledby="p-tb-label">
+    		<h3  id="p-tb-label">
+    			Tools
+    		</h3>
+    		<div class="body">
+    			<ul><li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Association_rule_learning" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Association_rule_learning" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Association_rule_learning&amp;oldid=931361299" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Association_rule_learning&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q386780" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Association_rule_learning&amp;id=931361299&amp;wpFormIdentifier=titleform" title="Information on how to cite this page">Cite this page</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-coll-print_export"  aria-labelledby="p-coll-print_export-label">
+    		<h3  id="p-coll-print_export-label">
+    			Print/export
+    		</h3>
+    		<div class="body">
+    			<ul><li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Association+rule+learning">Create a book</a></li><li id="coll-download-as-rl"><a href="/w/index.php?title=Special:ElectronPdf&amp;page=Association+rule+learning&amp;action=show-download-screen">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Association_rule_learning&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-lang"  aria-labelledby="p-lang-label">
+    		<h3  id="p-lang-label">
+    			Languages
+    		</h3>
+    		<div class="body">
+    			<ul><li class="interlanguage-link interwiki-ar"><a href="https://ar.wikipedia.org/wiki/%D8%AA%D8%B9%D9%84%D9%85_%D9%82%D9%88%D8%A7%D8%B9%D8%AF_%D8%A7%D9%84%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7" title="تعلم قواعد الارتباط – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target">العربية</a></li><li class="interlanguage-link interwiki-cs"><a href="https://cs.wikipedia.org/wiki/Asocia%C4%8Dn%C3%AD_anal%C3%BDza" title="Asociační analýza – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target">Čeština</a></li><li class="interlanguage-link interwiki-de"><a href="https://de.wikipedia.org/wiki/Assoziationsanalyse" title="Assoziationsanalyse – German" lang="de" hreflang="de" class="interlanguage-link-target">Deutsch</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/Reglas_de_asociaci%C3%B3n" title="Reglas de asociación – Spanish" lang="es" hreflang="es" class="interlanguage-link-target">Español</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/%DB%8C%D8%A7%D8%AF%DA%AF%DB%8C%D8%B1%DB%8C_%D9%82%D8%A7%D9%86%D9%88%D9%86_%D9%88%D8%A7%D8%A8%D8%B3%D8%AA%DA%AF%DB%8C" title="یادگیری قانون وابستگی – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target">فارسی</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.wikipedia.org/wiki/R%C3%A8gle_d%27association" title="Règle d&#039;association – French" lang="fr" hreflang="fr" class="interlanguage-link-target">Français</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Regole_di_associazione" title="Regole di associazione – Italian" lang="it" hreflang="it" class="interlanguage-link-target">Italiano</a></li><li class="interlanguage-link interwiki-he"><a href="https://he.wikipedia.org/wiki/%D7%9C%D7%99%D7%9E%D7%95%D7%93_%D7%97%D7%95%D7%A7%D7%99%D7%95%D7%AA_%D7%90%D7%A1%D7%95%D7%A6%D7%99%D7%90%D7%98%D7%99%D7%91%D7%99" title="לימוד חוקיות אסוציאטיבי – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target">עברית</a></li><li class="interlanguage-link interwiki-no"><a href="https://no.wikipedia.org/wiki/Assosiasjonsregler" title="Assosiasjonsregler – Norwegian Bokmål" lang="nb" hreflang="nb" class="interlanguage-link-target">Norsk bokmål</a></li><li class="interlanguage-link interwiki-pt"><a href="https://pt.wikipedia.org/wiki/Regras_de_associa%C3%A7%C3%A3o" title="Regras de associação – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target">Português</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/%D0%9E%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B0%D1%81%D1%81%D0%BE%D1%86%D0%B8%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%BC_%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0%D0%BC" title="Обучение ассоциативным правилам – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target">Русский</a></li><li class="interlanguage-link interwiki-sr"><a href="https://sr.wikipedia.org/wiki/%D0%A3%D1%87%D0%B5%D1%9A%D0%B5_%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%BE%D0%BC_%D0%B0%D1%81%D0%BE%D1%86%D0%B8%D1%98%D0%B0%D1%86%D0%B8%D1%98%D0%B5" title="Учење правилом асоцијације – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target">Српски / srpski</a></li><li class="interlanguage-link interwiki-th"><a href="https://th.wikipedia.org/wiki/%E0%B8%81%E0%B8%8E%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%AA%E0%B8%B1%E0%B8%A1%E0%B8%9E%E0%B8%B1%E0%B8%99%E0%B8%98%E0%B9%8C" title="กฎความสัมพันธ์ – Thai" lang="th" hreflang="th" class="interlanguage-link-target">ไทย</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/%D0%9D%D0%B0%D0%B2%D1%87%D0%B0%D0%BD%D0%BD%D1%8F_%D0%B0%D1%81%D0%BE%D1%86%D1%96%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B8%D1%85_%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB" title="Навчання асоціативних правил – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target">Українська</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.wikipedia.org/wiki/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99%E5%AD%A6%E4%B9%A0" title="关联规则学习 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target">中文</a></li></ul>
+    			<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q386780#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+    		</div>
+    	</div>
+    	
+    </div>
+</div>
+
+<div id="footer" role="contentinfo" >
+	<ul id="footer-info" class="">
+		<li id="footer-info-lastmod"> This page was last edited on 18 December 2019, at 13:11<span class="anonymous-show">&#160;(UTC)</span>.</li>
+		<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+	</ul>
+	<ul id="footer-places" class="">
+		<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+		<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+		<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+		<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+		<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+		<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+		<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Association_rule_learning&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</div>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.560","walltime":"1.017","ppvisitednodes":{"value":2533,"limit":1000000},"postexpandincludesize":{"value":89769,"limit":2097152},"templateargumentsize":{"value":2313,"limit":2097152},"expansiondepth":{"value":15,"limit":40},"expensivefunctioncount":{"value":8,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":104320,"limit":5000000},"entityaccesscount":{"value":4,"limit":400},"timingprofile":["100.00%  661.849      1 -total"," 70.55%  466.958      1 Template:Reflist"," 33.34%  220.661     15 Template:Cite_journal"," 25.99%  172.000     11 Template:Cite_book","  8.35%   55.240      2 Template:Fix","  8.25%   54.617      1 Template:Machine_learning_bar","  8.17%   54.068      1 Template:Citation_needed","  7.78%   51.510      1 Template:Sidebar_with_collapsible_lists","  5.99%   39.622      6 Template:Category_handler","  3.35%   22.156      1 Template:Clarify"]},"scribunto":{"limitreport-timeusage":{"value":"0.261","limit":"10.000"},"limitreport-memusage":{"value":6162890,"limit":52428800}},"cachereport":{"origin":"mw1407","timestamp":"20200306194415","ttl":2592000,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Association rule learning","url":"https:\/\/en.wikipedia.org\/wiki\/Association_rule_learning","sameAs":"http:\/\/www.wikidata.org\/entity\/Q386780","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q386780","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-04-05T03:51:57Z","dateModified":"2019-12-18T13:11:57Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/fe\/Kernel_Machine.svg","headline":"method for discovering interesting relations between variables in databases"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":113,"wgHostname":"mw1368"});});</script></body></html>

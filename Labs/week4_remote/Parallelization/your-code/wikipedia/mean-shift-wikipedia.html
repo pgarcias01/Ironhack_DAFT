@@ -1,0 +1,1544 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Mean shift - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"XnnzlgpAAEEAAFjFuJEAAABE","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Mean_shift","wgTitle":"Mean shift","wgCurRevisionId":943197355,"wgRevisionId":943197355,"wgArticleId":10999922,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Webarchive template wayback links","Computer vision","Cluster analysis algorithms"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Mean_shift","wgRelevantArticleId":10999922,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],
+"wgRestrictionMove":[],"wgRedirectedFrom":"Mean-shift","wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0,"wgPopupsReferencePreviews":!1,"wgPopupsConflictsWithNavPopupGadget":!1,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":!0,"nearby":!0,"watchlist":!0,"tagline":!1},"wgWMESchemaEditAttemptStepOversample":!1,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgInternalRedirectTargetUrl":"/wiki/Mean_shift","wgWikibaseItemId":"Q6803557","wgCentralAuthMobileDomain":!1,"wgEditSubmitButtonLabelPublish":!0};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","mediawiki.toc.styles":"ready","skins.vector.styles.legacy":"ready","wikibase.client.init":
+"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready"};RLPAGEMODULES=["mediawiki.action.view.redirect","ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.startup","skins.vector.js","mediawiki.page.ready","mediawiki.toc","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns","ext.quicksurveys.init","ext.centralNotice.geoIP","ext.centralNotice.startUp"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.tokens@tffin",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.0-wmf.24"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/1200px-Kernel_Machine.svg.png"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Mean_shift&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Mean_shift&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Mean_shift"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Mean_shift rootpage-Mean_shift skin-vector action-view">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+</div>
+
+	<h1 id="firstHeading" class="firstHeading" lang="en">Mean shift</h1>
+	
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">&#160;&#160;(Redirected from <a href="/w/index.php?title=Mean-shift&amp;redirect=no" class="mw-redirect" title="Mean-shift">Mean-shift</a>)</span></div>
+		
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#p-search">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table class="vertical-navbox nowraplinks" style="float:right;clear:right;width:22.0em;margin:0 0 1.0em 1.0em;background:#f9f9f9;border:1px solid #aaa;padding:0.2em;border-spacing:0.4em 0;text-align:center;line-height:1.4em;font-size:88%"><tbody><tr><th style="padding:0.2em 0.4em 0.2em;font-size:145%;line-height:1.2em"><a href="/wiki/Machine_learning" title="Machine learning">Machine learning</a> and<br /><a href="/wiki/Data_mining" title="Data mining">data mining</a></th></tr><tr><td style="padding:0.2em 0 0.4em;padding:0.25em 0.25em 0.75em;"><a href="/wiki/File:Kernel_Machine.svg" class="image"><img alt="Kernel Machine.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/220px-Kernel_Machine.svg.png" decoding="async" width="220" height="100" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/330px-Kernel_Machine.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kernel_Machine.svg/440px-Kernel_Machine.svg.png 2x" data-file-width="512" data-file-height="233" /></a></td></tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Problems</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Statistical_classification" title="Statistical classification">Classification</a></li>
+<li><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></li>
+<li><a href="/wiki/Regression_analysis" title="Regression analysis">Regression</a></li>
+<li><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></li>
+<li><a href="/wiki/Automated_machine_learning" title="Automated machine learning">AutoML</a></li>
+<li><a href="/wiki/Association_rule_learning" title="Association rule learning">Association rules</a></li>
+<li><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></li>
+<li><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></li>
+<li><a href="/wiki/Feature_engineering" title="Feature engineering">Feature engineering</a></li>
+<li><a href="/wiki/Feature_learning" title="Feature learning">Feature learning</a></li>
+<li><a href="/wiki/Online_machine_learning" title="Online machine learning">Online learning</a></li>
+<li><a href="/wiki/Semi-supervised_learning" title="Semi-supervised learning">Semi-supervised learning</a></li>
+<li><a href="/wiki/Unsupervised_learning" title="Unsupervised learning">Unsupervised learning</a></li>
+<li><a href="/wiki/Learning_to_rank" title="Learning to rank">Learning to rank</a></li>
+<li><a href="/wiki/Grammar_induction" title="Grammar induction">Grammar induction</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><div style="padding:0.1em 0;line-height:1.2em;"><a href="/wiki/Supervised_learning" title="Supervised learning">Supervised learning</a><br /><style data-mw-deduplicate="TemplateStyles:r886047488">.mw-parser-output .nobold{font-weight:normal}</style><span class="nobold"><span style="font-size:85%;">(<b><a href="/wiki/Statistical_classification" title="Statistical classification">classification</a></b>&#160;&#8226;&#32;<b><a href="/wiki/Regression_analysis" title="Regression analysis">regression</a></b>)</span></span> </div></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Decision_tree_learning" title="Decision tree learning">Decision trees</a></li>
+<li><a href="/wiki/Ensemble_learning" title="Ensemble learning">Ensembles</a>
+<ul><li><a href="/wiki/Bootstrap_aggregating" title="Bootstrap aggregating">Bagging</a></li>
+<li><a href="/wiki/Boosting_(machine_learning)" title="Boosting (machine learning)">Boosting</a></li>
+<li><a href="/wiki/Random_forest" title="Random forest">Random forest</a></li></ul></li>
+<li><a href="/wiki/K-nearest_neighbors_algorithm" title="K-nearest neighbors algorithm"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Linear_regression" title="Linear regression">Linear regression</a></li>
+<li><a href="/wiki/Naive_Bayes_classifier" title="Naive Bayes classifier">Naive Bayes</a></li>
+<li><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural networks</a></li>
+<li><a href="/wiki/Logistic_regression" title="Logistic regression">Logistic regression</a></li>
+<li><a href="/wiki/Perceptron" title="Perceptron">Perceptron</a></li>
+<li><a href="/wiki/Relevance_vector_machine" title="Relevance vector machine">Relevance vector machine (RVM)</a></li>
+<li><a href="/wiki/Support-vector_machine" title="Support-vector machine">Support vector machine (SVM)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Cluster_analysis" title="Cluster analysis">Clustering</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/BIRCH" title="BIRCH">BIRCH</a></li>
+<li><a href="/wiki/CURE_data_clustering_algorithm" class="mw-redirect" title="CURE data clustering algorithm">CURE</a></li>
+<li><a href="/wiki/Hierarchical_clustering" title="Hierarchical clustering">Hierarchical</a></li>
+<li><a href="/wiki/K-means_clustering" title="K-means clustering"><i>k</i>-means</a></li>
+<li><a href="/wiki/Expectation%E2%80%93maximization_algorithm" title="Expectation–maximization algorithm">Expectation–maximization (EM)</a></li>
+<li><br /><a href="/wiki/DBSCAN" title="DBSCAN">DBSCAN</a></li>
+<li><a href="/wiki/OPTICS_algorithm" title="OPTICS algorithm">OPTICS</a></li>
+<li><a href="/wiki/Mean-shift" class="mw-redirect" title="Mean-shift">Mean-shift</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Dimensionality_reduction" title="Dimensionality reduction">Dimensionality reduction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Factor_analysis" title="Factor analysis">Factor analysis</a></li>
+<li><a href="/wiki/Canonical_correlation_analysis" class="mw-redirect" title="Canonical correlation analysis">CCA</a></li>
+<li><a href="/wiki/Independent_component_analysis" title="Independent component analysis">ICA</a></li>
+<li><a href="/wiki/Linear_discriminant_analysis" title="Linear discriminant analysis">LDA</a></li>
+<li><a href="/wiki/Non-negative_matrix_factorization" title="Non-negative matrix factorization">NMF</a></li>
+<li><a href="/wiki/Principal_component_analysis" title="Principal component analysis">PCA</a></li>
+<li><a href="/wiki/T-distributed_stochastic_neighbor_embedding" title="T-distributed stochastic neighbor embedding">t-SNE</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Structured_prediction" title="Structured prediction">Structured prediction</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Graphical_model" title="Graphical model">Graphical models</a>
+<ul><li><a href="/wiki/Bayesian_network" title="Bayesian network">Bayes net</a></li>
+<li><a href="/wiki/Conditional_random_field" title="Conditional random field">Conditional random field</a></li>
+<li><a href="/wiki/Hidden_Markov_model" title="Hidden Markov model">Hidden Markov</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Anomaly_detection" title="Anomaly detection">Anomaly detection</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/K-nearest_neighbors_classification" class="mw-redirect" title="K-nearest neighbors classification"><i>k</i>-NN</a></li>
+<li><a href="/wiki/Local_outlier_factor" title="Local outlier factor">Local outlier factor</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Artificial_neural_network" title="Artificial neural network">Artificial neural network</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Autoencoder" title="Autoencoder">Autoencoder</a></li>
+<li><a href="/wiki/Deep_learning" title="Deep learning">Deep learning</a></li>
+<li><a href="/wiki/DeepDream" title="DeepDream">DeepDream</a></li>
+<li><a href="/wiki/Multilayer_perceptron" title="Multilayer perceptron">Multilayer perceptron</a></li>
+<li><a href="/wiki/Recurrent_neural_network" title="Recurrent neural network">RNN</a>
+<ul><li><a href="/wiki/Long_short-term_memory" title="Long short-term memory">LSTM</a></li>
+<li><a href="/wiki/Gated_recurrent_unit" title="Gated recurrent unit">GRU</a></li></ul></li>
+<li><a href="/wiki/Restricted_Boltzmann_machine" title="Restricted Boltzmann machine">Restricted Boltzmann machine</a></li>
+<li><a href="/wiki/Generative_adversarial_network" title="Generative adversarial network">GAN</a></li>
+<li><a href="/wiki/Self-organizing_map" title="Self-organizing map">SOM</a></li>
+<li><a href="/wiki/Convolutional_neural_network" title="Convolutional neural network">Convolutional neural network</a>
+<ul><li><a href="/wiki/U-Net" title="U-Net">U-Net</a></li></ul></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Reinforcement_learning" title="Reinforcement learning">Reinforcement learning</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Q-learning" title="Q-learning">Q-learning</a></li>
+<li><a href="/wiki/State%E2%80%93action%E2%80%93reward%E2%80%93state%E2%80%93action" title="State–action–reward–state–action">SARSA</a></li>
+<li><a href="/wiki/Temporal_difference_learning" title="Temporal difference learning">Temporal difference (TD)</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Theory</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Bias%E2%80%93variance_dilemma" class="mw-redirect" title="Bias–variance dilemma">Bias–variance dilemma</a></li>
+<li><a href="/wiki/Computational_learning_theory" title="Computational learning theory">Computational learning theory</a></li>
+<li><a href="/wiki/Empirical_risk_minimization" title="Empirical risk minimization">Empirical risk minimization</a></li>
+<li><a href="/wiki/Occam_learning" title="Occam learning">Occam learning</a></li>
+<li><a href="/wiki/Probably_approximately_correct_learning" title="Probably approximately correct learning">PAC learning</a></li>
+<li><a href="/wiki/Statistical_learning_theory" title="Statistical learning theory">Statistical learning</a></li>
+<li><a href="/wiki/Vapnik%E2%80%93Chervonenkis_theory" title="Vapnik–Chervonenkis theory">VC theory</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Machine-learning venues</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Conference_on_Neural_Information_Processing_Systems" title="Conference on Neural Information Processing Systems">NeurIPS</a></li>
+<li><a href="/wiki/International_Conference_on_Machine_Learning" title="International Conference on Machine Learning">ICML</a></li>
+<li><a href="/wiki/Machine_Learning_(journal)" title="Machine Learning (journal)">ML</a></li>
+<li><a href="/wiki/Journal_of_Machine_Learning_Research" title="Journal of Machine Learning Research">JMLR</a></li>
+<li><a rel="nofollow" class="external text" href="https://arxiv.org/list/cs.LG/recent">ArXiv:cs.LG</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left"><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/Glossary_of_artificial_intelligence" title="Glossary of artificial intelligence">Glossary of artificial intelligence</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="padding:0 0.1em 0.4em">
+<div class="NavFrame collapsed" style="border:none;padding:0"><div class="NavHead" style="font-size:105%;background:transparent;text-align:left">Related articles</div><div class="NavContent" style="font-size:105%;padding:0.2em 0 0.4em;text-align:center"><div class="hlist">
+<ul><li><a href="/wiki/List_of_datasets_for_machine-learning_research" title="List of datasets for machine-learning research">List of datasets for machine-learning research</a></li>
+<li><a href="/wiki/Outline_of_machine_learning" title="Outline of machine learning">Outline of machine learning</a></li></ul>
+</div></div></div></td>
+</tr><tr><td style="text-align:right;font-size:115%;padding-top: 0.6em;"><div class="plainlinks hlist navbar mini"><ul><li class="nv-view"><a href="/wiki/Template:Machine_learning_bar" title="Template:Machine learning bar"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="/wiki/Template_talk:Machine_learning_bar" title="Template talk:Machine learning bar"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Machine_learning_bar&amp;action=edit"><abbr title="Edit this template">e</abbr></a></li></ul></div></td></tr></tbody></table>
+<p><b>Mean shift</b> is a <a href="/wiki/Non-parametric" class="mw-redirect" title="Non-parametric">non-parametric</a> <a href="/wiki/Feature_space" class="mw-redirect" title="Feature space">feature-space</a> analysis technique for locating the maxima of a <a href="/wiki/Density_function" class="mw-redirect" title="Density function">density function</a>, a so-called <a href="/wiki/Mode_(statistics)" title="Mode (statistics)">mode</a>-seeking algorithm.<sup id="cite_ref-PAMI95_1-0" class="reference"><a href="#cite_note-PAMI95-1">&#91;1&#93;</a></sup> Application domains include <a href="/wiki/Cluster_analysis" title="Cluster analysis">cluster analysis</a> in <a href="/wiki/Computer_vision" title="Computer vision">computer vision</a> and <a href="/wiki/Image_processing" class="mw-redirect" title="Image processing">image processing</a>.<sup id="cite_ref-PAMI02_2-0" class="reference"><a href="#cite_note-PAMI02-2">&#91;2&#93;</a></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Overview"><span class="tocnumber">2</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Details"><span class="tocnumber">3</span> <span class="toctext">Details</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Types_of_kernels"><span class="tocnumber">4</span> <span class="toctext">Types of kernels</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Applications"><span class="tocnumber">5</span> <span class="toctext">Applications</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Clustering"><span class="tocnumber">5.1</span> <span class="toctext">Clustering</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Tracking"><span class="tocnumber">5.2</span> <span class="toctext">Tracking</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Smoothing"><span class="tocnumber">5.3</span> <span class="toctext">Smoothing</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Strengths"><span class="tocnumber">6</span> <span class="toctext">Strengths</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Weaknesses"><span class="tocnumber">7</span> <span class="toctext">Weaknesses</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Availability"><span class="tocnumber">8</span> <span class="toctext">Availability</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#References"><span class="tocnumber">10</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Mean_shift&amp;action=edit&amp;section=1" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The mean shift procedure was originally presented in 1975 by Fukunaga and Hostetler.<sup id="cite_ref-Fukunaga_3-0" class="reference"><a href="#cite_note-Fukunaga-3">&#91;3&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Mean_shift&amp;action=edit&amp;section=2" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Mean shift is a procedure for locating the maxima—the <a href="/wiki/Mode_(statistics)" title="Mode (statistics)">modes</a>—of a density function given discrete data sampled from that function.<sup id="cite_ref-PAMI95_1-1" class="reference"><a href="#cite_note-PAMI95-1">&#91;1&#93;</a></sup> This is an iterative method, and we start with an initial estimate <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f9e315fd7e2ba406057a97300593c4802b53e4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="x"/></span>.  Let a <a href="/wiki/Kernel_(statistics)" title="Kernel (statistics)">kernel function</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle K(x_{i}-x)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>K</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle K(x_{i}-x)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ccf479db99261607786b14289f17330daf4eb5da" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.175ex; height:2.843ex;" alt=" K(x_i - x) "/></span> be given.  This function determines the weight of nearby points for re-estimation of the mean.  Typically a <a href="/wiki/Radial_basis_function_kernel" title="Radial basis function kernel">Gaussian kernel</a> on the distance to the current estimate is used, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle K(x_{i}-x)=e^{-c||x_{i}-x||^{2}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>K</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msup>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <mi>c</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <msub>
+              <mi>x</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <mo>&#x2212;<!-- − --></mo>
+            <mi>x</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <msup>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">|</mo>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msup>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle K(x_{i}-x)=e^{-c||x_{i}-x||^{2}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fe550231b036c5b6d8db7f84769cd40951c81c30" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:23.024ex; height:3.676ex;" alt=" K(x_i - x) = e^{-c||x_i - x||^2} "/></span>.  The weighted mean of the density in the window determined by <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle K}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>K</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle K}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2b76fce82a62ed5461908f0dc8f037de4e3686b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.066ex; height:2.176ex;" alt="K"/></span> is
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle m(x)={\frac {\sum _{x_{i}\in N(x)}K(x_{i}-x)x_{i}}{\sum _{x_{i}\in N(x)}K(x_{i}-x)}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>m</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <munder>
+                <mo>&#x2211;<!-- ∑ --></mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <msub>
+                    <mi>x</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>i</mi>
+                    </mrow>
+                  </msub>
+                  <mo>&#x2208;<!-- ∈ --></mo>
+                  <mi>N</mi>
+                  <mo stretchy="false">(</mo>
+                  <mi>x</mi>
+                  <mo stretchy="false">)</mo>
+                </mrow>
+              </munder>
+              <mi>K</mi>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>x</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>i</mi>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <mi>x</mi>
+              <mo stretchy="false">)</mo>
+              <msub>
+                <mi>x</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>i</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <munder>
+                <mo>&#x2211;<!-- ∑ --></mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <msub>
+                    <mi>x</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>i</mi>
+                    </mrow>
+                  </msub>
+                  <mo>&#x2208;<!-- ∈ --></mo>
+                  <mi>N</mi>
+                  <mo stretchy="false">(</mo>
+                  <mi>x</mi>
+                  <mo stretchy="false">)</mo>
+                </mrow>
+              </munder>
+              <mi>K</mi>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>x</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>i</mi>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <mi>x</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle m(x)={\frac {\sum _{x_{i}\in N(x)}K(x_{i}-x)x_{i}}{\sum _{x_{i}\in N(x)}K(x_{i}-x)}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fd7b010e1d7df763ffc64c2fe53d071e2c10d4f0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.171ex; width:30.831ex; height:7.509ex;" alt=" m(x) = \frac{ \sum_{x_i \in N(x)} K(x_i - x) x_i } {\sum_{x_i \in N(x)} K(x_i - x)} "/></span></dd></dl>
+<p>where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle N(x)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>N</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle N(x)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ca1ee5a5ef6497108b2f6d7f1fc8a224a52062fa" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.203ex; height:2.843ex;" alt=" N(x) "/></span> is the neighborhood of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f9e315fd7e2ba406057a97300593c4802b53e4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="x"/></span>, a set of points for which <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle K(x_{i})\neq 0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>K</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2260;<!-- ≠ --></mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle K(x_{i})\neq 0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5ac4a9f5c91287094cf78c6d9e8b5327c732966d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.266ex; height:2.843ex;" alt="{\displaystyle K(x_{i})\neq 0}"/></span>.
+</p><p>The difference <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle m(x)-x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>m</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle m(x)-x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5a3cd05b60f76df823c8aec6517440159cd07526" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.349ex; height:2.843ex;" alt="m(x)-x"/></span> is called <i>mean shift</i> in Fukunaga and Hostetler.<sup id="cite_ref-Fukunaga_3-1" class="reference"><a href="#cite_note-Fukunaga-3">&#91;3&#93;</a></sup> 
+The <i>mean-shift algorithm</i> now sets <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x\leftarrow m(x)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <mi>m</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x\leftarrow m(x)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/00f7aa73c8b8562cf85f306428215319db821a50" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.123ex; height:2.843ex;" alt=" x \leftarrow m(x) "/></span>, and repeats the estimation until <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle m(x)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>m</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle m(x)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7426128eeeea7766bd61d64cf1d13c3b18dd9138" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.179ex; height:2.843ex;" alt=" m(x) "/></span> converges.
+</p><p>Although the mean shift algorithm has been widely used in many applications, a rigid proof for the convergence of the algorithm using a general kernel in a high dimensional space is still not known.<sup id="cite_ref-:0_4-0" class="reference"><a href="#cite_note-:0-4">&#91;4&#93;</a></sup> Aliyari Ghassabeh showed the convergence of the mean shift algorithm in one-dimension with a differentiable, convex, and strictly decreasing profile function.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup> However, the one-dimensional case has limited real world applications. Also, the convergence of the algorithm in higher dimensions with a finite number of the (or isolated) stationary points has been proved.<sup id="cite_ref-:0_4-1" class="reference"><a href="#cite_note-:0-4">&#91;4&#93;</a></sup><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup> However, sufficient conditions for a general kernel function to have finite (or isolated) stationary points have not been provided.
+</p>
+<h2><span class="mw-headline" id="Details">Details</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Mean_shift&amp;action=edit&amp;section=3" title="Edit section: Details">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Let data be a finite set <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="S"/></span> embedded in the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span>-dimensional Euclidean space, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="X"/></span>. Let <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle K}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>K</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle K}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2b76fce82a62ed5461908f0dc8f037de4e3686b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.066ex; height:2.176ex;" alt="K"/></span> be a flat kernel that is the characteristic function of the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \lambda }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03BB;<!-- λ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \lambda }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b43d0ea3c9c025af1be9128e62a18fa74bedda2a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.355ex; height:2.176ex;" alt="\lambda "/></span>-ball in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="X"/></span>,
+</p>
+<div style="text-align: center;">
+<p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle K(x)={\begin{cases}1&amp;{\text{if}}\ \|x\|\leq \lambda \\0&amp;{\text{if}}\ \|x\|&gt;\lambda \\\end{cases}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>K</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>{</mo>
+            <mtable columnalign="left left" rowspacing=".2em" columnspacing="1em" displaystyle="false">
+              <mtr>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>if</mtext>
+                  </mrow>
+                  <mtext>&#xA0;</mtext>
+                  <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+                  <mi>x</mi>
+                  <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+                  <mo>&#x2264;<!-- ≤ --></mo>
+                  <mi>&#x03BB;<!-- λ --></mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>if</mtext>
+                  </mrow>
+                  <mtext>&#xA0;</mtext>
+                  <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+                  <mi>x</mi>
+                  <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+                  <mo>&gt;</mo>
+                  <mi>&#x03BB;<!-- λ --></mi>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo fence="true" stretchy="true" symmetric="true"></mo>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle K(x)={\begin{cases}1&amp;{\text{if}}\ \|x\|\leq \lambda \\0&amp;{\text{if}}\ \|x\|&gt;\lambda \\\end{cases}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7d1435092e2f4df6018ef7251515ad3807f99d80" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:24.331ex; height:6.176ex;" alt="{\displaystyle K(x)={\begin{cases}1&amp;{\text{if}}\ \|x\|\leq \lambda \\0&amp;{\text{if}}\ \|x\|&gt;\lambda \\\end{cases}}}"/></span> 
+</p>
+</div>
+<p>In each iteration of the algorithm, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s\leftarrow m(s)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>s</mi>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <mi>m</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s\leftarrow m(s)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1851f312b2e5b193ecde4406bbe400e44f92a2cc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.645ex; height:2.843ex;" alt="s\leftarrow m(s)"/></span> is performed for all <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s\in S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>s</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s\in S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/acce52dffd84d073a24f4606a175da60148fd0c6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.43ex; height:2.176ex;" alt="s\in S"/></span> simultaneously. The first question, then, is how to estimate the density function given a sparse set of samples. One of the simplest approaches is to just smooth the data, e.g., by convolving it with a fixed kernel of width <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle h}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>h</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle h}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b26be3e694314bc90c3215047e4a2010c6ee184a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.339ex; height:2.176ex;" alt="h"/></span>,
+</p>
+<div style="text-align: center;">
+<p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(x)=\sum _{i}K(x-x_{i})=\sum _{i}k\left({\frac {\|x-x_{i}\|^{2}}{h^{2}}}\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </munder>
+        <mi>K</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </munder>
+        <mi>k</mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mfrac>
+              <mrow>
+                <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+                <mi>x</mi>
+                <mo>&#x2212;<!-- − --></mo>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>i</mi>
+                  </mrow>
+                </msub>
+                <msup>
+                  <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msup>
+              </mrow>
+              <msup>
+                <mi>h</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mfrac>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(x)=\sum _{i}K(x-x_{i})=\sum _{i}k\left({\frac {\|x-x_{i}\|^{2}}{h^{2}}}\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d0aa73ffb6bacced96c49d556c9942d5d3ece0e1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.171ex; width:44.068ex; height:7.509ex;" alt="f(x)=\sum _{{i}}K(x-x_{i})=\sum _{{i}}k\left({\frac  {\|x-x_{i}\|^{2}}{h^{2}}}\right)"/></span>
+</p>
+</div>
+<p>where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e87000dd6142b81d041896a30fe58f0c3acb2158" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.129ex; height:2.009ex;" alt="x_{i}"/></span> are the input samples and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k(r)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo stretchy="false">(</mo>
+        <mi>r</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k(r)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4f7654637fbc68dc95d1e2baf25c3ead7767807d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.069ex; height:2.843ex;" alt="k(r)"/></span> is the kernel function (or <i>Parzen window</i>). <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle h}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>h</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle h}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b26be3e694314bc90c3215047e4a2010c6ee184a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.339ex; height:2.176ex;" alt="h"/></span> is the only parameter in the algorithm and is called the bandwidth. This approach is known as <i>kernel density estimation</i> or the Parzen window technique. Once we have computed <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(x)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(x)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/202945cce41ecebb6f643f31d119c514bec7a074" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.418ex; height:2.843ex;" alt="f(x)"/></span> from equation above, we can find its local maxima using gradient ascent or some other optimization technique. The problem with this "brute force" approach is that, for higher dimensions, it becomes computationally prohibitive to evaluate <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(x)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(x)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/202945cce41ecebb6f643f31d119c514bec7a074" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.418ex; height:2.843ex;" alt="f(x)"/></span> over the complete search space. Instead, mean shift uses a variant of what is known in the optimization literature as <i>multiple restart gradient descent</i>. Starting at some guess for a local maximum, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y_{k}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y_{k}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4b2ab0248723a410cc2c67ce06ad5c043dcbb933" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.228ex; height:2.009ex;" alt="y_{k}"/></span>, which can be a random input data point <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a8788bf85d532fa88d1fb25eff6ae382a601c308" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.384ex; height:2.009ex;" alt="x_{1}"/></span>, mean shift computes the gradient of the density estimate <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(x)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(x)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/202945cce41ecebb6f643f31d119c514bec7a074" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.418ex; height:2.843ex;" alt="f(x)"/></span> at <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y_{k}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y_{k}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4b2ab0248723a410cc2c67ce06ad5c043dcbb933" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.228ex; height:2.009ex;" alt="y_{k}"/></span> and takes an uphill step in that direction.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Types_of_kernels">Types of kernels</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Mean_shift&amp;action=edit&amp;section=4" title="Edit section: Types of kernels">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Kernel definition: Let <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="X"/></span> be the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span>-dimensional Euclidean space, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {R} ^{n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">R</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {R} ^{n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c510b63578322050121fe966f2e5770bea43308d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.897ex; height:2.343ex;" alt="\mathbb {R} ^{n}"/></span>. The norm of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f9e315fd7e2ba406057a97300593c4802b53e4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="x"/></span> is a non-negative number, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \|x\|^{2}=x^{\top }x\geq 0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+        <mi>x</mi>
+        <msup>
+          <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">&#x22A4;<!-- ⊤ --></mi>
+          </mrow>
+        </msup>
+        <mi>x</mi>
+        <mo>&#x2265;<!-- ≥ --></mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \|x\|^{2}=x^{\top }x\geq 0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b13f6f3fee1e41d73e3a983e45820c986ac116a7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:16.238ex; height:3.176ex;" alt="{\displaystyle \|x\|^{2}=x^{\top }x\geq 0}"/></span>. A function <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle K:X\rightarrow \mathbb {R} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>K</mi>
+        <mo>:</mo>
+        <mi>X</mi>
+        <mo stretchy="false">&#x2192;<!-- → --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">R</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle K:X\rightarrow \mathbb {R} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/942a8a01ba94a6f65fddf2a3daa495acbeed433c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:11.275ex; height:2.176ex;" alt="{\displaystyle K:X\rightarrow \mathbb {R} }"/></span> is said to be a kernel if there exists a <i>profile</i>, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k:[0,\infty [\rightarrow \mathbb {R} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo>:</mo>
+        <mo stretchy="false">[</mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+        <mo stretchy="false">[</mo>
+        <mo stretchy="false">&#x2192;<!-- → --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">R</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k:[0,\infty [\rightarrow \mathbb {R} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1b8f2609c8964b7688435ffa872b76ad2b836981" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:13.609ex; height:2.843ex;" alt="{\displaystyle k:[0,\infty [\rightarrow \mathbb {R} }"/></span> , such that
+</p><p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle K(x)=k(\|x\|^{2})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>K</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>k</mi>
+        <mo stretchy="false">(</mo>
+        <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+        <mi>x</mi>
+        <msup>
+          <mo fence="false" stretchy="false">&#x2016;<!-- ‖ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle K(x)=k(\|x\|^{2})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f72d12652df9ab1d1a07d2918ab024256f676094" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:16.033ex; height:3.176ex;" alt="K(x)=k(\|x\|^{2})"/></span>
+and 
+</p>
+<ul><li>k is non-negative.</li>
+<li>k is non-increasing: <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k(a)\geq k(b)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2265;<!-- ≥ --></mo>
+        <mi>k</mi>
+        <mo stretchy="false">(</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k(a)\geq k(b)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bd4637a2c77536290eb4343359f2142983311368" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.367ex; height:2.843ex;" alt="k(a)\geq k(b)"/></span> if <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle a&lt;b}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+        <mo>&lt;</mo>
+        <mi>b</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a&lt;b}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/91a7698e4c7401bb321f97888b872b583a9e4642" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.326ex; height:2.176ex;" alt=" a &lt; b "/></span>.</li>
+<li>k is piecewise continuous and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \int _{0}^{\infty }k(r)\,dr&lt;\infty \ }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mo>&#x222B;<!-- ∫ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+          </mrow>
+        </msubsup>
+        <mi>k</mi>
+        <mo stretchy="false">(</mo>
+        <mi>r</mi>
+        <mo stretchy="false">)</mo>
+        <mspace width="thinmathspace" />
+        <mi>d</mi>
+        <mi>r</mi>
+        <mo>&lt;</mo>
+        <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+        <mtext>&#xA0;</mtext>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \int _{0}^{\infty }k(r)\,dr&lt;\infty \ }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/35eb69f29f0439b8f8c9f0e3ea843f750b71992f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.338ex; width:17.45ex; height:5.843ex;" alt="\int _{0}^{\infty }k(r)\,dr&lt;\infty \ "/></span></li></ul>
+<p>The two most frequently used kernel profiles for mean shift are:
+</p>
+<dl><dt>Flat kernel</dt></dl>
+<div style="text-align: center;">
+<p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k(x)={\begin{cases}1&amp;{\text{if}}\ x\leq \lambda \\0&amp;{\text{if}}\ x&gt;\lambda \\\end{cases}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>{</mo>
+            <mtable columnalign="left left" rowspacing=".2em" columnspacing="1em" displaystyle="false">
+              <mtr>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>if</mtext>
+                  </mrow>
+                  <mtext>&#xA0;</mtext>
+                  <mi>x</mi>
+                  <mo>&#x2264;<!-- ≤ --></mo>
+                  <mi>&#x03BB;<!-- λ --></mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>if</mtext>
+                  </mrow>
+                  <mtext>&#xA0;</mtext>
+                  <mi>x</mi>
+                  <mo>&gt;</mo>
+                  <mi>&#x03BB;<!-- λ --></mi>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo fence="true" stretchy="true" symmetric="true"></mo>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k(x)={\begin{cases}1&amp;{\text{if}}\ x\leq \lambda \\0&amp;{\text{if}}\ x&gt;\lambda \\\end{cases}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/966ae17b531dbb24dcf19b5efc01d652e971c1a0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:21.151ex; height:6.176ex;" alt="&#10;k(x) =&#10;\begin{cases}  &#10;1 &amp; \text{if}\ x \le \lambda\\&#10;0 &amp; \text{if}\ x &gt; \lambda\\&#10;\end{cases} &#10;"/></span>
+</p>
+</div>
+<dl><dt>Gaussian kernel</dt></dl>
+<div style="text-align: center;">
+<p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k(x)=e^{-{\frac {x^{2}}{2\sigma ^{2}}}},}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msup>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mfrac>
+                <msup>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msup>
+                <mrow>
+                  <mn>2</mn>
+                  <msup>
+                    <mi>&#x03C3;<!-- σ --></mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>2</mn>
+                    </mrow>
+                  </msup>
+                </mrow>
+              </mfrac>
+            </mrow>
+          </mrow>
+        </msup>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k(x)=e^{-{\frac {x^{2}}{2\sigma ^{2}}}},}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5f6ba53303ba0848b88b92e129b6f2279f397762" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:13.758ex; height:5.009ex;" alt="{\displaystyle k(x)=e^{-{\frac {x^{2}}{2\sigma ^{2}}}},}"/></span>
+</p>
+</div>
+<p>where the standard deviation parameter <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sigma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03C3;<!-- σ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sigma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/59f59b7c3e6fdb1d0365a494b81fb9a696138c36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="\sigma "/></span> works as the bandwidth parameter, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle h}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>h</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle h}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b26be3e694314bc90c3215047e4a2010c6ee184a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.339ex; height:2.176ex;" alt="h"/></span>.
+</p>
+<h2><span class="mw-headline" id="Applications">Applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Mean_shift&amp;action=edit&amp;section=5" title="Edit section: Applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Clustering">Clustering</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Mean_shift&amp;action=edit&amp;section=6" title="Edit section: Clustering">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Consider a set of points in two-dimensional space. Assume a circular window centered at C and having radius r as the kernel. Mean shift is a hill climbing algorithm which involves shifting this kernel iteratively to a higher density region until convergence. Every shift is defined by a mean shift vector. The mean shift vector always points toward the direction of the maximum increase in the density. At every iteration the kernel is shifted to the centroid or the mean of the points within it. The method of calculating this mean depends on the choice of the kernel. In this case if a Gaussian kernel is chosen instead of a flat kernel, then every point will first be assigned a weight which will decay exponentially as the distance from the kernel's center increases. At convergence, there will be no direction at which a shift can accommodate more points inside the kernel.
+</p>
+<h3><span class="mw-headline" id="Tracking">Tracking</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Mean_shift&amp;action=edit&amp;section=7" title="Edit section: Tracking">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The mean shift algorithm can be used for visual tracking.  The simplest such algorithm would create a confidence map in the new image based on the color histogram of the object in the previous image, and use mean shift to find the peak of a confidence map near the object's old position. The confidence map is a probability density function on the new image, assigning each pixel of the new image a probability, which is the probability of the pixel color occurring in the object in the previous image. A few algorithms, such as kernel-based object tracking, <sup id="cite_ref-PAMI03_8-0" class="reference"><a href="#cite_note-PAMI03-8">&#91;8&#93;</a></sup> 
+ensemble tracking,<sup id="cite_ref-avidan2001_9-0" class="reference"><a href="#cite_note-avidan2001-9">&#91;9&#93;</a></sup>
+CAMshift <sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;10&#93;</a></sup><sup id="cite_ref-Emami2001_11-0" class="reference"><a href="#cite_note-Emami2001-11">&#91;11&#93;</a></sup> 
+expand on this idea.
+</p>
+<h3><span class="mw-headline" id="Smoothing">Smoothing</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Mean_shift&amp;action=edit&amp;section=8" title="Edit section: Smoothing">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Let <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e87000dd6142b81d041896a30fe58f0c3acb2158" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.129ex; height:2.009ex;" alt="x_{i}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle z_{i},i=1,...,n,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mi>i</mi>
+        <mo>=</mo>
+        <mn>1</mn>
+        <mo>,</mo>
+        <mo>.</mo>
+        <mo>.</mo>
+        <mo>.</mo>
+        <mo>,</mo>
+        <mi>n</mi>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle z_{i},i=1,...,n,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9c7db9543e60a8b19e1cbc283cb2ed4e9368919d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:15.189ex; height:2.509ex;" alt="z_{i},i=1,...,n,"/></span> be the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle d}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>d</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle d}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e85ff03cbe0c7341af6b982e47e9f90d235c66ab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.216ex; height:2.176ex;" alt="d"/></span>-dimensional input and filtered image pixels in the joint spatial-range domain. For each pixel,
+</p>
+<ul><li>Initialize <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle j=1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>j</mi>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle j=1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/91423fb032c471061948939f4a6811bf463780e0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.027ex; width:5.246ex; height:2.509ex;" alt="j=1"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y_{i,1}=x_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>,</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y_{i,1}=x_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/46618c69184bf99d86d4ed2a02f3730bd0e5dd13" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:8.446ex; height:2.343ex;" alt="y_{{i,1}}=x_{i}"/></span></li>
+<li>Compute <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y_{i,j+1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>,</mo>
+            <mi>j</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y_{i,j+1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0eefa2a5a91c413e50129907753b198ce6088d9c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:5.174ex; height:2.343ex;" alt="y_{{i,j+1}}"/></span> according to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle m(\cdot )}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>m</mi>
+        <mo stretchy="false">(</mo>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle m(\cdot )}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/531e16e6046776cd68876ca625a2516b39a91171" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.497ex; height:2.843ex;" alt="m(\cdot )"/></span> until convergence, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y=y_{i,c}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+        <mo>=</mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>,</mo>
+            <mi>c</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y=y_{i,c}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bb1de45dcd24da187913724b4063bf7ad8cc9ffd" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:7.362ex; height:2.343ex;" alt="y=y_{{i,c}}"/></span>.</li>
+<li>Assign <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle z_{i}=(x_{i}^{s},y_{i,c}^{r})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <msubsup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msubsup>
+        <mo>,</mo>
+        <msubsup>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>,</mo>
+            <mi>c</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msubsup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle z_{i}=(x_{i}^{s},y_{i,c}^{r})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2e4964c2e11a8537d3fa4eba2f287b0d728b37bf" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.338ex; width:13.264ex; height:3.343ex;" alt="z_{i}=(x_{i}^{s},y_{{i,c}}^{r})"/></span>. The superscripts s and r denote the spatial and range components of a vector, respectively. The assignment specifies that the filtered data at the spatial location axis will have the range component of the point of convergence <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y_{i,c}^{r}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>,</mo>
+            <mi>c</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msubsup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y_{i,c}^{r}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/013208919ca507c3c9b098514f26f5216f97aa73" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.338ex; width:3.108ex; height:3.176ex;" alt="y_{{i,c}}^{r}"/></span>.</li></ul>
+<h2><span class="mw-headline" id="Strengths">Strengths</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Mean_shift&amp;action=edit&amp;section=9" title="Edit section: Strengths">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol><li>Mean shift is an application-independent tool suitable for real data analysis.</li>
+<li>Does not assume any predefined shape on data clusters.</li>
+<li>It is capable of handling arbitrary feature spaces.</li>
+<li>The procedure relies on choice of a single parameter: bandwidth.</li>
+<li>The bandwidth/window size 'h' has a physical meaning, unlike <a href="/wiki/K-means" class="mw-redirect" title="K-means"><i>k</i>-means</a>.</li></ol>
+<h2><span class="mw-headline" id="Weaknesses">Weaknesses</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Mean_shift&amp;action=edit&amp;section=10" title="Edit section: Weaknesses">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol><li>The selection of a window size is not trivial.</li>
+<li>Inappropriate window size can cause modes to be merged, or generate additional “shallow” modes.</li>
+<li>Often requires using adaptive window size.</li></ol>
+<h2><span class="mw-headline" id="Availability">Availability</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Mean_shift&amp;action=edit&amp;section=11" title="Edit section: Availability">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Variants of the algorithm can be found in machine learning and image processing packages:
+</p>
+<ul><li><a href="/wiki/ELKI" title="ELKI">ELKI</a>. Java data mining tool with many clustering algorithms.</li>
+<li><a href="/wiki/ImageJ" title="ImageJ">ImageJ</a>. Image filtering using the mean shift filter.</li>
+<li><a href="/wiki/OpenCV" title="OpenCV">OpenCV</a> contains mean-shift implementation via cvMeanShift Method</li>
+<li><a href="/wiki/Orfeo_toolbox" title="Orfeo toolbox">Orfeo toolbox</a>. A C++ implementation.</li>
+<li><a href="/wiki/Scikit-learn" title="Scikit-learn">Scikit-learn</a> Numpy/Python implementation uses ball tree for efficient neighboring points lookup</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Mean_shift&amp;action=edit&amp;section=12" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/DBSCAN" title="DBSCAN">DBSCAN</a></li>
+<li><a href="/wiki/OPTICS_algorithm" title="OPTICS algorithm">OPTICS algorithm</a></li>
+<li><a href="/wiki/Kernel_density_estimation" title="Kernel density estimation">Kernel density estimation</a> (KDE)</li>
+<li><a href="/wiki/Kernel_(statistics)" title="Kernel (statistics)">Kernel (statistics)</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Mean_shift&amp;action=edit&amp;section=13" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist columns references-column-width" style="-moz-column-width: 30em; -webkit-column-width: 30em; column-width: 30em; list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-PAMI95-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-PAMI95_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-PAMI95_1-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Cheng, Yizong (August 1995). "Mean Shift, Mode Seeking, and Clustering". <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i>. <b>17</b> (8): 790–799. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.510.1222">10.1.1.510.1222</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2F34.400568">10.1109/34.400568</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Pattern+Analysis+and+Machine+Intelligence&amp;rft.atitle=Mean+Shift%2C+Mode+Seeking%2C+and+Clustering&amp;rft.volume=17&amp;rft.issue=8&amp;rft.pages=790-799&amp;rft.date=1995-08&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.510.1222&amp;rft_id=info%3Adoi%2F10.1109%2F34.400568&amp;rft.aulast=Cheng&amp;rft.aufirst=Yizong&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMean+shift" class="Z3988"></span><style data-mw-deduplicate="TemplateStyles:r935243608">.mw-parser-output cite.citation{font-style:inherit}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/9px-Lock-green.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lock-gray-alt-2.svg/9px-Lock-gray-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lock-red-alt-2.svg/9px-Lock-red-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration{color:#555}.mw-parser-output .cs1-subscription span,.mw-parser-output .cs1-registration span{border-bottom:1px dotted;cursor:help}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/12px-Wikisource-logo.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output code.cs1-code{color:inherit;background:inherit;border:inherit;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;font-size:100%}.mw-parser-output .cs1-visible-error{font-size:100%}.mw-parser-output .cs1-maint{display:none;color:#33aa33;margin-left:0.3em}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration,.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left,.mw-parser-output .cs1-kern-wl-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right,.mw-parser-output .cs1-kern-wl-right{padding-right:0.2em}</style></span>
+</li>
+<li id="cite_note-PAMI02-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-PAMI02_2-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Comaniciu, Dorin; Peter Meer (May 2002). "Mean Shift: A Robust Approach Toward Feature Space Analysis". <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i>. <b>24</b> (5): 603–619. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.160.3832">10.1.1.160.3832</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2F34.1000236">10.1109/34.1000236</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Pattern+Analysis+and+Machine+Intelligence&amp;rft.atitle=Mean+Shift%3A+A+Robust+Approach+Toward+Feature+Space+Analysis&amp;rft.volume=24&amp;rft.issue=5&amp;rft.pages=603-619&amp;rft.date=2002-05&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.160.3832&amp;rft_id=info%3Adoi%2F10.1109%2F34.1000236&amp;rft.aulast=Comaniciu&amp;rft.aufirst=Dorin&amp;rft.au=Peter+Meer&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMean+shift" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-Fukunaga-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-Fukunaga_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Fukunaga_3-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Fukunaga, Keinosuke; Larry D. Hostetler (January 1975). "The Estimation of the Gradient of a Density Function, with Applications in Pattern Recognition". <i>IEEE Transactions on Information Theory</i>. <b>21</b> (1): 32–40. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FTIT.1975.1055330">10.1109/TIT.1975.1055330</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Information+Theory&amp;rft.atitle=The+Estimation+of+the+Gradient+of+a+Density+Function%2C+with+Applications+in+Pattern+Recognition&amp;rft.volume=21&amp;rft.issue=1&amp;rft.pages=32-40&amp;rft.date=1975-01&amp;rft_id=info%3Adoi%2F10.1109%2FTIT.1975.1055330&amp;rft.aulast=Fukunaga&amp;rft.aufirst=Keinosuke&amp;rft.au=Larry+D.+Hostetler&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMean+shift" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-:0-4"><span class="mw-cite-backlink">^ <a href="#cite_ref-:0_4-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-:0_4-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Aliyari Ghassabeh, Youness (2015-03-01). "A sufficient condition for the convergence of the mean shift algorithm with Gaussian kernel". <i>Journal of Multivariate Analysis</i>. <b>135</b>: 1–10. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.jmva.2014.11.009">10.1016/j.jmva.2014.11.009</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Multivariate+Analysis&amp;rft.atitle=A+sufficient+condition+for+the+convergence+of+the+mean+shift+algorithm+with+Gaussian+kernel&amp;rft.volume=135&amp;rft.pages=1-10&amp;rft.date=2015-03-01&amp;rft_id=info%3Adoi%2F10.1016%2Fj.jmva.2014.11.009&amp;rft.aulast=Aliyari+Ghassabeh&amp;rft.aufirst=Youness&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMean+shift" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><cite class="citation journal">Aliyari Ghassabeh, Youness (2013-09-01). "On the convergence of the mean shift algorithm in the one-dimensional space". <i>Pattern Recognition Letters</i>. <b>34</b> (12): 1423–1427. <a href="/wiki/ArXiv" title="ArXiv">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//arxiv.org/abs/1407.2961">1407.2961</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.patrec.2013.05.004">10.1016/j.patrec.2013.05.004</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Pattern+Recognition+Letters&amp;rft.atitle=On+the+convergence+of+the+mean+shift+algorithm+in+the+one-dimensional+space&amp;rft.volume=34&amp;rft.issue=12&amp;rft.pages=1423-1427&amp;rft.date=2013-09-01&amp;rft_id=info%3Aarxiv%2F1407.2961&amp;rft_id=info%3Adoi%2F10.1016%2Fj.patrec.2013.05.004&amp;rft.aulast=Aliyari+Ghassabeh&amp;rft.aufirst=Youness&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMean+shift" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><cite class="citation journal">Li, Xiangru; Hu, Zhanyi; Wu, Fuchao (2007-06-01). "A note on the convergence of the mean shift". <i>Pattern Recognition</i>. <b>40</b> (6): 1756–1762. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.patcog.2006.10.016">10.1016/j.patcog.2006.10.016</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Pattern+Recognition&amp;rft.atitle=A+note+on+the+convergence+of+the+mean+shift&amp;rft.volume=40&amp;rft.issue=6&amp;rft.pages=1756-1762&amp;rft.date=2007-06-01&amp;rft_id=info%3Adoi%2F10.1016%2Fj.patcog.2006.10.016&amp;rft.aulast=Li&amp;rft.aufirst=Xiangru&amp;rft.au=Hu%2C+Zhanyi&amp;rft.au=Wu%2C+Fuchao&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMean+shift" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text">Richard Szeliski, Computer Vision, Algorithms and Applications, Springer, 2011</span>
+</li>
+<li id="cite_note-PAMI03-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-PAMI03_8-0">^</a></b></span> <span class="reference-text"><cite class="citation journal">Comaniciu, Dorin; Visvanathan Ramesh; Peter Meer (May 2003). "Kernel-based Object Tracking". <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i>. <b>25</b> (5): 564–575. <a href="/wiki/CiteSeerX" title="CiteSeerX">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.8.7474">10.1.1.8.7474</a></span>. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2Ftpami.2003.1195991">10.1109/tpami.2003.1195991</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Pattern+Analysis+and+Machine+Intelligence&amp;rft.atitle=Kernel-based+Object+Tracking&amp;rft.volume=25&amp;rft.issue=5&amp;rft.pages=564-575&amp;rft.date=2003-05&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.8.7474&amp;rft_id=info%3Adoi%2F10.1109%2Ftpami.2003.1195991&amp;rft.aulast=Comaniciu&amp;rft.aufirst=Dorin&amp;rft.au=Visvanathan+Ramesh&amp;rft.au=Peter+Meer&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMean+shift" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-avidan2001-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-avidan2001_9-0">^</a></b></span> <span class="reference-text"><cite class="citation book">Avidan, Shai (2005). <i>Ensemble Tracking</i>. <i>2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR'05)</i>. <b>2</b>. San Diego, California: IEEE. pp.&#160;494–501. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FCVPR.2005.144">10.1109/CVPR.2005.144</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-7695-2372-9" title="Special:BookSources/978-0-7695-2372-9"><bdi>978-0-7695-2372-9</bdi></a>. <a href="/wiki/PubMed_Identifier" class="mw-redirect" title="PubMed Identifier">PMID</a>&#160;<a rel="nofollow" class="external text" href="//pubmed.ncbi.nlm.nih.gov/17170479">17170479</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Ensemble+Tracking&amp;rft.place=San+Diego%2C+California&amp;rft.pages=494-501&amp;rft.pub=IEEE&amp;rft.date=2005&amp;rft_id=info%3Apmid%2F17170479&amp;rft_id=info%3Adoi%2F10.1109%2FCVPR.2005.144&amp;rft.isbn=978-0-7695-2372-9&amp;rft.aulast=Avidan&amp;rft.aufirst=Shai&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMean+shift" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text"><a href="/wiki/Gary_Bradski" title="Gary Bradski">Gary Bradski</a> (1998) <a rel="nofollow" class="external text" href="http://download.intel.com/technology/itj/q21998/pdf/camshift.pdf">Computer Vision Face Tracking For Use in a Perceptual User Interface</a> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20120417121810/http://download.intel.com/technology/itj/q21998/pdf/camshift.pdf">Archived</a> 2012-04-17 at the <a href="/wiki/Wayback_Machine" title="Wayback Machine">Wayback Machine</a>, Intel Technology Journal, No. Q2.</span>
+</li>
+<li id="cite_note-Emami2001-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-Emami2001_11-0">^</a></b></span> <span class="reference-text"><cite class="citation book">Emami, Ebrahim (2013). <i>Online failure detection and correction for CAMShift tracking algorithm</i>. <i>2013 Iranian Conference on Machine Vision and Image Processing (MVIP)</i>. <b>2</b>. IEEE. pp.&#160;180–183. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FIranianMVIP.2013.6779974">10.1109/IranianMVIP.2013.6779974</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-1-4673-6184-2" title="Special:BookSources/978-1-4673-6184-2"><bdi>978-1-4673-6184-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Online+failure+detection+and+correction+for+CAMShift+tracking+algorithm&amp;rft.pages=180-183&amp;rft.pub=IEEE&amp;rft.date=2013&amp;rft_id=info%3Adoi%2F10.1109%2FIranianMVIP.2013.6779974&amp;rft.isbn=978-1-4673-6184-2&amp;rft.aulast=Emami&amp;rft.aufirst=Ebrahim&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMean+shift" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r935243608"/></span>
+</li>
+</ol></div>
+<!-- 
+NewPP limit report
+Parsed by mw1403
+Cached time: 20200306204538
+Cache expiry: 2592000
+Dynamic content: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.316 seconds
+Real time usage: 0.457 seconds
+Preprocessor visited node count: 1053/1000000
+Post‐expand include size: 44182/2097152 bytes
+Template argument size: 717/2097152 bytes
+Highest expansion depth: 11/40
+Expensive parser function count: 3/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 33972/5000000 bytes
+Number of Wikibase entities loaded: 3/400
+Lua time usage: 0.137/10.000 seconds
+Lua memory usage: 3.77 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  290.692      1 -total
+ 74.35%  216.126      1 Template:Reflist
+ 57.35%  166.709      7 Template:Cite_journal
+ 21.29%   61.893      1 Template:Machine_learning_bar
+ 20.13%   58.520      1 Template:Sidebar_with_collapsible_lists
+  8.04%   23.359      1 Template:Longitem
+  7.24%   21.060      1 Template:Nobold
+  4.27%   12.425      2 Template:Cite_book
+  3.74%   10.877      1 Template:Webarchive
+  1.85%    5.381      1 Template:Small
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:10999922-0!canonical!math=5 and timestamp 20200306204538 and revision id 943197355
+ -->
+</div><noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>
+		<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Mean_shift&amp;oldid=943197355">https://en.wikipedia.org/w/index.php?title=Mean_shift&amp;oldid=943197355</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Computer_vision" title="Category:Computer vision">Computer vision</a></li><li><a href="/wiki/Category:Cluster_analysis_algorithms" title="Category:Cluster analysis algorithms">Cluster analysis algorithms</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Webarchive_template_wayback_links" title="Category:Webarchive template wayback links">Webarchive template wayback links</a></li></ul></div></div>
+		<div class="visualClear"></div>
+		
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+    <h2>Navigation menu</h2>
+    <div id="mw-head">
+        
+        <div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+        	<h3 id="p-personal-label">Personal tools</h3>
+        	<ul >
+        		
+        		<li id="pt-anonuserpage">Not logged in</li>
+        		<li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Mean+shift" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Mean+shift" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>
+        	</ul>
+        </div>
+        <div id="left-navigation">
+            <div id="p-namespaces" role="navigation" class="vectorTabs " aria-labelledby="p-namespaces-label">
+            	<h3 id="p-namespaces-label">Namespaces</h3>
+            	<ul >
+            		<li id="ca-nstab-main" class="selected"><a href="/wiki/Mean_shift" title="View the content page [c]" accesskey="c">Article</a></li><li id="ca-talk"><a href="/wiki/Talk:Mean_shift" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Talk</a></li>
+            	</ul>
+            </div>
+            <div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+            	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+            	<h3 id="p-variants-label">
+            		<span>Variants</span>
+            	</h3>
+            	<ul class="menu" >
+            		
+            	</ul>
+            </div>
+        </div>
+        <div id="right-navigation">
+            <div id="p-views" role="navigation" class="vectorTabs " aria-labelledby="p-views-label">
+            	<h3 id="p-views-label">Views</h3>
+            	<ul >
+            		<li id="ca-view" class="collapsible selected"><a href="/wiki/Mean_shift">Read</a></li><li id="ca-edit" class="collapsible"><a href="/w/index.php?title=Mean_shift&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/w/index.php?title=Mean_shift&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li>
+            	</ul>
+            </div>
+            <div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+            	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+            	<h3 id="p-cactions-label">
+            		<span>More</span>
+            	</h3>
+            	<ul class="menu" >
+            		
+            	</ul>
+            </div>
+            <div id="p-search" role="search">
+            	<h3 >
+            		<label for="searchInput">Search</label>
+            	</h3>
+            	<form action="/w/index.php" id="searchform">
+            		<div id="simpleSearch">
+            			<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/>
+            			<input type="hidden" value="Special:Search" name="title"/>
+            			<input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+            			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+            		</div>
+            	</form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="mw-panel">
+    	<div id="p-logo" role="banner">
+    		<a  title="Visit the main page" class="mw-wiki-logo" href="/wiki/Main_Page"></a>
+    	</div>
+    	<div class="portal" role="navigation" id="p-navigation"  aria-labelledby="p-navigation-label">
+    		<h3  id="p-navigation-label">
+    			Navigation
+    		</h3>
+    		<div class="body">
+    			<ul><li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Wikipedia:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-interaction"  aria-labelledby="p-interaction-label">
+    		<h3  id="p-interaction-label">
+    			Interaction
+    		</h3>
+    		<div class="body">
+    			<ul><li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-tb"  aria-labelledby="p-tb-label">
+    		<h3  id="p-tb-label">
+    			Tools
+    		</h3>
+    		<div class="body">
+    			<ul><li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Mean_shift" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Mean_shift" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Mean_shift&amp;oldid=943197355" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Mean_shift&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q6803557" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Mean_shift&amp;id=943197355&amp;wpFormIdentifier=titleform" title="Information on how to cite this page">Cite this page</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-coll-print_export"  aria-labelledby="p-coll-print_export-label">
+    		<h3  id="p-coll-print_export-label">
+    			Print/export
+    		</h3>
+    		<div class="body">
+    			<ul><li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Mean+shift">Create a book</a></li><li id="coll-download-as-rl"><a href="/w/index.php?title=Special:ElectronPdf&amp;page=Mean+shift&amp;action=show-download-screen">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Mean_shift&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li></ul>
+    			
+    		</div>
+    	</div>
+    	
+    	<div class="portal" role="navigation" id="p-lang"  aria-labelledby="p-lang-label">
+    		<h3  id="p-lang-label">
+    			Languages
+    		</h3>
+    		<div class="body">
+    			<ul><li class="interlanguage-link interwiki-ca"><a href="https://ca.wikipedia.org/wiki/Mean-Shift" title="Mean-Shift – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target">Català</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/%D8%A7%D9%86%D8%AA%D9%82%D8%A7%D9%84_%D9%85%DB%8C%D8%A7%D9%86%DA%AF%DB%8C%D9%86" title="انتقال میانگین – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target">فارسی</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Mean_shift" title="Mean shift – Italian" lang="it" hreflang="it" class="interlanguage-link-target">Italiano</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%B4%D0%B2%D0%B8%D0%B3_%D1%81%D1%80%D0%B5%D0%B4%D0%BD%D0%B5%D0%B3%D0%BE_%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D1%8F" title="Сдвиг среднего значения – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target">Русский</a></li></ul>
+    			<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q6803557#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+    		</div>
+    	</div>
+    	
+    </div>
+</div>
+
+<div id="footer" role="contentinfo" >
+	<ul id="footer-info" class="">
+		<li id="footer-info-lastmod"> This page was last edited on 29 February 2020, at 13:19<span class="anonymous-show">&#160;(UTC)</span>.</li>
+		<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+	</ul>
+	<ul id="footer-places" class="">
+		<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+		<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+		<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+		<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+		<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+		<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+		<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Mean_shift&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</div>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.316","walltime":"0.457","ppvisitednodes":{"value":1053,"limit":1000000},"postexpandincludesize":{"value":44182,"limit":2097152},"templateargumentsize":{"value":717,"limit":2097152},"expansiondepth":{"value":11,"limit":40},"expensivefunctioncount":{"value":3,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":33972,"limit":5000000},"entityaccesscount":{"value":3,"limit":400},"timingprofile":["100.00%  290.692      1 -total"," 74.35%  216.126      1 Template:Reflist"," 57.35%  166.709      7 Template:Cite_journal"," 21.29%   61.893      1 Template:Machine_learning_bar"," 20.13%   58.520      1 Template:Sidebar_with_collapsible_lists","  8.04%   23.359      1 Template:Longitem","  7.24%   21.060      1 Template:Nobold","  4.27%   12.425      2 Template:Cite_book","  3.74%   10.877      1 Template:Webarchive","  1.85%    5.381      1 Template:Small"]},"scribunto":{"limitreport-timeusage":{"value":"0.137","limit":"10.000"},"limitreport-memusage":{"value":3958190,"limit":52428800}},"cachereport":{"origin":"mw1403","timestamp":"20200306204538","ttl":2592000,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Mean shift","url":"https:\/\/en.wikipedia.org\/wiki\/Mean_shift","sameAs":"http:\/\/www.wikidata.org\/entity\/Q6803557","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q6803557","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2007-05-01T12:24:52Z","dateModified":"2020-02-29T13:19:38Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/fe\/Kernel_Machine.svg","headline":"Algorithm used to determine the modes of distribution of probability of a dataset"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":103,"wgHostname":"mw1270"});});</script></body></html>
