@@ -1,0 +1,6 @@
+sphinx-rtd-theme
+requests
+pandas
+bs4
+datetime
+sqlalchemy
