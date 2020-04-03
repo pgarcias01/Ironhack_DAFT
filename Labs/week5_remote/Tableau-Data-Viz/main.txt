@@ -1,0 +1,4 @@
+Lab
+https://public.tableau.com/profile/pedro.garcias#!/vizhome/DataVisualizationwithTableau_15856993956990/Dashboard1?publish=yes
+Bonus
+https://public.tableau.com/profile/pedro.garcias#!/vizhome/Lab_Tableau_Data_Viz_Bonus/Density?publish=yes
