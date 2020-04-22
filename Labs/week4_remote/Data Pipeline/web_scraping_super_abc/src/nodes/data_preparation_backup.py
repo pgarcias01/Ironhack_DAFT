@@ -78,18 +78,12 @@ def get_cat_II(cat_I : str):
     time.sleep(1)
     elem = driver.find_element_by_xpath('/html/body/div[2]/div/main/div[1]/div[2]/div/div/div[1]/button')
     elem.click()
-    time.sleep(1)
     #capta a html do site, transforma para o BeautifulSoup e busca todas sub categorias
     html = driver.page_source
     soup = BeautifulSoup(html, 'lxml')
-    soup = soup.find_all('ul', {'style': 'display: block; overflow: hidden;'})
-    soup = [item.find_all('li') for item in soup]
-    soup = [item for li in soup for item in li]
-    links = [item.find('a')['href'].replace('20', '50') for item in soup]
-    base = list(set(['/'.join(item.split('/')[0:4]) + '?PS=50' for item in links]))
-    base2 = list(set(['/'.join(item.split('/')[0:5]) + '?PS=50' for item in links]))
-    links = links + base
-    links = links + base2
+    soup = soup.find_all('h4')
+    #dentre as sub categorias criadas traz os links de cada uma
+    links = [item.find('a')['href'] for item in soup]
     #encerra o drive
     driver.quit()
     #retorna os links
@@ -108,7 +102,7 @@ def get_categories():
     result = pool.map(get_cat_II, cat_I_lst)
     pool.terminate()
     #entre os links gerados é criada uma lista filtrando somente para sub categorias através do split
-    result = [link for grupo in result for link in grupo if len(link)>0]
+    result = [item for cat in result for item in cat if len(item.split('/')) >= 5]
     return result
 
 def get_product_links(cat_II):
@@ -130,10 +124,10 @@ def get_product_links(cat_II):
         while True:
             try:
                 #aguarda para verificar se o botão carregar mais está presente na pagina se sim clicka no mesmo
-                wait = WebDriverWait(driver, 3)
+                wait = WebDriverWait(driver, 2)
                 element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="carregar-mais"]')))
                 element.click()
-                time.sleep(3)
+                time.sleep(2)
             except:
                 #caso não seja encontrado o botão o laço while é findado
                 break
@@ -192,8 +186,6 @@ def clean_files():
     files = ['product_links.csv','sub_cat.csv']
     #apaga cada arquivo
     [os.remove(path+item) for item in files if item in lst_files]
-    f = open(Params.sub_cat_processed, 'w+')
-    f = open(Params.product_links, 'w+')
 
 def update(params):
     """

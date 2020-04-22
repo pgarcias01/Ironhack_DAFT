@@ -1,24 +1,25 @@
 import logging
-from src.params import Params
-import pandas as pd
-import os
-import concurrent.futures
-import urllib.request
-from bs4 import BeautifulSoup
 import numpy as np
-import re
+from src.params import Params
 import csv
-
+import requests
+from bs4 import BeautifulSoup
+from multiprocessing import Pool
+import time
+import re
+import os
 
 logger = logging.getLogger('nodes.data_gathering')
 
 
-def get_product_data(url,html):
+def get_product_data(url):
     """
     Busca os dados de cada produto através de web scraping, e appenda em um arquivo csv
     @param url: link do produto
     """
     #faz o request na url e busca o html da página
+    url = url[0]
+    html = requests.get(url).content
     soup = BeautifulSoup(html, 'lxml')
     #busca as informações de categorias do produto
     #tenta buscar de duas formas a categoria
@@ -55,38 +56,55 @@ def get_product_data(url,html):
         except:
             ean = np.nan
     #cria lista com todos os dados a serem salvos como uma row no csv
-    return [url,ean,cat1,cat2,cat3,descricao,preco,imagem]
+    lst_to_send = [url,str(ean),str(cat1),str(cat2),str(cat3),descricao,str(preco),imagem]
+    #appenda o dado do produto no csv
+    fd = open(Params.data_csv, 'a')
+    fd.write(','.join(lst_to_send) + '\n')
+    fd.close()
+    #salva o link na lista de já processados
+    f = open(Params.links_processed, 'a')
+    f.write(url + '\n')
+    f.close()
+
+def check_try_start(url):
+    """
+    Busca se o link já foi processado em caso negativo, evita o retrabalho
+    @param url: link do produto a ser pesquisado
+    """
+    #através do arquivo, cria uma lista com as url's já processadas
+    f = open(Params.links_processed)
+    links_worked = list(csv.reader(f))
+    f.close()
+    if [url] not in links_worked:
+        get_product_data(url)
+    else:
+        pass
+
 
 def update(params):
+    fd = open(params.links_processed, 'w+')
+    fd.write('')
+    fd.close()
+    fl = open(Params.data_csv, 'w+')
+    fl.write('link,ean,catI,catII,catIII,descricao,preco,imagem_link\n')
+    fl.close()
     f = open(params.product_links)
-    urls = list(csv.reader(f))
-    urls = [url[0] for url in urls]
-    urls = [url.split('https://') for url in urls]
-    URLS = ['https://' + site for url in urls for site in url if site != '']
-    URLS = list(set(URLS))
-    # Retrieve a single page and report the url and contents
-    def load_url(url, timeout):
-        with urllib.request.urlopen(url) as response:
-            return response.read()
+    links = list(csv.reader(f))
+    f.close()
+    attempts = 0
+    while attempts < 3:
+        try:
+            pool = Pool(processes=4)
+            pool.map(check_try_start, links)
+            pool.terminate()
+            break
+        except:
+            time.sleep(2)
+            attempts += 1
+            pool = Pool(processes=4)
+            pool.map(check_try_start, links)
+            pool.terminate()
 
-    dados = []
-    # We can use a with statement to ensure threads are cleaned up promptly
-    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
-        # Start the load operations and mark each future with its URL
-        future_to_url = {executor.submit(load_url, url, 60): url for url in URLS}
-        for future in concurrent.futures.as_completed(future_to_url):
-            url = future_to_url[future]
-            try:
-                data = future.result()
-                dados.append(get_product_data(url, data))
-            except Exception as exc:
-                print('%r generated an exception: %s' % (url, exc))
-                pass
-            else:
-                pass
-
-    df = pd.DataFrame(data=dados, columns=['url','ean','cat1','cat2','cat3','desc','preco','imagem'])
-    df.to_csv(Params.data_csv)
 
 
 def done(params):
