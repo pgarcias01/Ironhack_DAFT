@@ -29,6 +29,7 @@ def abrir_site():
     #efetua um get na url definida anteriormente
     driver.get(url)
     #seleciona a cidade na lista que aparece no site
+    time.sleep(1)
     Select(driver.find_element_by_xpath('//*[@id="preHomeCidade"]')).select_by_value("Divinópolis")
     #efetua novo get após a seleção da cidade
     driver.get(url)
@@ -58,6 +59,7 @@ def get_cat_I():
     cat_raiz = soup.find_all('div', {'class': 'menu-fixo-link'})
     #para cada categoria encontrada, extrai o link desde que ele tenha o número de segmentos correspondentes apos o split
     cat_raiz = [item.find('a')['href'] for item in cat_raiz if len(item.find('a')['href'].split('/')) == 4]
+    cat_raiz = [item+'?PS=50' for item in cat_raiz]
     #fecha o drive criado anteriormente
     driver.quit()
     #retorna a lista com as categorias mãe
@@ -70,8 +72,8 @@ def get_cat_II(cat_I : str):
     @param cat_I:link com a categoria mãe
     @return:lista com links das sub categorias, encontradas na categoria mãe do informada
     """
+    driver=abrir_site()
     # através da função abrir_site() gera o driver já acessado na home
-    driver = abrir_site()
     # efetua um get na categoria mãe passada anteriormente
     driver.get(cat_I)
     #aguarda o get busca a opção que expande as sub categorias e clicka nele
@@ -86,99 +88,79 @@ def get_cat_II(cat_I : str):
     soup = [item.find_all('li') for item in soup]
     soup = [item for li in soup for item in li]
     links = [item.find('a')['href'].replace('20', '50') for item in soup]
-    base = list(set(['/'.join(item.split('/')[0:4]) + '?PS=50' for item in links]))
-    base2 = list(set(['/'.join(item.split('/')[0:5]) + '?PS=50' for item in links]))
-    links = links + base
-    links = links + base2
-    #encerra o drive
-    driver.quit()
     #retorna os links
+    driver.quit()
     return links
 
-def get_categories():
+def get_categories(cat_I):
     """
     Função que através de paralelização gera a lista com as sub categorias, através da categoria mãe
     @return:retorna lista com todas as sub categorias
     """
-    #através da função get_cat_I() busca todas as categorias mãe
-    cat_I_lst = get_cat_I()
-    #cria um pool com 4 processos para efetuar a paralelização
-    pool = Pool(processes=4)
-    #é feita a função map aplicando a função get_cat_II percorrendo a lista com as categorias
-    result = pool.map(get_cat_II, cat_I_lst)
-    pool.terminate()
-    #entre os links gerados é criada uma lista filtrando somente para sub categorias através do split
-    result = [link for grupo in result for link in grupo if len(link)>0]
-    return result
+    driver = abrir_site()
+    driver.get(cat_I)
+    html = driver.page_source
+    driver.quit()
+    soup = BeautifulSoup(html, 'lxml')
+    n_products=int(soup.find('p', {'class':'searchResultsTime'}).find('span', {'class':'value'}).text)
+    if n_products > 990:
+        sites=get_cat_II(cat_I)
+        for link in sites:
+            get_product_links(link)
+    else:
+        get_product_links(cat_I)
 
-def get_product_links(cat_II):
+
+
+def get_product_links(url):
     """
     Para cada sub categoria, busca o link de todos os produtos presentes nela e salva em um csv
     @param cat_II: link da sub categoria
     """
-    #abri o arquivo com as sub categorias já processadas e o transforma em uma lista
-    f = open(Params.sub_cat_processed)
-    links_worked= list(csv.reader(f))
+    #cria o driver já na pagina home e efetua um get no link e aguarda o carregamento
+    driver=abrir_site()
+    driver.get(url)
+    time.sleep(1)
+    #laço while para expandir a pagina, afim de exibir todos os produtos presentes na pagina
+    while True:
+        try:
+            #aguarda para verificar se o botão carregar mais está presente na pagina se sim clicka no mesmo
+            wait = WebDriverWait(driver, 3)
+            element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="carregar-mais"]')))
+            element.click()
+            time.sleep(3)
+        except:
+            #caso não seja encontrado o botão o laço while é findado
+            break
+    #busca o html da pagina após expandir todos os produtos
+    time.sleep(2)
+    html = driver.page_source
+    soup = BeautifulSoup(html, 'lxml')
+    #com o soup busca todos o produtos
+    links = soup.find_all('a', {'class': 'prateleira__name'})
+    #cria uma lista com os links de cada produto
+    links = [item['href'] for item in links]
+    fd = open(Params.sub_cat_processed, 'a')
+    fd.write(url + '\n')
+    fd.close()
+    driver.quit()
+    f = open(Params.product_links, 'a')
+    f.write('\n'.join(links))
     f.close()
-    #cria uma condição que verifica se a categoria já foi trabalhada anteriormente, se não inicia a busca
-    if [cat_II] not in links_worked:
-        #cria o driver já na pagina home e efetua um get no link e aguarda o carregamento
-        driver = abrir_site()
-        driver.get(cat_II)
-        time.sleep(1)
-        #laço while para expandir a pagina, afim de exibir todos os produtos presentes na pagina
-        while True:
-            try:
-                #aguarda para verificar se o botão carregar mais está presente na pagina se sim clicka no mesmo
-                wait = WebDriverWait(driver, 3)
-                element = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="carregar-mais"]')))
-                element.click()
-                time.sleep(3)
-            except:
-                #caso não seja encontrado o botão o laço while é findado
-                break
-        #busca o html da pagina após expandir todos os produtos
-        html = driver.page_source
-        soup = BeautifulSoup(html, 'lxml')
-        #com o soup busca todos o produtos
-        links = soup.find_all('a', {'class': 'prateleira__name'})
-        #cria uma lista com os links de cada produto
-        links = [item['href'] for item in links]
-        #encerra o drive
-        driver.quit()
-        #salva os links dos produtos e salva em um csv
-        f=open(Params.product_links, 'a')
-        f.write('\n'.join(links))
-        f.close()
-        #salva o link da categoria mãe no arquivo controle dos links processados
-        fd=open(Params.sub_cat_processed, 'a')
-        fd.write(cat_II + '\n')
-        fd.close()
-    else:
-        pass
+    return links
+
 
 def get_links():
     """
     Através da paralelização, busca todos o links dos produtos de cada sub categoria
     """
     #gera uma lista através da função get_categories() com todas as subcategorias
-    cat_II_lst = get_categories()
-    #cria a variavél tentativas para ser utilizado como contador
-    attempts = 0
-    #cria um while que irá rodar 3 vezes quando o get der algum erro
-    while attempts < 3:
-        try:
-            #através de paralelização busca os links dos produtos para cada sub categoria
-            pool = Pool(processes=4)
-            pool.map(get_product_links, cat_II_lst)
-            pool.terminate()
-            break
-        except:
-            #caso tenha dado algum erro é acresenta-se uma tentativa e tenta efetuar a busca novamente
-            attempts +=1
-            pool = Pool(processes=4)
-            pool.map(get_product_links, cat_II_lst)
-            pool.terminate()
+    cat_I_lst = get_cat_I()
+    for cat in cat_I_lst:
+        get_categories(cat)
+
+
+
 
 def clean_files():
     """

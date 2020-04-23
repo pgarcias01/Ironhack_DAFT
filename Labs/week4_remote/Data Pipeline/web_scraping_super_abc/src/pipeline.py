@@ -14,8 +14,8 @@ def process(params):
 	if not data_preparation.done(params):
 		data_preparation.update(params)
 
-	if not data_gathering.done(params):
-		data_gathering.update(params)
+	#if not data_gathering.done(params):
+		#data_gathering.update(params)
 
 
 if __name__ == '__main__': 
